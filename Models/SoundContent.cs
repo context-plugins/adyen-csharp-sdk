@@ -1,0 +1,26 @@
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Adyen.Models.Enums;
+
+namespace Adyen.Models;
+
+public record SoundContent
+{
+    [JsonPropertyName("SoundFormat")]
+    public required SoundFormat1 SoundFormat { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("Language")]
+    [RegularExpression("^[a-z]{2,2}$")]
+    public string? Language { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("ReferenceID")]
+    [RegularExpression("^.+$")]
+    public string? ReferenceId { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("Text")]
+    [RegularExpression("^.+$")]
+    public string? Text { get; init; }
+}

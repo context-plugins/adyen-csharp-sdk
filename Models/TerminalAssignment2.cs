@@ -1,0 +1,37 @@
+using System.Text.Json.Serialization;
+using Adyen.Models.Enums;
+
+namespace Adyen.Models;
+
+/// <summary>
+/// Indicates the account level to which the terminal is assigned, the <see href="https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api">assignment status</see>, and where the terminals is in the process of being reassigned to.
+/// </summary>
+public record TerminalAssignment2
+{
+    /// <summary>
+    /// The unique identifier of the company account to which terminal is assigned.
+    /// </summary>
+    [JsonPropertyName("companyId")]
+    public required string CompanyId { get; init; }
+
+    /// <summary>
+    /// The unique identifier of the merchant account to which terminal is assigned.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("merchantId")]
+    public string? MerchantId { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("reassignmentTarget")]
+    public TerminalReassignmentTarget? ReassignmentTarget { get; init; }
+
+    [JsonPropertyName("status")]
+    public required Status24 Status { get; init; }
+
+    /// <summary>
+    /// The unique identifier of the store to which terminal is assigned.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("storeId")]
+    public string? StoreId { get; init; }
+}

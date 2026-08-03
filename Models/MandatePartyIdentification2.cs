@@ -1,0 +1,19 @@
+using System.Text.Json.Serialization;
+
+namespace Adyen.Models;
+
+/// <summary>
+/// Contains information about the owner of the counterparty bank account.
+/// </summary>
+public record MandatePartyIdentification2
+{
+    /// <summary>
+    /// The full name of the entity that owns the bank account.
+    /// <para>
+    /// Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \ + &amp; ! ? @ ( ) " ' and space.
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("fullName")]
+    public string? FullName { get; init; }
+}

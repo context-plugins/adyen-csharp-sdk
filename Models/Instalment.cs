@@ -1,0 +1,81 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Adyen.Core.Validation.Attributes;
+using Adyen.Models.Enums;
+
+namespace Adyen.Models;
+
+public record Instalment
+{
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("InstalmentType")]
+    public InstalmentType? InstalmentType { get; init; }
+
+    /// <summary>
+    /// Sequence number of the instalment. For an instalment payment transaction, number of the payment, from 1 to TotalNbOfPayments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("SequenceNumber")]
+    public int? SequenceNumber { get; init; }
+
+    /// <summary>
+    /// Identification of an instalment plan.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("PlanID")]
+    [RegularExpression("^.+$")]
+    public string? PlanId { get; init; }
+
+    /// <summary>
+    /// Period of time with defined unit of time. A period between 2 payment instalments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("Period")]
+    public int? Period { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("PeriodUnit")]
+    public PeriodUnit1? PeriodUnit { get; init; }
+
+    /// <summary>
+    /// First date of a payment. For instalment, the date of the first payments, if not immediate.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("FirstPaymentDate")]
+    public DateTimeOffset? FirstPaymentDate { get; init; }
+
+    /// <summary>
+    /// Total number of payments. For instalment, the number of payments, including the first one.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("TotalNbOfPayments")]
+    public int? TotalNbOfPayments { get; init; }
+
+    /// <summary>
+    /// Sum of a collection of amounts. Total amount of the payment instalments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("CumulativeAmount")]
+    [Minimum(0.0)]
+    [Maximum(99999999.999999)]
+    public double? CumulativeAmount { get; init; }
+
+    /// <summary>
+    /// First amount of the payment instalments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("FirstAmount")]
+    [Minimum(0.0)]
+    [Maximum(99999999.999999)]
+    public double? FirstAmount { get; init; }
+
+    /// <summary>
+    /// Charges related to a transaction. Charge related to the payment instalments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("Charges")]
+    [Minimum(0.0)]
+    [Maximum(99999999.999999)]
+    public double? Charges { get; init; }
+}

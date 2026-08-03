@@ -1,0 +1,86 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Adyen.Core.Validation.Attributes;
+using Adyen.Models.Enums;
+
+namespace Adyen.Models;
+
+/// <summary>
+/// Data related to the payment and loyalty card acquisition.
+/// </summary>
+public record CardAcquisitionTransaction1
+{
+    /// <summary>
+    /// Card payment brands allowed by the Sale System for the payment transaction.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("AllowedPaymentBrand")]
+    public IReadOnlyList<string>? AllowedPaymentBrand { get; init; }
+
+    /// <summary>
+    /// Loyalty brands or programs allowed by the Sale System for the loyalty transaction.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("AllowedLoyaltyBrand")]
+    public IReadOnlyList<string>? AllowedLoyaltyBrand { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("LoyaltyHandling")]
+    public LoyaltyHandling2? LoyaltyHandling { get; init; }
+
+    /// <summary>
+    /// The language used on the terminal screen or in text printed by the terminal.
+    ///   Typical use case is setting the language on unattended terminals. Format: two-character <see href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes">ISO 639:2023</see> format.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("CustomerLanguage")]
+    [RegularExpression("^[a-z]{2,2}$")]
+    public string? CustomerLanguage { get; init; }
+
+    /// <summary>
+    /// Payment instrument entry mode requested by the Sale System. Avoid retry on an out of order card reading device, when the sale system knows that some card entry modes on the POI do not work.
+    /// Possible values:
+    /// * <b>CheckReader</b>
+    /// * <b>Contactless</b>
+    /// * <b>File</b>
+    /// * <b>ICC</b>
+    /// * <b>Keyed</b>
+    /// * <b>MagStripe</b>
+    /// * <b>Manual</b>
+    /// * <b>RFID</b>
+    /// * <b>Scanned</b>
+    /// * <b>SynchronousICC</b>
+    /// * <b>Tapped</b>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("ForceEntryMode")]
+    public IReadOnlyList<ForceEntryMode>? ForceEntryMode { get; init; }
+
+    /// <summary>
+    /// Indicates if the Customer realises the selection of the card application.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("ForceCustomerSelectionFlag")]
+    public bool? ForceCustomerSelectionFlag { get; init; }
+
+    /// <summary>
+    /// Amount of a transaction. In the Card Acquisition Request message, it allows the processing of a contactless card.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("TotalAmount")]
+    [Minimum(0.0)]
+    [Maximum(99999999.999999)]
+    public double? TotalAmount { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("PaymentType")]
+    public PaymentType1? PaymentType { get; init; }
+
+    /// <summary>
+    /// Cash back has been requested with the payment transaction. Allows choice of the Customer language when the POI displays messages or print text to Merchant interface.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("CashBackFlag")]
+    public bool? CashBackFlag { get; init; }
+}

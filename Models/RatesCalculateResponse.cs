@@ -1,0 +1,14 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace Adyen.Models;
+
+public record RatesCalculateResponse
+{
+    /// <summary>
+    /// An array of objects, where each object returns a currency and value for which you performed an exchange calculation. You can use the calculated amounts in your payment requests.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("exchangeCalculations")]
+    public IReadOnlyList<CalculateRateResponseItem>? ExchangeCalculations { get; init; }
+}

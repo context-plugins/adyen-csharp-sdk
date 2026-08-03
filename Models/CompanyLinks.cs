@@ -1,0 +1,30 @@
+using System.Text.Json.Serialization;
+
+namespace Adyen.Models;
+
+public record CompanyLinks
+{
+    /// <summary>
+    /// List of allowed origins.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("apiCredentials")]
+    public Href2? ApiCredentials { get; init; }
+
+    [JsonPropertyName("self")]
+    public required Self Self { get; init; }
+
+    /// <summary>
+    /// List of allowed origins.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("users")]
+    public Href2? Users { get; init; }
+
+    /// <summary>
+    /// List of allowed origins.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("webhooks")]
+    public Href2? Webhooks { get; init; }
+}

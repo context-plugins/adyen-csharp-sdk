@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace Adyen.Models;
+
+/// <summary>
+/// <b>applepay</b> details
+/// </summary>
+public record ApplePayResponseInfo1
+{
+    /// <summary>
+    /// The list of merchant domains.
+    /// <para>
+    /// For more information, see <see href="https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live">Apple Pay documentation</see>.
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("domains")]
+    public IReadOnlyList<string>? Domains { get; init; }
+}
