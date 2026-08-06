@@ -10,7 +10,7 @@ public record UpdatePayoutScheduleRequest2
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("action")]
-    public ActionModel? Action { get; init; }
+    public ActionEnum? Action { get; init; }
 
     /// <summary>
     /// The reason for the payout schedule update.

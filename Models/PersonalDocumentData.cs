@@ -38,5 +38,5 @@ public record PersonalDocumentData
     public string? Number { get; init; }
 
     [JsonPropertyName("type")]
-    public required TypeModel Type { get; init; }
+    public required TypeEnum Type { get; init; }
 }

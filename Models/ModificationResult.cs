@@ -20,5 +20,5 @@ public record ModificationResult
     public required string PspReference { get; init; }
 
     [JsonPropertyName("response")]
-    public required ResponseModel Response { get; init; }
+    public required ResponseEnum Response { get; init; }
 }

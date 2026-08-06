@@ -12,18 +12,18 @@ namespace Adyen.Models.Enums;
 /// * <c>NOTHING</c> (<b>default</b>): allow the payout to proceed.
 /// </para>
 /// </summary>
-[JsonConverter(typeof(StringEnumConverter<ActionModel>))]
-public sealed record ActionModel : StringEnum<ActionModel>
+[JsonConverter(typeof(StringEnumConverter<ActionEnum>))]
+public sealed record ActionEnum : StringEnum<ActionEnum>
 {
-    private ActionModel(string value) : base(value)
+    private ActionEnum(string value) : base(value)
     {
     }
 
-    public static readonly ActionModel Close = new("CLOSE");
+    public static readonly ActionEnum Close = new("CLOSE");
 
-    public static readonly ActionModel Nothing = new("NOTHING");
+    public static readonly ActionEnum Nothing = new("NOTHING");
 
-    public static readonly ActionModel Update = new("UPDATE");
+    public static readonly ActionEnum Update = new("UPDATE");
 
-    public static ActionModel FromValue(string value) => FromValueCore(value);
+    public static ActionEnum FromValue(string value) => FromValueCore(value);
 }

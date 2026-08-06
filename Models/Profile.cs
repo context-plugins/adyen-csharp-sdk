@@ -53,15 +53,15 @@ public record Profile
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapCaCert")]
-    public File? EapCaCert { get; init; }
+    public FileModel? EapCaCert { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapClientCert")]
-    public File? EapClientCert { get; init; }
+    public FileModel? EapClientCert { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapClientKey")]
-    public File? EapClientKey { get; init; }
+    public FileModel? EapClientKey { get; init; }
 
     /// <summary>
     /// For <c>eap</c> <b>tls</b>. The password of the RSA key file, if that file is password-protected.
@@ -79,7 +79,7 @@ public record Profile
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapIntermediateCert")]
-    public File? EapIntermediateCert { get; init; }
+    public FileModel? EapIntermediateCert { get; init; }
 
     /// <summary>
     /// For <c>eap</c> <b>peap</b>. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.

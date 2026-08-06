@@ -12,13 +12,20 @@ public record SelocalAccountIdentification1
 {
     public required BankAccountIdentification BankAccountIdentification { get; init; }
 
-    public void Deconstruct(out BankAccountIdentification bankAccountIdentification)
+    public required SelocalAccountIdentification1Properties SelocalAccountIdentification1Properties { get; init; }
+
+    public void Deconstruct(out BankAccountIdentification bankAccountIdentification,
+        out SelocalAccountIdentification1Properties selocalAccountIdentification1Properties)
     {
         bankAccountIdentification = BankAccountIdentification;
+        selocalAccountIdentification1Properties = SelocalAccountIdentification1Properties;
     }
 
     public static implicit operator BankAccountIdentification(SelocalAccountIdentification1 value) =>
         value.BankAccountIdentification;
+
+    public static implicit operator SelocalAccountIdentification1Properties(SelocalAccountIdentification1 value) =>
+        value.SelocalAccountIdentification1Properties;
 }
 
 file class SelocalAccountIdentification1Converter : JsonConverter<SelocalAccountIdentification1>
@@ -31,9 +38,12 @@ file class SelocalAccountIdentification1Converter : JsonConverter<SelocalAccount
         var root = doc.RootElement;
         var bankAccountIdentification = root.Deserialize<BankAccountIdentification>(options) ??
             throw new JsonException("Failed to deserialize BankAccountIdentification");
+        var selocalAccountIdentification1Properties = root.Deserialize<SelocalAccountIdentification1Properties>(options) ??
+            throw new JsonException("Failed to deserialize SelocalAccountIdentification1Properties");
         return new SelocalAccountIdentification1
         {
             BankAccountIdentification = bankAccountIdentification,
+            SelocalAccountIdentification1Properties = selocalAccountIdentification1Properties,
         };
     }
 
@@ -44,6 +54,10 @@ file class SelocalAccountIdentification1Converter : JsonConverter<SelocalAccount
         writer.WriteStartObject();
         var bankAccountIdentificationJson = JsonSerializer.SerializeToElement(value.BankAccountIdentification, options);
         foreach (var property in bankAccountIdentificationJson.EnumerateObject())
+            property.WriteTo(writer);
+        var selocalAccountIdentification1PropertiesJson =
+            JsonSerializer.SerializeToElement(value.SelocalAccountIdentification1Properties, options);
+        foreach (var property in selocalAccountIdentification1PropertiesJson.EnumerateObject())
             property.WriteTo(writer);
         writer.WriteEndObject();
     }

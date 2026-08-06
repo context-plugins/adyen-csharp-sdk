@@ -12,12 +12,18 @@ public record LegalEntityResource
 {
     public required Resource Resource { get; init; }
 
-    public void Deconstruct(out Resource resource)
+    public required LegalEntityResourceProperties LegalEntityResourceProperties { get; init; }
+
+    public void Deconstruct(out Resource resource, out LegalEntityResourceProperties legalEntityResourceProperties)
     {
         resource = Resource;
+        legalEntityResourceProperties = LegalEntityResourceProperties;
     }
 
     public static implicit operator Resource(LegalEntityResource value) => value.Resource;
+
+    public static implicit operator LegalEntityResourceProperties(LegalEntityResource value) =>
+        value.LegalEntityResourceProperties;
 }
 
 file class LegalEntityResourceConverter : JsonConverter<LegalEntityResource>
@@ -30,9 +36,12 @@ file class LegalEntityResourceConverter : JsonConverter<LegalEntityResource>
         var root = doc.RootElement;
         var resource = root.Deserialize<Resource>(options) ??
             throw new JsonException("Failed to deserialize Resource");
+        var legalEntityResourceProperties = root.Deserialize<LegalEntityResourceProperties>(options) ??
+            throw new JsonException("Failed to deserialize LegalEntityResourceProperties");
         return new LegalEntityResource
         {
             Resource = resource,
+            LegalEntityResourceProperties = legalEntityResourceProperties,
         };
     }
 
@@ -41,6 +50,10 @@ file class LegalEntityResourceConverter : JsonConverter<LegalEntityResource>
         writer.WriteStartObject();
         var resourceJson = JsonSerializer.SerializeToElement(value.Resource, options);
         foreach (var property in resourceJson.EnumerateObject())
+            property.WriteTo(writer);
+        var legalEntityResourcePropertiesJson =
+            JsonSerializer.SerializeToElement(value.LegalEntityResourceProperties, options);
+        foreach (var property in legalEntityResourcePropertiesJson.EnumerateObject())
             property.WriteTo(writer);
         writer.WriteEndObject();
     }

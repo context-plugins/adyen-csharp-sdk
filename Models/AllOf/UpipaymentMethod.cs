@@ -12,12 +12,19 @@ public record UpipaymentMethod
 {
     public required ShopperIdPaymentMethod ShopperIdPaymentMethod { get; init; }
 
-    public void Deconstruct(out ShopperIdPaymentMethod shopperIdPaymentMethod)
+    public required UpipaymentMethodProperties UpipaymentMethodProperties { get; init; }
+
+    public void Deconstruct(out ShopperIdPaymentMethod shopperIdPaymentMethod,
+        out UpipaymentMethodProperties upipaymentMethodProperties)
     {
         shopperIdPaymentMethod = ShopperIdPaymentMethod;
+        upipaymentMethodProperties = UpipaymentMethodProperties;
     }
 
     public static implicit operator ShopperIdPaymentMethod(UpipaymentMethod value) => value.ShopperIdPaymentMethod;
+
+    public static implicit operator UpipaymentMethodProperties(UpipaymentMethod value) =>
+        value.UpipaymentMethodProperties;
 }
 
 file class UpipaymentMethodConverter : JsonConverter<UpipaymentMethod>
@@ -30,9 +37,12 @@ file class UpipaymentMethodConverter : JsonConverter<UpipaymentMethod>
         var root = doc.RootElement;
         var shopperIdPaymentMethod = root.Deserialize<ShopperIdPaymentMethod>(options) ??
             throw new JsonException("Failed to deserialize ShopperIdPaymentMethod");
+        var upipaymentMethodProperties = root.Deserialize<UpipaymentMethodProperties>(options) ??
+            throw new JsonException("Failed to deserialize UpipaymentMethodProperties");
         return new UpipaymentMethod
         {
             ShopperIdPaymentMethod = shopperIdPaymentMethod,
+            UpipaymentMethodProperties = upipaymentMethodProperties,
         };
     }
 
@@ -41,6 +51,10 @@ file class UpipaymentMethodConverter : JsonConverter<UpipaymentMethod>
         writer.WriteStartObject();
         var shopperIdPaymentMethodJson = JsonSerializer.SerializeToElement(value.ShopperIdPaymentMethod, options);
         foreach (var property in shopperIdPaymentMethodJson.EnumerateObject())
+            property.WriteTo(writer);
+        var upipaymentMethodPropertiesJson =
+            JsonSerializer.SerializeToElement(value.UpipaymentMethodProperties, options);
+        foreach (var property in upipaymentMethodPropertiesJson.EnumerateObject())
             property.WriteTo(writer);
         writer.WriteEndObject();
     }

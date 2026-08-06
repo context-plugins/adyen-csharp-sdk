@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
-public record File
+public record FileModel
 {
     /// <summary>
     /// The certificate content converted to a Base64-encoded string.

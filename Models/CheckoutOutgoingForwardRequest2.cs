@@ -38,7 +38,7 @@ public record CheckoutOutgoingForwardRequest2
     public IReadOnlyDictionary<string, string>? Headers { get; init; }
 
     [JsonPropertyName("httpMethod")]
-    public required HttpMethodModel HttpMethod { get; init; }
+    public required HttpMethodEnum HttpMethod { get; init; }
 
     /// <summary>
     /// The suffix that Adyen needs to append to the <c>baseUrl</c> to construct the destination URL that belongs to the third party. This is usually the endpoint name for the request, for example, <b>/payments</b>.

@@ -14,7 +14,7 @@ public record TransactionRuleInterval
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("dayOfWeek")]
-    public DayOfWeek? DayOfWeek { get; init; }
+    public DayOfWeekEnum? DayOfWeek { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("duration")]

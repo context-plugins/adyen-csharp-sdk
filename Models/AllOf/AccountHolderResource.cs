@@ -12,12 +12,19 @@ public record AccountHolderResource
 {
     public required Resource Resource { get; init; }
 
-    public void Deconstruct(out Resource resource)
+    public required AccountHolderResourceProperties AccountHolderResourceProperties { get; init; }
+
+    public void Deconstruct(out Resource resource,
+        out AccountHolderResourceProperties accountHolderResourceProperties)
     {
         resource = Resource;
+        accountHolderResourceProperties = AccountHolderResourceProperties;
     }
 
     public static implicit operator Resource(AccountHolderResource value) => value.Resource;
+
+    public static implicit operator AccountHolderResourceProperties(AccountHolderResource value) =>
+        value.AccountHolderResourceProperties;
 }
 
 file class AccountHolderResourceConverter : JsonConverter<AccountHolderResource>
@@ -30,9 +37,12 @@ file class AccountHolderResourceConverter : JsonConverter<AccountHolderResource>
         var root = doc.RootElement;
         var resource = root.Deserialize<Resource>(options) ??
             throw new JsonException("Failed to deserialize Resource");
+        var accountHolderResourceProperties = root.Deserialize<AccountHolderResourceProperties>(options) ??
+            throw new JsonException("Failed to deserialize AccountHolderResourceProperties");
         return new AccountHolderResource
         {
             Resource = resource,
+            AccountHolderResourceProperties = accountHolderResourceProperties,
         };
     }
 
@@ -41,6 +51,10 @@ file class AccountHolderResourceConverter : JsonConverter<AccountHolderResource>
         writer.WriteStartObject();
         var resourceJson = JsonSerializer.SerializeToElement(value.Resource, options);
         foreach (var property in resourceJson.EnumerateObject())
+            property.WriteTo(writer);
+        var accountHolderResourcePropertiesJson =
+            JsonSerializer.SerializeToElement(value.AccountHolderResourceProperties, options);
+        foreach (var property in accountHolderResourcePropertiesJson.EnumerateObject())
             property.WriteTo(writer);
         writer.WriteEndObject();
     }

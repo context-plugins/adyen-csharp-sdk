@@ -12,13 +12,20 @@ public record UklocalMandateAccountIdentification
 {
     public required MandateAccountIdentification MandateAccountIdentification { get; init; }
 
-    public void Deconstruct(out MandateAccountIdentification mandateAccountIdentification)
+    public required UklocalMandateAccountIdentificationProperties UklocalMandateAccountIdentificationProperties { get; init; }
+
+    public void Deconstruct(out MandateAccountIdentification mandateAccountIdentification,
+        out UklocalMandateAccountIdentificationProperties uklocalMandateAccountIdentificationProperties)
     {
         mandateAccountIdentification = MandateAccountIdentification;
+        uklocalMandateAccountIdentificationProperties = UklocalMandateAccountIdentificationProperties;
     }
 
     public static implicit operator MandateAccountIdentification(UklocalMandateAccountIdentification value) =>
         value.MandateAccountIdentification;
+
+    public static implicit operator UklocalMandateAccountIdentificationProperties(UklocalMandateAccountIdentification value) =>
+        value.UklocalMandateAccountIdentificationProperties;
 }
 
 file class UklocalMandateAccountIdentificationConverter : JsonConverter<UklocalMandateAccountIdentification>
@@ -31,9 +38,12 @@ file class UklocalMandateAccountIdentificationConverter : JsonConverter<UklocalM
         var root = doc.RootElement;
         var mandateAccountIdentification = root.Deserialize<MandateAccountIdentification>(options) ??
             throw new JsonException("Failed to deserialize MandateAccountIdentification");
+        var uklocalMandateAccountIdentificationProperties = root.Deserialize<UklocalMandateAccountIdentificationProperties>(options) ??
+            throw new JsonException("Failed to deserialize UklocalMandateAccountIdentificationProperties");
         return new UklocalMandateAccountIdentification
         {
             MandateAccountIdentification = mandateAccountIdentification,
+            UklocalMandateAccountIdentificationProperties = uklocalMandateAccountIdentificationProperties,
         };
     }
 
@@ -45,6 +55,10 @@ file class UklocalMandateAccountIdentificationConverter : JsonConverter<UklocalM
         var mandateAccountIdentificationJson =
             JsonSerializer.SerializeToElement(value.MandateAccountIdentification, options);
         foreach (var property in mandateAccountIdentificationJson.EnumerateObject())
+            property.WriteTo(writer);
+        var uklocalMandateAccountIdentificationPropertiesJson =
+            JsonSerializer.SerializeToElement(value.UklocalMandateAccountIdentificationProperties, options);
+        foreach (var property in uklocalMandateAccountIdentificationPropertiesJson.EnumerateObject())
             property.WriteTo(writer);
         writer.WriteEndObject();
     }
