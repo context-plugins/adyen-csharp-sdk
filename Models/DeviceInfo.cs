@@ -18,7 +18,10 @@ public record DeviceInfo
     [JsonPropertyName("osName")]
     public string? OsName { get; init; }
 
+    /// <summary>
+    /// The information about the phone number of the device used to provision the the network token. This object is conditionally returned and is available for up to 24 hours after the provisioning request (access to this field requires a specific user role, please contact your Adyen representative to request permission).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone")]
-    public PhoneInfo? Phone { get; init; }
+    public PhoneInfo2? Phone { get; init; }
 }

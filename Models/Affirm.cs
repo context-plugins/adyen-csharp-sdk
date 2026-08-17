@@ -21,7 +21,9 @@ public record Affirm
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>affirm</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type12? Type { get; init; }
+    public Type1? Type { get; init; } = Type1.Affirm;
 }

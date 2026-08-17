@@ -28,8 +28,11 @@ public record WebhookSetting
     [JsonPropertyName("status")]
     public required string Status { get; init; }
 
+    /// <summary>
+    /// The resource about whose balance change you want to get notified.
+    /// </summary>
     [JsonPropertyName("target")]
-    public required Target Target { get; init; }
+    public required Target3 Target { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]

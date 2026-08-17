@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Adyen.Core;
@@ -24,7 +25,7 @@ public sealed class PaymentsApp
     }
 
     /// <summary>
-    /// get-merchants-merchantId-paymentsApps
+    /// Get a list of Payments Apps - merchant level
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="statuses">The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses.   Possible values:  * <b>BOARDING</b>   * <b>BOARDED</b>   * <b>REVOKED</b></param>
@@ -47,7 +48,7 @@ public sealed class PaymentsApp
         long? offset = 0L,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentsApps"),
+        _rawClient.Execute(_server.Default26("/merchants/{merchantId}/paymentsApps"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("statuses", statuses), new Param("limit", limit), new Param("offset", offset)],
             [],
@@ -60,7 +61,7 @@ public sealed class PaymentsApp
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-stores-storeId-paymentsApps
+    /// Get a list of Payments Apps - store level
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="storeId">The unique identifier of the store.</param>
@@ -85,7 +86,7 @@ public sealed class PaymentsApp
         long? offset = 0L,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{storeId}/paymentsApps"),
+        _rawClient.Execute(_server.Default26("/merchants/{merchantId}/stores/{storeId}/paymentsApps"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("storeId", storeId)],
             [new Param("statuses", statuses), new Param("limit", limit), new Param("offset", offset)],
             [],
@@ -98,7 +99,7 @@ public sealed class PaymentsApp
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-generatePaymentsAppBoardingToken
+    /// Create a boarding token - merchant level
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -117,7 +118,7 @@ public sealed class PaymentsApp
         BoardingTokenRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/generatePaymentsAppBoardingToken"),
+        _rawClient.Execute(_server.Default26("/merchants/{merchantId}/generatePaymentsAppBoardingToken"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -130,13 +131,13 @@ public sealed class PaymentsApp
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-paymentsApps-installationId-revoke
+    /// Revoke Payments App instance authentication
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="installationId">The unique identifier of the Payments App instance on a device.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="JsonElement"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Revokes the authentication of the Payments App instance for the <c>installationId</c> and merchant account identified in the path. This call revokes the authentication of the Payments App instance with the <c>installationId</c> identified in the path for both merchant accounts and stores.
@@ -145,24 +146,24 @@ public sealed class PaymentsApp
     /// * Adyen Payments App role
     /// </para>
     /// </remarks>
-    public Task<object> PostMerchantsMerchantIdPaymentsAppsInstallationIdRevoke(string merchantId,
+    public Task<JsonElement> PostMerchantsMerchantIdPaymentsAppsInstallationIdRevoke(string merchantId,
         string installationId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentsApps/{installationId}/revoke"),
+        _rawClient.Execute(_server.Default26("/merchants/{merchantId}/paymentsApps/{installationId}/revoke"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("installationId", installationId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             EmptyBody.Instance,
-            JsonResponse.Create<object>(),
+            JsonResponse.Create<JsonElement>(),
             PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeErrorResponse.Instance,
             [],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-stores-storeId-generatePaymentsAppBoardingToken
+    /// Create a boarding token - store level
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="storeId">The unique identifier of the store.</param>
@@ -183,7 +184,7 @@ public sealed class PaymentsApp
         BoardingTokenRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{storeId}/generatePaymentsAppBoardingToken"),
+        _rawClient.Execute(_server.Default26("/merchants/{merchantId}/stores/{storeId}/generatePaymentsAppBoardingToken"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("storeId", storeId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

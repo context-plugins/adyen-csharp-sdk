@@ -27,7 +27,7 @@ public sealed class Verification
     }
 
     /// <summary>
-    /// post-checkAccountHolder
+    /// Trigger verification
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class Verification
     public Task<GenericResponse> PostCheckAccountHolder(PerformVerificationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/checkAccountHolder"),
+        _rawClient.Execute(_server.Default10("/checkAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -53,7 +53,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-deleteBankAccounts
+    /// Delete bank accounts
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +66,7 @@ public sealed class Verification
     public Task<GenericResponse> PostDeleteBankAccounts(DeleteBankAccountRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deleteBankAccounts"),
+        _rawClient.Execute(_server.Default10("/deleteBankAccounts"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -79,7 +79,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-deleteLegalArrangements
+    /// Delete legal arrangements
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -92,7 +92,7 @@ public sealed class Verification
     public Task<GenericResponse> PostDeleteLegalArrangements(DeleteLegalArrangementRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deleteLegalArrangements"),
+        _rawClient.Execute(_server.Default10("/deleteLegalArrangements"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -105,7 +105,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-deletePayoutMethods
+    /// Delete payout methods
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -118,7 +118,7 @@ public sealed class Verification
     public Task<GenericResponse> PostDeletePayoutMethods(DeletePayoutMethodRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deletePayoutMethods"),
+        _rawClient.Execute(_server.Default10("/deletePayoutMethods"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -131,7 +131,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-deleteShareholders
+    /// Delete shareholders
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -144,7 +144,7 @@ public sealed class Verification
     public Task<GenericResponse> PostDeleteShareholders(DeleteShareholderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deleteShareholders"),
+        _rawClient.Execute(_server.Default10("/deleteShareholders"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -157,7 +157,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-deleteSignatories
+    /// Delete signatories
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -170,7 +170,7 @@ public sealed class Verification
     public Task<GenericResponse> PostDeleteSignatories(DeleteSignatoriesRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deleteSignatories"),
+        _rawClient.Execute(_server.Default10("/deleteSignatories"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -183,7 +183,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-getUploadedDocuments
+    /// Get documents
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -196,7 +196,7 @@ public sealed class Verification
     public Task<GetUploadedDocumentsResponse> PostGetUploadedDocuments(GetUploadedDocumentsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getUploadedDocuments"),
+        _rawClient.Execute(_server.Default10("/getUploadedDocuments"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -209,7 +209,7 @@ public sealed class Verification
             ct);
 
     /// <summary>
-    /// post-uploadDocument
+    /// Upload a document
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -222,7 +222,7 @@ public sealed class Verification
     public Task<UpdateAccountHolderResponse> PostUploadDocument(UploadDocumentRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/uploadDocument"),
+        _rawClient.Execute(_server.Default10("/uploadDocument"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

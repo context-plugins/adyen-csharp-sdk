@@ -59,9 +59,12 @@ public record BalanceAccount
     [JsonPropertyName("migratedAccountCode")]
     public string? MigratedAccountCode { get; init; }
 
+    /// <summary>
+    /// Contains key-value pairs to configure the sales day closing time and settlement delay for a balance account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformPaymentConfiguration")]
-    public PlatformPaymentConfiguration? PlatformPaymentConfiguration { get; init; }
+    public PlatformPaymentConfiguration1? PlatformPaymentConfiguration { get; init; }
 
     /// <summary>
     /// Your reference for the balance account, maximum 150 characters.
@@ -71,9 +74,12 @@ public record BalanceAccount
     [MaxLength(150)]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The status of the balance account, set to <b>active</b> by default.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status21? Status { get; init; }
+    public Status23? Status { get; init; }
 
     /// <summary>
     /// The time zone of the balance account. For example, <b>Europe/Amsterdam</b>.

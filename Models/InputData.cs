@@ -6,12 +6,47 @@ namespace Adyen.Models;
 
 public record InputData
 {
+    /// <summary>
+    /// Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer.
+    /// Possible values:
+    /// * <b>CashierDisplay</b>
+    /// * <b>CashierInput</b>
+    /// * <b>CustomerDisplay</b>
+    /// * <b>CustomerInput</b>
+    /// </summary>
     [JsonPropertyName("Device")]
     public required Device2 Device { get; init; }
 
+    /// <summary>
+    /// Qualification of the information to send to an output logical device, to display or print to the Cashier or the Customer.
+    /// Possible values:
+    /// * <b>CustomerAssistance</b>
+    /// * <b>Display</b>
+    /// * <b>Document</b>
+    /// * <b>Error</b>
+    /// * <b>Input</b>
+    /// * <b>POIReplication</b>
+    /// * <b>Receipt</b>
+    /// * <b>Sound</b>
+    /// * <b>Status</b>
+    /// * <b>Voucher</b>
+    /// </summary>
     [JsonPropertyName("InfoQualify")]
     public required InfoQualify2 InfoQualify { get; init; }
 
+    /// <summary>
+    /// Type of requested input. Can be: <b>GetConfirmation</b>, <b>TextString</b>, <b>DigitString</b>, <b>DecimalString</b> or <b>GetMenuEntry</b>.
+    /// Possible values:
+    /// * <b>DecimalString</b>
+    /// * <b>DigitString</b>
+    /// * <b>GetAnyKey</b>
+    /// * <b>GetConfirmation</b>
+    /// * <b>GetFunctionKey</b>
+    /// * <b>GetMenuEntry</b>
+    /// * <b>Password</b>
+    /// * <b>SiteManager</b>
+    /// * <b>TextString</b>
+    /// </summary>
     [JsonPropertyName("InputCommand")]
     public required InputCommand1 InputCommand { get; init; }
 

@@ -14,6 +14,10 @@ public record ViasName
     [MaxLength(80)]
     public string? FirstName { get; init; }
 
+    /// <summary>
+    /// The gender.
+    /// &gt;The following values are permitted: <c>MALE</c>, <c>FEMALE</c>, <c>UNKNOWN</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("gender")]
     public Gender? Gender { get; init; }

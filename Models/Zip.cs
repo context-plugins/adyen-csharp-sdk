@@ -43,7 +43,9 @@ public record Zip
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>zip</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type58? Type { get; init; }
+    public Type58? Type { get; init; } = Type58.Zip;
 }

@@ -8,9 +8,12 @@ namespace Adyen.Models;
 /// </summary>
 public record Notification2
 {
+    /// <summary>
+    /// The type of event notification sent when you select the notification button.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("category")]
-    public Category1? Category { get; init; }
+    public Category? Category { get; init; }
 
     /// <summary>
     /// The text shown in the prompt which opens when you select the notification button. For example, the description of the input box for pay-at-table.

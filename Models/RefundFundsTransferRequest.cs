@@ -4,8 +4,11 @@ namespace Adyen.Models;
 
 public record RefundFundsTransferRequest
 {
+    /// <summary>
+    /// The amount to be transferred.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
     /// <summary>
     /// A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another.

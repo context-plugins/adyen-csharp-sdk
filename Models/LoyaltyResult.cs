@@ -9,8 +9,11 @@ namespace Adyen.Models;
 /// </summary>
 public record LoyaltyResult
 {
+    /// <summary>
+    /// Data related to a loyalty account processed in the transaction.
+    /// </summary>
     [JsonPropertyName("LoyaltyAccount")]
-    public required LoyaltyAccount12 LoyaltyAccount { get; init; }
+    public required LoyaltyAccount1 LoyaltyAccount { get; init; }
 
     /// <summary>
     /// Balance of an account.
@@ -22,7 +25,11 @@ public record LoyaltyResult
     [Maximum(99999999.999999)]
     public double? CurrentBalance { get; init; }
 
+    /// <summary>
+    /// Data related to the loyalty Acquirer during a loyalty transaction.
+    /// If content not empty.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyAcquirerData")]
-    public LoyaltyAcquirerData? LoyaltyAcquirerData { get; init; }
+    public LoyaltyAcquirerData1? LoyaltyAcquirerData { get; init; }
 }

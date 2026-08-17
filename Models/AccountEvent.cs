@@ -6,6 +6,11 @@ namespace Adyen.Models;
 
 public record AccountEvent
 {
+    /// <summary>
+    /// The event.
+    /// &gt;Permitted values: <c>InactivateAccount</c>, <c>RefundNotPaidOutTransfers</c>.
+    /// For more information, refer to <see href="https://docs.adyen.com/classic-platforms/verification-process">Verification checks</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("event")]
     public Event? Event { get; init; }

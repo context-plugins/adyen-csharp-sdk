@@ -27,7 +27,7 @@ public sealed class BalanceAccounts
     }
 
     /// <summary>
-    /// get-balanceAccounts-id
+    /// Get a balance account
     /// </summary>
     /// <param name="id">The unique identifier of the balance account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class BalanceAccounts
     public Task<BalanceAccount> GetBalanceAccountsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{id}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -53,7 +53,7 @@ public sealed class BalanceAccounts
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-id-paymentInstruments
+    /// Get payment instruments linked to a balance account
     /// </summary>
     /// <param name="id">The unique identifier of the balance account.</param>
     /// <param name="offset">The number of items that you want to skip.</param>
@@ -75,7 +75,7 @@ public sealed class BalanceAccounts
         string? status,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{id}/paymentInstruments"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{id}/paymentInstruments"),
             [new TemplateParam("id", id)],
             [new Param("offset", offset), new Param("limit", limit), new Param("status", status)],
             [],
@@ -88,7 +88,7 @@ public sealed class BalanceAccounts
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-id-transactionRules
+    /// Get all transaction rules for a balance account
     /// </summary>
     /// <param name="id">The unique identifier of the balance account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -101,7 +101,7 @@ public sealed class BalanceAccounts
     public Task<TransactionRulesResponse> GetBalanceAccountsIdTransactionRules(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{id}/transactionRules"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{id}/transactionRules"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -114,7 +114,7 @@ public sealed class BalanceAccounts
             ct);
 
     /// <summary>
-    /// patch-balanceAccounts-id
+    /// Update a balance account
     /// </summary>
     /// <param name="id">The unique identifier of the balance account.</param>
     /// <param name="body"></param>
@@ -129,7 +129,7 @@ public sealed class BalanceAccounts
         BalanceAccountUpdateRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{id}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -142,7 +142,7 @@ public sealed class BalanceAccounts
             ct);
 
     /// <summary>
-    /// post-balanceAccounts
+    /// Create a balance account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -155,7 +155,7 @@ public sealed class BalanceAccounts
     public Task<BalanceAccount> PostBalanceAccounts(BalanceAccountInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

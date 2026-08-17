@@ -16,16 +16,26 @@ public record AccountHolderStatus4
     [JsonPropertyName("events")]
     public IReadOnlyList<AccountEvent>? Events { get; init; }
 
+    /// <summary>
+    /// The payout state of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutState")]
-    public AccountPayoutState? PayoutState { get; init; }
+    public AccountPayoutState2? PayoutState { get; init; }
 
+    /// <summary>
+    /// The processing state of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("processingState")]
-    public AccountProcessingState? ProcessingState { get; init; }
+    public AccountProcessingState2? ProcessingState { get; init; }
 
+    /// <summary>
+    /// The status of the account holder.
+    /// &gt;Permitted values: <c>Active</c>, <c>Inactive</c>, <c>Suspended</c>, <c>Closed</c>.
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status1 Status { get; init; }
+    public required Status12 Status { get; init; }
 
     /// <summary>
     /// The reason why the status was assigned to the account holder.

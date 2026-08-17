@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -38,7 +37,7 @@ public record CheckoutNativeRedirectAction
     /// <b>nativeRedirect</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type553 Type { get; init; }
+    public string Type { get; } = "nativeRedirect";
 
     /// <summary>
     /// Specifies the URL to redirect to.

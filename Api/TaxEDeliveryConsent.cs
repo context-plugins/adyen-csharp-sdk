@@ -27,7 +27,7 @@ public sealed class TaxEDeliveryConsent
     }
 
     /// <summary>
-    /// post-legalEntities-id-checkTaxElectronicDeliveryConsent
+    /// Check the status of consent for electronic delivery of tax forms
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -52,7 +52,7 @@ public sealed class TaxEDeliveryConsent
     public Task<CheckTaxElectronicDeliveryConsentResponse> PostLegalEntitiesIdCheckTaxElectronicDeliveryConsent(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/checkTaxElectronicDeliveryConsent"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/checkTaxElectronicDeliveryConsent"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -65,7 +65,7 @@ public sealed class TaxEDeliveryConsent
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-setTaxElectronicDeliveryConsent
+    /// Set the consent status for electronic delivery of tax forms
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization.</param>
     /// <param name="body"></param>
@@ -92,7 +92,7 @@ public sealed class TaxEDeliveryConsent
         SetTaxElectronicDeliveryConsentRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/setTaxElectronicDeliveryConsent"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/setTaxElectronicDeliveryConsent"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

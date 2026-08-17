@@ -23,9 +23,13 @@ public record PayoutResponse
     [JsonPropertyName("authCode")]
     public string? AuthCode { get; init; }
 
+    /// <summary>
+    /// Includes the currency of the conversion and the value of the transaction.
+    /// &gt; This value only applies if you have implemented Dynamic Currency Conversion. For more information, <see href="https://www.adyen.help/hc/en-us/requests/new">contact Support</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("dccAmount")]
-    public DccAmount? DccAmount { get; init; }
+    public Amount? DccAmount { get; init; }
 
     /// <summary>
     /// Cryptographic signature used to verify <c>dccQuote</c>.
@@ -35,9 +39,12 @@ public record PayoutResponse
     [JsonPropertyName("dccSignature")]
     public string? DccSignature { get; init; }
 
+    /// <summary>
+    /// The fraud result properties of the payment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fraudResult")]
-    public FraudResult6? FraudResult { get; init; }
+    public FraudResult2? FraudResult { get; init; }
 
     /// <summary>
     /// The URL to direct the shopper to.
@@ -82,6 +89,28 @@ public record PayoutResponse
     [JsonPropertyName("refusalReason")]
     public string? RefusalReason { get; init; }
 
+    /// <summary>
+    /// The result of the payment. For more information, see <see href="https://docs.adyen.com/online-payments/payment-result-codes">Result codes</see>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <para>
+    /// * <b>AuthenticationFinished</b> – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.
+    /// * <b>AuthenticationNotRequired</b> – The transaction does not require 3D Secure authentication. Returned for <see href="https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only">standalone authentication-only integrations</see>.
+    /// * <b>Authorised</b> – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.
+    /// * <b>Cancelled</b> – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state.
+    /// * <b>ChallengeShopper</b> – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+    /// * <b>Error</b> – There was an error when the payment was being processed. The reason is given in the <c>refusalReason</c> field. This is a final state.
+    /// * <b>IdentifyShopper</b> – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+    /// * <b>PartiallyAuthorised</b> – The payment has been authorised for a partial amount.
+    /// This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds.
+    /// * <b>Pending</b> – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment.
+    /// * <b>PresentToShopper</b> – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment.
+    /// * <b>Received</b> – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments.
+    /// * <b>RedirectShopper</b> – Indicates the shopper should be redirected to an external web page or app to complete the authorisation.
+    /// * <b>Refused</b> – Indicates the payment was refused. The reason is given in the <c>refusalReason</c> field. This is a final state.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("resultCode")]
     public ResultCode1? ResultCode { get; init; }

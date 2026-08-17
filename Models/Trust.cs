@@ -46,12 +46,18 @@ public record Trust
     [JsonPropertyName("name")]
     public required string Name { get; init; }
 
+    /// <summary>
+    /// The business address. Required if the principal place of business is different from the <c>registeredAddress</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("principalPlaceOfBusiness")]
-    public Address1? PrincipalPlaceOfBusiness { get; init; }
+    public Address41? PrincipalPlaceOfBusiness { get; init; }
 
+    /// <summary>
+    /// The address registered at the registrar, such as the Chamber of Commerce.
+    /// </summary>
     [JsonPropertyName("registeredAddress")]
-    public required Address1 RegisteredAddress { get; init; }
+    public required Address51 RegisteredAddress { get; init; }
 
     /// <summary>
     /// The registration number.
@@ -67,6 +73,12 @@ public record Trust
     [JsonPropertyName("taxInformation")]
     public IReadOnlyList<TaxInformation>? TaxInformation { get; init; }
 
+    /// <summary>
+    /// Type of trust.
+    /// <para>
+    /// See possible values for trusts in <see href="https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-australia">Australia</see> and <see href="https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-new-zealand">New Zealand</see>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
     public required Type171 Type { get; init; }
 
@@ -77,6 +89,12 @@ public record Trust
     [JsonPropertyName("undefinedBeneficiaryInfo")]
     public IReadOnlyList<UndefinedBeneficiary>? UndefinedBeneficiaryInfo { get; init; }
 
+    /// <summary>
+    /// The reason for not providing a VAT number.
+    /// <para>
+    /// Possible values: <b>industryExemption</b>, <b>belowTaxThreshold</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("vatAbsenceReason")]
     public VatAbsenceReason1? VatAbsenceReason { get; init; }

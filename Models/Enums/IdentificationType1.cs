@@ -20,7 +20,7 @@ public sealed record IdentificationType1 : StringEnum<IdentificationType1>
 
     public static readonly IdentificationType1 Pan = new("PAN");
 
-    public static readonly IdentificationType1 Isotrack2 = new("ISOTrack2");
+    public static readonly IdentificationType1 IsoTrack2 = new("ISOTrack2");
 
     public static readonly IdentificationType1 BarCode = new("BarCode");
 

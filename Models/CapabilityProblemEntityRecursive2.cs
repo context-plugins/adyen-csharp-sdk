@@ -23,7 +23,13 @@ public record CapabilityProblemEntityRecursive2
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// Type of entity.
+    /// <para>
+    /// Possible values: <b>LegalEntity</b>, <b>BankAccount</b>, <b>Document</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type3? Type { get; init; }
+    public Type33? Type { get; init; }
 }

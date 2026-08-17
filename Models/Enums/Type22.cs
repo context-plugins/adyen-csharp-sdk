@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// <b>afterpay_default</b>
+/// <b>directdebit_AU</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type22>))]
 public sealed record Type22 : StringEnum<Type22>
@@ -13,13 +13,7 @@ public sealed record Type22 : StringEnum<Type22>
     {
     }
 
-    public static readonly Type22 AfterpayDefault = new("afterpay_default");
-
-    public static readonly Type22 Afterpaytouch = new("afterpaytouch");
-
-    public static readonly Type22 AfterpayB2B = new("afterpay_b2b");
-
-    public static readonly Type22 Clearpay = new("clearpay");
+    public static readonly Type22 DirectdebitAu = new("directdebit_AU");
 
     public static Type22 FromValue(string value) => FromValueCore(value);
 }

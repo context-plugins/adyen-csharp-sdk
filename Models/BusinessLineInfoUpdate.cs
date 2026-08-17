@@ -32,9 +32,12 @@ public record BusinessLineInfoUpdate
     [JsonPropertyName("salesChannels")]
     public IReadOnlyList<string>? SalesChannels { get; init; }
 
+    /// <summary>
+    /// Contains information about the source of your user's funds. Required only if the <c>service</c> is <b>banking</b> or <b>issuing</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sourceOfFunds")]
-    public SourceOfFunds? SourceOfFunds { get; init; }
+    public SourceOfFunds11? SourceOfFunds { get; init; }
 
     /// <summary>
     /// List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the <c>webDataExemption</c> object.
@@ -43,7 +46,10 @@ public record BusinessLineInfoUpdate
     [JsonPropertyName("webData")]
     public IReadOnlyList<WebData>? WebData { get; init; }
 
+    /// <summary>
+    /// The reason why the web data is not provided.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("webDataExemption")]
-    public WebDataExemption? WebDataExemption { get; init; }
+    public WebDataExemption1? WebDataExemption { get; init; }
 }

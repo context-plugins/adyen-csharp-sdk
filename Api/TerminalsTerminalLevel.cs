@@ -27,7 +27,7 @@ public sealed class TerminalsTerminalLevel
     }
 
     /// <summary>
-    /// get-terminals
+    /// Get a list of terminals
     /// </summary>
     /// <param name="searchQuery">Returns terminals with an ID that contains the specified string. If present, other query parameters are ignored.</param>
     /// <param name="otpQuery">Returns one or more terminals associated with the one-time passwords specified in the request. If this query parameter is used, other query parameters are ignored.</param>
@@ -59,7 +59,7 @@ public sealed class TerminalsTerminalLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals"),
+        _rawClient.Execute(_server.Default9("/terminals"),
             [],
             [new Param("searchQuery", searchQuery),
                 new Param("otpQuery", otpQuery),
@@ -79,7 +79,7 @@ public sealed class TerminalsTerminalLevel
             ct);
 
     /// <summary>
-    /// post-terminals-terminalId-reassign
+    /// Reassign a terminal
     /// </summary>
     /// <param name="terminalId">The unique identifier of the payment terminal.</param>
     /// <param name="body"></param>
@@ -101,7 +101,7 @@ public sealed class TerminalsTerminalLevel
         TerminalReassignmentRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals/{terminalId}/reassign"),
+        _rawClient.Execute(_server.Default9("/terminals/{terminalId}/reassign"),
             [new TemplateParam("terminalId", terminalId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

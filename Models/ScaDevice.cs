@@ -22,6 +22,12 @@ public record ScaDevice
     [StringLength(64, MinimumLength = 0)]
     public required string Name { get; init; }
 
+    /// <summary>
+    /// Type of device registered.
+    /// <para>
+    /// Possible values: <b>ios</b>, <b>android</b>, <b>browser</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
     public required ScaDeviceType1 Type { get; init; }
 }

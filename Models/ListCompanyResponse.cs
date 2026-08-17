@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record ListCompanyResponse
 {
+    /// <summary>
+    /// Pagination references.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public PaginationLinks? Links { get; init; }
+    public PaginationLinks1? Links { get; init; }
 
     /// <summary>
     /// The list of companies.

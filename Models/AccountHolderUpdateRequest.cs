@@ -21,9 +21,12 @@ public record AccountHolderUpdateRequest
     [JsonPropertyName("capabilities")]
     public IReadOnlyDictionary<string, AccountHolderCapability>? Capabilities { get; init; }
 
+    /// <summary>
+    /// Contact details of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("contactDetails")]
-    public ContactDetails? ContactDetails { get; init; }
+    public ContactDetails1? ContactDetails { get; init; }
 
     /// <summary>
     /// Your description for the account holder.
@@ -64,9 +67,24 @@ public record AccountHolderUpdateRequest
     [MaxLength(150)]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The status of the account holder.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to <b>suspended</b> or <b>closed</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>suspended</b>: The account holder is temporarily disabled and payouts are blocked. You can change this status to <b>active</b> or <b>closed</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>closed</b>: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status5? Status { get; init; }
+    public Status9? Status { get; init; }
 
     /// <summary>
     /// The time zone of the account holder. For example, <b>Europe/Amsterdam</b>.

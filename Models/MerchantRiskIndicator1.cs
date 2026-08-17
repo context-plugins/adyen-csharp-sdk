@@ -18,6 +18,17 @@ public record MerchantRiskIndicator1
     [JsonPropertyName("addressMatch")]
     public bool? AddressMatch { get; init; }
 
+    /// <summary>
+    /// Indicator regarding the delivery address.
+    /// Allowed values:
+    /// * <c>shipToBillingAddress</c>
+    /// * <c>shipToVerifiedAddress</c>
+    /// * <c>shipToNewAddress</c>
+    /// * <c>shipToStore</c>
+    /// * <c>digitalGoods</c>
+    /// * <c>goodsNotShipped</c>
+    /// * <c>other</c>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryAddressIndicator")]
     public DeliveryAddressIndicator? DeliveryAddressIndicator { get; init; }
@@ -37,13 +48,24 @@ public record MerchantRiskIndicator1
     [MaxLength(254)]
     public string? DeliveryEmailAddress { get; init; }
 
+    /// <summary>
+    /// The estimated delivery time for the shopper to receive the goods.
+    /// Allowed values:
+    /// * <c>electronicDelivery</c>
+    /// * <c>sameDayShipping</c>
+    /// * <c>overnightShipping</c>
+    /// * <c>twoOrMoreDaysShipping</c>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryTimeframe")]
     public DeliveryTimeframe? DeliveryTimeframe { get; init; }
 
+    /// <summary>
+    /// For prepaid or gift card purchase, the purchase amount total of prepaid or gift card(s).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("giftCardAmount")]
-    public GiftCardAmount? GiftCardAmount { get; init; }
+    public Amount7? GiftCardAmount { get; init; }
 
     /// <summary>
     /// For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.

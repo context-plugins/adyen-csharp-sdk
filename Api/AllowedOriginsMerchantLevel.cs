@@ -27,7 +27,7 @@ public sealed class AllowedOriginsMerchantLevel
     }
 
     /// <summary>
-    /// delete-merchants-merchantId-apiCredentials-apiCredentialId-allowedOrigins-originId
+    /// Delete an allowed origin
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -48,7 +48,7 @@ public sealed class AllowedOriginsMerchantLevel
         string originId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("apiCredentialId", apiCredentialId),
                 new TemplateParam("originId", originId)],
@@ -63,7 +63,7 @@ public sealed class AllowedOriginsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-apiCredentials-apiCredentialId-allowedOrigins
+    /// Get a list of allowed origins
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -82,7 +82,7 @@ public sealed class AllowedOriginsMerchantLevel
         string apiCredentialId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [],
@@ -95,7 +95,7 @@ public sealed class AllowedOriginsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-apiCredentials-apiCredentialId-allowedOrigins-originId
+    /// Get an allowed origin
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -116,7 +116,7 @@ public sealed class AllowedOriginsMerchantLevel
         string originId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("apiCredentialId", apiCredentialId),
                 new TemplateParam("originId", originId)],
@@ -131,7 +131,7 @@ public sealed class AllowedOriginsMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-apiCredentials-apiCredentialId-allowedOrigins
+    /// Create an allowed origin
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -152,7 +152,7 @@ public sealed class AllowedOriginsMerchantLevel
         AllowedOrigin? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

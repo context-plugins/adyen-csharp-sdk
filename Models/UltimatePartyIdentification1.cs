@@ -10,9 +10,12 @@ namespace Adyen.Models;
 /// </summary>
 public record UltimatePartyIdentification1
 {
+    /// <summary>
+    /// The address of the bank account or card owner.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public Address8? Address { get; init; }
+    public Address12? Address { get; init; }
 
     /// <summary>
     /// The date of birth of the individual in <see href="https://www.w3.org/TR/NOTE-datetime">ISO-8601</see> format. For example, <b>YYYY-MM-DD</b>.
@@ -60,9 +63,12 @@ public record UltimatePartyIdentification1
     [JsonPropertyName("fullName")]
     public string? FullName { get; init; }
 
+    /// <summary>
+    /// Details of the card or token used to fund the pay-in transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingInstrument")]
-    public FundingInstrument? FundingInstrument { get; init; }
+    public FundingInstrument2? FundingInstrument { get; init; }
 
     /// <summary>
     /// The last name of the individual.
@@ -90,9 +96,17 @@ public record UltimatePartyIdentification1
     [MaxLength(150)]
     public string? Reference { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// The type of entity that owns the bank account or card.
+    /// <para>
+    /// Possible values: <b>individual</b>, <b>organization</b>, or <b>unknown</b>.
+    /// </para>
+    /// <para>
+    /// Required when <c>category</c> is <b>card</b>. In this case, the value must be <b>individual</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type110? Type { get; init; }
+    public Type112? Type { get; init; } = Type112.Unknown;
 
     /// <summary>
     /// The URL of the organization or individual. Maximum length: 255 characters.

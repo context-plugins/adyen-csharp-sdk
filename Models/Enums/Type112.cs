@@ -4,15 +4,13 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The type of transfer.
+/// The type of entity that owns the bank account or card.
 /// <para>
-/// Possible values:
+/// Possible values: <b>individual</b>, <b>organization</b>, or <b>unknown</b>.
 /// </para>
-/// <list type="bullet">
-///   <item><description><b>bankTransfer</b>: for push transfers to a transfer instrument or a bank account. The <c>category</c> must be <b>bank</b>.</description></item>
-///   <item><description><b>internalTransfer</b>: for push transfers between balance accounts. The <c>category</c> must be <b>internal</b>.</description></item>
-///   <item><description><b>internalDirectDebit</b>: for pull transfers (direct debits) between balance accounts. The <c>category</c> must be <b>internal</b>.</description></item>
-/// </list>
+/// <para>
+/// Required when <c>category</c> is <b>card</b>. In this case, the value must be <b>individual</b>.
+/// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type112>))]
 public sealed record Type112 : StringEnum<Type112>
@@ -21,11 +19,11 @@ public sealed record Type112 : StringEnum<Type112>
     {
     }
 
-    public static readonly Type112 BankTransfer = new("bankTransfer");
+    public static readonly Type112 Individual = new("individual");
 
-    public static readonly Type112 InternalTransfer = new("internalTransfer");
+    public static readonly Type112 Organization = new("organization");
 
-    public static readonly Type112 InternalDirectDebit = new("internalDirectDebit");
+    public static readonly Type112 Unknown = new("unknown");
 
     public static Type112 FromValue(string value) => FromValueCore(value);
 }

@@ -41,7 +41,20 @@ public record VerificationError
     [JsonPropertyName("subErrors")]
     public IReadOnlyList<VerificationErrorRecursive>? SubErrors { get; init; }
 
+    /// <summary>
+    /// The type of error.
+    /// <para>
+    ///
+    /// </para>
+    /// <para>
+    /// Possible values:
+    /// *  <b>invalidInput</b>
+    /// *  <b>dataMissing</b>
+    /// *  <b>pendingStatus</b>
+    /// *  <b>dataReview</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type21? Type { get; init; }
+    public Type212? Type { get; init; }
 }

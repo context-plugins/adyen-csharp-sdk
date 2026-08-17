@@ -14,9 +14,9 @@ public sealed record SslProtocol : StringEnum<SslProtocol>
     {
     }
 
-    public static readonly SslProtocol Tlsv12 = new("TLSv12");
+    public static readonly SslProtocol TlSv12 = new("TLSv12");
 
-    public static readonly SslProtocol Tlsv13 = new("TLSv13");
+    public static readonly SslProtocol TlSv13 = new("TLSv13");
 
     public static SslProtocol FromValue(string value) => FromValueCore(value);
 }

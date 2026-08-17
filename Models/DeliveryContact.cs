@@ -4,8 +4,11 @@ namespace Adyen.Models;
 
 public record DeliveryContact
 {
+    /// <summary>
+    /// The address of the contact.
+    /// </summary>
     [JsonPropertyName("address")]
-    public required Address15 Address { get; init; }
+    public required StoreLocation Address { get; init; }
 
     /// <summary>
     /// The company name of the contact.
@@ -29,12 +32,18 @@ public record DeliveryContact
     [JsonPropertyName("fullPhoneNumber")]
     public string? FullPhoneNumber { get; init; }
 
+    /// <summary>
+    /// The name of the contact.
+    /// </summary>
     [JsonPropertyName("name")]
-    public required Name5 Name { get; init; }
+    public required Name Name { get; init; }
 
+    /// <summary>
+    /// The phone number of the contact.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phoneNumber")]
-    public PhoneNumber3? PhoneNumber { get; init; }
+    public ViasPhoneNumber? PhoneNumber { get; init; }
 
     /// <summary>
     /// The URL of the contact's website.

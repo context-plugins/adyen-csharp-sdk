@@ -34,9 +34,25 @@ public record TermsOfServiceAcceptanceInfo
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// The type of Terms of Service.
+    /// <para>
+    /// Possible values:
+    /// *  <b>adyenForPlatformsManage</b>
+    /// *  <b>adyenIssuing</b>
+    /// *  <b>adyenForPlatformsAdvanced</b>
+    /// *  <b>adyenCapital</b>
+    /// *  <b>adyenAccount</b>
+    /// *  <b>adyenCard</b>
+    /// *  <b>adyenFranchisee</b>
+    /// *  <b>adyenPccr</b>
+    /// *  <b>adyenChargeCard</b>
+    /// *  <b>kycOnInvite</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type25? Type { get; init; }
+    public Type64? Type { get; init; }
 
     /// <summary>
     /// The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.

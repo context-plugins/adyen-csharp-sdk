@@ -12,7 +12,7 @@ public record CostEstimateAssumptions1
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("assume3DSecureAuthenticated")]
-    public bool? Assume3DsecureAuthenticated { get; init; }
+    public bool? Assume3DSecureAuthenticated { get; init; }
 
     /// <summary>
     /// If true, the transaction is expected to have valid Level 3 data.

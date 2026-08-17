@@ -12,6 +12,13 @@ namespace Adyen.Models;
 /// </summary>
 public record StoredValueAccountId1
 {
+    /// <summary>
+    /// Type of stored value account. Allows the distinction of the stored value instrument to access the stored value account.
+    /// Possible values:
+    /// * <b>GiftCard</b>
+    /// * <b>Other</b>
+    /// * <b>PhoneCard</b>
+    /// </summary>
     [JsonPropertyName("StoredValueAccountType")]
     public required StoredValueAccountType1 StoredValueAccountType { get; init; }
 
@@ -58,6 +65,15 @@ public record StoredValueAccountId1
     [JsonPropertyName("EntryMode")]
     public required IReadOnlyList<EntryMode> EntryMode { get; init; }
 
+    /// <summary>
+    /// Type of account identification. In a request message, it informs the POI System the type of the account or card identification, when provided by the Sale Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner device). In a response message, it informs the Sale System the type of the account or card identification.
+    /// Possible values:
+    /// * <b>AccountNumber</b>
+    /// * <b>BarCode</b>
+    /// * <b>ISOTrack2</b>
+    /// * <b>PAN</b>
+    /// * <b>PhoneNumber</b>
+    /// </summary>
     [JsonPropertyName("IdentificationType")]
     public required IdentificationType11 IdentificationType { get; init; }
 

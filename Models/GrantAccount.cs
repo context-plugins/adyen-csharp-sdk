@@ -31,5 +31,5 @@ public record GrantAccount
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("limits")]
-    public IReadOnlyList<GrantLimit>? Limits { get; init; }
+    public IReadOnlyList<GrantLimit1>? Limits { get; init; }
 }

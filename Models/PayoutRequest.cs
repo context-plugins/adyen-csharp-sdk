@@ -5,16 +5,29 @@ namespace Adyen.Models;
 
 public record PayoutRequest
 {
+    /// <summary>
+    /// The amount information for the transaction (in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>). For <see href="https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification">BIN or card verification</see> requests, set amount to 0 (zero).
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
+    /// <summary>
+    /// The address where to send the invoice.
+    /// &gt; The <c>billingAddress</c> object is required in the following scenarios. Include all of the fields within this object.
+    /// &gt;* For 3D Secure 2 transactions in all browser-based and mobile implementations.
+    /// &gt;* For cross-border payouts to and from Canada.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address? BillingAddress { get; init; }
 
+    /// <summary>
+    /// A container for card data.
+    /// &gt; Either <c>bankAccount</c> or <c>card</c> field must be provided in a payment request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card? Card { get; init; }
 
     /// <summary>
     /// An integer value that is added to the normal fraud score. The value can be either positive or negative.
@@ -23,9 +36,12 @@ public record PayoutRequest
     [JsonPropertyName("fraudOffset")]
     public int? FraudOffset { get; init; }
 
+    /// <summary>
+    /// The person or entity funding the money.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundSource")]
-    public FundSource? FundSource { get; init; }
+    public FundSource11? FundSource { get; init; }
 
     /// <summary>
     /// The merchant account identifier, with which you want to process the transaction.
@@ -33,9 +49,12 @@ public record PayoutRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// The recurring settings for the payment. Use this property when you want to enable <see href="https://docs.adyen.com/classic-integration/recurring-payments">recurring payments</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("recurring")]
-    public Recurring3? Recurring { get; init; }
+    public Recurring? Recurring { get; init; }
 
     /// <summary>
     /// The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement.
@@ -59,13 +78,27 @@ public record PayoutRequest
     [JsonPropertyName("shopperEmail")]
     public string? ShopperEmail { get; init; }
 
+    /// <summary>
+    /// Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer.
+    /// For the web service API, Adyen assumes Ecommerce shopper interaction by default.
+    /// <para>
+    /// This field has the following possible values:
+    /// * <c>Ecommerce</c> - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request.
+    /// * <c>ContAuth</c> - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment).
+    /// * <c>Moto</c> - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone.
+    /// * <c>POS</c> - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperInteraction")]
-    public ShopperInteraction1? ShopperInteraction { get; init; }
+    public ShopperInteraction? ShopperInteraction { get; init; }
 
+    /// <summary>
+    /// The shopper's full name.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// Required for recurring payments.

@@ -21,7 +21,9 @@ public record AndroidPay
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>androidpay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type61? Type { get; init; }
+    public Type6? Type { get; init; } = Type6.Androidpay;
 }

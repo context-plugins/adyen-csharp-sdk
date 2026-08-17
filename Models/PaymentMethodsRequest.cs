@@ -27,9 +27,12 @@ public record PaymentMethodsRequest
     [JsonPropertyName("allowedPaymentMethods")]
     public IReadOnlyList<string>? AllowedPaymentMethods { get; init; }
 
+    /// <summary>
+    /// The amount information for the transaction (in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>). For <see href="https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification">BIN or card verification</see> requests, set amount to 0 (zero).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount2? Amount { get; init; }
 
     /// <summary>
     /// List of payment methods to be hidden from the shopper. To refer to payment methods, use their <see href="https://docs.adyen.com/payment-methods/payment-method-types">payment method type</see>.
@@ -41,10 +44,20 @@ public record PaymentMethodsRequest
     [JsonPropertyName("blockedPaymentMethods")]
     public IReadOnlyList<string>? BlockedPaymentMethods { get; init; }
 
+    /// <summary>
+    /// The shopper's browser information.
+    /// &gt; For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the <c>userAgent</c> and <c>acceptHeader</c> fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("browserInfo")]
-    public BrowserInfo2? BrowserInfo { get; init; }
+    public BrowserInfo? BrowserInfo { get; init; }
 
+    /// <summary>
+    /// The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values:
+    /// * iOS
+    /// * Android
+    /// * Web
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("channel")]
     public Channel3? Channel { get; init; }
@@ -66,9 +79,12 @@ public record PaymentMethodsRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// The order information required for partial payments.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order")]
-    public EncryptedOrderData? Order { get; init; }
+    public EncryptedOrderData2? Order { get; init; }
 
     /// <summary>
     /// A unique ID to <see href="https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id">connect the shopper to a single checkout session</see> that uses multiple API requests. You can use this to get insights into conversion rates.
@@ -126,6 +142,11 @@ public record PaymentMethodsRequest
     [StringLength(16, MinimumLength = 1)]
     public string? Store { get; init; }
 
+    /// <summary>
+    /// Specifies how payment methods should be filtered based on the <c>store</c> parameter:
+    ///   - <b>exclusive</b>: Only payment methods belonging to the specified <c>store</c> are returned.
+    ///   - <b>inclusive</b>: Payment methods from the <c>store</c> and those not associated with any other store are returned.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("storeFiltrationMode")]
     public StoreFiltrationMode2? StoreFiltrationMode { get; init; }

@@ -95,6 +95,9 @@ public record Organization
     [JsonPropertyName("headOfficeIndicator")]
     public bool? HeadOfficeIndicator { get; init; }
 
+    /// <summary>
+    /// The institutional sector the organization operates within.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("institutionalSector")]
     public InstitutionalSector? InstitutionalSector { get; init; }
@@ -112,16 +115,25 @@ public record Organization
     [JsonPropertyName("legalName")]
     public required string LegalName { get; init; }
 
+    /// <summary>
+    /// The phone number of the legal entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone")]
-    public PhoneNumber? Phone { get; init; }
+    public PhoneNumber2? Phone { get; init; }
 
+    /// <summary>
+    /// The address where the organization operates from. Provide this if the principal place of business is different from the <c>registeredAddress</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("principalPlaceOfBusiness")]
-    public Address1? PrincipalPlaceOfBusiness { get; init; }
+    public Address22? PrincipalPlaceOfBusiness { get; init; }
 
+    /// <summary>
+    /// The address of the organization registered at their registrar (such as the Chamber of Commerce).
+    /// </summary>
     [JsonPropertyName("registeredAddress")]
-    public required Address1 RegisteredAddress { get; init; }
+    public required Address31 RegisteredAddress { get; init; }
 
     /// <summary>
     /// The organization's registration number.
@@ -137,17 +149,32 @@ public record Organization
     [JsonPropertyName("registrationNumberAbsent")]
     public bool? RegistrationNumberAbsent { get; init; }
 
+    /// <summary>
+    /// The status of any current or past legal action taken against the legal entity.
+    /// <para>
+    /// Possible values: <b>noLegalActionsTaken</b>, <b>underJudicialAdministration</b>, <b>bankruptcyInsolvency</b>, <b>otherLegalMeasures</b>
+    /// </para>
+    /// <para>
+    /// If the value of this field is <b>noLegalActionsTaken</b>, then <c>dateOfInitiationOfLegalProceeding</c> is not required. Otherwise, it is required.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("statusOfLegalProceeding")]
     public StatusOfLegalProceeding? StatusOfLegalProceeding { get; init; }
 
+    /// <summary>
+    /// Information about the organization's publicly traded stock. Provide this object only if <c>type</c> is <b>listedPublicCompany</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("stockData")]
-    public StockData? StockData { get; init; }
+    public StockData2? StockData { get; init; }
 
+    /// <summary>
+    /// Support information for the legal entity. Required if you have a platform setup.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("support")]
-    public Support? Support { get; init; }
+    public Support1? Support { get; init; }
 
     /// <summary>
     /// The tax information of the organization.
@@ -156,14 +183,29 @@ public record Organization
     [JsonPropertyName("taxInformation")]
     public IReadOnlyList<TaxInformation>? TaxInformation { get; init; }
 
+    /// <summary>
+    /// The tax reporting classification (FATCA/CRS self-certification) of the organization.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("taxReportingClassification")]
-    public TaxReportingClassification? TaxReportingClassification { get; init; }
+    public TaxReportingClassification2? TaxReportingClassification { get; init; }
 
+    /// <summary>
+    /// Type of organization.
+    /// <para>
+    /// Possible values: <b>associationIncorporated</b>, <b>governmentalOrganization</b>, <b>listedPublicCompany</b>, <b>nonProfit</b>, <b>partnershipIncorporated</b>, <b>privateCompany</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
     public Type161? Type { get; init; }
 
+    /// <summary>
+    /// The reason the organization has not provided a VAT number.
+    /// <para>
+    /// Possible values: <b>industryExemption</b>, <b>belowTaxThreshold</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("vatAbsenceReason")]
     public VatAbsenceReason? VatAbsenceReason { get; init; }
@@ -175,7 +217,10 @@ public record Organization
     [JsonPropertyName("vatNumber")]
     public string? VatNumber { get; init; }
 
+    /// <summary>
+    /// The website and app URL of the legal entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("webData")]
-    public WebData? WebData { get; init; }
+    public WebData1? WebData { get; init; }
 }

@@ -149,8 +149,11 @@ public record BalancePlatformConfiguration
     [JsonPropertyName("userSettlementDelay")]
     public required int UserSettlementDelay { get; init; }
 
+    /// <summary>
+    /// The time when the payout funds are settled in your user's transfer instrument.
+    /// </summary>
     [JsonPropertyName("userSettlementTime")]
-    public required LocalTime UserSettlementTime { get; init; }
+    public required LocalTime2 UserSettlementTime { get; init; }
 
     /// <summary>
     /// The timezone of the <c>userSettlementTime</c>.

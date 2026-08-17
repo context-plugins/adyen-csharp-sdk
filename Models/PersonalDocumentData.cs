@@ -37,6 +37,12 @@ public record PersonalDocumentData
     [JsonPropertyName("number")]
     public string? Number { get; init; }
 
+    /// <summary>
+    /// The type of the document. Possible values: <b>ID</b>, <b>DRIVINGLICENSE</b>, <b>PASSPORT</b>, <b>SOCIALSECURITY</b>, <b>VISA</b>.
+    /// <para>
+    /// To delete an existing entry for a document <c>type</c>, send only the <c>type</c> field in your request.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required TypeEnum Type { get; init; }
+    public required Type15 Type { get; init; }
 }

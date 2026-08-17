@@ -6,8 +6,11 @@ namespace Adyen.Models;
 
 public record PaymentRefundResponse
 {
+    /// <summary>
+    /// The refund amount.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount39 Amount { get; init; }
 
     /// <summary>
     /// This is only available for PayPal refunds. The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the specific capture to refund.
@@ -30,9 +33,12 @@ public record PaymentRefundResponse
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// Your reason for the refund request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("merchantRefundReason")]
-    public object? MerchantRefundReason { get; init; }
+    public MerchantRefundReason1? MerchantRefundReason { get; init; }
 
     /// <summary>
     /// The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the payment to refund.
@@ -64,7 +70,7 @@ public record PaymentRefundResponse
     /// The status of your request. This will always have the value <b>received</b>.
     /// </summary>
     [JsonPropertyName("status")]
-    public required Status20 Status { get; init; }
+    public string Status { get; } = "received";
 
     /// <summary>
     /// The online store or <see href="https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores">physical store</see> that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.

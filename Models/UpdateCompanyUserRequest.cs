@@ -43,6 +43,9 @@ public record UpdateCompanyUserRequest
     [JsonPropertyName("loginMethod")]
     public string? LoginMethod { get; init; }
 
+    /// <summary>
+    /// The user's full name.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
     public Name22? Name { get; init; }

@@ -15,5 +15,5 @@ public record DocumentPage
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type92? Type { get; init; }
+    public Type91? Type { get; init; }
 }

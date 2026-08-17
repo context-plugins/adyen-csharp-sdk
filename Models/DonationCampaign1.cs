@@ -34,9 +34,12 @@ public record DonationCampaign1
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// The settings for in-person donations collected as part of the campaign.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inPerson")]
-    public InPersonDonationSettingsResponse? InPerson { get; init; }
+    public InPersonDonationSettingsResponse2? InPerson { get; init; }
 
     /// <summary>
     /// The name of the donation campaign.
@@ -44,13 +47,22 @@ public record DonationCampaign1
     [JsonPropertyName("name")]
     public required string Name { get; init; }
 
+    /// <summary>
+    /// The nonprofit cause that the campaign supports.
+    /// </summary>
     [JsonPropertyName("nonprofitCause")]
-    public required DonationCampaignNonprofitCause NonprofitCause { get; init; }
+    public required DonationCampaignNonprofitCause2 NonprofitCause { get; init; }
 
+    /// <summary>
+    /// The settings for online donations collected as part of the campaign.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("online")]
-    public OnlineDonationSettingsResponse? Online { get; init; }
+    public OnlineDonationSettingsResponse2? Online { get; init; }
 
+    /// <summary>
+    /// The current status of the donation campaign.
+    /// </summary>
     [JsonPropertyName("status")]
     public required DonationCampaignStatus2 Status { get; init; }
 }

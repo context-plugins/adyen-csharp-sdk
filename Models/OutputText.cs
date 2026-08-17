@@ -41,18 +41,47 @@ public record OutputText
     [Maximum(500)]
     public int? StartColumn { get; init; }
 
+    /// <summary>
+    /// Character width of the text string to display or print. Absence of this data element means the characters have normal width.
+    /// Possible values:
+    /// * <b>DoubleWidth</b>
+    /// * <b>SingleWidth</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CharacterWidth")]
     public CharacterWidth1? CharacterWidth { get; init; }
 
+    /// <summary>
+    /// Character height of the text string to display or print. Absence of this data element means the characters have normal height.
+    /// Possible values:
+    /// * <b>DoubleHeight</b>
+    /// * <b>HalfHeight</b>
+    /// * <b>SingleHeight</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CharacterHeight")]
     public CharacterHeight1? CharacterHeight { get; init; }
 
+    /// <summary>
+    /// Typographic style of the sequence of characters to display or print. Absence of this data element means the characters have normal style.
+    /// Possible values:
+    /// * <b>Bold</b>
+    /// * <b>Italic</b>
+    /// * <b>Normal</b>
+    /// * <b>Underline</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CharacterStyle")]
     public CharacterStyle1? CharacterStyle { get; init; }
 
+    /// <summary>
+    /// Alignment of the text string on the display line or print line. Absence of this data element means the characters have normal alignment.
+    /// Possible values:
+    /// * <b>Centred</b>
+    /// * <b>Justified</b>
+    /// * <b>Left</b>
+    /// * <b>Right</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("Alignment")]
     public Alignment1? Alignment { get; init; }

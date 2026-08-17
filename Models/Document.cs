@@ -7,9 +7,12 @@ namespace Adyen.Models;
 
 public record Document
 {
+    /// <summary>
+    /// Object that contains the document.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attachment")]
-    public Attachment? Attachment { get; init; }
+    public Attachment1? Attachment { get; init; }
 
     /// <summary>
     /// Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
@@ -80,10 +83,34 @@ public record Document
     [JsonPropertyName("number")]
     public string? Number { get; init; }
 
+    /// <summary>
+    /// Contains information about the resource that owns the document.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("owner")]
-    public OwnerEntity? Owner { get; init; }
+    public OwnerEntity2? Owner { get; init; }
 
+    /// <summary>
+    /// Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.
+    /// <list type="bullet">
+    ///   <item><description>For <b>organization</b>, the <c>type</c> values can be <b>proofOfAddress</b>, <b>registrationDocument</b>, <b>vatDocument</b>, <b>proofOfOrganizationTaxInfo</b>, <b>proofOfOwnership</b>, <b>proofOfIndustry</b>, <b>proofOfSignatory</b>, <b>proofOfDirector</b>, or <b>proofOfFundingOrWealthSource</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>For <b>individual</b>, the <c>type</c> values can be <b>identityCard</b>, <b>driversLicense</b>, <b>passport</b>, <b>liveSelfie</b>, <b>proofOfNationalIdNumber</b>, <b>proofOfResidency</b>, <b>proofOfIndustry</b>, <b>proofOfIndividualTaxId</b>, <b>proofOfFundingOrWealthSource</b> or <b>proofOfRelationship</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>For <b>soleProprietorship</b>, the <c>type</c> values can be <b>constitutionalDocument</b>, <b>proofOfAddress</b>, or <b>proofOfIndustry</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>For <b>trust</b>, the <c>type</c> value is <b>constitutionalDocument</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>For <b>unincorporatedPartnership</b>, the <c>type</c> value is <b>constitutionalDocument</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>Use <b>bankStatement</b> to upload documents for a <see href="https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id">transfer instrument</see>.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type81 Type { get; init; }
+    public required Type84 Type { get; init; }
 }

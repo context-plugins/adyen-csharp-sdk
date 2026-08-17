@@ -9,7 +9,7 @@ public record PaginatedAccountHoldersResponse
     /// List of account holders.
     /// </summary>
     [JsonPropertyName("accountHolders")]
-    public required IReadOnlyList<AccountHolder2> AccountHolders { get; init; }
+    public required IReadOnlyList<AccountHolder> AccountHolders { get; init; }
 
     /// <summary>
     /// Indicates whether there are more items on the next page.

@@ -7,6 +7,9 @@ namespace Adyen.Models;
 /// </summary>
 public record ThresholdRepayment21
 {
+    /// <summary>
+    /// The minimum threshold amount that your user must repay on every 30-day period.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 }

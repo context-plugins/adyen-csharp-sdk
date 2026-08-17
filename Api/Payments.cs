@@ -29,7 +29,7 @@ public sealed class Payments
     }
 
     /// <summary>
-    /// get-sessions-sessionId
+    /// Get the result of a payment session
     /// </summary>
     /// <param name="sessionId">A unique identifier of the session.</param>
     /// <param name="sessionResult">The <c>sessionResult</c> value from the Drop-in or Component.</param>
@@ -57,7 +57,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-authorise
+    /// Create an authorisation
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -78,7 +78,7 @@ public sealed class Payments
     public Task<PaymentResult> PostAuthorise(PaymentRequest1? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/authorise"),
+        _rawClient.Execute(_server.Default1("/authorise"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -91,7 +91,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-authorise3d
+    /// Complete a 3DS authorisation
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -112,7 +112,7 @@ public sealed class Payments
     public Task<PaymentResult> PostAuthorise3D(PaymentRequest3D? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/authorise3d"),
+        _rawClient.Execute(_server.Default1("/authorise3d"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -125,7 +125,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-authorise3ds2
+    /// Complete a 3DS2 authorisation
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -146,7 +146,7 @@ public sealed class Payments
     public Task<PaymentResult> PostAuthorise3Ds2(PaymentRequest3Ds2? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/authorise3ds2"),
+        _rawClient.Execute(_server.Default1("/authorise3ds2"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -159,7 +159,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-cardDetails
+    /// Get the brands and other details of a card
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -215,7 +215,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-getAuthenticationResult
+    /// Get the 3DS authentication result
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -228,7 +228,7 @@ public sealed class Payments
     public Task<AuthenticationResultResponse> PostGetAuthenticationResult(AuthenticationResultRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getAuthenticationResult"),
+        _rawClient.Execute(_server.Default1("/getAuthenticationResult"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -241,7 +241,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-paymentMethods
+    /// Get a list of available payment methods
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -269,7 +269,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-payments
+    /// Start a transaction
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -300,7 +300,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-payments-cancel
+    /// Cancel payment
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -313,7 +313,7 @@ public sealed class Payments
     public Task<CancelPaymentResponse> PostPaymentsCancel(CancelPaymentRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/payments/cancel"),
+        _rawClient.Execute(_server.Default20("/payments/cancel"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -326,7 +326,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-payments-confirm
+    /// Confirm payment
     /// </summary>
     /// <param name="wwwAuthenticate">Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments.</param>
     /// <param name="body"></param>
@@ -352,7 +352,7 @@ public sealed class Payments
         ConfirmPaymentRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/payments/confirm"),
+        _rawClient.Execute(_server.Default20("/payments/confirm"),
             [],
             [],
             [new HeaderParam("WWW-Authenticate", wwwAuthenticate),
@@ -366,33 +366,61 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-payments-details
+    /// Submit details for a payment
     /// </summary>
+    /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="PaymentDetailsResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostPaymentsDetailsError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the details of an open payment, which you must show to the user. Also provides a token required to <see href="https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm">confirm</see> or <see href="https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel">cancel</see> the payment.
+    /// Submits details for a payment created using <c>/payments</c>. This step is only needed when no final state has been reached on the <c>/payments</c> request, for example when the shopper was redirected to another page to complete the payment.
     /// </remarks>
-    public Task<PaymentDetailsResponse> PostPaymentsDetails(IdealPaymentDetailsRequest body,
+    public Task<PaymentDetailsResponse> PostPaymentsDetails(string? idempotencyKey,
+        PaymentDetailsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/payments/details"),
             [],
             [],
-            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", idempotencyKey)],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<PaymentDetailsResponse>(),
             PostPaymentsDetailsErrorResponse.Instance,
+            [new AuthSchemeAny(_auth.BasicAuth, _auth.ApiKeyAuth)],
+            requestOptions,
+            ct);
+
+    /// <summary>
+    /// Retrieve payment details
+    /// </summary>
+    /// <param name="body"></param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="ct">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PaymentDetailsResponse1"/> instance.</returns>
+    /// <exception cref="SdkException{TResult}"> of <see cref="PostPaymentsDetails1Error"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Returns the details of an open payment, which you must show to the user. Also provides a token required to <see href="https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm">confirm</see> or <see href="https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel">cancel</see> the payment.
+    /// </remarks>
+    public Task<PaymentDetailsResponse1> PostPaymentsDetails1(IdealPaymentDetailsRequest body,
+        RequestOptions? requestOptions = null,
+        CancellationToken ct = default) =>
+        _rawClient.Execute(_server.Default20("/payments/details"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(body),
+            JsonResponse.Create<PaymentDetailsResponse1>(),
+            PostPaymentsDetails1ErrorResponse.Instance,
             [],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-retrieve3ds2Result
+    /// Get the 3DS2 authentication result
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -405,7 +433,7 @@ public sealed class Payments
     public Task<ThreeDs2ResultResponse> PostRetrieve3Ds2Result(ThreeDs2ResultRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/retrieve3ds2Result"),
+        _rawClient.Execute(_server.Default1("/retrieve3ds2Result"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -418,7 +446,7 @@ public sealed class Payments
             ct);
 
     /// <summary>
-    /// post-sessions
+    /// Create a payment session
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>

@@ -10,9 +10,13 @@ namespace Adyen.Models;
 /// </summary>
 public record TransactionStatusRequest
 {
+    /// <summary>
+    /// Identification of a previous POI transaction.
+    /// Present if it contains any data.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("MessageReference")]
-    public MessageReference1? MessageReference { get; init; }
+    public MessageReference2? MessageReference { get; init; }
 
     /// <summary>
     /// Request to reprint the POI receipt(s). Allows reprinting a receipt with a <c>TransactionStatus</c> message

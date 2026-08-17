@@ -8,7 +8,10 @@ namespace Adyen.Models;
 /// </summary>
 public record WebDataExemption1
 {
+    /// <summary>
+    /// The reason why the web data was not provided. Possible value: <b>noOnlinePresence</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reason")]
-    public Reason1? Reason { get; init; }
+    public Reason3? Reason { get; init; }
 }

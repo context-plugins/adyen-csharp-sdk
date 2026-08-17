@@ -14,17 +14,26 @@ public record CounterpartyV31
     [JsonPropertyName("balanceAccountId")]
     public string? BalanceAccountId { get; init; }
 
+    /// <summary>
+    /// Contains information about the counterparty bank account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bankAccount")]
-    public BankAccountV3? BankAccount { get; init; }
+    public BankAccountV31? BankAccount { get; init; }
 
+    /// <summary>
+    /// Contains information about the counterparty card.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card4? Card { get; init; }
+    public Card12? Card { get; init; }
 
+    /// <summary>
+    /// Contains information about the merchant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("merchant")]
-    public MerchantData? Merchant { get; init; }
+    public MerchantData2? Merchant { get; init; }
 
     /// <summary>
     /// The unique identifier of the counterparty <see href="https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id">transfer instrument</see>.

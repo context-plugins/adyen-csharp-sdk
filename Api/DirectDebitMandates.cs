@@ -24,7 +24,7 @@ public sealed class DirectDebitMandates
     }
 
     /// <summary>
-    /// get-mandates
+    /// Get a list of mandates
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account linked to the payment instrument.</param>
     /// <param name="paymentInstrumentId">The unique identifier of the payment instrument linked to the mandate.</param>
@@ -41,7 +41,7 @@ public sealed class DirectDebitMandates
         string? cursor,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/mandates"),
+        _rawClient.Execute(_server.Default13("/mandates"),
             [],
             [new Param("balanceAccountId", balanceAccountId),
                 new Param("paymentInstrumentId", paymentInstrumentId),
@@ -56,33 +56,33 @@ public sealed class DirectDebitMandates
             ct);
 
     /// <summary>
-    /// get-mandates-mandateId
+    /// Get a specific mandate
     /// </summary>
     /// <param name="mandateId">The unique identifier of the mandate.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Mandate"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Mandate1"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="GetMandatesMandateIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns the details of the specified <see href="https://docs.adyen.com/business-accounts/accept-direct-debits-uk">direct debit mandate</see>.
     /// </remarks>
-    public Task<Mandate> GetMandatesMandateId(string mandateId,
+    public Task<Mandate1> GetMandatesMandateId(string mandateId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/mandates/{mandateId}"),
+        _rawClient.Execute(_server.Default13("/mandates/{mandateId}"),
             [new TemplateParam("mandateId", mandateId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<Mandate>(),
+            JsonResponse.Create<Mandate1>(),
             GetMandatesMandateIdErrorResponse.Instance,
             [],
             requestOptions,
             ct);
 
     /// <summary>
-    /// patch-mandates-mandateId
+    /// Amend a mandate
     /// </summary>
     /// <param name="mandateId">The unique identifier of the mandate.</param>
     /// <param name="body"></param>
@@ -97,7 +97,7 @@ public sealed class DirectDebitMandates
         MandateUpdate body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/mandates/{mandateId}"),
+        _rawClient.Execute(_server.Default13("/mandates/{mandateId}"),
             [new TemplateParam("mandateId", mandateId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -110,7 +110,7 @@ public sealed class DirectDebitMandates
             ct);
 
     /// <summary>
-    /// post-mandates-mandateId-cancel
+    /// Cancel a mandate
     /// </summary>
     /// <param name="mandateId">The unique identifier of the mandate.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -123,7 +123,7 @@ public sealed class DirectDebitMandates
     public Task PostMandatesMandateIdCancel(string mandateId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/mandates/{mandateId}/cancel"),
+        _rawClient.Execute(_server.Default13("/mandates/{mandateId}/cancel"),
             [new TemplateParam("mandateId", mandateId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

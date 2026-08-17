@@ -27,7 +27,7 @@ public sealed class ApiCredentialsCompanyLevel
     }
 
     /// <summary>
-    /// get-companies-companyId-apiCredentials
+    /// Get a list of API credentials
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -48,7 +48,7 @@ public sealed class ApiCredentialsCompanyLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -61,7 +61,7 @@ public sealed class ApiCredentialsCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-apiCredentials-apiCredentialId
+    /// Get an API credential
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -80,7 +80,7 @@ public sealed class ApiCredentialsCompanyLevel
         string apiCredentialId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [],
@@ -93,7 +93,7 @@ public sealed class ApiCredentialsCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-apiCredentials-apiCredentialId
+    /// Update an API credential.
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -114,7 +114,7 @@ public sealed class ApiCredentialsCompanyLevel
         UpdateCompanyApiCredentialRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -127,7 +127,7 @@ public sealed class ApiCredentialsCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-apiCredentials
+    /// Create an API credential.
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="body"></param>
@@ -158,7 +158,7 @@ public sealed class ApiCredentialsCompanyLevel
         CreateCompanyApiCredentialRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -7,10 +7,7 @@ namespace Adyen.Models;
 /// </summary>
 public record TaxTotal2
 {
-    /// <summary>
-    /// The transaction amount used as a base for the cost estimation.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount2? Amount { get; init; }
+    public Amount? Amount { get; init; }
 }

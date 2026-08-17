@@ -4,11 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// Status of the payment link. Possible values:
-/// * <b>active</b>: The link can be used to make payments.
-/// * <b>expired</b>: The expiry date for the payment link has passed. Shoppers can no longer use the link to make payments.
-/// * <b>completed</b>: The shopper completed the payment.
-/// * <b>paymentPending</b>: The shopper is in the process of making the payment. Applies to payment methods with an asynchronous flow.
+/// On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status31>))]
 public sealed record Status31 : StringEnum<Status31>
@@ -17,15 +13,15 @@ public sealed record Status31 : StringEnum<Status31>
     {
     }
 
-    public static readonly Status31 Active = new("active");
+    public static readonly Status31 Activated = new("activated");
 
-    public static readonly Status31 Completed = new("completed");
+    public static readonly Status31 Deactivated = new("deactivated");
 
-    public static readonly Status31 Expired = new("expired");
+    public static readonly Status31 Deprecated = new("deprecated");
 
-    public static readonly Status31 Paid = new("paid");
+    public static readonly Status31 Inventory = new("inventory");
 
-    public static readonly Status31 PaymentPending = new("paymentPending");
+    public static readonly Status31 ReadyForActivation = new("readyForActivation");
 
     public static Status31 FromValue(string value) => FromValueCore(value);
 }

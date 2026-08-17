@@ -4,10 +4,33 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The status of the card order.
+/// The status you want to change to, The status of the sweep. If not provided, by default, this is set to <b>active</b>.
 /// <para>
-/// Possible values: <b>Open</b>, <b>Closed</b>.
+/// Possible values:
 /// </para>
+/// <list type="bullet">
+///   <item><description><b>active</b>:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.</description></item>
+/// </list>
+/// <para>
+///  * <b>inactive</b>: the sweep is disabled and cannot be triggered., The status of the transaction rule. If you provide a <c>startDate</c> in the request, the rule is automatically created
+/// with an <b>active</b> status.
+/// </para>
+/// <para>
+/// Possible values: <b>active</b>, <b>inactive</b>., The status of the webhook setting. Possible values:
+/// </para>
+/// <list type="bullet">
+///   <item><description><b>active</b>: You receive a balance webhook if any of the conditions in this setting are met.</description></item>
+///   <item><description><b>inactive</b>: You do not receive a balance webhook even if the conditions in this settings are met., The status of the recurring top-up. If not provided, by default, this is set to <b>active</b>.</description></item>
+/// </list>
+/// <para>
+/// Possible values:
+/// </para>
+/// <list type="bullet">
+///   <item><description><b>active</b>:  the top up is enabled and funds will be pulled in.</description></item>
+/// </list>
+/// <list type="bullet">
+///   <item><description><b>inactive</b>: the top up is disabled and cannot be triggered.</description></item>
+/// </list>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status6>))]
 public sealed record Status6 : StringEnum<Status6>
@@ -16,9 +39,9 @@ public sealed record Status6 : StringEnum<Status6>
     {
     }
 
-    public static readonly Status6 Closed = new("closed");
+    public static readonly Status6 Active = new("active");
 
-    public static readonly Status6 Open = new("open");
+    public static readonly Status6 Inactive = new("inactive");
 
     public static Status6 FromValue(string value) => FromValueCore(value);
 }

@@ -15,9 +15,12 @@ public record StoredValueIssueResponse
     [JsonPropertyName("authCode")]
     public string? AuthCode { get; init; }
 
+    /// <summary>
+    /// The balance currently on the payment method.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("currentBalance")]
-    public CurrentBalance? CurrentBalance { get; init; }
+    public Amount? CurrentBalance { get; init; }
 
     /// <summary>
     /// The collection that contains the type of the payment method and its specific information if available
@@ -43,6 +46,15 @@ public record StoredValueIssueResponse
     [JsonPropertyName("refusalReason")]
     public string? RefusalReason { get; init; }
 
+    /// <summary>
+    /// The result of the payment. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>Success</b> – The operation has been completed successfully.</description></item>
+    ///   <item><description><b>Refused</b> – The operation was refused. The reason is given in the <c>refusalReason</c> field.</description></item>
+    ///   <item><description><b>Error</b> – There was an error when the operation was processed. The reason is given in the <c>refusalReason</c> field.</description></item>
+    ///   <item><description><b>NotEnoughBalance</b> – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("resultCode")]
     public ResultCode3? ResultCode { get; init; }

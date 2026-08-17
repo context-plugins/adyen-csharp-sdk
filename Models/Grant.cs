@@ -4,12 +4,18 @@ namespace Adyen.Models;
 
 public record Grant
 {
+    /// <summary>
+    /// Contains information about the balances of the grant.
+    /// </summary>
     [JsonPropertyName("balances")]
-    public required Balances Balances { get; init; }
+    public required CapitalBalance Balances { get; init; }
 
+    /// <summary>
+    /// Contains the details of the party that receives the grant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("counterparty")]
-    public Counterparty10? Counterparty { get; init; }
+    public GrantCounterparty? Counterparty { get; init; }
 
     /// <summary>
     /// The unique identifier of the grant account that tracks this grant.
@@ -29,6 +35,9 @@ public record Grant
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// Contains the status of the grant.
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status8 Status { get; init; }
+    public required Status25 Status { get; init; }
 }

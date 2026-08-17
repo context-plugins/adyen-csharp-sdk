@@ -29,7 +29,7 @@ public sealed class Transactions
     }
 
     /// <summary>
-    /// get-transactions
+    /// Get all transactions
     /// </summary>
     /// <param name="createdSince">Only include transactions that have been created on or after this point in time. The value must be in ISO 8601 format. For example, <b>2021-05-30T15:07:40Z</b>.</param>
     /// <param name="createdUntil">Only include transactions that have been created on or before this point in time. The value must be in ISO 8601 format. For example, <b>2021-05-30T15:07:40Z</b>.</param>
@@ -66,11 +66,11 @@ public sealed class Transactions
         string? accountHolderId,
         string? balanceAccountId,
         string? cursor,
-        SortOrder2? sortOrder,
+        SortOrder? sortOrder,
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transactions"),
+        _rawClient.Execute(_server.Default14("/transactions"),
             [],
             [new Param("createdSince", createdSince.ToIso8601()),
                 new Param("createdUntil", createdUntil.ToIso8601()),
@@ -91,12 +91,12 @@ public sealed class Transactions
             ct);
 
     /// <summary>
-    /// get-transactions-id
+    /// Get a transaction
     /// </summary>
     /// <param name="id">The unique identifier of the transaction.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Transaction1"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Transaction"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="GetTransactionsIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// &gt;Versions 1 and 2 of the Transfers API are deprecated. If you are just starting your implementation, use the latest version.
@@ -104,16 +104,16 @@ public sealed class Transactions
     /// Returns a transaction.
     /// </para>
     /// </remarks>
-    public Task<Transaction1> GetTransactionsId(string id,
+    public Task<Transaction> GetTransactionsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transactions/{id}"),
+        _rawClient.Execute(_server.Default14("/transactions/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<Transaction1>(),
+            JsonResponse.Create<Transaction>(),
             GetTransactionsIdErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,

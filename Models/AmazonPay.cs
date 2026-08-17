@@ -35,7 +35,9 @@ public record AmazonPay
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>amazonpay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type41? Type { get; init; }
+    public Type4? Type { get; init; } = Type4.Amazonpay;
 }

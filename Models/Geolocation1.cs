@@ -14,5 +14,5 @@ public record Geolocation1
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("UTMCoordinates")]
-    public Utmcoordinates? Utmcoordinates { get; init; }
+    public UtmCoordinates? UtmCoordinates { get; init; }
 }

@@ -32,9 +32,12 @@ public record AccountPayoutState
     [JsonPropertyName("notAllowedReason")]
     public string? NotAllowedReason { get; init; }
 
+    /// <summary>
+    /// The maximum amount that payouts are limited to. Only applies if payouts are allowed but limited.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutLimit")]
-    public PayoutLimit? PayoutLimit { get; init; }
+    public Amount? PayoutLimit { get; init; }
 
     /// <summary>
     /// The payout tier that the account holder occupies.

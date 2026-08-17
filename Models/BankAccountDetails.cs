@@ -61,5 +61,5 @@ public record BankAccountDetails
     /// <b>iban</b> or <b>usLocal</b> or <b>ukLocal</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public string Type { get; init; } = "iban";
 }

@@ -7,9 +7,15 @@ namespace Adyen.Models;
 
 public record StoredValueLoadRequest
 {
+    /// <summary>
+    /// The amount information for the transaction.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
+    /// <summary>
+    /// The type of load you are trying to do, when absent we default to 'load'
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("loadType")]
     public LoadType? LoadType { get; init; }
@@ -38,9 +44,20 @@ public record StoredValueLoadRequest
     [JsonPropertyName("reference")]
     public required string Reference { get; init; }
 
+    /// <summary>
+    /// Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer.
+    /// For the web service API, Adyen assumes Ecommerce shopper interaction by default.
+    /// <para>
+    /// This field has the following possible values:
+    /// * <c>Ecommerce</c> - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request.
+    /// * <c>ContAuth</c> - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment).
+    /// * <c>Moto</c> - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone.
+    /// * <c>POS</c> - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperInteraction")]
-    public ShopperInteraction1? ShopperInteraction { get; init; }
+    public ShopperInteraction? ShopperInteraction { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperReference")]

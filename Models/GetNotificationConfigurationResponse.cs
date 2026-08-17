@@ -5,8 +5,11 @@ namespace Adyen.Models;
 
 public record GetNotificationConfigurationResponse
 {
+    /// <summary>
+    /// Details of the notification subscription configuration.
+    /// </summary>
     [JsonPropertyName("configurationDetails")]
-    public required NotificationConfigurationDetails ConfigurationDetails { get; init; }
+    public required NotificationConfigurationDetails2 ConfigurationDetails { get; init; }
 
     /// <summary>
     /// Contains field validation errors that would prevent requests from being processed.

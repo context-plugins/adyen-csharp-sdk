@@ -4,12 +4,18 @@ namespace Adyen.Models;
 
 public record CashOutInfo
 {
+    /// <summary>
+    /// Contains the amount of the cashout, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 
+    /// <summary>
+    /// Contains information about the counterparty of the cashout transfer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("counterparty")]
-    public CashOutInfoCounterparty? Counterparty { get; init; }
+    public CashOutInfoCounterparty1? Counterparty { get; init; }
 
     /// <summary>
     /// Allowed and returned only when you provide the <c>counterparty.transferInstrumentId</c> field.
@@ -27,9 +33,12 @@ public record CashOutInfo
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// Contains the currency and value of the cashout fee, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fee")]
-    public Fee2? Fee { get; init; }
+    public Fee21? Fee { get; init; }
 
     /// <summary>
     /// The ID of the resource.

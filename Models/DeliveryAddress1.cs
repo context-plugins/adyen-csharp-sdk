@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
+/// <summary>
+/// The address where the purchased goods should be delivered.
+/// </summary>
 public record DeliveryAddress1
 {
     /// <summary>

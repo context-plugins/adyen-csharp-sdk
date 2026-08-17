@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -23,7 +22,7 @@ public record CheckoutAwaitAction
     /// <b>await</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type493 Type { get; init; }
+    public string Type { get; } = "await";
 
     /// <summary>
     /// Specifies the URL to redirect to.

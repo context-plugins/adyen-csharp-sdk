@@ -4,8 +4,11 @@ namespace Adyen.Models;
 
 public record Financier
 {
+    /// <summary>
+    /// The amount of the funds the financier provided.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount64 Amount { get; init; }
+    public required PatchableAmountDto Amount { get; init; }
 
     /// <summary>
     /// The financier's first name.

@@ -5,9 +5,6 @@ using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
-/// <summary>
-/// Contains information about the source of your user's funds. Required only if the <c>service</c> is <b>banking</b> or <b>issuing</b>.
-/// </summary>
 public record SourceOfFunds1
 {
     /// <summary>
@@ -16,9 +13,15 @@ public record SourceOfFunds1
     [JsonPropertyName("adyenProcessedFunds")]
     public required bool AdyenProcessedFunds { get; init; }
 
+    /// <summary>
+    /// Required if <c>type</c> is <b>business</b>, <b>assetSale</b>, <b>gamblingWinnings</b> or <b>inheritance</b>.
+    /// <para>
+    /// For <c>type</c> <b>business</b>, provide the annual turn over of the business. For <c>type</c> <b>assetSale</b>, <b>gamblingWinnings</b> or <b>inheritance</b>, provide the amount of the funds.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount64? Amount { get; init; }
+    public PatchableAmountDto? Amount { get; init; }
 
     /// <summary>
     /// The number of months that the asset has been in possession of the user.
@@ -95,9 +98,33 @@ public record SourceOfFunds1
     [JsonPropertyName("relationship")]
     public string? Relationship { get; init; }
 
+    /// <summary>
+    /// The type of the source of funds.
+    /// <para>
+    ///
+    /// </para>
+    /// <para>
+    /// Possible values:
+    /// *  <b>business</b>
+    /// *  <b>employment</b>
+    /// *  <b>donations</b>
+    /// *  <b>inheritance</b>
+    /// *  <b>financialAid</b>
+    /// *  <b>rentalIncome</b>
+    /// *  <b>dividendIncome</b>
+    /// *  <b>royaltyIncome</b>
+    /// *  <b>thirdPartyFunding</b>
+    /// *  <b>pensionIncome</b>
+    /// *  <b>insuranceSettlement</b>
+    /// *  <b>cryptocurrencyIncome</b>
+    /// *  <b>assetSale</b>
+    /// *  <b>loans</b>
+    /// *  <b>gamblingWinnings</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type72? Type { get; init; }
+    public Type74? Type { get; init; }
 
     /// <summary>
     /// Required if <c>type</c> is <b>gamblingWinnings</b>. The location of the gambling site for the winnings.

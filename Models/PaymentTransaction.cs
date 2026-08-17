@@ -4,14 +4,24 @@ namespace Adyen.Models;
 
 public record PaymentTransaction
 {
+    /// <summary>
+    /// Various amounts related to the payment request from the Sale System.
+    /// </summary>
     [JsonPropertyName("AmountsReq")]
-    public required AmountsReq1 AmountsReq { get; init; }
+    public required AmountsReq AmountsReq { get; init; }
 
+    /// <summary>
+    /// Identification of a previous POI transaction.
+    /// In the Payment Request message, it allows using the card of a previous CardAcquisition or Payment request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("OriginalPOITransaction")]
-    public OriginalPoitransaction3? OriginalPoitransaction { get; init; }
+    public OriginalPoiTransaction? OriginalPoiTransaction { get; init; }
 
+    /// <summary>
+    /// Conditions on which the transaction must be processed.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TransactionConditions")]
-    public TransactionConditions1? TransactionConditions { get; init; }
+    public TransactionConditions? TransactionConditions { get; init; }
 }

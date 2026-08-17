@@ -16,8 +16,11 @@ public record CurrencyConversion
     [JsonPropertyName("CustomerApprovedFlag")]
     public bool? CustomerApprovedFlag { get; init; } = true;
 
+    /// <summary>
+    /// Amount after a currency conversion.
+    /// </summary>
     [JsonPropertyName("ConvertedAmount")]
-    public required ConvertedAmount ConvertedAmount { get; init; }
+    public required ConvertedAmount1 ConvertedAmount { get; init; }
 
     /// <summary>
     /// Rate of currency conversion.

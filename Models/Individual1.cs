@@ -8,9 +8,12 @@ namespace Adyen.Models;
 /// </summary>
 public record Individual1
 {
+    /// <summary>
+    /// The individual's birth information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("birthData")]
-    public BirthData? BirthData { get; init; }
+    public BirthData1? BirthData { get; init; }
 
     /// <summary>
     /// The email address of the legal entity.
@@ -19,12 +22,18 @@ public record Individual1
     [JsonPropertyName("email")]
     public string? Email { get; init; }
 
+    /// <summary>
+    /// Information about the individual's identification document.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("identificationData")]
-    public IdentificationData? IdentificationData { get; init; }
+    public IdentificationData1? IdentificationData { get; init; }
 
+    /// <summary>
+    /// The individual's name.
+    /// </summary>
     [JsonPropertyName("name")]
-    public required Name1 Name { get; init; }
+    public required Name23 Name { get; init; }
 
     /// <summary>
     /// The individual's nationality.
@@ -33,16 +42,25 @@ public record Individual1
     [JsonPropertyName("nationality")]
     public string? Nationality { get; init; }
 
+    /// <summary>
+    /// The phone number of the legal entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone")]
-    public PhoneNumber? Phone { get; init; }
+    public PhoneNumber2? Phone { get; init; }
 
+    /// <summary>
+    /// The residential address of the individual.
+    /// </summary>
     [JsonPropertyName("residentialAddress")]
-    public required Address1 ResidentialAddress { get; init; }
+    public required Address13 ResidentialAddress { get; init; }
 
+    /// <summary>
+    /// Support information for the legal entity. Required if you have a platform setup.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("support")]
-    public Support? Support { get; init; }
+    public Support1? Support { get; init; }
 
     /// <summary>
     /// The tax information of the individual.
@@ -51,7 +69,10 @@ public record Individual1
     [JsonPropertyName("taxInformation")]
     public IReadOnlyList<TaxInformation>? TaxInformation { get; init; }
 
+    /// <summary>
+    /// The website and app URL of the legal entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("webData")]
-    public WebData? WebData { get; init; }
+    public WebData1? WebData { get; init; }
 }

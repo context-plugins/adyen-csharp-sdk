@@ -15,6 +15,9 @@ public record FieldType
     [JsonPropertyName("field")]
     public string? Field { get; init; }
 
+    /// <summary>
+    /// The type of the field.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fieldName")]
     public FieldName? FieldName { get; init; }

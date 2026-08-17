@@ -4,9 +4,16 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The type of legal entity.
+/// The type of error.
 /// <para>
-///  Possible values: <b>individual</b>, <b>organization</b>, <b>soleProprietorship</b>, or <b>trust</b>.
+///
+/// </para>
+/// <para>
+/// Possible values:
+/// *  <b>invalidInput</b>
+/// *  <b>dataMissing</b>
+/// *  <b>pendingStatus</b>
+/// *  <b>dataReview</b>
 /// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type212>))]
@@ -16,15 +23,13 @@ public sealed record Type212 : StringEnum<Type212>
     {
     }
 
-    public static readonly Type212 Individual = new("individual");
+    public static readonly Type212 DataMissing = new("dataMissing");
 
-    public static readonly Type212 Organization = new("organization");
+    public static readonly Type212 DataReview = new("dataReview");
 
-    public static readonly Type212 SoleProprietorship = new("soleProprietorship");
+    public static readonly Type212 InvalidInput = new("invalidInput");
 
-    public static readonly Type212 Trust = new("trust");
-
-    public static readonly Type212 UnincorporatedPartnership = new("unincorporatedPartnership");
+    public static readonly Type212 PendingStatus = new("pendingStatus");
 
     public static Type212 FromValue(string value) => FromValueCore(value);
 }

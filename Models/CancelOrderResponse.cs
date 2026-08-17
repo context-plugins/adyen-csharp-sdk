@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -21,5 +20,5 @@ public record CancelOrderResponse
     /// </list>
     /// </summary>
     [JsonPropertyName("resultCode")]
-    public required ResultCode18 ResultCode { get; init; }
+    public string ResultCode { get; } = "Received";
 }

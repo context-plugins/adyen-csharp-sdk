@@ -7,14 +7,17 @@ namespace Adyen.Models;
 /// </summary>
 public record BankAccountV31
 {
+    /// <summary>
+    /// Information about the owner of the bank account.
+    /// </summary>
     [JsonPropertyName("accountHolder")]
-    public required PartyIdentification AccountHolder { get; init; }
+    public required PartyIdentification3 AccountHolder { get; init; }
 
     /// <summary>
     /// Contains the bank account details. The fields required in this object depend on the country of the bank account and the currency of the transfer.
     /// </summary>
     [JsonPropertyName("accountIdentification")]
-    public required AccountIdentification1 AccountIdentification { get; init; }
+    public required AccountIdentification AccountIdentification { get; init; }
 
     /// <summary>
     /// The unique token that identifies the stored bank account details of the counterparty for a payout.

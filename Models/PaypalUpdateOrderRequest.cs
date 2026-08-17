@@ -5,13 +5,19 @@ namespace Adyen.Models;
 
 public record PaypalUpdateOrderRequest
 {
+    /// <summary>
+    /// The updated final payment amount. This amount is the item total plus the shipping costs of the selected <c>deliveryMethod</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount44? Amount { get; init; }
 
+    /// <summary>
+    /// The delivery address for this order.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryAddress")]
-    public DeliveryAddress1? DeliveryAddress { get; init; }
+    public DeliveryAddress5? DeliveryAddress { get; init; }
 
     /// <summary>
     /// The list of new delivery methods and the cost of each.
@@ -20,9 +26,12 @@ public record PaypalUpdateOrderRequest
     [JsonPropertyName("deliveryMethods")]
     public IReadOnlyList<DeliveryMethod>? DeliveryMethods { get; init; }
 
+    /// <summary>
+    /// The discount amount for this order.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("discountAmount")]
-    public DiscountAmount? DiscountAmount { get; init; }
+    public Amount45? DiscountAmount { get; init; }
 
     /// <summary>
     /// The <c>paymentData</c> from the client side. This value changes every time you make a <c>/paypal/updateOrder</c> request.
@@ -45,11 +54,17 @@ public record PaypalUpdateOrderRequest
     [JsonPropertyName("sessionId")]
     public string? SessionId { get; init; }
 
+    /// <summary>
+    /// The shipping amount for this order.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shippingAmount")]
-    public ShippingAmount? ShippingAmount { get; init; }
+    public Amount46? ShippingAmount { get; init; }
 
+    /// <summary>
+    /// Total tax amount from the order.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("taxTotal")]
-    public TaxTotal? TaxTotal { get; init; }
+    public TaxTotal2? TaxTotal { get; init; }
 }

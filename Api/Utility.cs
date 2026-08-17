@@ -28,7 +28,7 @@ public sealed class Utility
     }
 
     /// <summary>
-    /// post-applePay-sessions
+    /// Get an Apple Pay session
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -59,7 +59,7 @@ public sealed class Utility
             ct);
 
     /// <summary>
-    /// post-originKeys
+    /// Create originKey values for domains
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -88,7 +88,7 @@ public sealed class Utility
             ct);
 
     /// <summary>
-    /// post-paypal-updateOrder
+    /// Updates the order for PayPal Express Checkout
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -116,7 +116,7 @@ public sealed class Utility
             ct);
 
     /// <summary>
-    /// post-validateShopperId
+    /// Validates shopper Id
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>

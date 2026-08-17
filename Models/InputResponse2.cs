@@ -7,10 +7,17 @@ namespace Adyen.Models;
 /// </summary>
 public record InputResponse2
 {
+    /// <summary>
+    /// Information related to the result the output (display, print, input).
+    /// If DisplayOutput present in the request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("OutputResult")]
-    public OutputResult2? OutputResult { get; init; }
+    public OutputResult1? OutputResult { get; init; }
 
+    /// <summary>
+    /// Contains the result and the content of the input.
+    /// </summary>
     [JsonPropertyName("InputResult")]
-    public required InputResult InputResult { get; init; }
+    public required InputResult2 InputResult { get; init; }
 }

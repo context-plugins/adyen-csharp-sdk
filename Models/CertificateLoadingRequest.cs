@@ -25,7 +25,10 @@ public record CertificateLoadingRequest
     [JsonPropertyName("store")]
     public string? Store { get; init; }
 
+    /// <summary>
+    /// The details of the sub-merchant that you want to process transactions for.Required if you are a registered payment facilitator. Do not include this parameter if you are not a payment facilitator.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subMerchantData")]
-    public SubMerchantData2? SubMerchantData { get; init; }
+    public SubMerchantData21? SubMerchantData { get; init; }
 }

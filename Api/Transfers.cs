@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Adyen.Core;
@@ -29,7 +30,7 @@ public sealed class Transfers
     }
 
     /// <summary>
-    /// get-transfers
+    /// Get all transfers
     /// </summary>
     /// <param name="createdSince">Only include transfers that have been created on or after this point in time. The value must be in ISO 8601 format and not earlier than 6 months before the <c>createdUntil</c> date. For example, <b>2021-05-30T15:07:40Z</b>.</param>
     /// <param name="createdUntil">Only include transfers that have been created on or before this point in time. The value must be in ISO 8601 format and not later than 6 months after the <c>createdSince</c> date. For example, <b>2021-05-30T15:07:40Z</b>.</param>
@@ -66,12 +67,12 @@ public sealed class Transfers
         string? paymentInstrumentId,
         string? reference,
         Category2? category,
-        SortOrder1? sortOrder,
+        SortOrder? sortOrder,
         string? cursor,
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transfers"),
+        _rawClient.Execute(_server.Default14("/transfers"),
             [],
             [new Param("createdSince", createdSince.ToIso8601()),
                 new Param("createdUntil", createdUntil.ToIso8601()),
@@ -94,7 +95,7 @@ public sealed class Transfers
             ct);
 
     /// <summary>
-    /// get-transfers-id
+    /// Get a transfer
     /// </summary>
     /// <param name="id">Unique identifier of the transfer.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -107,7 +108,7 @@ public sealed class Transfers
     public Task<TransferData> GetTransfersId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transfers/{id}"),
+        _rawClient.Execute(_server.Default14("/transfers/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -120,7 +121,7 @@ public sealed class Transfers
             ct);
 
     /// <summary>
-    /// post-transfers
+    /// Transfer funds
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="wwwAuthenticate">Header for authenticating through SCA</param>
@@ -155,7 +156,7 @@ public sealed class Transfers
         TransferInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transfers"),
+        _rawClient.Execute(_server.Default14("/transfers"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", idempotencyKey), new HeaderParam("WWW-Authenticate", wwwAuthenticate)],
@@ -168,14 +169,14 @@ public sealed class Transfers
             ct);
 
     /// <summary>
-    /// post-transfers-approve
+    /// Approve initiated transfers
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="wwwAuthenticate">Header for authenticating through SCA</param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="JsonElement"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostTransfersApproveError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Initiates the approval of a list of transfers that triggered an additional <see href="https://docs.adyen.com/api-explorer/transfers/latest/post/transfers#request-review">review</see>. Adyen sends the outcome of the approval request through webhooks.
@@ -188,31 +189,31 @@ public sealed class Transfers
     /// Reach out to your Adyen contact to set up these permissions.
     /// </para>
     /// </remarks>
-    public Task<object> PostTransfersApprove(string? idempotencyKey,
+    public Task<JsonElement> PostTransfersApprove(string? idempotencyKey,
         string? wwwAuthenticate,
         ApproveTransfersRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transfers/approve"),
+        _rawClient.Execute(_server.Default14("/transfers/approve"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", idempotencyKey), new HeaderParam("WWW-Authenticate", wwwAuthenticate)],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<object>(),
+            JsonResponse.Create<JsonElement>(),
             PostTransfersApproveErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-transfers-cancel
+    /// Cancel initiated transfers
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="JsonElement"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostTransfersCancelError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Initiates the cancellation of a list of transfers that triggered an additional <see href="https://docs.adyen.com/api-explorer/transfers/latest/post/transfers#request-review">review</see>. Adyen sends the outcome of the cancel request through webhooks.
@@ -225,24 +226,24 @@ public sealed class Transfers
     /// Reach out to your Adyen contact to set up these permissions.
     /// </para>
     /// </remarks>
-    public Task<object> PostTransfersCancel(string? idempotencyKey,
+    public Task<JsonElement> PostTransfersCancel(string? idempotencyKey,
         CancelTransfersRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transfers/cancel"),
+        _rawClient.Execute(_server.Default14("/transfers/cancel"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", idempotencyKey)],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<object>(),
+            JsonResponse.Create<JsonElement>(),
             PostTransfersCancelErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-transfers-transferId-returns
+    /// Return a transfer
     /// </summary>
     /// <param name="transferId">The unique identifier of the transfer to be returned.</param>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
@@ -259,7 +260,7 @@ public sealed class Transfers
         ReturnTransferRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transfers/{transferId}/returns"),
+        _rawClient.Execute(_server.Default14("/transfers/{transferId}/returns"),
             [new TemplateParam("transferId", transferId)],
             [],
             [new HeaderParam("Idempotency-Key", idempotencyKey)],

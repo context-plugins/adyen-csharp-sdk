@@ -1,23 +1,27 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
 /// <summary>
-/// The phone number of the account holder.
+/// The home phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.
+/// &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the <c>shopperEmail</c>, and did not send the shopper's phone number in <c>telephoneNumber</c>.
 /// </summary>
 public record Phone3
 {
     /// <summary>
-    /// The full phone number provided as a single string.
-    /// For example, <b>"0031 6 11 22 33 44"</b>, <b>"+316/1122-3344"</b>,
-    /// <para>
-    ///  or <b>"(0031) 611223344"</b>.
-    /// </para>
+    /// Country code. Length: 1–3 digits.
     /// </summary>
-    [JsonPropertyName("number")]
-    public required string Number { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("cc")]
+    [StringLength(3, MinimumLength = 1)]
+    public string? Cc { get; init; }
 
-    [JsonPropertyName("type")]
-    public required Type4 Type { get; init; }
+    /// <summary>
+    /// Subscriber number. Length: 4-15  digits.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("subscriber")]
+    [MaxLength(15)]
+    public string? Subscriber { get; init; }
 }

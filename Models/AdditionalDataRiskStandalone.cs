@@ -100,14 +100,14 @@ public record AdditionalDataRiskStandalone
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDAuthenticated")]
-    public string? ThreeDauthenticated { get; init; }
+    public string? ThreeDAuthenticated { get; init; }
 
     /// <summary>
     /// A Boolean value indicating whether 3DS was offered for this payment. Example: true
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDOffered")]
-    public string? ThreeDoffered { get; init; }
+    public string? ThreeDOffered { get; init; }
 
     /// <summary>
     /// Required for PayPal payments only. The only supported value is: <b>paypal</b>.

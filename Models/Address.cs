@@ -4,10 +4,16 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// The address where to send the invoice.
+/// The address where to send the invoice., The address where to send the invoice.
 /// &gt; The <c>billingAddress</c> object is required in the following scenarios. Include all of the fields within this object.
 /// &gt;* For 3D Secure 2 transactions in all browser-based and mobile implementations.
-/// &gt;* For cross-border payouts to and from Canada.
+/// &gt;* For cross-border payouts to and from Canada., The address where the purchased goods should be delivered., The billing address., The address where to send the invoice., The address where to send the invoice.
+/// &gt; The <c>billingAddress</c> object is required in the following scenarios. Include all of the fields within this object.
+/// &gt;* For 3D Secure 2 transactions in all browser-based and mobile implementations.
+/// &gt;* For cross-border payouts to and from Canada., The billing address.
+/// <para>
+/// &gt; The <c>billingAddress</c> object is required for cross-border payouts to and from Canada. Include all of the fields within this object., The address of the account holder.
+/// </para>
 /// </summary>
 public record Address
 {

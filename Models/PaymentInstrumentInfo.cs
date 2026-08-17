@@ -12,13 +12,19 @@ public record PaymentInstrumentInfo
     [JsonPropertyName("balanceAccountId")]
     public required string BalanceAccountId { get; init; }
 
+    /// <summary>
+    /// Contains the business account details.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bankAccount")]
-    public BankAccountModel? BankAccount { get; init; }
+    public BankAccountModel1? BankAccount { get; init; }
 
+    /// <summary>
+    /// Contains information about the card. Required when you create a payment instrument of <c>type</c> <b>card</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public CardInfo? Card { get; init; }
+    public CardInfo1? Card { get; init; }
 
     /// <summary>
     /// Your description for the payment instrument, maximum 300 characters.
@@ -49,6 +55,24 @@ public record PaymentInstrumentInfo
     [MaxLength(150)]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to <b>active</b> by default. However, there can be exceptions for cards based on the <c>card.formFactor</c> and the <c>issuingCountryCode</c>. For example, when issuing physical cards in the US, the default status is <b>inactive</b>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>:  The payment instrument is active and can be used to make payments.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>inactive</b>: The payment instrument is inactive and cannot be used to make payments.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>suspended</b>: The payment instrument is suspended, either because it was stolen or lost.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>closed</b>: The payment instrument is permanently closed. This action cannot be undone.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
     public Status10? Status { get; init; }
@@ -60,10 +84,23 @@ public record PaymentInstrumentInfo
     [JsonPropertyName("statusComment")]
     public string? StatusComment { get; init; }
 
+    /// <summary>
+    /// The reason for the status of the payment instrument.
+    /// <para>
+    /// Possible values: <b>accountClosure</b>, <b>damaged</b>, <b>endOfLife</b>, <b>expired</b>, <b>lost</b>, <b>stolen</b>, <b>suspectedFraud</b>, <b>transactionRule</b>, <b>other</b>.
+    /// If the reason is <b>other</b>, you must also send the <c>statusComment</c> parameter describing the status change.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("statusReason")]
     public StatusReason? StatusReason { get; init; }
 
+    /// <summary>
+    /// The type of payment instrument.
+    /// <para>
+    /// Possible values: <b>card</b>, <b>bankAccount</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type11 Type { get; init; }
+    public required Type111 Type { get; init; }
 }

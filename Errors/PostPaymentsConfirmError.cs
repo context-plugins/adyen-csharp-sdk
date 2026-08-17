@@ -9,60 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class PostPaymentsConfirmError : ApiError
 {
-    private readonly Optional<PaymentsConfirm400Error1> _paymentsConfirm400Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<PaymentsConfirm401Error1> _paymentsConfirm401Error1Value;
-
-    private readonly Optional<PaymentsConfirm422Error1> _paymentsConfirm422Error1Value;
-
-    private readonly Optional<PaymentsConfirm500Error1> _paymentsConfirm500Error1Value;
-
-    private PostPaymentsConfirmError(Optional<PaymentsConfirm400Error1> paymentsConfirm400Error1Value,
-        Optional<PaymentsConfirm401Error1> paymentsConfirm401Error1Value,
-        Optional<PaymentsConfirm422Error1> paymentsConfirm422Error1Value,
-        Optional<PaymentsConfirm500Error1> paymentsConfirm500Error1Value,
+    private PostPaymentsConfirmError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _paymentsConfirm400Error1Value = paymentsConfirm400Error1Value;
-        _paymentsConfirm401Error1Value = paymentsConfirm401Error1Value;
-        _paymentsConfirm422Error1Value = paymentsConfirm422Error1Value;
-        _paymentsConfirm500Error1Value = paymentsConfirm500Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static PostPaymentsConfirmError AsPaymentsConfirm400Error1(PaymentsConfirm400Error1 value) =>
-        new(Optional<PaymentsConfirm400Error1>.Some(value), default, default, default, default);
-
-    private static PostPaymentsConfirmError AsPaymentsConfirm401Error1(PaymentsConfirm401Error1 value) =>
-        new(default, Optional<PaymentsConfirm401Error1>.Some(value), default, default, default);
-
-    private static PostPaymentsConfirmError AsPaymentsConfirm422Error1(PaymentsConfirm422Error1 value) =>
-        new(default, default, Optional<PaymentsConfirm422Error1>.Some(value), default, default);
-
-    private static PostPaymentsConfirmError AsPaymentsConfirm500Error1(PaymentsConfirm500Error1 value) =>
-        new(default, default, default, Optional<PaymentsConfirm500Error1>.Some(value), default);
+    private static PostPaymentsConfirmError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static PostPaymentsConfirmError AsFallback(RawError value) =>
-        new(default, default, default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetPaymentsConfirm400Error1(out PaymentsConfirm400Error1 value) =>
-        _paymentsConfirm400Error1Value.TryGetValue(out value);
-
-    public bool TryGetPaymentsConfirm401Error1(out PaymentsConfirm401Error1 value) =>
-        _paymentsConfirm401Error1Value.TryGetValue(out value);
-
-    public bool TryGetPaymentsConfirm422Error1(out PaymentsConfirm422Error1 value) =>
-        _paymentsConfirm422Error1Value.TryGetValue(out value);
-
-    public bool TryGetPaymentsConfirm500Error1(out PaymentsConfirm500Error1 value) =>
-        _paymentsConfirm500Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<PostPaymentsConfirmError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 => FromJson<PaymentsConfirm400Error1>(response, ct).As(AsPaymentsConfirm400Error1),
-            401 => FromJson<PaymentsConfirm401Error1>(response, ct).As(AsPaymentsConfirm401Error1),
-            422 => FromJson<PaymentsConfirm422Error1>(response, ct).As(AsPaymentsConfirm422Error1),
-            500 => FromJson<PaymentsConfirm500Error1>(response, ct).As(AsPaymentsConfirm500Error1),
+            400 or 401 or 422 or 500 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

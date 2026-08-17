@@ -8,9 +8,22 @@ namespace Adyen.Models;
 /// </summary>
 public record PrintResponse2
 {
+    /// <summary>
+    /// Qualification of the document to print to the Cashier or the Customer. Allows the manager of the printer, Sale or POI Terminal, to send information to a physical printer or to use the paper type accordingly.
+    /// Possible values:
+    /// * <b>CashierReceipt</b>
+    /// * <b>CustomerReceipt</b>
+    /// * <b>Document</b>
+    /// * <b>Journal</b>
+    /// * <b>SaleReceipt</b>
+    /// * <b>Voucher</b>
+    /// </summary>
     [JsonPropertyName("DocumentQualifier")]
     public required DocumentQualifier2 DocumentQualifier { get; init; }
 
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 }

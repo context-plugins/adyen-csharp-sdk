@@ -31,9 +31,12 @@ public record BalanceAccountUpdateRequest
     [JsonPropertyName("metadata")]
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
+    /// <summary>
+    /// Contains key-value pairs to configure the sales day closing time and settlement delay for a balance account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformPaymentConfiguration")]
-    public PlatformPaymentConfiguration? PlatformPaymentConfiguration { get; init; }
+    public PlatformPaymentConfiguration1? PlatformPaymentConfiguration { get; init; }
 
     /// <summary>
     /// Your reference to the balance account.
@@ -43,9 +46,15 @@ public record BalanceAccountUpdateRequest
     [MaxLength(150)]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is <b>active</b>.
+    /// <para>
+    /// Possible values: <b>active</b>, <b>closed</b>, <b>suspended</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status41? Status { get; init; }
+    public Status43? Status { get; init; }
 
     /// <summary>
     /// The time zone of the balance account. For example, <b>Europe/Amsterdam</b>.

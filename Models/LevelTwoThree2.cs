@@ -21,9 +21,12 @@ public record LevelTwoThree2
     [JsonPropertyName("customerReferenceNumber")]
     public string? CustomerReferenceNumber { get; init; }
 
+    /// <summary>
+    /// The destination address information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("destination")]
-    public Destination? Destination { get; init; }
+    public Destination1? Destination { get; init; }
 
     /// <summary>
     /// The duty tax amount, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.

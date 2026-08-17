@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Adyen.Models.AnyOf;
+using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -47,5 +48,5 @@ public record PatchableDisputeRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status29? Status { get; init; }
+    public Status? Status { get; init; }
 }

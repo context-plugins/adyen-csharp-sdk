@@ -7,12 +7,19 @@ namespace Adyen.Models;
 /// </summary>
 public record LoginResponse2
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Information related to the POI System.
+    /// Returned if the response result is Success.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("POISystemData")]
-    public PoisystemData? PoisystemData { get; init; }
+    public PoiSystemData1? PoiSystemData { get; init; }
 
     /// <summary>
     /// If token is managed by the POI, the status of the token request.

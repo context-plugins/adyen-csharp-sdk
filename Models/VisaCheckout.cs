@@ -13,6 +13,9 @@ public record VisaCheckout
     [JsonPropertyName("checkoutAttemptId")]
     public string? CheckoutAttemptId { get; init; }
 
+    /// <summary>
+    /// The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to <b>debit</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingSource")]
     public FundingSource? FundingSource { get; init; }
@@ -25,9 +28,11 @@ public record VisaCheckout
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>visacheckout</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type55? Type { get; init; }
+    public Type55? Type { get; init; } = Type55.Visacheckout;
 
     /// <summary>
     /// The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.

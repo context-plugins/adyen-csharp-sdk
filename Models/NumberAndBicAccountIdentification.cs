@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -13,9 +12,12 @@ public record NumberAndBicAccountIdentification
     [MaxLength(34)]
     public required string AccountNumber { get; init; }
 
+    /// <summary>
+    /// Additional identification codes of the bank. Some banks may require these identifiers for cross-border transfers.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("additionalBankIdentification")]
-    public AdditionalBankIdentification? AdditionalBankIdentification { get; init; }
+    public AdditionalBankIdentification1? AdditionalBankIdentification { get; init; }
 
     /// <summary>
     /// The bank's 8- or 11-character BIC or SWIFT code.
@@ -28,5 +30,5 @@ public record NumberAndBicAccountIdentification
     /// <b>numberAndBic</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type244 Type { get; init; }
+    public string Type { get; } = "numberAndBic";
 }

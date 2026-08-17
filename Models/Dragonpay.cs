@@ -34,6 +34,9 @@ public record Dragonpay
     [JsonPropertyName("shopperEmail")]
     public string? ShopperEmail { get; init; }
 
+    /// <summary>
+    /// <b>dragonpay</b>
+    /// </summary>
     [JsonPropertyName("type")]
     public required Type28 Type { get; init; }
 }

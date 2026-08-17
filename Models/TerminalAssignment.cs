@@ -18,12 +18,22 @@ public record TerminalAssignment
     [JsonPropertyName("merchantId")]
     public string? MerchantId { get; init; }
 
+    /// <summary>
+    /// Indicates where the terminal is in the process of being reassigned to.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reassignmentTarget")]
-    public TerminalReassignmentTarget? ReassignmentTarget { get; init; }
+    public TerminalReassignmentTarget2? ReassignmentTarget { get; init; }
 
+    /// <summary>
+    /// The status of the reassignment. Possible values:
+    ///  * <c>reassignmentInProgress</c>: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.
+    ///  * <c>deployed</c>: the terminal is deployed and reassigned.
+    ///  * <c>inventory</c>: the terminal is in inventory and cannot process transactions.
+    ///  * <c>boarded</c>: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status24 Status { get; init; }
+    public required Status21 Status { get; init; }
 
     /// <summary>
     /// The unique identifier of the store to which terminal is assigned.

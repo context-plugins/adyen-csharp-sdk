@@ -7,27 +7,45 @@ namespace Adyen.Models;
 /// </summary>
 public record AccountIdentifiers1
 {
+    /// <summary>
+    /// Identifiers relevant for Automated Clearing House (ACH) payments, primarily used in the United States.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ach")]
-    public AchaccountIdentifier? Ach { get; init; }
+    public AchAccountIdentifier1? Ach { get; init; }
 
+    /// <summary>
+    /// Identifiers relevant for Bankers' Automated Clearing Services (BACS) payments, primarily used in the United Kingdom.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bacs")]
-    public BacsaccountIdentifier? Bacs { get; init; }
+    public BacsAccountIdentifier2? Bacs { get; init; }
 
+    /// <summary>
+    /// Identifiers relevant for Australian banking, specifically for BSB (Bank-State-Branch) numbers.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bsb")]
-    public BsbaccountIdentifier? Bsb { get; init; }
+    public BsbAccountIdentifier2? Bsb { get; init; }
 
+    /// <summary>
+    /// Identifiers relevant for Electronic Funds Transfer (EFT) payments, commonly used in Canada.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eft")]
-    public EftaccountIdentifier? Eft { get; init; }
+    public EftAccountIdentifier2? Eft { get; init; }
 
+    /// <summary>
+    /// The international bank account number as defined in the ISO-13616 standard.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("iban")]
-    public IbanaccountIdentifier? Iban { get; init; }
+    public IbanAccountIdentifier2? Iban { get; init; }
 
+    /// <summary>
+    /// Identifiers relevant for the Rix (Russian Interbank eXchange) system, used for interbank payments within Russia.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("rix")]
-    public RixaccountIdentifier? Rix { get; init; }
+    public RixAccountIdentifier2? Rix { get; init; }
 }

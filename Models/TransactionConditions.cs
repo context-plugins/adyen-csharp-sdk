@@ -42,6 +42,15 @@ public record TransactionConditions
     [JsonPropertyName("AllowedLoyaltyBrand")]
     public IReadOnlyList<string>? AllowedLoyaltyBrand { get; init; }
 
+    /// <summary>
+    /// Type of Loyalty processing requested by the Sale System.
+    /// Possible values:
+    /// * <b>Allowed</b>
+    /// * <b>Forbidden</b>
+    /// * <b>Processed</b>
+    /// * <b>Proposed</b>
+    /// * <b>Required</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyHandling")]
     public LoyaltyHandling1? LoyaltyHandling { get; init; }

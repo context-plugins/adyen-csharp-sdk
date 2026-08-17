@@ -56,7 +56,9 @@ public record DirectDebitAu
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>directdebit_AU</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type221? Type { get; init; }
+    public Type22? Type { get; init; } = Type22.DirectdebitAu;
 }

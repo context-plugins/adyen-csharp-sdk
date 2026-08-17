@@ -6,13 +6,19 @@ namespace Adyen.Models;
 
 public record Store
 {
+    /// <summary>
+    /// Reference to resources connected with the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public Links2? Links { get; init; }
+    public Links7? Links { get; init; }
 
+    /// <summary>
+    /// The address of the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public Address15? Address { get; init; }
+    public StoreLocation1? Address { get; init; }
 
     /// <summary>
     /// The unique identifiers of the <see href="https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id">business lines</see> that the store is associated with.
@@ -52,9 +58,12 @@ public record Store
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// The localized information of the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("localizedInformation")]
-    public LocalizedInformation? LocalizedInformation { get; init; }
+    public LocalizedInformation4? LocalizedInformation { get; init; }
 
     /// <summary>
     /// The unique identifier of the merchant account that the store belongs to.
@@ -85,15 +94,29 @@ public record Store
     [JsonPropertyName("shopperStatement")]
     public string? ShopperStatement { get; init; }
 
+    /// <summary>
+    /// Rules for Adyen for Platforms merchants to split the transaction amount and fees.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("splitConfiguration")]
-    public StoreSplitConfiguration? SplitConfiguration { get; init; }
+    public StoreSplitConfiguration1? SplitConfiguration { get; init; }
 
+    /// <summary>
+    /// The status of the store. Possible values are:
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>. This value is assigned automatically when a store is created.</description></item>
+    ///   <item><description><b>inactive</b>. The terminals under the store are blocked from accepting new transactions, but capturing outstanding transactions is still possible.</description></item>
+    ///   <item><description><b>closed</b>. This status is irreversible. The terminals under the store are reassigned to the merchant inventory.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status17? Status { get; init; }
+    public Status11? Status { get; init; }
 
+    /// <summary>
+    /// The sub-merchant data relevant for registered payment facilitators transacting on standalone terminals.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subMerchantData")]
-    public SubMerchantData? SubMerchantData { get; init; }
+    public SubMerchantData1? SubMerchantData { get; init; }
 }

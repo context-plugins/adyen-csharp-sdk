@@ -50,6 +50,24 @@ public record IdentificationData1
     [JsonPropertyName("number")]
     public string? Number { get; init; }
 
+    /// <summary>
+    /// Type of identity data. For individuals, the following types are supported. See our <see href="https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type=custom">onboarding guide</see> for other supported countries.
+    /// <list type="bullet">
+    ///   <item><description>Australia: <b>driversLicense</b>, <b>passport</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>Hong Kong: <b>driversLicense</b>, <b>nationalIdNumber</b>, <b>passport</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>New Zealand: <b>driversLicense</b>, <b>passport</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>Singapore: <b>driversLicense</b>, <b>nationalIdNumber</b>, <b>passport</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>All other supported countries: <b>nationalIdNumber</b></description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("type")]
     public required Type132 Type { get; init; }
 }

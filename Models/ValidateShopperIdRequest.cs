@@ -12,6 +12,9 @@ public record ValidateShopperIdRequest
     [StringLength(1000, MinimumLength = 0)]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// paymentMethod
+    /// </summary>
     [JsonPropertyName("paymentMethod")]
     public required ShopperIdPaymentMethod1 PaymentMethod { get; init; }
 

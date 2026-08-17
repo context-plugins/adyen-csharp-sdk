@@ -4,8 +4,13 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The status of the account holder.
-/// &gt;Permitted values: <c>Active</c>, <c>Inactive</c>, <c>Suspended</c>, <c>Closed</c>.
+/// The status of the donation transaction.
+/// <para>
+/// Possible values:
+/// * <b>completed</b>
+/// * <b>pending</b>
+/// * <b>refused</b>
+/// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status1>))]
 public sealed record Status1 : StringEnum<Status1>
@@ -14,13 +19,11 @@ public sealed record Status1 : StringEnum<Status1>
     {
     }
 
-    public static readonly Status1 Active = new("Active");
+    public static readonly Status1 Completed = new("completed");
 
-    public static readonly Status1 Closed = new("Closed");
+    public static readonly Status1 Pending = new("pending");
 
-    public static readonly Status1 Inactive = new("Inactive");
-
-    public static readonly Status1 Suspended = new("Suspended");
+    public static readonly Status1 Refused = new("refused");
 
     public static Status1 FromValue(string value) => FromValueCore(value);
 }

@@ -11,7 +11,7 @@ public record CapabilitySettings1
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amountPerIndustry")]
-    public IReadOnlyDictionary<string, Amount3>? AmountPerIndustry { get; init; }
+    public IReadOnlyDictionary<string, Amount17>? AmountPerIndustry { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("authorizedCardUsers")]
@@ -21,17 +21,11 @@ public record CapabilitySettings1
     [JsonPropertyName("fundingSource")]
     public IReadOnlyList<FundingSource>? FundingSource { get; init; }
 
-    /// <summary>
-    /// The period when the rule conditions apply.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("interval")]
     public Interval? Interval { get; init; }
 
-    /// <summary>
-    /// The amount that must be pushed out or pulled in. You can configure either <c>sweepAmount</c> or <c>targetAmount</c>, not both.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("maxAmount")]
-    public Amount3? MaxAmount { get; init; }
+    public Amount17? MaxAmount { get; init; }
 }

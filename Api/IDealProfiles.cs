@@ -24,7 +24,7 @@ public sealed class IDealProfiles
     }
 
     /// <summary>
-    /// post-ideal-profile-auth-link
+    /// Manage an iDEAL profile
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -37,7 +37,7 @@ public sealed class IDealProfiles
     public Task<IdealAuthLinkResponse> PostIdealProfileAuthLink(IdealAuthLinkRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/ideal/profile/auth-link"),
+        _rawClient.Execute(_server.Default20("/ideal/profile/auth-link"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -50,52 +50,52 @@ public sealed class IDealProfiles
             ct);
 
     /// <summary>
-    /// post-ideal-profile-authenticate
+    /// Authenticate iDEAL profile
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="IdealAuthLinkResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="IdealAuthenticateResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostIdealProfileAuthenticateError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Generates an redirection URL to finish the authentication flow when requested by iDEAL. Before calling this endpoint, make sure that your user has completed multi-factor authentication.
     /// </remarks>
-    public Task<IdealAuthLinkResponse> PostIdealProfileAuthenticate(IdealAuthenticateRequest body,
+    public Task<IdealAuthenticateResponse> PostIdealProfileAuthenticate(IdealAuthenticateRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/ideal/profile/authenticate"),
+        _rawClient.Execute(_server.Default20("/ideal/profile/authenticate"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<IdealAuthLinkResponse>(),
+            JsonResponse.Create<IdealAuthenticateResponse>(),
             PostIdealProfileAuthenticateErrorResponse.Instance,
             [],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-ideal-profile-register
+    /// Register an iDEAL profile
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="IdealAuthLinkResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ProfileRegistrationResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostIdealProfileRegisterError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Register a new iDEAL profile. The profile is linked to the account holder and payment instruments included in the request. The user must be redirected to the URL in the response to finish their IDEAL profile registration.
     /// </remarks>
-    public Task<IdealAuthLinkResponse> PostIdealProfileRegister(ProfileRegistrationRequest body,
+    public Task<ProfileRegistrationResponse> PostIdealProfileRegister(ProfileRegistrationRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/ideal/profile/register"),
+        _rawClient.Execute(_server.Default20("/ideal/profile/register"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<IdealAuthLinkResponse>(),
+            JsonResponse.Create<ProfileRegistrationResponse>(),
             PostIdealProfileRegisterErrorResponse.Instance,
             [],
             requestOptions,

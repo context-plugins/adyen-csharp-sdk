@@ -4,7 +4,10 @@ namespace Adyen.Models;
 
 public record FinishScaDeviceRegistrationResponse
 {
+    /// <summary>
+    /// A resource that contains information about a device, including its unique ID, name, and type.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scaDevice")]
-    public ScaDevice1? ScaDevice { get; init; }
+    public ScaDevice? ScaDevice { get; init; }
 }

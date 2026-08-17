@@ -36,7 +36,9 @@ public record PayPay
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>paypay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type40? Type { get; init; }
+    public Type40? Type { get; init; } = Type40.Paypay;
 }

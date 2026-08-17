@@ -11,8 +11,11 @@ public record Disbursement
     [JsonPropertyName("accountHolderId")]
     public required string AccountHolderId { get; init; }
 
+    /// <summary>
+    /// Contains information about the amount of the disbursement.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 
     /// <summary>
     /// The unique identifier of the balance account that received the disbursement.
@@ -20,11 +23,17 @@ public record Disbursement
     [JsonPropertyName("balanceAccountId")]
     public required string BalanceAccountId { get; init; }
 
+    /// <summary>
+    /// Contains information about the balances of the disbursement.
+    /// </summary>
     [JsonPropertyName("balances")]
-    public required Balances Balances { get; init; }
+    public required CapitalBalance Balances { get; init; }
 
+    /// <summary>
+    /// Contains information about the fee that your user must pay for the disbursement.
+    /// </summary>
     [JsonPropertyName("fee")]
-    public required Fee2 Fee { get; init; }
+    public required Fee22 Fee { get; init; }
 
     /// <summary>
     /// Contains information about the accounts that Adyen uses to collect funds related to repayments.
@@ -45,6 +54,9 @@ public record Disbursement
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// Contains information about the basis points configured for repaying the disbursement.
+    /// </summary>
     [JsonPropertyName("repayment")]
-    public required DisbursementRepayment Repayment { get; init; }
+    public required DisbursementRepayment2 Repayment { get; init; }
 }

@@ -209,10 +209,24 @@ public record ResponseAdditionalDataCommon1
     [JsonPropertyName("fraudManualReview")]
     public string? FraudManualReview { get; init; }
 
+    /// <summary>
+    /// The fraud result properties of the payment. Possible values:
+    /// * AMBER
+    /// * GREEN
+    /// * RED
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fraudResultType")]
     public FraudResultType? FraudResultType { get; init; }
 
+    /// <summary>
+    /// The risk level of the transaction as classified by the <see href="https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/">machine learning</see> fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values:
+    /// * veryLow
+    /// * low
+    /// * medium
+    /// * high
+    /// * veryHigh
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fraudRiskLevel")]
     public FraudRiskLevel? FraudRiskLevel { get; init; }
@@ -467,6 +481,9 @@ public record ResponseAdditionalDataCommon1
     [JsonPropertyName("recurring.shopperReference")]
     public string? RecurringShopperReference { get; init; }
 
+    /// <summary>
+    /// The processing model used for the recurring transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("recurringProcessingModel")]
     public RecurringProcessingModel? RecurringProcessingModel { get; init; }
@@ -546,7 +563,7 @@ public record ResponseAdditionalDataCommon1
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDAuthenticated")]
-    public string? ThreeDauthenticated { get; init; }
+    public string? ThreeDAuthenticated { get; init; }
 
     /// <summary>
     /// The raw 3DS authentication result from the card issuer.
@@ -556,7 +573,7 @@ public record ResponseAdditionalDataCommon1
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDAuthenticatedResponse")]
-    public string? ThreeDauthenticatedResponse { get; init; }
+    public string? ThreeDAuthenticatedResponse { get; init; }
 
     /// <summary>
     /// A Boolean value indicating whether 3DS was offered for this payment.
@@ -566,7 +583,7 @@ public record ResponseAdditionalDataCommon1
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDOffered")]
-    public string? ThreeDoffered { get; init; }
+    public string? ThreeDOffered { get; init; }
 
     /// <summary>
     /// The raw enrollment result from the 3DS directory services of the card schemes.
@@ -576,14 +593,14 @@ public record ResponseAdditionalDataCommon1
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDOfferedResponse")]
-    public string? ThreeDofferedResponse { get; init; }
+    public string? ThreeDOfferedResponse { get; init; }
 
     /// <summary>
     /// The 3D Secure 2 version.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSVersion")]
-    public string? ThreeDsversion { get; init; }
+    public string? ThreeDsVersion { get; init; }
 
     /// <summary>
     /// The reference for the shopper that you sent when tokenizing the payment details.
@@ -592,6 +609,14 @@ public record ResponseAdditionalDataCommon1
     [JsonPropertyName("tokenization.shopperReference")]
     public string? TokenizationShopperReference { get; init; }
 
+    /// <summary>
+    /// The operation performed on the token. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>created</b>: the token has been created.</description></item>
+    ///   <item><description><b>updated</b>: the existing token has been updated.</description></item>
+    ///   <item><description><b>alreadyExisting</b>: the details have already been stored.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("tokenization.store.operationType")]
     public TokenizationStoreOperationType? TokenizationStoreOperationType { get; init; }

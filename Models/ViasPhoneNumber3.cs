@@ -25,6 +25,10 @@ public record ViasPhoneNumber3
     [JsonPropertyName("phoneNumber")]
     public string? PhoneNumber { get; init; }
 
+    /// <summary>
+    /// The type of the phone number.
+    /// &gt;The following values are permitted: <c>Landline</c>, <c>Mobile</c>, <c>SIP</c>, <c>Fax</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phoneType")]
     public PhoneType? PhoneType { get; init; }

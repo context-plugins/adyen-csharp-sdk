@@ -19,13 +19,22 @@ public record FundDestination
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// The address where to send the invoice.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address? BillingAddress { get; init; }
 
+    /// <summary>
+    /// Credit card data.
+    /// <para>
+    /// Optional if <c>shopperReference</c> and <c>selectedRecurringDetailReference</c> are provided.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card1? Card { get; init; }
 
     /// <summary>
     /// The <c>recurringDetailReference</c> you want to use for this payment. The value <c>LATEST</c> can be used to select the most recently stored recurring detail.
@@ -41,9 +50,12 @@ public record FundDestination
     [JsonPropertyName("shopperEmail")]
     public string? ShopperEmail { get; init; }
 
+    /// <summary>
+    /// the name of the person
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// Required for recurring payments.
@@ -54,9 +66,13 @@ public record FundDestination
     [JsonPropertyName("shopperReference")]
     public string? ShopperReference { get; init; }
 
+    /// <summary>
+    /// Required for Back-to-Back/ purchase driven load in Wallet transactions.
+    /// Contains the final merchant who will be receiving the money, also known as subMerchant, information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subMerchant")]
-    public SubMerchant1? SubMerchant { get; init; }
+    public SubMerchant? SubMerchant { get; init; }
 
     /// <summary>
     /// the telephone number of the person

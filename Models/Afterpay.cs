@@ -57,6 +57,9 @@ public record Afterpay
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// <b>afterpay_default</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type22 Type { get; init; }
+    public Type2 Type { get; init; } = Type2.AfterpayDefault;
 }

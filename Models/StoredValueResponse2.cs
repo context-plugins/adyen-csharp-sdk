@@ -8,14 +8,23 @@ namespace Adyen.Models;
 /// </summary>
 public record StoredValueResponse2
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Data related to the Sale System.
+    /// </summary>
     [JsonPropertyName("SaleData")]
-    public required SaleData2 SaleData { get; init; }
+    public required SaleData1 SaleData { get; init; }
 
+    /// <summary>
+    /// Data related to the POI System.
+    /// </summary>
     [JsonPropertyName("POIData")]
-    public required Poidata2 Poidata { get; init; }
+    public required PoiData1 PoiData { get; init; }
 
     /// <summary>
     /// Result of loading/reloading a stored value card.

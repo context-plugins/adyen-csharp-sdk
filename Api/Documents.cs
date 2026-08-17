@@ -27,7 +27,7 @@ public sealed class Documents
     }
 
     /// <summary>
-    /// delete-documents-id
+    /// Delete a document
     /// </summary>
     /// <param name="id">The unique identifier of the document to be deleted.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -50,7 +50,7 @@ public sealed class Documents
     /// </list>
     /// </remarks>
     public Task DeleteDocumentsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/documents/{id}"),
+        _rawClient.Execute(_server.Default18("/documents/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -63,7 +63,7 @@ public sealed class Documents
             ct);
 
     /// <summary>
-    /// get-documents-id
+    /// Get a document
     /// </summary>
     /// <param name="id">The unique identifier of the document.</param>
     /// <param name="skipContent">Do not load document content while fetching the document.</param>
@@ -90,7 +90,7 @@ public sealed class Documents
         bool? skipContent,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/documents/{id}"),
+        _rawClient.Execute(_server.Default18("/documents/{id}"),
             [new TemplateParam("id", id)],
             [new Param("skipContent", skipContent)],
             [],
@@ -103,7 +103,7 @@ public sealed class Documents
             ct);
 
     /// <summary>
-    /// patch-documents-id
+    /// Update a document
     /// </summary>
     /// <param name="id">The unique identifier of the document to be updated.</param>
     /// <param name="xRequestedVerificationCode">Use the requested verification code 0_0001 to resolve any suberrors associated with the document. Requested verification codes can only be used in your test environment.</param>
@@ -135,7 +135,7 @@ public sealed class Documents
         Document? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/documents/{id}"),
+        _rawClient.Execute(_server.Default18("/documents/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("x-requested-verification-code", xRequestedVerificationCode),
@@ -149,7 +149,7 @@ public sealed class Documents
             ct);
 
     /// <summary>
-    /// post-documents
+    /// Upload a document for verification checks
     /// </summary>
     /// <param name="xRequestedVerificationCode">Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.</param>
     /// <param name="body"></param>
@@ -185,7 +185,7 @@ public sealed class Documents
         Document? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/documents"),
+        _rawClient.Execute(_server.Default18("/documents"),
             [],
             [],
             [new HeaderParam("x-requested-verification-code", xRequestedVerificationCode),

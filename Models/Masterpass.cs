@@ -13,6 +13,9 @@ public record Masterpass
     [JsonPropertyName("checkoutAttemptId")]
     public string? CheckoutAttemptId { get; init; }
 
+    /// <summary>
+    /// The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to <b>debit</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingSource")]
     public FundingSource? FundingSource { get; init; }
@@ -31,7 +34,9 @@ public record Masterpass
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>masterpass</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type35? Type { get; init; }
+    public Type35? Type { get; init; } = Type35.Masterpass;
 }

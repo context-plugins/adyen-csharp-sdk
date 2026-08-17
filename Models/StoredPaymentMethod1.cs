@@ -36,7 +36,9 @@ public record StoredPaymentMethod1
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>sepadirectdebit</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type27? Type { get; init; }
+    public Type27? Type { get; init; } = Type27.Sepadirectdebit;
 }

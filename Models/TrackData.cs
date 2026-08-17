@@ -20,6 +20,12 @@ public record TrackData
     [Maximum(3)]
     public int? TrackNumb { get; init; } = 2;
 
+    /// <summary>
+    /// Card track format.
+    /// Possible values:
+    /// * <b>AAMVA</b>
+    /// * <b>ISO</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TrackFormat")]
     public TrackFormat1? TrackFormat { get; init; }

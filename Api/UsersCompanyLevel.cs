@@ -27,7 +27,7 @@ public sealed class UsersCompanyLevel
     }
 
     /// <summary>
-    /// get-companies-companyId-users
+    /// Get a list of users
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="pageNumber">The number of the page to return.</param>
@@ -50,7 +50,7 @@ public sealed class UsersCompanyLevel
         string? username,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/users"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/users"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize), new Param("username", username)],
             [],
@@ -63,7 +63,7 @@ public sealed class UsersCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-users-userId
+    /// Get user details
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="userId">The unique identifier of the user.</param>
@@ -82,7 +82,7 @@ public sealed class UsersCompanyLevel
         string userId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/users/{userId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/users/{userId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("userId", userId)],
             [],
             [],
@@ -95,7 +95,7 @@ public sealed class UsersCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-users-userId
+    /// Update user details
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="userId">The unique identifier of the user.</param>
@@ -116,7 +116,7 @@ public sealed class UsersCompanyLevel
         UpdateCompanyUserRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/users/{userId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/users/{userId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("userId", userId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -129,7 +129,7 @@ public sealed class UsersCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-users
+    /// Create a new user
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="body"></param>
@@ -148,7 +148,7 @@ public sealed class UsersCompanyLevel
         CreateCompanyUserRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/users"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/users"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

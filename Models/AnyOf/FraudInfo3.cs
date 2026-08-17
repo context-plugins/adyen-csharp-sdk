@@ -14,23 +14,16 @@ public record FraudInfo3
 {
     private readonly Optional<PatchableFraudInfo> _patchableFraudInfoValue;
 
-    private readonly Optional<object?> _anonymousObjectValue;
-
-    private FraudInfo3(Optional<PatchableFraudInfo> patchableFraudInfoValue, Optional<object?> anonymousObjectValue)
+    private FraudInfo3(Optional<PatchableFraudInfo> patchableFraudInfoValue)
     {
         _patchableFraudInfoValue = patchableFraudInfoValue;
-        _anonymousObjectValue = anonymousObjectValue;
     }
 
     public static FraudInfo3 PatchableFraudInfo(PatchableFraudInfo value) =>
-        new(Optional<PatchableFraudInfo>.Some(value), default);
-
-    public static FraudInfo3 AnonymousObject(object? value) => new(default, Optional<object?>.Some(value));
+        new(Optional<PatchableFraudInfo>.Some(value));
 
     public bool TryGetPatchableFraudInfo(out PatchableFraudInfo value) =>
         _patchableFraudInfoValue.TryGetValue(out value);
-
-    public bool TryGetAnonymousObject(out object? value) => _anonymousObjectValue.TryGetValue(out value);
 
     public static implicit operator FraudInfo3(PatchableFraudInfo value) => PatchableFraudInfo(value);
 }
@@ -45,11 +38,7 @@ file sealed class FraudInfo3Converter : JsonConverter<FraudInfo3>
         {
             return FraudInfo3.PatchableFraudInfo(patchableFraudInfoValue);
         }
-        if (JsonSerializer.TryDeserialize<object?>(root, options, out var anonymousObjectValue))
-        {
-            return FraudInfo3.AnonymousObject(anonymousObjectValue);
-        }
-        throw new JsonException($"JSON does not match PatchableFraudInfo or object? schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match PatchableFraudInfo schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, FraudInfo3 value, JsonSerializerOptions options)
@@ -57,10 +46,6 @@ file sealed class FraudInfo3Converter : JsonConverter<FraudInfo3>
         if (value.TryGetPatchableFraudInfo(out var patchableFraudInfoValue))
         {
             JsonSerializer.Serialize(writer, patchableFraudInfoValue, options);
-        }
-        else if (value.TryGetAnonymousObject(out var anonymousObjectValue))
-        {
-            JsonSerializer.Serialize(writer, anonymousObjectValue, options);
         }
         else
         {

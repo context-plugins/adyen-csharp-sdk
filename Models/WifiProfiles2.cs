@@ -15,7 +15,10 @@ public record WifiProfiles2
     [JsonPropertyName("profiles")]
     public IReadOnlyList<Profile>? Profiles { get; init; }
 
+    /// <summary>
+    /// General Wi-Fi settings.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("settings")]
-    public Settings? Settings { get; init; }
+    public Settings1? Settings { get; init; }
 }

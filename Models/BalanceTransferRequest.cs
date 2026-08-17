@@ -6,8 +6,11 @@ namespace Adyen.Models;
 
 public record BalanceTransferRequest
 {
+    /// <summary>
+    /// The amount of the transfer.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 
     /// <summary>
     /// The unique identifier of the source merchant account from which funds are deducted.
@@ -31,6 +34,9 @@ public record BalanceTransferRequest
     [MinLength(1)]
     public required string ToMerchant { get; init; }
 
+    /// <summary>
+    /// The type of balance transfer. Possible values: <b>tax</b>, <b>fee</b>, <b>terminalSale</b>, <b>credit</b>, <b>debit</b>, and <b>adjustment</b>.
+    /// </summary>
     [JsonPropertyName("type")]
     public required BalanceTransferType2 Type { get; init; }
 }

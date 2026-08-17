@@ -27,7 +27,7 @@ public sealed class TermsOfService
     }
 
     /// <summary>
-    /// get-legalEntities-id-acceptedTermsOfServiceDocument-termsofserviceacceptancereference
+    /// Get accepted Terms of Service document
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization.</param>
     /// <param name="termsofserviceacceptancereference">An Adyen-generated reference for the accepted Terms of Service.</param>
@@ -56,7 +56,7 @@ public sealed class TermsOfService
         string? termsOfServiceDocumentFormat,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/acceptedTermsOfServiceDocument/{termsofserviceacceptancereference}"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/acceptedTermsOfServiceDocument/{termsofserviceacceptancereference}"),
             [new TemplateParam("id", id),
                 new TemplateParam("termsofserviceacceptancereference", termsofserviceacceptancereference)],
             [new Param("termsOfServiceDocumentFormat", termsOfServiceDocumentFormat)],
@@ -70,7 +70,7 @@ public sealed class TermsOfService
             ct);
 
     /// <summary>
-    /// get-legalEntities-id-termsOfServiceAcceptanceInfos
+    /// Get Terms of Service information for a legal entity
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -95,7 +95,7 @@ public sealed class TermsOfService
     public Task<GetTermsOfServiceAcceptanceInfosResponse> GetLegalEntitiesIdTermsOfServiceAcceptanceInfos(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/termsOfServiceAcceptanceInfos"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/termsOfServiceAcceptanceInfos"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -108,7 +108,7 @@ public sealed class TermsOfService
             ct);
 
     /// <summary>
-    /// get-legalEntities-id-termsOfServiceStatus
+    /// Get Terms of Service status
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -133,7 +133,7 @@ public sealed class TermsOfService
     public Task<CalculateTermsOfServiceStatusResponse> GetLegalEntitiesIdTermsOfServiceStatus(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/termsOfServiceStatus"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/termsOfServiceStatus"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -146,7 +146,7 @@ public sealed class TermsOfService
             ct);
 
     /// <summary>
-    /// patch-legalEntities-id-termsOfService-termsofservicedocumentid
+    /// Accept Terms of Service
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.  For sole proprietorships, this is the individual legal entity ID of the owner.  For organizations, this is the ID of the organization.  For legal representatives of individuals, this is the ID of the individual.</param>
     /// <param name="termsofservicedocumentid">The unique identifier of the Terms of Service document.</param>
@@ -175,7 +175,7 @@ public sealed class TermsOfService
         AcceptTermsOfServiceRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/termsOfService/{termsofservicedocumentid}"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/termsOfService/{termsofservicedocumentid}"),
             [new TemplateParam("id", id), new TemplateParam("termsofservicedocumentid", termsofservicedocumentid)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -188,7 +188,7 @@ public sealed class TermsOfService
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-termsOfService
+    /// Get Terms of Service document
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization.</param>
     /// <param name="body"></param>
@@ -215,7 +215,7 @@ public sealed class TermsOfService
         GetTermsOfServiceDocumentRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/termsOfService"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/termsOfService"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

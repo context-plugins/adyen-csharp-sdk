@@ -7,21 +7,33 @@ namespace Adyen.Models;
 
 public record ManagementPaymentMethod
 {
+    /// <summary>
+    /// <b>accel</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accel")]
-    public AccelResponseInfo? Accel { get; init; }
+    public AccelResponseInfo1? Accel { get; init; }
 
+    /// <summary>
+    /// *affirm** details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("affirm")]
-    public AffirmResponseInfo? Affirm { get; init; }
+    public AffirmResponseInfo1? Affirm { get; init; }
 
+    /// <summary>
+    /// <b>afterpaytouch</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("afterpayTouch")]
-    public AfterpayTouchResponseInfo? AfterpayTouch { get; init; }
+    public AfterpayTouchResponseInfo1? AfterpayTouch { get; init; }
 
+    /// <summary>
+    /// <b>alipay_plus</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("alipayPlus")]
-    public AlipayPlusResponseInfo? AlipayPlus { get; init; }
+    public AlipayPlusResponseInfo1? AlipayPlus { get; init; }
 
     /// <summary>
     /// Indicates whether receiving payments is allowed. This value is set to <b>true</b> by Adyen after screening your merchant account.
@@ -30,13 +42,19 @@ public record ManagementPaymentMethod
     [JsonPropertyName("allowed")]
     public bool? Allowed { get; init; }
 
+    /// <summary>
+    /// <b>amex</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amex")]
-    public AmexResponseInfo? Amex { get; init; }
+    public AmexResponseInfo1? Amex { get; init; }
 
+    /// <summary>
+    /// <b>applepay</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("applePay")]
-    public ApplePayResponseInfo? ApplePay { get; init; }
+    public ApplePayResponseInfo1? ApplePay { get; init; }
 
     /// <summary>
     /// Payment methods that were also updated as part of an associated transition.
@@ -45,9 +63,12 @@ public record ManagementPaymentMethod
     [JsonPropertyName("associatedPaymentMethods")]
     public IReadOnlyList<AssociatedPaymentMethod>? AssociatedPaymentMethods { get; init; }
 
+    /// <summary>
+    /// <b>bcmc</b> (Bancontact) details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bcmc")]
-    public BcmcResponseInfo? Bcmc { get; init; }
+    public BcmcResponseInfo1? Bcmc { get; init; }
 
     /// <summary>
     /// The unique identifier of the business line. Required if you are a <see href="https://docs.adyen.com/platforms">platform model</see>.
@@ -56,17 +77,26 @@ public record ManagementPaymentMethod
     [JsonPropertyName("businessLineId")]
     public string? BusinessLineId { get; init; }
 
+    /// <summary>
+    /// <b>carnet</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("carnet")]
-    public AccelUpdateInfo? Carnet { get; init; }
+    public CarnetResponseInfo1? Carnet { get; init; }
 
+    /// <summary>
+    /// <b>cartesbancaire</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cartesBancaires")]
-    public CartesBancairesResponseInfo? CartesBancaires { get; init; }
+    public CartesBancairesResponseInfo1? CartesBancaires { get; init; }
 
+    /// <summary>
+    /// <b>clearpay</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("clearpay")]
-    public ClearpayResponseInfo? Clearpay { get; init; }
+    public ClearpayResponseInfo1? Clearpay { get; init; }
 
     /// <summary>
     /// The list of countries where a payment method is available. By default, all countries supported by the payment method.
@@ -75,9 +105,12 @@ public record ManagementPaymentMethod
     [JsonPropertyName("countries")]
     public IReadOnlyList<string>? Countries { get; init; }
 
+    /// <summary>
+    /// <b>cup</b> (China Union Pay) details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cup")]
-    public AccelUpdateInfo? Cup { get; init; }
+    public CupResponseInfo1? Cup { get; init; }
 
     /// <summary>
     /// The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
@@ -93,21 +126,33 @@ public record ManagementPaymentMethod
     [JsonPropertyName("customRoutingFlags")]
     public IReadOnlyList<string>? CustomRoutingFlags { get; init; }
 
+    /// <summary>
+    /// <b>diners</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("diners")]
-    public DinersResponseInfo? Diners { get; init; }
+    public DinersResponseInfo1? Diners { get; init; }
 
+    /// <summary>
+    /// <b>discover</b>. details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("discover")]
-    public AccelUpdateInfo? Discover { get; init; }
+    public DiscoverResponseInfo1? Discover { get; init; }
 
+    /// <summary>
+    /// <b>eft_directdebit_CA</b> (EFT PAD) details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eft_directdebit_CA")]
-    public AccelUpdateInfo? EftDirectdebitCa { get; init; }
+    public EftDirectDebitCaResponseInfo1? EftDirectdebitCa { get; init; }
 
+    /// <summary>
+    /// <b>eftpos_australia</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eftpos_australia")]
-    public AccelUpdateInfo? EftposAustralia { get; init; }
+    public EftPosAustraliaResponseInfo1? EftposAustralia { get; init; }
 
     /// <summary>
     /// Indicates whether the payment method is enabled (<b>true</b>) or disabled (<b>false</b>).
@@ -116,17 +161,26 @@ public record ManagementPaymentMethod
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; init; }
 
+    /// <summary>
+    /// <b>girocard</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("girocard")]
-    public AccelUpdateInfo? Girocard { get; init; }
+    public GirocardResponseInfo1? Girocard { get; init; }
 
+    /// <summary>
+    /// <b>givex</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("givex")]
-    public GivexResponseInfo? Givex { get; init; }
+    public GivexResponseInfo1? Givex { get; init; }
 
+    /// <summary>
+    /// <b>googlepay</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("googlePay")]
-    public GooglePayResponseInfo? GooglePay { get; init; }
+    public GooglePayResponseInfo1? GooglePay { get; init; }
 
     /// <summary>
     /// The identifier of the resource.
@@ -134,61 +188,103 @@ public record ManagementPaymentMethod
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// <b>ideal</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ideal")]
-    public AccelUpdateInfo? Ideal { get; init; }
+    public IdealResponseInfo1? Ideal { get; init; }
 
+    /// <summary>
+    /// <b>interac_card</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("interac_card")]
-    public AccelUpdateInfo? InteracCard { get; init; }
+    public InteracCardResponseInfo1? InteracCard { get; init; }
 
+    /// <summary>
+    /// <b>jcb</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("jcb")]
-    public JcbresponseInfo? Jcb { get; init; }
+    public JcbResponseInfo1? Jcb { get; init; }
 
+    /// <summary>
+    /// <b>klarna</b> or its variant details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("klarna")]
-    public KlarnaResponseInfo? Klarna { get; init; }
+    public KlarnaResponseInfo1? Klarna { get; init; }
 
+    /// <summary>
+    /// <b>maestro</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("maestro")]
-    public AccelUpdateInfo? Maestro { get; init; }
+    public MaestroResponseInfo1? Maestro { get; init; }
 
+    /// <summary>
+    /// Details to provide if <c>type</c> is <b>maestro_usa</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("maestro_usa")]
-    public AccelUpdateInfo? MaestroUsa { get; init; }
+    public MaestroUsaResponseInfo1? MaestroUsa { get; init; }
 
+    /// <summary>
+    /// <b>mc</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mc")]
-    public AccelUpdateInfo? Mc { get; init; }
+    public McResponseInfo1? Mc { get; init; }
 
+    /// <summary>
+    /// <b>mealVoucher_FR</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mealVoucher_FR")]
-    public MealVoucherFrresponseInfo? MealVoucherFr { get; init; }
+    public MealVoucherFrResponseInfo1? MealVoucherFr { get; init; }
 
+    /// <summary>
+    /// <b>nyce</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("nyce")]
-    public AccelResponseInfo? Nyce { get; init; }
+    public NyceResponseInfo1? Nyce { get; init; }
 
+    /// <summary>
+    /// <b>paybybank_plaid</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paybybank_plaid")]
-    public PayByBankPlaidResponseInfo? PaybybankPlaid { get; init; }
+    public PayByBankPlaidResponseInfo1? PaybybankPlaid { get; init; }
 
+    /// <summary>
+    /// <b>payme</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payme")]
-    public PayMeResponseInfo? Payme { get; init; }
+    public PayMeResponseInfo1? Payme { get; init; }
 
+    /// <summary>
+    /// <b>paypal</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paypal")]
-    public PayPalResponseInfo? Paypal { get; init; }
+    public PayPalResponseInfo1? Paypal { get; init; }
 
+    /// <summary>
+    /// <b>payto</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payto")]
-    public PayToResponseInfo? Payto { get; init; }
+    public PayToResponseInfo1? Payto { get; init; }
 
+    /// <summary>
+    /// <b>pulse</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pulse")]
-    public AccelResponseInfo? Pulse { get; init; }
+    public PulseResponseInfo2? Pulse { get; init; }
 
     /// <summary>
     /// Your reference for the payment method. Supported characters a-z, A-Z, 0-9.
@@ -198,9 +294,12 @@ public record ManagementPaymentMethod
     [MaxLength(150)]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// <b>sepadirectdebit</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sepadirectdebit")]
-    public SepaDirectDebitInfo? Sepadirectdebit { get; init; }
+    public SepaDirectDebitResponseInfo2? Sepadirectdebit { get; init; }
 
     /// <summary>
     /// The sales channel.
@@ -209,17 +308,26 @@ public record ManagementPaymentMethod
     [JsonPropertyName("shopperInteraction")]
     public string? ShopperInteraction { get; init; }
 
+    /// <summary>
+    /// <b>sodexo</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sodexo")]
-    public SodexoResponseInfo? Sodexo { get; init; }
+    public SodexoResponseInfo2? Sodexo { get; init; }
 
+    /// <summary>
+    /// Sofort details.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sofort")]
-    public SofortResponseInfo? Sofort { get; init; }
+    public SofortResponseInfo2? Sofort { get; init; }
 
+    /// <summary>
+    /// <b>star</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("star")]
-    public AccelResponseInfo? Star { get; init; }
+    public StarResponseInfo2? Star { get; init; }
 
     /// <summary>
     /// The unique identifier of the store for which to configure the payment method, if any.
@@ -228,21 +336,33 @@ public record ManagementPaymentMethod
     [JsonPropertyName("storeIds")]
     public IReadOnlyList<string>? StoreIds { get; init; }
 
+    /// <summary>
+    /// <b>svs</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("svs")]
-    public SvsResponseInfo? Svs { get; init; }
+    public SvsResponseInfo2? Svs { get; init; }
 
+    /// <summary>
+    /// <b>swish</b> or its variant details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("swish")]
-    public SwishResponseInfo? Swish { get; init; }
+    public SwishResponseInfo2? Swish { get; init; }
 
+    /// <summary>
+    /// <b>ticket</b> (Edenred Brazil) details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ticket")]
-    public TicketInfo? Ticket { get; init; }
+    public TicketResponseInfo2? Ticket { get; init; }
 
+    /// <summary>
+    /// <b>twint</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("twint")]
-    public TwintResponseInfo? Twint { get; init; }
+    public TwintResponseInfo2? Twint { get; init; }
 
     /// <summary>
     /// Payment method <see href="https://docs.adyen.com/development-resources/paymentmethodvariant#management-api">variant</see>.
@@ -251,27 +371,49 @@ public record ManagementPaymentMethod
     [JsonPropertyName("type")]
     public string? Type { get; init; }
 
+    /// <summary>
+    /// <b>valuelink</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("valuelink")]
-    public ValuelinkResponseInfo? Valuelink { get; init; }
+    public ValuelinkResponseInfo2? Valuelink { get; init; }
 
+    /// <summary>
+    /// Payment method status. Possible values:
+    /// * <b>valid</b>
+    /// * <b>pending</b>
+    /// * <b>invalid</b>
+    /// * <b>rejected</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("verificationStatus")]
     public VerificationStatus? VerificationStatus { get; init; }
 
+    /// <summary>
+    /// <b>vipps</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("vipps")]
-    public VippsResponseInfo? Vipps { get; init; }
+    public VippsResponseInfo2? Vipps { get; init; }
 
+    /// <summary>
+    /// <b>visa</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("visa")]
-    public AccelUpdateInfo? Visa { get; init; }
+    public VisaResponseInfo2? Visa { get; init; }
 
+    /// <summary>
+    /// <b>wechatpay</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("wechatpay")]
-    public WeChatPayPosResponseInfo? Wechatpay { get; init; }
+    public WeChatPayResponseInfo2? Wechatpay { get; init; }
 
+    /// <summary>
+    /// <b>wechatpay_pos</b> details
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("wechatpay_pos")]
-    public WeChatPayPosResponseInfo? WechatpayPos { get; init; }
+    public WeChatPayPosResponseInfo2? WechatpayPos { get; init; }
 }

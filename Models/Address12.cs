@@ -1,68 +1,83 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
 /// <summary>
-/// The address details of the billing entity.
+/// The address of the bank account or card owner.
 /// </summary>
 public record Address12
 {
     /// <summary>
     /// The name of the city.
+    /// <para>
+    /// Supported characters: <b>[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \ |</b> and Space.
+    /// </para>
+    /// <para>
+    /// &gt; Required when the <c>category</c> is <b>card</b>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("city")]
+    [MinLength(3)]
     public string? City { get; init; }
 
     /// <summary>
-    /// The name of the company.
+    /// The two-character ISO 3166-1 alpha-2 country code. For example, <b>US</b>, <b>NL</b>, or <b>GB</b>.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("companyName")]
-    public string? CompanyName { get; init; }
+    [JsonPropertyName("country")]
+    public required string Country { get; init; }
 
     /// <summary>
-    /// The two-letter country code, in <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> format.
+    /// The first line of the street address.
+    /// <para>
+    /// Supported characters: <b>[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \ |</b> and Space.
+    /// </para>
+    /// <para>
+    /// &gt; Required when the <c>category</c> is <b>card</b>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("country")]
-    public string? Country { get; init; }
+    [JsonPropertyName("line1")]
+    public string? Line1 { get; init; }
+
+    /// <summary>
+    /// The second line of the street address.
+    /// <para>
+    /// Supported characters: <b>[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \ |</b> and Space.
+    /// </para>
+    /// <para>
+    /// &gt; Required when the <c>category</c> is <b>card</b>.
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("line2")]
+    public string? Line2 { get; init; }
 
     /// <summary>
     /// The postal code.
+    /// Maximum length:
+    /// * 5 digits for an address in the US.
+    /// * 10 characters for an address in all other countries.
+    /// <para>
+    /// Supported characters: <b>[a-z] [A-Z] [0-9]</b> and Space.
+    /// </para>
+    /// <para>
+    /// &gt; Required for addresses in the US.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("postalCode")]
+    [MinLength(3)]
     public string? PostalCode { get; init; }
 
     /// <summary>
-    /// The state or province as defined in <see href="https://www.iso.org/standard/72483.html">ISO 3166-2</see>. For example, <b>ON</b> for Ontario, Canada.
+    /// The two-letter ISO 3166-2 state or province code. For example, <b>CA</b> in the US or <b>ON</b> in Canada.
     /// <para>
-    /// Applicable for the following countries:
-    /// - Australia
-    /// - Brazil
-    /// - Canada
-    /// - India
-    /// - Mexico
-    /// - New Zealand
-    /// - United States
+    ///    &gt; Required for the US and Canada.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("stateOrProvince")]
     public string? StateOrProvince { get; init; }
-
-    /// <summary>
-    /// The name of the street, and the house or building number.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("streetAddress")]
-    public string? StreetAddress { get; init; }
-
-    /// <summary>
-    /// Additional address details, if any.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("streetAddress2")]
-    public string? StreetAddress2 { get; init; }
 }

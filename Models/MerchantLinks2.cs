@@ -7,27 +7,21 @@ namespace Adyen.Models;
 /// </summary>
 public record MerchantLinks2
 {
-    /// <summary>
-    /// List of allowed origins.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("apiCredentials")]
-    public Href2? ApiCredentials { get; init; }
-
-    [JsonPropertyName("self")]
-    public required Self Self { get; init; }
+    public LinksElement? ApiCredentials { get; init; }
 
     /// <summary>
-    /// List of allowed origins.
+    /// Link to the resource itself.
     /// </summary>
+    [JsonPropertyName("self")]
+    public required LinksElement6 Self { get; init; }
+
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("users")]
-    public Href2? Users { get; init; }
+    public LinksElement? Users { get; init; }
 
-    /// <summary>
-    /// List of allowed origins.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("webhooks")]
-    public Href2? Webhooks { get; init; }
+    public LinksElement? Webhooks { get; init; }
 }

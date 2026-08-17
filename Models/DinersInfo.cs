@@ -21,13 +21,22 @@ public record DinersInfo
     /// For merchants operating in Japan, this field is required and must be set to <b>true</b>.
     /// </summary>
     [JsonPropertyName("reuseMidNumber")]
-    public required bool ReuseMidNumber { get; init; }
+    public bool ReuseMidNumber { get; init; } = false;
 
+    /// <summary>
+    /// Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:
+    ///  * <b>noContract</b>: Adyen holds the contract with JCB.
+    ///  * <b>gatewayContract</b>: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("serviceLevel")]
     public ServiceLevel1? ServiceLevel { get; init; }
 
+    /// <summary>
+    /// Information regarding the transaction description.
+    /// &gt; You cannot configure the transaction description in the test environment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionDescription")]
-    public TransactionDescriptionInfo? TransactionDescription { get; init; }
+    public TransactionDescriptionInfo1? TransactionDescription { get; init; }
 }

@@ -4,9 +4,9 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The resulting status of the return.
+/// The status of the card order.
 /// <para>
-/// Possible values: <b>Authorised</b>, <b>Declined</b>.
+/// Possible values: <b>Open</b>, <b>Closed</b>.
 /// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status61>))]
@@ -16,9 +16,9 @@ public sealed record Status61 : StringEnum<Status61>
     {
     }
 
-    public static readonly Status61 Authorised = new("Authorised");
+    public static readonly Status61 Closed = new("closed");
 
-    public static readonly Status61 Declined = new("Declined");
+    public static readonly Status61 Open = new("open");
 
     public static Status61 FromValue(string value) => FromValueCore(value);
 }

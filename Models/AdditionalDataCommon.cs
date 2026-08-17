@@ -67,6 +67,18 @@ public record AdditionalDataCommon
     [JsonPropertyName("customRoutingFlag")]
     public string? CustomRoutingFlag { get; init; }
 
+    /// <summary>
+    /// In case of <see href="https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation">asynchronous authorisation adjustment</see>, this field denotes why the additional payment is made.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>NoShow</b>: An incremental charge is carried out because of a no-show for a guaranteed reservation.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>DelayedCharge</b>: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("industryUsage")]
     public IndustryUsage? IndustryUsage { get; init; }

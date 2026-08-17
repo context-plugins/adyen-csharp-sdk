@@ -27,7 +27,7 @@ public sealed class Initialization
     }
 
     /// <summary>
-    /// post-storeDetail
+    /// Store payout details
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -53,7 +53,7 @@ public sealed class Initialization
     public Task<StoreDetailResponse> PostStoreDetail(StoreDetailRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/storeDetail"),
+        _rawClient.Execute(_server.Default3("/storeDetail"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -66,7 +66,7 @@ public sealed class Initialization
             ct);
 
     /// <summary>
-    /// post-storeDetailAndSubmitThirdParty
+    /// Store details and submit a payout
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -95,7 +95,7 @@ public sealed class Initialization
     public Task<StoreDetailAndSubmitResponse> PostStoreDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/storeDetailAndSubmitThirdParty"),
+        _rawClient.Execute(_server.Default3("/storeDetailAndSubmitThirdParty"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -108,7 +108,7 @@ public sealed class Initialization
             ct);
 
     /// <summary>
-    /// post-submitThirdParty
+    /// Submit a payout
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -137,7 +137,7 @@ public sealed class Initialization
     public Task<SubmitResponse> PostSubmitThirdParty(SubmitRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/submitThirdParty"),
+        _rawClient.Execute(_server.Default3("/submitThirdParty"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

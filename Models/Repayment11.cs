@@ -13,11 +13,17 @@ public record Repayment11
     [JsonPropertyName("basisPoints")]
     public required int BasisPoints { get; init; }
 
+    /// <summary>
+    /// Contains information about the time period in which your user must repay the total amount of the grant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("term")]
-    public Term? Term { get; init; }
+    public RepaymentTerm? Term { get; init; }
 
+    /// <summary>
+    /// Contains the minimum threshold amount that your user must repay every 30-day period.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threshold")]
-    public ThresholdRepayment? Threshold { get; init; }
+    public ThresholdRepayment21? Threshold { get; init; }
 }

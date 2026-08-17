@@ -1,24 +1,57 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
 using Adyen.Models.Enums;
+using Adyen.Models.OneOf;
 
 namespace Adyen.Models;
 
 public record Transfer
 {
+    /// <summary>
+    /// The account holder associated with the balance account involved in the transfer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolder")]
-    public ResourceReference? AccountHolder { get; init; }
+    public ResourceReference5? AccountHolder { get; init; }
 
+    /// <summary>
+    /// The amount of the transfer.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 
+    /// <summary>
+    /// Contains information about the balance account involved in the transfer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("balanceAccount")]
-    public ResourceReference? BalanceAccount { get; init; }
+    public ResourceReference1? BalanceAccount { get; init; }
 
+    /// <summary>
+    /// The category of the transfer.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>bank</b>: A transfer involving a <see href="https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id">transfer instrument</see> or a bank account.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>card</b>: A transfer involving a third-party card.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>internal</b>: A transfer between <see href="https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id">balance accounts</see> within your platform.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>issuedCard</b>: A transfer initiated by an Adyen-issued card.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>platformPayment</b>: Funds movements related to payments that are acquired for your users.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>topUp</b>: An incoming transfer initiated by your user to top up their balance account.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("category")]
     public required Category3 Category { get; init; }
 
@@ -29,8 +62,11 @@ public record Transfer
     [JsonPropertyName("categoryData")]
     public CategoryData? CategoryData { get; init; }
 
+    /// <summary>
+    /// The other party in the transfer.
+    /// </summary>
     [JsonPropertyName("counterparty")]
-    public required CounterpartyV3 Counterparty { get; init; }
+    public required CounterpartyV31 Counterparty { get; init; }
 
     /// <summary>
     /// The date and time when the transfer was created, in ISO 8601 extended format. For example, <b>2020-12-18T10:15:30+01:00</b>.
@@ -59,17 +95,34 @@ public record Transfer
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// The details of the direct debit.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("directDebitInformation")]
-    public DirectDebitInformation? DirectDebitInformation { get; init; }
+    public DirectDebitInformation1? DirectDebitInformation { get; init; }
 
+    /// <summary>
+    /// The direction of the transfer.
+    /// <para>
+    /// Possible values: <b>incoming</b>, <b>outgoing</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("direction")]
     public Direction? Direction { get; init; }
 
+    /// <summary>
+    /// Contains information about the date when the transfer will be processed. The execution date must be within 30 days of the current date.
+    /// <para>
+    /// Until the execution date:
+    /// - The <c>status</c> of the transfer remains as <b>received</b>.
+    /// - The <c>reason</c> of the transfer remains as <b>pending</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("executionDate")]
-    public ExecutionDate? ExecutionDate { get; init; }
+    public ExecutionDate1? ExecutionDate { get; init; }
 
     /// <summary>
     /// The ID of the resource.
@@ -78,13 +131,19 @@ public record Transfer
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// Contains information about the payment instrument used in the transfer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentInstrument")]
-    public PaymentInstrument2? PaymentInstrument { get; init; }
+    public PaymentInstrument3? PaymentInstrument { get; init; }
 
+    /// <summary>
+    /// Additional information about the status of the transfer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reason")]
-    public Reason21? Reason { get; init; }
+    public Reason2? Reason { get; init; }
 
     /// <summary>
     /// Your reference for the transfer, used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference.
@@ -110,18 +169,49 @@ public record Transfer
     [JsonPropertyName("referenceForBeneficiary")]
     public string? ReferenceForBeneficiary { get; init; }
 
+    /// <summary>
+    /// Contains status updates related to additional reviews.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("review")]
-    public TransferReview? Review { get; init; }
+    public TransferReview1? Review { get; init; }
 
+    /// <summary>
+    /// The result of the transfer.
+    /// <para>
+    /// For example:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>received</b>: an outgoing transfer request is created.</description></item>
+    ///   <item><description><b>refused</b>: the transfer request is rejected by Adyen for one of the following reasons:
+    ///     <list type="bullet">
+    ///       <item><description>Transfer limit exceeded.</description></item>
+    ///       <item><description>Transaction rule requirements violated.</description></item>
+    ///     </list>
+    ///   </description></item>
+    ///   <item><description><b>authorised</b>: the transfer request is authorized and the funds are reserved.</description></item>
+    ///   <item><description><b>booked</b>: the funds are deducted from your user's balance account.
+    ///     <list type="bullet">
+    ///       <item><description><b>failed</b>: the transfer is rejected by the counterparty's bank.</description></item>
+    ///     </list>
+    ///   </description></item>
+    ///   <item><description><b>returned</b>: the transfer is returned by the counterparty's bank.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status53 Status { get; init; }
+    public required Status51 Status { get; init; }
 
+    /// <summary>
+    /// The type of transfer or transaction. For example, <b>refund</b>, <b>payment</b>, <b>internalTransfer</b>, <b>bankTransfer</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
     public Type83? Type { get; init; }
 
+    /// <summary>
+    /// The ultimate sender of the funds of the transfer (ultimate debtor).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ultimateParty")]
-    public UltimatePartyIdentification? UltimateParty { get; init; }
+    public UltimatePartyIdentification1? UltimateParty { get; init; }
 }

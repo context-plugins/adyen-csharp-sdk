@@ -5,9 +5,11 @@ namespace Adyen.Models;
 
 public record ReleaseUpdateDetails
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Type of terminal action: Update Release.
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type62? Type { get; init; }
+    public Type61? Type { get; init; } = Type61.ReleaseUpdate;
 
     /// <summary>
     /// Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.

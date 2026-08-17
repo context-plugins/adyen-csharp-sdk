@@ -16,7 +16,11 @@ public record CarnetInfo1
     [JsonPropertyName("addMccAcronym")]
     public bool? AddMccAcronym { get; init; }
 
+    /// <summary>
+    /// Information regarding the transaction description.
+    /// &gt; You cannot configure the transaction description in the test environment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionDescription")]
-    public TransactionDescriptionInfo? TransactionDescription { get; init; }
+    public TransactionDescriptionInfo1? TransactionDescription { get; init; }
 }

@@ -27,11 +27,14 @@ public record TransferRouteRequest
     /// </list>
     /// </summary>
     [JsonPropertyName("category")]
-    public required Category35 Category { get; init; }
+    public string Category { get; } = "bank";
 
+    /// <summary>
+    /// The recipient of the funds transfer. A bank account or a transfer instrument.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("counterparty")]
-    public Counterparty2? Counterparty { get; init; }
+    public Counterparty1? Counterparty { get; init; }
 
     /// <summary>
     /// The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, <b>US</b> or <b>NL</b>.
@@ -71,5 +74,5 @@ public record TransferRouteRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("priorities")]
-    public IReadOnlyList<Priority>? Priorities { get; init; }
+    public IReadOnlyList<Priority1>? Priorities { get; init; }
 }

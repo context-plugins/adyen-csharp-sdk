@@ -22,6 +22,9 @@ public record KlarnaResponseInfo1
     [JsonPropertyName("disputeEmail")]
     public string? DisputeEmail { get; init; }
 
+    /// <summary>
+    /// The region of operation.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("region")]
     public Region1? Region { get; init; }

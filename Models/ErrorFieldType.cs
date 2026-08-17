@@ -18,7 +18,10 @@ public record ErrorFieldType
     [JsonPropertyName("errorDescription")]
     public string? ErrorDescription { get; init; }
 
+    /// <summary>
+    /// The type of error field.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fieldType")]
-    public FieldType2? FieldType { get; init; }
+    public FieldType? FieldType { get; init; }
 }

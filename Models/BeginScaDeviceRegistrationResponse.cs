@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record BeginScaDeviceRegistrationResponse
 {
+    /// <summary>
+    /// A resource that contains information about a device, including its unique ID, name, and type.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scaDevice")]
-    public ScaDevice1? ScaDevice { get; init; }
+    public ScaDevice? ScaDevice { get; init; }
 
     /// <summary>
     /// A string that you must pass to the authentication SDK to continue with the registration process.

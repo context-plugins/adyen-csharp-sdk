@@ -8,8 +8,11 @@ namespace Adyen.Models;
 /// </summary>
 public record StoredValueAccountStatus1
 {
+    /// <summary>
+    /// Identification of the stored value account or the stored value card and the associated product sold by the Sale System for stored value requests.
+    /// </summary>
     [JsonPropertyName("StoredValueAccountID")]
-    public required StoredValueAccountId2 StoredValueAccountId { get; init; }
+    public required StoredValueAccountId StoredValueAccountId { get; init; }
 
     /// <summary>
     /// If relevant and known.

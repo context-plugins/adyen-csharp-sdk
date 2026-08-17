@@ -27,7 +27,7 @@ public sealed class TerminalActionsTerminalLevel
     }
 
     /// <summary>
-    /// post-terminals-scheduleActions
+    /// Create a terminal action
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -53,7 +53,7 @@ public sealed class TerminalActionsTerminalLevel
     public Task<ScheduleTerminalActionsResponse> PostTerminalsScheduleActions(ScheduleTerminalActionsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals/scheduleActions"),
+        _rawClient.Execute(_server.Default9("/terminals/scheduleActions"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

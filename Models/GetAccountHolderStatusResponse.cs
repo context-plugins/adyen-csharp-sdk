@@ -12,9 +12,12 @@ public record GetAccountHolderStatusResponse
     [JsonPropertyName("accountHolderCode")]
     public string? AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// The status of the Account Holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolderStatus")]
-    public AccountHolderStatus? AccountHolderStatus { get; init; }
+    public AccountHolderStatus4? AccountHolderStatus { get; init; }
 
     /// <summary>
     /// Contains field validation errors that would prevent requests from being processed.

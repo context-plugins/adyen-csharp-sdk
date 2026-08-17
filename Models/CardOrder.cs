@@ -58,7 +58,13 @@ public record CardOrder
     [JsonPropertyName("serviceCenter")]
     public string? ServiceCenter { get; init; }
 
+    /// <summary>
+    /// The status of the card order.
+    /// <para>
+    /// Possible values: <b>Open</b>, <b>Closed</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status6? Status { get; init; }
+    public Status61? Status { get; init; }
 }

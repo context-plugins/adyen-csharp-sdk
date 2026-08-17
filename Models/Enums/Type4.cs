@@ -4,9 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// Type of phone number.
-/// Possible values:
-/// <b>Landline</b>, <b>Mobile</b>.
+/// <b>amazonpay</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type4>))]
 public sealed record Type4 : StringEnum<Type4>
@@ -15,9 +13,7 @@ public sealed record Type4 : StringEnum<Type4>
     {
     }
 
-    public static readonly Type4 Landline = new("landline");
-
-    public static readonly Type4 Mobile = new("mobile");
+    public static readonly Type4 Amazonpay = new("amazonpay");
 
     public static Type4 FromValue(string value) => FromValueCore(value);
 }

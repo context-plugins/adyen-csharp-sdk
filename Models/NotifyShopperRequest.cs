@@ -4,8 +4,11 @@ namespace Adyen.Models;
 
 public record NotifyShopperRequest
 {
+    /// <summary>
+    /// The amount of the upcoming payment.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
     /// <summary>
     /// Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format

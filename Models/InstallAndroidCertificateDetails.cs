@@ -12,7 +12,9 @@ public record InstallAndroidCertificateDetails
     [JsonPropertyName("certificateId")]
     public string? CertificateId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Type of terminal action: Install an Android certificate.
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type42? Type { get; init; }
+    public Type42? Type { get; init; } = Type42.InstallAndroidCertificate;
 }

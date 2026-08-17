@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Models.OneOf;
 
 namespace Adyen.Models;
 

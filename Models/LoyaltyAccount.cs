@@ -9,8 +9,11 @@ namespace Adyen.Models;
 /// </summary>
 public record LoyaltyAccount
 {
+    /// <summary>
+    /// Identification of a Loyalty account.
+    /// </summary>
     [JsonPropertyName("LoyaltyAccountID")]
-    public required LoyaltyAccountId3 LoyaltyAccountId { get; init; }
+    public required LoyaltyAccountId2 LoyaltyAccountId { get; init; }
 
     /// <summary>
     /// Identification of a Loyalty brand.

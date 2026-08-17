@@ -25,7 +25,7 @@ public sealed class TransferLimitsBalancePlatformLevel
     }
 
     /// <summary>
-    /// delete-balancePlatforms-id-transferLimits-transferLimitId
+    /// Delete a scheduled or pending transfer limit
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="transferLimitId">The unique identifier of the transfer limit.</param>
@@ -40,7 +40,7 @@ public sealed class TransferLimitsBalancePlatformLevel
         string transferLimitId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}/transferLimits/{transferLimitId}"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}/transferLimits/{transferLimitId}"),
             [new TemplateParam("id", id), new TemplateParam("transferLimitId", transferLimitId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -53,7 +53,7 @@ public sealed class TransferLimitsBalancePlatformLevel
             ct);
 
     /// <summary>
-    /// get-balancePlatforms-id-transferLimits
+    /// Filter and view the transfer limits
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="scope">The scope to which the transfer limit applies. Possible values: * <b>perTransaction</b>: you set a maximum amount for each transfer made from the balance account or balance platform. * <b>perDay</b>: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.</param>
@@ -72,7 +72,7 @@ public sealed class TransferLimitsBalancePlatformLevel
         LimitStatus? status,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}/transferLimits"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}/transferLimits"),
             [new TemplateParam("id", id)],
             [new Param("scope", scope), new Param("transferType", transferType), new Param("status", status)],
             [],
@@ -85,56 +85,56 @@ public sealed class TransferLimitsBalancePlatformLevel
             ct);
 
     /// <summary>
-    /// get-balancePlatforms-id-transferLimits-transferLimitId
+    /// Get the details of a transfer limit
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="transferLimitId">The unique identifier of the transfer limit.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="BalancePlatformsTransferLimitsResponse1"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="TransferLimit"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="GetBalancePlatformsIdTransferLimitsTransferLimitIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Get the details of a transfer limit using its unique <c>transferLimitId</c>.
     /// </remarks>
-    public Task<BalancePlatformsTransferLimitsResponse1> GetBalancePlatformsIdTransferLimitsTransferLimitId(string id,
+    public Task<TransferLimit> GetBalancePlatformsIdTransferLimitsTransferLimitId(string id,
         string transferLimitId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}/transferLimits/{transferLimitId}"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}/transferLimits/{transferLimitId}"),
             [new TemplateParam("id", id), new TemplateParam("transferLimitId", transferLimitId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<BalancePlatformsTransferLimitsResponse1>(),
+            JsonResponse.Create<TransferLimit>(),
             GetBalancePlatformsIdTransferLimitsTransferLimitIdErrorResponse.Instance,
             [],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-balancePlatforms-id-transferLimits
+    /// Create a transfer limit
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="BalancePlatformsTransferLimitsResponse1"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="TransferLimit"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostBalancePlatformsIdTransferLimitsError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Create a transfer limit for your balance platform using the unique <c>id</c> of your balance platform.
     /// </remarks>
-    public Task<BalancePlatformsTransferLimitsResponse1> PostBalancePlatformsIdTransferLimits(string id,
+    public Task<TransferLimit> PostBalancePlatformsIdTransferLimits(string id,
         CreateTransferLimitRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}/transferLimits"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}/transferLimits"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<BalancePlatformsTransferLimitsResponse1>(),
+            JsonResponse.Create<TransferLimit>(),
             PostBalancePlatformsIdTransferLimitsErrorResponse.Instance,
             [],
             requestOptions,

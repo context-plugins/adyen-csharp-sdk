@@ -5,8 +5,11 @@ namespace Adyen.Models;
 
 public record TransferInstrumentInfo
 {
+    /// <summary>
+    /// Contains information about the legal entity's bank account.
+    /// </summary>
     [JsonPropertyName("bankAccount")]
-    public required BankAccountInfo BankAccount { get; init; }
+    public required BankAccountInfo1 BankAccount { get; init; }
 
     /// <summary>
     /// The unique identifier of the <see href="https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id">legal entity</see> that owns the transfer instrument.
@@ -14,6 +17,12 @@ public record TransferInstrumentInfo
     [JsonPropertyName("legalEntityId")]
     public required string LegalEntityId { get; init; }
 
+    /// <summary>
+    /// The type of transfer instrument.
+    /// <para>
+    /// Possible value: <b>bankAccount</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type222 Type { get; init; }
+    public required Type221 Type { get; init; }
 }

@@ -11,6 +11,9 @@ public record PaypalUpdateOrderResponse
     [JsonPropertyName("paymentData")]
     public required string PaymentData { get; init; }
 
+    /// <summary>
+    /// The status of the request. This indicates whether the order was successfully updated with PayPal.
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status42 Status { get; init; }
+    public required Status4 Status { get; init; }
 }

@@ -45,9 +45,12 @@ public record BalanceAccountInfo
     [JsonPropertyName("migratedAccountCode")]
     public string? MigratedAccountCode { get; init; }
 
+    /// <summary>
+    /// Contains key-value pairs to configure the sales day closing time and settlement delay for a balance account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformPaymentConfiguration")]
-    public PlatformPaymentConfiguration? PlatformPaymentConfiguration { get; init; }
+    public PlatformPaymentConfiguration1? PlatformPaymentConfiguration { get; init; }
 
     /// <summary>
     /// Your reference for the balance account, maximum 150 characters.

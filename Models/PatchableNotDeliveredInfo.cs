@@ -88,9 +88,15 @@ public record PatchableNotDeliveredInfo
     [JsonPropertyName("lastExpectedDate")]
     public DateTimeOffset? LastExpectedDate { get; init; }
 
+    /// <summary>
+    /// The type of product that you expected to receive.
+    /// <para>
+    /// Possible values: <b>goods</b>, <b>services</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("whatWasNotDelivered")]
-    public ProductType2? WhatWasNotDelivered { get; init; }
+    public ProductType21? WhatWasNotDelivered { get; init; }
 
     /// <summary>
     /// The party that initiated the cancellation of the transaction.

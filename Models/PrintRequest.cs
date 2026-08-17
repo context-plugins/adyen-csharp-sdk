@@ -8,6 +8,9 @@ namespace Adyen.Models;
 /// </summary>
 public record PrintRequest
 {
+    /// <summary>
+    /// Information to print and how to process it.
+    /// </summary>
     [JsonPropertyName("PrintOutput")]
-    public required PrintOutput PrintOutput { get; init; }
+    public required PrintOutput2 PrintOutput { get; init; }
 }

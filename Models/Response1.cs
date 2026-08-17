@@ -10,9 +10,38 @@ namespace Adyen.Models;
 /// </summary>
 public record Response1
 {
+    /// <summary>
+    /// Result of the processing of the message.
+    /// Possible values:
+    /// * <b>Failure</b>
+    /// * <b>Partial</b>
+    /// * <b>Success</b>
+    /// </summary>
     [JsonPropertyName("Result")]
     public required Result11 Result { get; init; }
 
+    /// <summary>
+    /// Condition that has produced an error on the processing of a message request.
+    /// Returned if Result is not Success.
+    /// Possible values:
+    /// * <b>Aborted</b>
+    /// * <b>Busy</b>
+    /// * <b>Cancel</b>
+    /// * <b>DeviceOut</b>
+    /// * <b>InProgress</b>
+    /// * <b>InsertedCard</b>
+    /// * <b>InvalidCard</b>
+    /// * <b>LoggedOut</b>
+    /// * <b>MessageFormat</b>
+    /// * <b>NotAllowed</b>
+    /// * <b>NotFound</b>
+    /// * <b>PaymentRestriction</b>
+    /// * <b>Refusal</b>
+    /// * <b>UnavailableDevice</b>
+    /// * <b>UnavailableService</b>
+    /// * <b>UnreachableHost</b>
+    /// * <b>WrongPIN</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ErrorCondition")]
     public ErrorCondition1? ErrorCondition { get; init; }

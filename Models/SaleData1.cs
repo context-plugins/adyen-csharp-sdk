@@ -36,8 +36,11 @@ public record SaleData1
     [RegularExpression("^.+$")]
     public string? ShiftNumber { get; init; }
 
+    /// <summary>
+    /// Identification of a Sale transaction.
+    /// </summary>
     [JsonPropertyName("SaleTransactionID")]
-    public required SaleTransactionId SaleTransactionId { get; init; }
+    public required TransactionIdType1 SaleTransactionId { get; init; }
 
     /// <summary>
     /// Identification of a Sale global transaction for a sequence of related POI transactions.
@@ -48,10 +51,22 @@ public record SaleData1
     [RegularExpression("^.+$")]
     public string? SaleReferenceId { get; init; }
 
+    /// <summary>
+    /// Information related to the software and hardware features of the Sale Terminal.
+    /// If content is not empty.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SaleTerminalData")]
-    public SaleTerminalData3? SaleTerminalData { get; init; }
+    public SaleTerminalData1? SaleTerminalData { get; init; }
 
+    /// <summary>
+    /// Type of token replacing the PAN of a payment card to identify the payment
+    ///  mean of the customer. It allows, for a merchant, to use a token for a transaction
+    ///  only or for a longer period.
+    /// Possible values:
+    /// * <b>Customer</b>
+    /// * <b>Transaction</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TokenRequestedType")]
     public TokenRequestedType1? TokenRequestedType { get; init; }
@@ -82,7 +97,7 @@ public record SaleData1
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SaleToPOIData")]
     [RegularExpression("^.+$")]
-    public string? SaleToPoidata { get; init; }
+    public string? SaleToPoiData { get; init; }
 
     /// <summary>
     /// Sale information intended for the Acquirer.
@@ -93,7 +108,11 @@ public record SaleData1
     [RegularExpression("^.+$")]
     public string? SaleToAcquirerData { get; init; }
 
+    /// <summary>
+    /// Sale information intended for the Issuer.
+    /// Send to the Acquirer if present.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SaleToIssuerData")]
-    public SaleToIssuerData2? SaleToIssuerData { get; init; }
+    public SaleToIssuerData1? SaleToIssuerData { get; init; }
 }

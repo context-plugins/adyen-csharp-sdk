@@ -12,9 +12,15 @@ public record ScheduleAccountUpdaterRequest
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// Credit card data.
+    /// <para>
+    /// Optional if <c>shopperReference</c> and <c>selectedRecurringDetailReference</c> are provided.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card? Card { get; init; }
 
     /// <summary>
     /// Account of the merchant.

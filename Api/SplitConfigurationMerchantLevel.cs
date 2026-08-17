@@ -27,7 +27,7 @@ public sealed class SplitConfigurationMerchantLevel
     }
 
     /// <summary>
-    /// delete-merchants-merchantId-splitConfigurations-splitConfigurationId
+    /// Delete a split configuration profile
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The unique identifier of the split configuration.</param>
@@ -46,7 +46,7 @@ public sealed class SplitConfigurationMerchantLevel
         string splitConfigurationId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId)],
             [],
@@ -60,7 +60,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// delete-merchants-merchantId-splitConfigurations-splitConfigurationId-rules-ruleId
+    /// Delete a rule
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The unique identifier of the split configuration.</param>
@@ -81,7 +81,7 @@ public sealed class SplitConfigurationMerchantLevel
         string ruleId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId),
                 new TemplateParam("ruleId", ruleId)],
@@ -96,7 +96,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-splitConfigurations
+    /// Get a list of split configuration profiles
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -113,7 +113,7 @@ public sealed class SplitConfigurationMerchantLevel
     public Task<SplitConfigurationList> GetMerchantsMerchantIdSplitConfigurations(string merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [],
@@ -126,7 +126,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-splitConfigurations-splitConfigurationId
+    /// Get a split configuration profile
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The unique identifier of the split configuration.</param>
@@ -145,7 +145,7 @@ public sealed class SplitConfigurationMerchantLevel
         string splitConfigurationId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId)],
             [],
@@ -159,7 +159,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-splitConfigurations-splitConfigurationId
+    /// Update the description of the split configuration profile
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The unique identifier of the split configuration.</param>
@@ -180,7 +180,7 @@ public sealed class SplitConfigurationMerchantLevel
         UpdateSplitConfigurationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId)],
             [],
@@ -194,7 +194,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-splitConfigurations-splitConfigurationId-rules-ruleId
+    /// Update the split conditions
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The identifier of the split configuration.</param>
@@ -217,7 +217,7 @@ public sealed class SplitConfigurationMerchantLevel
         UpdateSplitConfigurationRuleRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId),
                 new TemplateParam("ruleId", ruleId)],
@@ -232,7 +232,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-splitConfigurations-rules-splitLogic
+    /// Update the split logic
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The unique identifier of the split configuration.</param>
@@ -254,10 +254,10 @@ public sealed class SplitConfigurationMerchantLevel
         string splitConfigurationId,
         string ruleId,
         string splitLogicId,
-        SplitConfigurationLogic? body,
+        UpdateSplitConfigurationLogicRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}/splitLogic/{splitLogicId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}/rules/{ruleId}/splitLogic/{splitLogicId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId),
                 new TemplateParam("ruleId", ruleId),
@@ -273,7 +273,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-splitConfigurations
+    /// Create a split configuration profile
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -292,7 +292,7 @@ public sealed class SplitConfigurationMerchantLevel
         SplitConfiguration? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -305,7 +305,7 @@ public sealed class SplitConfigurationMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-splitConfigurations-splitConfigurationId
+    /// Create a rule
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="splitConfigurationId">The unique identifier of the split configuration.</param>
@@ -326,7 +326,7 @@ public sealed class SplitConfigurationMerchantLevel
         SplitConfigurationRule? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}"),
             [new TemplateParam("merchantId", merchantId),
                 new TemplateParam("splitConfigurationId", splitConfigurationId)],
             [],

@@ -8,9 +8,27 @@ namespace Adyen.Models;
 /// </summary>
 public record PrintOutput2
 {
+    /// <summary>
+    /// Qualification of the document to print to the Cashier or the Customer. Allows the manager of the printer, Sale or POI Terminal, to send information to a physical printer or to use the paper type accordingly.
+    /// Possible values:
+    /// * <b>CashierReceipt</b>
+    /// * <b>CustomerReceipt</b>
+    /// * <b>Document</b>
+    /// * <b>Journal</b>
+    /// * <b>SaleReceipt</b>
+    /// * <b>Voucher</b>
+    /// </summary>
     [JsonPropertyName("DocumentQualifier")]
     public required DocumentQualifier2 DocumentQualifier { get; init; }
 
+    /// <summary>
+    /// Message response awaited by the initiator of the Request. Allows various types and synchronisation of requests for Print or Sound.
+    /// Possible values:
+    /// * <b>Immediate</b>
+    /// * <b>NotRequired</b>
+    /// * <b>PrintEnd</b>
+    /// * <b>SoundEnd</b>
+    /// </summary>
     [JsonPropertyName("ResponseMode")]
     public required ResponseMode1 ResponseMode { get; init; }
 
@@ -26,6 +44,9 @@ public record PrintOutput2
     [JsonPropertyName("RequiredSignatureFlag")]
     public bool? RequiredSignatureFlag { get; init; } = false;
 
+    /// <summary>
+    /// Content to display or print. This is a sequence of elements if they have different formats.
+    /// </summary>
     [JsonPropertyName("OutputContent")]
-    public required OutputContent2 OutputContent { get; init; }
+    public required OutputContent3 OutputContent { get; init; }
 }

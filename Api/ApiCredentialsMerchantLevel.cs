@@ -27,7 +27,7 @@ public sealed class ApiCredentialsMerchantLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-apiCredentials
+    /// Get a list of API credentials
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -48,7 +48,7 @@ public sealed class ApiCredentialsMerchantLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -61,7 +61,7 @@ public sealed class ApiCredentialsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-apiCredentials-apiCredentialId
+    /// Get an API credential
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -80,7 +80,7 @@ public sealed class ApiCredentialsMerchantLevel
         string apiCredentialId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [],
@@ -93,7 +93,7 @@ public sealed class ApiCredentialsMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-apiCredentials-apiCredentialId
+    /// Update an API credential
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -114,7 +114,7 @@ public sealed class ApiCredentialsMerchantLevel
         UpdateMerchantApiCredentialRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -127,7 +127,7 @@ public sealed class ApiCredentialsMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-apiCredentials
+    /// Create an API credential
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -158,7 +158,7 @@ public sealed class ApiCredentialsMerchantLevel
         CreateMerchantApiCredentialRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

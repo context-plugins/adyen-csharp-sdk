@@ -9,8 +9,11 @@ namespace Adyen.Models;
 /// </summary>
 public record StoredValueRequest
 {
+    /// <summary>
+    /// Data related to the Sale System.
+    /// </summary>
     [JsonPropertyName("SaleData")]
-    public required SaleData2 SaleData { get; init; }
+    public required SaleData1 SaleData { get; init; }
 
     /// <summary>
     /// Data related to the stored value card.

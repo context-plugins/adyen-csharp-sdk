@@ -45,6 +45,9 @@ public record Voucher
     [JsonPropertyName("telephoneNumber")]
     public required string TelephoneNumber { get; init; }
 
+    /// <summary>
+    /// <b>econtextvoucher</b>
+    /// </summary>
     [JsonPropertyName("type")]
     public required Type29 Type { get; init; }
 }

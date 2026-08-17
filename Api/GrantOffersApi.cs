@@ -26,7 +26,7 @@ public sealed class GrantOffersApi
     }
 
     /// <summary>
-    /// get-grantOffers
+    /// Get all available grant offers
     /// </summary>
     /// <param name="accountHolderId">The unique identifier of the grant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -39,7 +39,7 @@ public sealed class GrantOffersApi
     public Task<GrantOffers> GetGrantOffers(string accountHolderId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grantOffers"),
+        _rawClient.Execute(_server.Default13("/grantOffers"),
             [],
             [new Param("accountHolderId", accountHolderId)],
             [],
@@ -52,7 +52,7 @@ public sealed class GrantOffersApi
             ct);
 
     /// <summary>
-    /// get-grantOffers-grantOfferId
+    /// Get a grant offer
     /// </summary>
     /// <param name="grantOfferId">The unique identifier of the grant offer.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -65,7 +65,7 @@ public sealed class GrantOffersApi
     public Task<GrantOffer> GetGrantOffersGrantOfferId(string grantOfferId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grantOffers/{grantOfferId}"),
+        _rawClient.Execute(_server.Default13("/grantOffers/{grantOfferId}"),
             [new TemplateParam("grantOfferId", grantOfferId)],
             [],
             [],
@@ -78,7 +78,7 @@ public sealed class GrantOffersApi
             ct);
 
     /// <summary>
-    /// get-grantOffers-id
+    /// Get the details of a static offer
     /// </summary>
     /// <param name="id">The unique identifier of the static offer.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -91,7 +91,7 @@ public sealed class GrantOffersApi
     public Task<GrantOffer1> GetGrantOffersId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grantOffers/{id}"),
+        _rawClient.Execute(_server.Default15("/grantOffers/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -99,6 +99,32 @@ public sealed class GrantOffersApi
             EmptyBody.Instance,
             JsonResponse.Create<GrantOffer1>(),
             GetGrantOffersIdErrorResponse.Instance,
+            [],
+            requestOptions,
+            ct);
+
+    /// <summary>
+    /// Get all available static offers
+    /// </summary>
+    /// <param name="accountHolderId">The unique identifier of the account holder for which you want to get the available static offers.</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="ct">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GrantOffers"/> instance.</returns>
+    /// <exception cref="SdkException{TResult}"> of <see cref="GetGrantOffers1Error"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Returns a list of all <see href="https://docs.adyen.com/capital/get-grant-offers/static-offers">static offers</see> available for <c>accountHolderId</c> specified as a query parameter. This also includes static offers created for financing amounts that the user selected from <see href="https://docs.adyen.com/capital/get-grant-offers/dynamic-offers/">dynamic offers</see>.
+    /// </remarks>
+    public Task<GrantOffers> GetGrantOffers1(string accountHolderId,
+        RequestOptions? requestOptions = null,
+        CancellationToken ct = default) =>
+        _rawClient.Execute(_server.Default15("/grantOffers"),
+            [],
+            [new Param("accountHolderId", accountHolderId)],
+            [],
+            HttpMethod.Get,
+            EmptyBody.Instance,
+            JsonResponse.Create<GrantOffers>(),
+            GetGrantOffers1ErrorResponse.Instance,
             [],
             requestOptions,
             ct);

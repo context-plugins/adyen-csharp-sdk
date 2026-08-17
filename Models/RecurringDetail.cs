@@ -36,17 +36,26 @@ public record RecurringDetail
     [JsonPropertyName("aliasType")]
     public string? AliasType { get; init; }
 
+    /// <summary>
+    /// A container for bank account data.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bank")]
-    public Bank? Bank { get; init; }
+    public BankAccount? Bank { get; init; }
 
+    /// <summary>
+    /// The billing address.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address? BillingAddress { get; init; }
 
+    /// <summary>
+    /// A container for card data.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card? Card { get; init; }
 
     /// <summary>
     /// Types of recurring contracts.
@@ -99,9 +108,12 @@ public record RecurringDetail
     [JsonPropertyName("recurringDetailReference")]
     public required string RecurringDetailReference { get; init; }
 
+    /// <summary>
+    /// The name of the shopper.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// A shopper's social security number (only in countries where it is legal to collect).

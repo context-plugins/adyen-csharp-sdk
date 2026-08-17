@@ -35,9 +35,12 @@ public record CardConfiguration2
     [MaxLength(255)]
     public string? ActivationUrl { get; init; }
 
+    /// <summary>
+    /// Overrides the shipment bulk address defined in the card configuration profile.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bulkAddress")]
-    public BulkAddress? BulkAddress { get; init; }
+    public BulkAddress1? BulkAddress { get; init; }
 
     /// <summary>
     /// The unique identifier of the card image. This image is printed on the full front of the card.

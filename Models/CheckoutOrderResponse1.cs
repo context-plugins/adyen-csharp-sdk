@@ -7,9 +7,12 @@ namespace Adyen.Models;
 /// </summary>
 public record CheckoutOrderResponse1
 {
+    /// <summary>
+    /// The initial amount of the order.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount12? Amount { get; init; }
 
     /// <summary>
     /// The expiry date for the order.
@@ -38,7 +41,10 @@ public record CheckoutOrderResponse1
     [JsonPropertyName("reference")]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The updated remaining amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("remainingAmount")]
-    public RemainingAmount? RemainingAmount { get; init; }
+    public Amount13? RemainingAmount { get; init; }
 }

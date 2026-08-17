@@ -6,8 +6,11 @@ namespace Adyen.Models;
 
 public record LegalArrangementDetail
 {
+    /// <summary>
+    /// The address of the legal arrangement.
+    /// </summary>
     [JsonPropertyName("address")]
-    public required ViasAddress Address { get; init; }
+    public required ViasAddress4 Address { get; init; }
 
     /// <summary>
     /// Adyen-generated unique alphanumeric identifier (UUID) for the entry, returned in the response when you create a legal arrangement.
@@ -31,6 +34,18 @@ public record LegalArrangementDetail
     [JsonPropertyName("legalArrangementReference")]
     public string? LegalArrangementReference { get; init; }
 
+    /// <summary>
+    /// The form of legal arrangement. Required if <c>type</c> is <b>Trust</b> or <b>Partnership</b>.
+    /// <para>
+    /// The possible values depend on the <c>type</c>.
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>For <c>type</c> <b>Trust</b>:  <b>CashManagementTrust</b>, <b>CorporateUnitTrust</b>, <b>DeceasedEstate</b>, <b>DiscretionaryInvestmentTrust</b>, <b>DiscretionaryServicesManagementTrust</b>, <b>DiscretionaryTradingTrust</b>, <b>FirstHomeSaverAccountsTrust</b>, <b>FixedTrust</b>, <b>FixedUnitTrust</b>, <b>HybridTrust</b>, <b>ListedPublicUnitTrust</b>, <b>OtherTrust</b>, <b>PooledSuperannuationTrust</b>, <b>PublicTradingTrust</b>, or <b>UnlistedPublicUnitTrust</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>For <c>type</c> <b>Partnership</b>: <b>LimitedPartnership</b>, <b>FamilyPartnership</b>, or <b>OtherPartnership</b></description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("legalForm")]
     public LegalForm? LegalForm { get; init; }
@@ -55,6 +70,24 @@ public record LegalArrangementDetail
     [JsonPropertyName("taxNumber")]
     public string? TaxNumber { get; init; }
 
+    /// <summary>
+    /// The <see href="https://docs.adyen.com/classic-platforms/verification-process/legal-arrangements#types-of-legal-arrangements">type of legal arrangement</see>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>Association</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>Partnership</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>SoleProprietorship</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>Trust</b></description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type1 Type { get; init; }
+    public required Type110 Type { get; init; }
 }

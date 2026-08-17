@@ -9,14 +9,23 @@ namespace Adyen.Models;
 /// </summary>
 public record CardAcquisitionResponse
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Data related to the Sale System.
+    /// </summary>
     [JsonPropertyName("SaleData")]
-    public required SaleData2 SaleData { get; init; }
+    public required SaleData1 SaleData { get; init; }
 
+    /// <summary>
+    /// Data related to the POI System.
+    /// </summary>
     [JsonPropertyName("POIData")]
-    public required Poidata2 Poidata { get; init; }
+    public required PoiData1 PoiData { get; init; }
 
     /// <summary>
     /// Type of payment card.
@@ -26,9 +35,13 @@ public record CardAcquisitionResponse
     [JsonPropertyName("PaymentBrand")]
     public IReadOnlyList<string>? PaymentBrand { get; init; }
 
+    /// <summary>
+    /// Data related to the instrument of payment for the transaction.
+    /// If this type of payment card is configured to send information if the CardAcquisition response.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentInstrumentData")]
-    public PaymentInstrumentData2? PaymentInstrumentData { get; init; }
+    public PaymentInstrumentData1? PaymentInstrumentData { get; init; }
 
     /// <summary>
     /// Data related to the loyalty System.

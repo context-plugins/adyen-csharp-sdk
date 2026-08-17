@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record TerminalOrder
 {
+    /// <summary>
+    /// The details of the entity that the order is billed to.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingEntity")]
-    public BillingEntity? BillingEntity { get; init; }
+    public BillingEntity1? BillingEntity { get; init; }
 
     /// <summary>
     /// The merchant-defined purchase order number. This will be printed on the packing list.
@@ -37,9 +40,12 @@ public record TerminalOrder
     [JsonPropertyName("orderDate")]
     public string? OrderDate { get; init; }
 
+    /// <summary>
+    /// The details of the location where the order is shipped to.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shippingLocation")]
-    public ShippingLocation? ShippingLocation { get; init; }
+    public ShippingLocation1? ShippingLocation { get; init; }
 
     /// <summary>
     /// The processing status of the order.

@@ -4,19 +4,19 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier).
+/// The amount of the forwarded payment.
 /// </summary>
 public record Amount11
 {
     /// <summary>
-    /// The three-character <see href="https://docs.adyen.com/development-resources/currency-codes">ISO currency code</see>.
+    /// The three-character <see href="https://docs.adyen.com/development-resources/currency-codes#currency-codes">ISO currency code</see> of the amount.
     /// </summary>
     [JsonPropertyName("currency")]
     [StringLength(3, MinimumLength = 3)]
     public required string Currency { get; init; }
 
     /// <summary>
-    /// The amount of the transaction, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
+    /// The numeric value of the amount, in <see href="https://docs.adyen.com/development-resources/currency-codes#minor-units">minor units</see>.
     /// </summary>
     [JsonPropertyName("value")]
     public required long Value { get; init; }

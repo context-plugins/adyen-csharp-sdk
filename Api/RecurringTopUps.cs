@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Adyen.Core;
@@ -24,13 +25,13 @@ public sealed class RecurringTopUps
     }
 
     /// <summary>
-    /// delete-balanceAccounts-balanceAccountId-recurringTopUps-topUpId
+    /// Delete a recurring top up
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="topUpId">The unique identifier of the recurring top-up you want to delete.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="JsonElement"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Delete a recurring top up configuration by <c>topUpId</c>.
@@ -38,24 +39,24 @@ public sealed class RecurringTopUps
     /// For more information, refer to <see href="https://docs.adyen.com/issuing/add-manage-funds/top-ups/manage-recurring-top-ups">Manage recurring top-ups</see>.
     /// </para>
     /// </remarks>
-    public Task<object> DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(string balanceAccountId,
+    public Task<JsonElement> DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(string balanceAccountId,
         string topUpId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("topUpId", topUpId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
-            JsonResponse.Create<object>(),
+            JsonResponse.Create<JsonElement>(),
             DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdErrorResponse.Instance,
             [],
             requestOptions,
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-balanceAccountId-recurringTopUps
+    /// Get recurring top ups for a specific balanceAccountId
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="cursor">The cursor used for pagination. Required if you want to see the next or previous page of results.</param>
@@ -75,7 +76,7 @@ public sealed class RecurringTopUps
         int? limit = 10,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/recurringTopUps"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/recurringTopUps"),
             [new TemplateParam("balanceAccountId", balanceAccountId)],
             [new Param("limit", limit), new Param("cursor", cursor)],
             [],
@@ -88,7 +89,7 @@ public sealed class RecurringTopUps
             ct);
 
     /// <summary>
-    /// patch-balanceAccounts-balanceAccountId-recurringTopUps-topUpId
+    /// Update a RecurringTopUp
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="topUpId">The unique identifier of the recurring top-up you want to update.</param>
@@ -108,7 +109,7 @@ public sealed class RecurringTopUps
         PatchableCreateRecurringTopUp body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("topUpId", topUpId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -121,7 +122,7 @@ public sealed class RecurringTopUps
             ct);
 
     /// <summary>
-    /// post-balanceAccounts-balanceAccountId-recurringTopUps
+    /// Create recurring top up
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="body"></param>
@@ -139,7 +140,7 @@ public sealed class RecurringTopUps
         CreateRecurringTopUp body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/recurringTopUps"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/recurringTopUps"),
             [new TemplateParam("balanceAccountId", balanceAccountId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

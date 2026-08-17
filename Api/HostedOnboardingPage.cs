@@ -27,7 +27,7 @@ public sealed class HostedOnboardingPage
     }
 
     /// <summary>
-    /// post-getOnboardingUrl
+    /// Get a link to a Adyen-hosted onboarding page
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class HostedOnboardingPage
     public Task<GetOnboardingUrlResponse> PostGetOnboardingUrl(GetOnboardingUrlRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getOnboardingUrl"),
+        _rawClient.Execute(_server.Default19("/getOnboardingUrl"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

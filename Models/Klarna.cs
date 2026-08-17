@@ -72,6 +72,9 @@ public record Klarna
     [JsonPropertyName("subtype")]
     public string? Subtype { get; init; }
 
+    /// <summary>
+    /// <b>klarna</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type34 Type { get; init; }
+    public Type34 Type { get; init; } = Type34.Klarna;
 }

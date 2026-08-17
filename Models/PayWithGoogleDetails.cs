@@ -13,6 +13,9 @@ public record PayWithGoogleDetails
     [JsonPropertyName("checkoutAttemptId")]
     public string? CheckoutAttemptId { get; init; }
 
+    /// <summary>
+    /// The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to <b>debit</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingSource")]
     public FundingSource? FundingSource { get; init; }
@@ -55,7 +58,9 @@ public record PayWithGoogleDetails
     [MaxLength(12)]
     public string? ThreeDs2SdkVersion { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>paywithgoogle</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type26? Type { get; init; }
+    public Type26? Type { get; init; } = Type26.Paywithgoogle;
 }

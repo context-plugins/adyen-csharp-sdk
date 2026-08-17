@@ -5,7 +5,8 @@ namespace Adyen.Models.Enums;
 
 /// <summary>
 /// The type of the phone number.
-/// &gt;The following values are permitted: <c>Landline</c>, <c>Mobile</c>, <c>SIP</c>, <c>Fax</c>.
+/// &gt;The following values are permitted: <c>Landline</c>, <c>Mobile</c>, <c>SIP</c>, <c>Fax</c>., The type of the phone number.
+/// Possible values: <b>Landline</b>, <b>Mobile</b>, <b>SIP</b>, <b>Fax</b>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<PhoneType>))]
 public sealed record PhoneType : StringEnum<PhoneType>

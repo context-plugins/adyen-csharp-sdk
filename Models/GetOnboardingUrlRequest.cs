@@ -10,9 +10,12 @@ public record GetOnboardingUrlRequest
     [JsonPropertyName("accountHolderCode")]
     public required string AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// Contains indicators whether the page should only collect information for specific <see href="https://docs.adyen.com/classic-platforms/verification-checks">KYC checks</see>. By default, the page collects information for all KYC checks that apply to the <see href="https://docs.adyen.com/classic-platforms/account-holders-and-accounts#legal-entity-types">legal entity type</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("collectInformation")]
-    public CollectInformation? CollectInformation { get; init; }
+    public CollectInformation1? CollectInformation { get; init; }
 
     /// <summary>
     /// Indicates if editing checks is allowed even if all the checks have passed.
@@ -26,7 +29,7 @@ public record GetOnboardingUrlRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mobileOAuthCallbackUrl")]
-    public string? MobileOauthCallbackUrl { get; init; }
+    public string? MobileOAuthCallbackUrl { get; init; }
 
     /// <summary>
     /// The platform name which will show up in the welcome page.
@@ -55,7 +58,10 @@ public record GetOnboardingUrlRequest
     [JsonPropertyName("shopperLocale")]
     public string? ShopperLocale { get; init; }
 
+    /// <summary>
+    /// Contains indicators whether specific pages must be shown to the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("showPages")]
-    public ShowPages? ShowPages { get; init; }
+    public ShowPages2? ShowPages { get; init; }
 }

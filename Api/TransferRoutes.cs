@@ -27,7 +27,7 @@ public sealed class TransferRoutes
     }
 
     /// <summary>
-    /// post-transferRoutes-calculate
+    /// Calculate transfer routes
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class TransferRoutes
     public Task<TransferRouteResponse> PostTransferRoutesCalculate(TransferRouteRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transferRoutes/calculate"),
+        _rawClient.Execute(_server.Default13("/transferRoutes/calculate"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

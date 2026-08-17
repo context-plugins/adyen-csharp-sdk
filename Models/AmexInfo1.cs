@@ -27,6 +27,12 @@ public record AmexInfo1
     [JsonPropertyName("reuseMidNumber")]
     public bool? ReuseMidNumber { get; init; } = false;
 
+    /// <summary>
+    /// Specifies the service level (settlement type) of this payment method. Possible values:
+    /// * <b>noContract</b>: Adyen holds the contract with American Express.
+    /// * <b>gatewayContract</b>: American Express receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
+    /// * <b>paymentDesignatorContract</b>: Adyen receives the settlement, and handles disputes and payouts.
+    /// </summary>
     [JsonPropertyName("serviceLevel")]
     public required ServiceLevel ServiceLevel { get; init; }
 }

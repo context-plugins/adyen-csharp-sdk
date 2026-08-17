@@ -4,10 +4,11 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The bank account type.
-/// <para>
-/// Possible values: <b>checking</b> or <b>savings</b>. Defaults to <b>checking</b>.
-/// </para>
+/// Indicates the type of account. For example, for a multi-account card product.
+/// Allowed values:
+/// * notApplicable
+/// * credit
+/// * debit
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<AccountType>))]
 public sealed record AccountType : StringEnum<AccountType>
@@ -16,9 +17,11 @@ public sealed record AccountType : StringEnum<AccountType>
     {
     }
 
-    public static readonly AccountType Checking = new("checking");
+    public static readonly AccountType NotApplicable = new("notApplicable");
 
-    public static readonly AccountType Savings = new("savings");
+    public static readonly AccountType Credit = new("credit");
+
+    public static readonly AccountType Debit = new("debit");
 
     public static AccountType FromValue(string value) => FromValueCore(value);
 }

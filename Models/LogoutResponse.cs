@@ -8,6 +8,9 @@ namespace Adyen.Models;
 /// </summary>
 public record LogoutResponse
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 }

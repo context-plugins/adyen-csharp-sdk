@@ -40,6 +40,9 @@ public record StoredPaymentMethod4
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// The payment method type.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
     public Type44? Type { get; init; }

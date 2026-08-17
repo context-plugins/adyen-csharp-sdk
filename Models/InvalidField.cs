@@ -5,12 +5,6 @@ namespace Adyen.Models;
 public record InvalidField
 {
     /// <summary>
-    /// Description of the validation error.
-    /// </summary>
-    [JsonPropertyName("message")]
-    public required string Message { get; init; }
-
-    /// <summary>
     /// The field that has an invalid value.
     /// </summary>
     [JsonPropertyName("name")]
@@ -21,4 +15,10 @@ public record InvalidField
     /// </summary>
     [JsonPropertyName("value")]
     public required string Value { get; init; }
+
+    /// <summary>
+    /// Description of the validation error.
+    /// </summary>
+    [JsonPropertyName("message")]
+    public required string Message { get; init; }
 }

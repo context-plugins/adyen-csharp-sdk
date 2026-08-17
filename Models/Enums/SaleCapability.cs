@@ -16,7 +16,7 @@ public sealed record SaleCapability : StringEnum<SaleCapability>
 
     public static readonly SaleCapability CashierDisplay = new("CashierDisplay");
 
-    public static readonly SaleCapability Poireplication = new("POIReplication");
+    public static readonly SaleCapability PoiReplication = new("POIReplication");
 
     public static readonly SaleCapability CashierInput = new("CashierInput");
 
@@ -38,7 +38,7 @@ public sealed record SaleCapability : StringEnum<SaleCapability>
 
     public static readonly SaleCapability Icc = new("ICC");
 
-    public static readonly SaleCapability Emvcontactless = new("EMVContactless");
+    public static readonly SaleCapability EmvContactless = new("EMVContactless");
 
     public static SaleCapability FromValue(string value) => FromValueCore(value);
 }

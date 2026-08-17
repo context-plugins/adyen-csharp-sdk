@@ -12,6 +12,9 @@ public record ValidateShopperIdResponse
     [JsonPropertyName("reason")]
     public string? Reason { get; init; }
 
+    /// <summary>
+    /// Result of the validation. Ex: valid, invalid, unknown
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("result")]
     public Result1? Result { get; init; }

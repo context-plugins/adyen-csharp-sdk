@@ -9,38 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class GetGrantsGrantIdError : ApiError
 {
-    private readonly Optional<Grants404Error1> _grants404Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<Grants422Error1> _grants422Error1Value;
-
-    private GetGrantsGrantIdError(Optional<Grants404Error1> grants404Error1Value,
-        Optional<Grants422Error1> grants422Error1Value,
+    private GetGrantsGrantIdError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _grants404Error1Value = grants404Error1Value;
-        _grants422Error1Value = grants422Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static GetGrantsGrantIdError AsGrants404Error1(Grants404Error1 value) =>
-        new(Optional<Grants404Error1>.Some(value), default, default);
-
-    private static GetGrantsGrantIdError AsGrants422Error1(Grants422Error1 value) =>
-        new(default, Optional<Grants422Error1>.Some(value), default);
+    private static GetGrantsGrantIdError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static GetGrantsGrantIdError AsFallback(RawError value) =>
-        new(default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetGrants404Error1(out Grants404Error1 value) =>
-        _grants404Error1Value.TryGetValue(out value);
-
-    public bool TryGetGrants422Error1(out Grants422Error1 value) =>
-        _grants422Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<GetGrantsGrantIdError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            404 => FromJson<Grants404Error1>(response, ct).As(AsGrants404Error1),
-            422 => FromJson<Grants422Error1>(response, ct).As(AsGrants422Error1),
+            404 or 422 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record CloseAccountHolderResponse
 {
+    /// <summary>
+    /// The new status of the Account Holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolderStatus")]
-    public AccountHolderStatus? AccountHolderStatus { get; init; }
+    public AccountHolderStatus1? AccountHolderStatus { get; init; }
 
     /// <summary>
     /// Contains field validation errors that would prevent requests from being processed.

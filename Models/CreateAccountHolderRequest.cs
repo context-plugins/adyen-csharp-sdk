@@ -12,8 +12,11 @@ public record CreateAccountHolderRequest
     [JsonPropertyName("accountHolderCode")]
     public required string AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// The details of the prospective account holder.
+    /// </summary>
     [JsonPropertyName("accountHolderDetails")]
-    public required AccountHolderDetails AccountHolderDetails { get; init; }
+    public required AccountHolderDetails1 AccountHolderDetails { get; init; }
 
     /// <summary>
     /// If set to <b>true</b>, an account with the default options is automatically created for the account holder.
@@ -30,6 +33,18 @@ public record CreateAccountHolderRequest
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// The legal entity type of the account holder. This determines the information that should be provided in the request.
+    /// <para>
+    /// Possible values: <b>Business</b>, <b>Individual</b>, or <b>NonProfit</b>.
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>If set to <b>Business</b> or <b>NonProfit</b>, then <c>accountHolderDetails.businessDetails</c> must be provided, with at least one entry in the <c>accountHolderDetails.businessDetails.shareholders</c> list.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>If set to <b>Individual</b>, then <c>accountHolderDetails.individualDetails</c> must be provided.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("legalEntity")]
     public required LegalEntity LegalEntity { get; init; }
 

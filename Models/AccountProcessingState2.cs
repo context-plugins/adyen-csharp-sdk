@@ -21,13 +21,19 @@ public record AccountProcessingState2
     [JsonPropertyName("disabled")]
     public bool? Disabled { get; init; }
 
+    /// <summary>
+    /// The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("processedFrom")]
-    public ProcessedFrom? ProcessedFrom { get; init; }
+    public Amount? ProcessedFrom { get; init; }
 
+    /// <summary>
+    /// The upper bound of the processing tier (i.e., an account holder must have processed less than this amount of money in order to be placed into this tier).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("processedTo")]
-    public ProcessedTo? ProcessedTo { get; init; }
+    public Amount? ProcessedTo { get; init; }
 
     /// <summary>
     /// The processing tier that the account holder occupies.

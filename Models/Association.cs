@@ -13,6 +13,12 @@ public record Association
     [StringLength(100, MinimumLength = 1)]
     public required string EntityId { get; init; }
 
+    /// <summary>
+    /// The type of entity you are associating the device with.
+    /// <para>
+    /// Possible values: <b>accountHolder</b>, <b>legalEntity</b> or <b>paymentInstrument</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("entityType")]
     public required ScaEntityType1 EntityType { get; init; }
 
@@ -23,6 +29,12 @@ public record Association
     [StringLength(30, MinimumLength = 30)]
     public required string ScaDeviceId { get; init; }
 
+    /// <summary>
+    /// The status of the association.
+    /// <para>
+    /// Possible values: <b>active</b> or <b>pendingApproval</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("status")]
     public required AssociationStatus1 Status { get; init; }
 }

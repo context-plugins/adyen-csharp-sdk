@@ -1,9 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
 /// <summary>
-/// The amount that must be pushed out or pulled in. You can configure either <c>sweepAmount</c> or <c>targetAmount</c>, not both.
+/// The base amount.
 /// </summary>
 public record Amount3
 {
@@ -11,6 +12,7 @@ public record Amount3
     /// The three-character <see href="https://docs.adyen.com/development-resources/currency-codes#currency-codes">ISO currency code</see> of the amount.
     /// </summary>
     [JsonPropertyName("currency")]
+    [StringLength(3, MinimumLength = 3)]
     public required string Currency { get; init; }
 
     /// <summary>

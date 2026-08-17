@@ -9,6 +9,11 @@ namespace Adyen.Models.Enums;
 /// * thisTransaction
 /// * lessThan30Days
 /// * from30To60Days
+/// * moreThan60Days, Indicator for the length of time since this delivery address was first used.
+/// Allowed values:
+/// * thisTransaction
+/// * lessThan30Days
+/// * from30To60Days
 /// * moreThan60Days
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<AccountChangeIndicator>))]

@@ -26,7 +26,7 @@ public sealed class TerminalActionsCompanyLevel
     }
 
     /// <summary>
-    /// get-companies-companyId-terminalActions
+    /// Get a list of terminal actions
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -53,7 +53,7 @@ public sealed class TerminalActionsCompanyLevel
         string? type,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalActions"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalActions"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber),
                 new Param("pageSize", pageSize),
@@ -69,7 +69,7 @@ public sealed class TerminalActionsCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-terminalActions-actionId
+    /// Get terminal action
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="actionId">The unique identifier of the terminal action.</param>
@@ -90,7 +90,7 @@ public sealed class TerminalActionsCompanyLevel
         string actionId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalActions/{actionId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalActions/{actionId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("actionId", actionId)],
             [],
             [],

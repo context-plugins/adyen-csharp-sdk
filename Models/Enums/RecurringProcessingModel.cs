@@ -8,7 +8,7 @@ namespace Adyen.Models.Enums;
 /// Allowed values:
 /// * <c>Subscription</c> – A transaction for a fixed or variable amount, which follows a fixed schedule.
 /// * <c>CardOnFile</c> – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction.
-/// * <c>UnscheduledCardOnFile</c> – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
+/// * <c>UnscheduledCardOnFile</c> – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount., The processing model used for the recurring transaction., The processing model used for the recurring transaction.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<RecurringProcessingModel>))]
 public sealed record RecurringProcessingModel : StringEnum<RecurringProcessingModel>

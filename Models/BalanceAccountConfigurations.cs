@@ -11,6 +11,9 @@ public record BalanceAccountConfigurations
     [JsonPropertyName("balanceAccountPayoutSchedules")]
     public required IReadOnlyList<BalanceAccountConfiguration> BalanceAccountPayoutSchedules { get; init; }
 
+    /// <summary>
+    /// Contains links to the next and previous page whenever applicable.
+    /// </summary>
     [JsonPropertyName("link")]
-    public required Link Link { get; init; }
+    public required Link2 Link { get; init; }
 }

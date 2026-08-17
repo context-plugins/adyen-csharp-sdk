@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -37,7 +36,7 @@ public record CheckoutDelegatedAuthenticationAction
     /// <b>delegatedAuthentication</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type543 Type { get; init; }
+    public string Type { get; } = "delegatedAuthentication";
 
     /// <summary>
     /// Specifies the URL to redirect to.

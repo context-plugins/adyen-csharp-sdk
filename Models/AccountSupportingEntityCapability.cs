@@ -12,6 +12,12 @@ public record AccountSupportingEntityCapability
     [JsonPropertyName("allowed")]
     public bool? Allowed { get; init; }
 
+    /// <summary>
+    /// The capability level that is allowed for the account holder.
+    /// <para>
+    /// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("allowedLevel")]
     public AllowedLevel? AllowedLevel { get; init; }
@@ -37,10 +43,34 @@ public record AccountSupportingEntityCapability
     [JsonPropertyName("requested")]
     public bool? Requested { get; init; }
 
+    /// <summary>
+    /// The requested level of the capability. Some capabilities, such as those used in <see href="https://docs.adyen.com/issuing/add-capabilities#capability-levels">card issuing</see>, have different levels. Levels increase the capability, but also require additional checks and increased monitoring.
+    /// <para>
+    /// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("requestedLevel")]
     public RequestedLevel? RequestedLevel { get; init; }
 
+    /// <summary>
+    /// The status of the verification checks for the supporting entity capability.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>pending</b>: Adyen is running the verification.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>invalid</b>: The verification failed. Check if the <c>errors</c> array contains more information.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>valid</b>: The verification has been successfully completed.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>rejected</b>: Adyen has verified the information, but found reasons to not allow the capability.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("verificationStatus")]
     public VerificationStatus? VerificationStatus { get; init; }

@@ -24,5 +24,5 @@ public record AccountTransactionList
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactions")]
-    public IReadOnlyList<Transaction>? Transactions { get; init; }
+    public IReadOnlyList<Transaction1>? Transactions { get; init; }
 }

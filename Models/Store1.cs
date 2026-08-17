@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record Store1
 {
+    /// <summary>
+    /// The address of the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public Address7? Address { get; init; }
+    public Address14? Address { get; init; }
 
     /// <summary>
     /// The description of the store.

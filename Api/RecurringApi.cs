@@ -27,7 +27,7 @@ public sealed class RecurringApi
     }
 
     /// <summary>
-    /// delete-storedPaymentMethods-storedPaymentMethodId
+    /// Delete a token for stored payment details
     /// </summary>
     /// <param name="storedPaymentMethodId">The unique identifier of the token.</param>
     /// <param name="shopperReference">Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.</param>
@@ -57,7 +57,7 @@ public sealed class RecurringApi
             ct);
 
     /// <summary>
-    /// get-storedPaymentMethods
+    /// Get tokens for stored payment details
     /// </summary>
     /// <param name="shopperReference">Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.</param>
     /// <param name="merchantAccount">Your merchant account.</param>
@@ -85,7 +85,7 @@ public sealed class RecurringApi
             ct);
 
     /// <summary>
-    /// post-forward
+    /// Forward stored payment details
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -113,7 +113,7 @@ public sealed class RecurringApi
             ct);
 
     /// <summary>
-    /// post-storedPaymentMethods
+    /// Create a token to store payment details
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>

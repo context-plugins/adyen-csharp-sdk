@@ -10,8 +10,11 @@ public record PaymentInstrumentRevealInfo
     [JsonPropertyName("cvc")]
     public required string Cvc { get; init; }
 
+    /// <summary>
+    /// The expiration date of the card.
+    /// </summary>
     [JsonPropertyName("expiration")]
-    public required Expiry Expiration { get; init; }
+    public required Expiry2 Expiration { get; init; }
 
     /// <summary>
     /// The primary account number (PAN) of the card.

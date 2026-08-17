@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -15,8 +14,11 @@ public record AssociationFinaliseRequest
     [JsonPropertyName("ids")]
     public required IReadOnlyList<string> Ids { get; init; }
 
+    /// <summary>
+    /// Contains authentication information required to associate the resource with the SCA device.
+    /// </summary>
     [JsonPropertyName("strongCustomerAuthentication")]
-    public required AssociationDelegatedAuthenticationData StrongCustomerAuthentication { get; init; }
+    public required AssociationDelegatedAuthenticationData1 StrongCustomerAuthentication { get; init; }
 
     /// <summary>
     /// The type of resource that you are associating with the SCA device.
@@ -25,5 +27,5 @@ public record AssociationFinaliseRequest
     /// </para>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type103 Type { get; init; }
+    public string Type { get; } = "PaymentInstrument";
 }

@@ -12,12 +12,24 @@ public record InPersonDonationSettingsUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("defaultAmount")]
-    public DefaultAmount2? DefaultAmount { get; init; }
+    public DefaultAmount? DefaultAmount { get; init; }
 
+    /// <summary>
+    /// The text shown on the payment terminal, either the name or the cause of the nonprofit organization.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("displayTextField")]
     public DisplayTextField2? DisplayTextField { get; init; }
 
+    /// <summary>
+    /// The interaction flow for in-person donations. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>oneStep</b>: The shopper presents their payment method for the payment and the donation in one go, after the donation.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>twoStep</b>: The shopper presents their payment method twice: after the payment and after the donation.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donationFlow")]
     public DonationFlow1? DonationFlow { get; init; }
@@ -36,7 +48,7 @@ public record InPersonDonationSettingsUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donationType")]
-    public DonationType? DonationType { get; init; }
+    public DonationType4? DonationType { get; init; }
 
     /// <summary>
     /// The merchant accounts for this sales channel that are associated with the donation campaign.

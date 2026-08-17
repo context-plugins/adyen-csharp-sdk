@@ -27,7 +27,7 @@ public sealed class PaymentInstrumentGroups
     }
 
     /// <summary>
-    /// get-paymentInstrumentGroups-id
+    /// Get a payment instrument group
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument group.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class PaymentInstrumentGroups
     public Task<PaymentInstrumentGroup> GetPaymentInstrumentGroupsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstrumentGroups/{id}"),
+        _rawClient.Execute(_server.Default13("/paymentInstrumentGroups/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -53,7 +53,7 @@ public sealed class PaymentInstrumentGroups
             ct);
 
     /// <summary>
-    /// get-paymentInstrumentGroups-id-transactionRules
+    /// Get all transaction rules for a payment instrument group
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument group.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +66,7 @@ public sealed class PaymentInstrumentGroups
     public Task<TransactionRulesResponse> GetPaymentInstrumentGroupsIdTransactionRules(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstrumentGroups/{id}/transactionRules"),
+        _rawClient.Execute(_server.Default13("/paymentInstrumentGroups/{id}/transactionRules"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -79,7 +79,7 @@ public sealed class PaymentInstrumentGroups
             ct);
 
     /// <summary>
-    /// post-paymentInstrumentGroups
+    /// Create a payment instrument group
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -92,7 +92,7 @@ public sealed class PaymentInstrumentGroups
     public Task<PaymentInstrumentGroup> PostPaymentInstrumentGroups(PaymentInstrumentGroupInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstrumentGroups"),
+        _rawClient.Execute(_server.Default13("/paymentInstrumentGroups"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

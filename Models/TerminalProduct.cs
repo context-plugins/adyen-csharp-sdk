@@ -33,7 +33,10 @@ public record TerminalProduct
     [JsonPropertyName("name")]
     public string? Name { get; init; }
 
+    /// <summary>
+    /// The price of the product.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("price")]
-    public TerminalProductPrice? Price { get; init; }
+    public TerminalProductPrice2? Price { get; init; }
 }

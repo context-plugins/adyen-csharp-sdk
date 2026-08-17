@@ -4,9 +4,12 @@ namespace Adyen.Models;
 
 public record FundOrigin
 {
+    /// <summary>
+    /// The address where to send the invoice.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address3? BillingAddress { get; init; }
 
     /// <summary>
     /// The email address of the person funding the money.
@@ -15,9 +18,12 @@ public record FundOrigin
     [JsonPropertyName("shopperEmail")]
     public string? ShopperEmail { get; init; }
 
+    /// <summary>
+    /// The name of the person funding the money.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name1? ShopperName { get; init; }
 
     /// <summary>
     /// The phone number of the person funding the money.

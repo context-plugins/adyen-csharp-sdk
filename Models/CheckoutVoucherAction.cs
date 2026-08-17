@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -40,9 +39,12 @@ public record CheckoutVoucherAction
     [JsonPropertyName("expiresAt")]
     public string? ExpiresAt { get; init; }
 
+    /// <summary>
+    /// The initial amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("initialAmount")]
-    public InitialAmount? InitialAmount { get; init; }
+    public Amount14? InitialAmount { get; init; }
 
     /// <summary>
     /// The URL to the detailed instructions to make payment using the voucher.
@@ -121,19 +123,25 @@ public record CheckoutVoucherAction
     [JsonPropertyName("shopperName")]
     public string? ShopperName { get; init; }
 
+    /// <summary>
+    /// The surcharge amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("surcharge")]
-    public Surcharge5? Surcharge { get; init; }
+    public Amount15? Surcharge { get; init; }
 
+    /// <summary>
+    /// The total amount (initial plus surcharge amount).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("totalAmount")]
-    public TotalAmount2? TotalAmount { get; init; }
+    public Amount16? TotalAmount { get; init; }
 
     /// <summary>
     /// <b>voucher</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type594 Type { get; init; }
+    public string Type { get; } = "voucher";
 
     /// <summary>
     /// Specifies the URL to redirect to.

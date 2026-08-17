@@ -15,4 +15,32 @@ public class Server
     }
 
     internal UrlTemplate Default(string path) => _options.Default.Resolve(_environment, path);
+    internal UrlTemplate Default1(string path) => _options.Default1.Resolve(_environment, path);
+    internal UrlTemplate Default2(string path) => _options.Default2.Resolve(_environment, path);
+    internal UrlTemplate Default3(string path) => _options.Default3.Resolve(_environment, path);
+    internal UrlTemplate Default4(string path) => _options.Default4.Resolve(_environment, path);
+    internal UrlTemplate Default5(string path) => _options.Default5.Resolve(_environment, path);
+    internal UrlTemplate Default6(string path) => _options.Default6.Resolve(_environment, path);
+    internal UrlTemplate Default7(string path) => _options.Default7.Resolve(_environment, path);
+    internal UrlTemplate Default8(string path) => _options.Default8.Resolve(_environment, path);
+    internal UrlTemplate Default9(string path) => _options.Default9.Resolve(_environment, path);
+    internal UrlTemplate Default10(string path) => _options.Default10.Resolve(_environment, path);
+    internal UrlTemplate Default11(string path) => _options.Default11.Resolve(_environment, path);
+    internal UrlTemplate Default12(string path) => _options.Default12.Resolve(_environment, path);
+    internal UrlTemplate Default13(string path) => _options.Default13.Resolve(_environment, path);
+    internal UrlTemplate Default14(string path) => _options.Default14.Resolve(_environment, path);
+    internal UrlTemplate Default15(string path) => _options.Default15.Resolve(_environment, path);
+    internal UrlTemplate Default16(string path) => _options.Default16.Resolve(_environment, path);
+    internal UrlTemplate Default17(string path) => _options.Default17.Resolve(_environment, path);
+    internal UrlTemplate Default18(string path) => _options.Default18.Resolve(_environment, path);
+    internal UrlTemplate Default19(string path) => _options.Default19.Resolve(_environment, path);
+    internal UrlTemplate Default20(string path) => _options.Default20.Resolve(_environment, path);
+    internal UrlTemplate Default21(string path) => _options.Default21.Resolve(_environment, path);
+    internal UrlTemplate Default22(string path) => _options.Default22.Resolve(_environment, path);
+    internal UrlTemplate Default23(string path) => _options.Default23.Resolve(_environment, path);
+    internal UrlTemplate Default24(string path) => _options.Default24.Resolve(_environment, path);
+    internal UrlTemplate Default25(string path) => _options.Default25.Resolve(_environment, path);
+    internal UrlTemplate Default26(string path) => _options.Default26.Resolve(_environment, path);
+    internal UrlTemplate Default27(string path) => _options.Default27.Resolve(_environment, path);
+    internal UrlTemplate Default28(string path) => _options.Default28.Resolve(_environment, path);
 }

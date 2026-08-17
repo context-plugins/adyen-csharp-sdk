@@ -15,5 +15,5 @@ public record DeleteBankAccountRequest
     /// The code(s) of the Bank Accounts to be deleted.
     /// </summary>
     [JsonPropertyName("bankAccountUUIDs")]
-    public required IReadOnlyList<string> BankAccountUuids { get; init; }
+    public required IReadOnlyList<string> BankAccountUuiDs { get; init; }
 }

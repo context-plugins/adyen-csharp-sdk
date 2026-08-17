@@ -1,6 +1,5 @@
 using System;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -22,5 +21,5 @@ public record EstimationTrackingData
     /// </list>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type84 Type { get; init; }
+    public string Type { get; } = "estimation";
 }

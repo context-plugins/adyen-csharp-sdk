@@ -14,7 +14,10 @@ public record Support1
     [JsonPropertyName("email")]
     public string? Email { get; init; }
 
+    /// <summary>
+    /// The support phone number of the legal entity. Required if you have a platform setup.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone")]
-    public PhoneNumber? Phone { get; init; }
+    public PhoneNumber1? Phone { get; init; }
 }

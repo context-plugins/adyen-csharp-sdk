@@ -33,7 +33,7 @@ public sealed record InfoQualify : StringEnum<InfoQualify>
 
     public static readonly InfoQualify Input = new("Input");
 
-    public static readonly InfoQualify Poireplication = new("POIReplication");
+    public static readonly InfoQualify PoiReplication = new("POIReplication");
 
     public static readonly InfoQualify CustomerAssistance = new("CustomerAssistance");
 

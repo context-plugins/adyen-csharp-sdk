@@ -18,6 +18,9 @@ public record KlarnaInfo
     [JsonPropertyName("disputeEmail")]
     public required string DisputeEmail { get; init; }
 
+    /// <summary>
+    /// The region of operation. For example, <b>NA</b>, <b>EU</b>, <b>CH</b>, <b>AU</b>.
+    /// </summary>
     [JsonPropertyName("region")]
     public required Region Region { get; init; }
 

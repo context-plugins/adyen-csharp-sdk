@@ -10,6 +10,18 @@ namespace Adyen.Models.Enums;
 /// * thisTransaction
 /// * lessThan30Days
 /// * from30To60Days
+/// * moreThan60Days, Indicator when the shopper has changed their password.
+/// Allowed values:
+/// * notApplicable
+/// * thisTransaction
+/// * lessThan30Days
+/// * from30To60Days
+/// * moreThan60Days, Indicator for the length of time since this payment method was added to this shopper's account.
+/// Allowed values:
+/// * notApplicable
+/// * thisTransaction
+/// * lessThan30Days
+/// * from30To60Days
 /// * moreThan60Days
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<AccountAgeIndicator>))]

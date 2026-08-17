@@ -27,7 +27,7 @@ public sealed class AllowedOriginsCompanyLevel
     }
 
     /// <summary>
-    /// delete-companies-companyId-apiCredentials-apiCredentialId-allowedOrigins-originId
+    /// Delete an allowed origin
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -48,7 +48,7 @@ public sealed class AllowedOriginsCompanyLevel
         string originId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
             [new TemplateParam("companyId", companyId),
                 new TemplateParam("apiCredentialId", apiCredentialId),
                 new TemplateParam("originId", originId)],
@@ -63,7 +63,7 @@ public sealed class AllowedOriginsCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-apiCredentials-apiCredentialId-allowedOrigins
+    /// Get a list of allowed origins
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -82,7 +82,7 @@ public sealed class AllowedOriginsCompanyLevel
         string apiCredentialId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
             [new TemplateParam("companyId", companyId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [],
@@ -95,7 +95,7 @@ public sealed class AllowedOriginsCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-apiCredentials-apiCredentialId-allowedOrigins-originId
+    /// Get an allowed origin
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -116,7 +116,7 @@ public sealed class AllowedOriginsCompanyLevel
         string originId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}"),
             [new TemplateParam("companyId", companyId),
                 new TemplateParam("apiCredentialId", apiCredentialId),
                 new TemplateParam("originId", originId)],
@@ -131,7 +131,7 @@ public sealed class AllowedOriginsCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-apiCredentials-apiCredentialId-allowedOrigins
+    /// Create an allowed origin
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -152,7 +152,7 @@ public sealed class AllowedOriginsCompanyLevel
         AllowedOrigin? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}/allowedOrigins"),
             [new TemplateParam("companyId", companyId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

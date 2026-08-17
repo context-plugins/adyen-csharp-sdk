@@ -21,5 +21,5 @@ public record PaginatedPaymentInstrumentsResponse
     /// List of payment instruments associated with the balance account.
     /// </summary>
     [JsonPropertyName("paymentInstruments")]
-    public required IReadOnlyList<PaymentInstrument> PaymentInstruments { get; init; }
+    public required IReadOnlyList<PaymentInstrument1> PaymentInstruments { get; init; }
 }

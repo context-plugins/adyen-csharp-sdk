@@ -4,8 +4,11 @@ namespace Adyen.Models;
 
 public record TransferFundsRequest
 {
+    /// <summary>
+    /// The amount to be transferred.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
     /// <summary>
     /// The code of the account to which the funds are to be credited.

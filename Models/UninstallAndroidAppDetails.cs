@@ -12,7 +12,9 @@ public record UninstallAndroidAppDetails
     [JsonPropertyName("appId")]
     public string? AppId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Type of terminal action: Uninstall an Android app.
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type73? Type { get; init; }
+    public Type71? Type { get; init; } = Type71.UninstallAndroidApp;
 }

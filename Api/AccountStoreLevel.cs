@@ -27,7 +27,7 @@ public sealed class AccountStoreLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-stores
+    /// Get a list of stores
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -54,7 +54,7 @@ public sealed class AccountStoreLevel
         string? reference,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("pageNumber", pageNumber),
                 new Param("pageSize", pageSize),
@@ -69,7 +69,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-stores-storeId
+    /// Get a store
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="storeId">The unique identifier of the store.</param>
@@ -92,7 +92,7 @@ public sealed class AccountStoreLevel
         string storeId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{storeId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores/{storeId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("storeId", storeId)],
             [],
             [],
@@ -105,7 +105,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// get-stores
+    /// Get a list of stores
     /// </summary>
     /// <param name="pageNumber">The number of the page to fetch.</param>
     /// <param name="pageSize">The number of items to have on a page, maximum 100. The default is 10 items on a page.</param>
@@ -132,7 +132,7 @@ public sealed class AccountStoreLevel
         string? merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores"),
+        _rawClient.Execute(_server.Default9("/stores"),
             [],
             [new Param("pageNumber", pageNumber),
                 new Param("pageSize", pageSize),
@@ -148,7 +148,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// get-stores-storeId
+    /// Get a store
     /// </summary>
     /// <param name="storeId">The unique identifier of the store.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -169,7 +169,7 @@ public sealed class AccountStoreLevel
     public Task<Store> GetStoresStoreId(string storeId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores/{storeId}"),
+        _rawClient.Execute(_server.Default9("/stores/{storeId}"),
             [new TemplateParam("storeId", storeId)],
             [],
             [],
@@ -182,7 +182,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-stores-storeId
+    /// Update a store
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="storeId">The unique identifier of the store.</param>
@@ -206,7 +206,7 @@ public sealed class AccountStoreLevel
         UpdateStoreRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{storeId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores/{storeId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("storeId", storeId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -219,7 +219,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// patch-stores-storeId
+    /// Update a store
     /// </summary>
     /// <param name="storeId">The unique identifier of the store.</param>
     /// <param name="body"></param>
@@ -242,7 +242,7 @@ public sealed class AccountStoreLevel
         UpdateStoreRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores/{storeId}"),
+        _rawClient.Execute(_server.Default9("/stores/{storeId}"),
             [new TemplateParam("storeId", storeId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -255,7 +255,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-stores
+    /// Create a store
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -277,7 +277,7 @@ public sealed class AccountStoreLevel
         StoreCreationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -290,7 +290,7 @@ public sealed class AccountStoreLevel
             ct);
 
     /// <summary>
-    /// post-stores
+    /// Create a store
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -310,7 +310,7 @@ public sealed class AccountStoreLevel
     public Task<Store> PostStores(StoreCreationWithMerchantCodeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores"),
+        _rawClient.Execute(_server.Default9("/stores"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

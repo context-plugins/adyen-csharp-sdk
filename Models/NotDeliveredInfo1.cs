@@ -88,9 +88,21 @@ public record NotDeliveredInfo1
     [JsonPropertyName("lastExpectedDate")]
     public required DateTimeOffset LastExpectedDate { get; init; }
 
+    /// <summary>
+    /// The type of product that you expected to receive.
+    /// <para>
+    /// Possible values: <b>goods</b>, <b>services</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("whatWasNotDelivered")]
-    public required ProductType2 WhatWasNotDelivered { get; init; }
+    public required ProductType21 WhatWasNotDelivered { get; init; }
 
+    /// <summary>
+    /// The party that initiated the cancellation of the transaction.
+    /// <para>
+    /// Possible values: <b>merchant</b>, <b>cardholder</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("whoCancelled")]
     public CancellingEntity1? WhoCancelled { get; init; }

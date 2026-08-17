@@ -27,7 +27,7 @@ public sealed class TerminalSettingsCompanyLevel
     }
 
     /// <summary>
-    /// get-companies-companyId-terminalLogos
+    /// Get the terminal logo
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="model">The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
@@ -54,7 +54,7 @@ public sealed class TerminalSettingsCompanyLevel
         string model,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalLogos"),
             [new TemplateParam("companyId", companyId)],
             [new Param("model", model)],
             [],
@@ -67,7 +67,7 @@ public sealed class TerminalSettingsCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-terminalSettings
+    /// Get terminal settings
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -92,7 +92,7 @@ public sealed class TerminalSettingsCompanyLevel
     public Task<TerminalSettings> GetCompaniesCompanyIdTerminalSettings(string companyId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalSettings"),
             [new TemplateParam("companyId", companyId)],
             [],
             [],
@@ -105,7 +105,7 @@ public sealed class TerminalSettingsCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-terminalLogos
+    /// Update the terminal logo
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="model">The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
@@ -132,7 +132,7 @@ public sealed class TerminalSettingsCompanyLevel
         Logo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalLogos"),
             [new TemplateParam("companyId", companyId)],
             [new Param("model", model)],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -145,7 +145,7 @@ public sealed class TerminalSettingsCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-terminalSettings
+    /// Update terminal settings
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="body"></param>
@@ -176,7 +176,7 @@ public sealed class TerminalSettingsCompanyLevel
         TerminalSettings? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalSettings"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

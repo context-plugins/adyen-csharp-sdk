@@ -4,19 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The status of your request.
-/// <para>
-/// If you included <c>adjustAuthorisationData</c> in your request, possible values are the following:
-/// </para>
-/// <list type="bullet">
-///   <item><description><b>authorised</b></description></item>
-/// </list>
-/// <list type="bullet">
-///   <item><description><b>refused</b></description></item>
-/// </list>
-/// <para>
-/// Otherwise, the value is <b>received</b>.
-/// </para>
+/// The status of the balance account, set to <b>active</b> by default.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status23>))]
 public sealed record Status23 : StringEnum<Status23>
@@ -25,11 +13,13 @@ public sealed record Status23 : StringEnum<Status23>
     {
     }
 
-    public static readonly Status23 Authorised = new("authorised");
+    public static readonly Status23 Active = new("active");
 
-    public static readonly Status23 Received = new("received");
+    public static readonly Status23 Closed = new("closed");
 
-    public static readonly Status23 Refused = new("refused");
+    public static readonly Status23 Inactive = new("inactive");
+
+    public static readonly Status23 Suspended = new("suspended");
 
     public static Status23 FromValue(string value) => FromValueCore(value);
 }

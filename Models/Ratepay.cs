@@ -57,6 +57,9 @@ public record Ratepay
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// <b>ratepay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type48 Type { get; init; }
+    public Type48 Type { get; init; } = Type48.Ratepay;
 }

@@ -33,7 +33,10 @@ public record AccountHolderBalanceResponse
     [JsonPropertyName("resultCode")]
     public string? ResultCode { get; init; }
 
+    /// <summary>
+    /// The total balance of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("totalBalance")]
-    public DetailBalance? TotalBalance { get; init; }
+    public DetailBalance1? TotalBalance { get; init; }
 }

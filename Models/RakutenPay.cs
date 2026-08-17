@@ -36,7 +36,9 @@ public record RakutenPay
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>rakutenpay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type47? Type { get; init; }
+    public Type47? Type { get; init; } = Type47.Rakutenpay;
 }

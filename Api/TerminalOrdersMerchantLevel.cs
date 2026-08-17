@@ -27,7 +27,7 @@ public sealed class TerminalOrdersMerchantLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-billingEntities
+    /// Get a list of billing entities
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="name">The name of the billing entity.</param>
@@ -51,7 +51,7 @@ public sealed class TerminalOrdersMerchantLevel
         string? name,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/billingEntities"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/billingEntities"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("name", name)],
             [],
@@ -64,7 +64,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-shippingLocations
+    /// Get a list of shipping locations
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="name">The name of the shipping location.</param>
@@ -92,7 +92,7 @@ public sealed class TerminalOrdersMerchantLevel
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/shippingLocations"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/shippingLocations"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("name", name), new Param("offset", offset), new Param("limit", limit)],
             [],
@@ -105,7 +105,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-terminalModels
+    /// Get a list of terminal models
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -126,7 +126,7 @@ public sealed class TerminalOrdersMerchantLevel
     public Task<TerminalModelsResponse> GetMerchantsMerchantIdTerminalModels(string merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalModels"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalModels"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [],
@@ -139,7 +139,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-terminalOrders
+    /// Get a list of orders
     /// </summary>
     /// <param name="merchantId"></param>
     /// <param name="customerOrderReference">Your purchase order number.</param>
@@ -168,7 +168,7 @@ public sealed class TerminalOrdersMerchantLevel
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalOrders"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalOrders"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("customerOrderReference", customerOrderReference),
                 new Param("status", status),
@@ -184,7 +184,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-terminalOrders-orderId
+    /// Get an order
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="orderId">The unique identifier of the order.</param>
@@ -207,7 +207,7 @@ public sealed class TerminalOrdersMerchantLevel
         string orderId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalOrders/{orderId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalOrders/{orderId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("orderId", orderId)],
             [],
             [],
@@ -220,7 +220,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-terminalProducts
+    /// Get a list of terminal products
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="country">The country to return products for, in <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> format. For example, <b>US</b></param>
@@ -249,7 +249,7 @@ public sealed class TerminalOrdersMerchantLevel
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalProducts"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalProducts"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("country", country),
                 new Param("terminalModelId", terminalModelId),
@@ -265,7 +265,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-terminalOrders-orderId
+    /// Update an order
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="orderId">The unique identifier of the order.</param>
@@ -295,7 +295,7 @@ public sealed class TerminalOrdersMerchantLevel
         TerminalOrderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalOrders/{orderId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalOrders/{orderId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("orderId", orderId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -308,7 +308,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-shippingLocations
+    /// Create a shipping location
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -330,7 +330,7 @@ public sealed class TerminalOrdersMerchantLevel
         ShippingLocation? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/shippingLocations"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/shippingLocations"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -343,7 +343,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-terminalOrders
+    /// Create an order
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -366,7 +366,7 @@ public sealed class TerminalOrdersMerchantLevel
         TerminalOrderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalOrders"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalOrders"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -379,7 +379,7 @@ public sealed class TerminalOrdersMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-terminalOrders-orderId-cancel
+    /// Cancel an order
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="orderId">The unique identifier of the order.</param>
@@ -403,7 +403,7 @@ public sealed class TerminalOrdersMerchantLevel
         string orderId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalOrders/{orderId}/cancel"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalOrders/{orderId}/cancel"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("orderId", orderId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

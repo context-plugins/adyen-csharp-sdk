@@ -5,24 +5,24 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models.AllOf;
 
 /// <summary>
-/// All Of BankAccountIdentification, IbanAccountIdentification2.
+/// All Of AccountIdentification, IbanAccountIdentification2.
 /// </summary>
 [JsonConverter(typeof(IbanAccountIdentification2Converter))]
 public record IbanAccountIdentification2
 {
-    public required BankAccountIdentification BankAccountIdentification { get; init; }
+    public required AccountIdentification AccountIdentification { get; init; }
 
     public required IbanAccountIdentification2Properties IbanAccountIdentification2Properties { get; init; }
 
-    public void Deconstruct(out BankAccountIdentification bankAccountIdentification,
+    public void Deconstruct(out AccountIdentification accountIdentification,
         out IbanAccountIdentification2Properties ibanAccountIdentification2Properties)
     {
-        bankAccountIdentification = BankAccountIdentification;
+        accountIdentification = AccountIdentification;
         ibanAccountIdentification2Properties = IbanAccountIdentification2Properties;
     }
 
-    public static implicit operator BankAccountIdentification(IbanAccountIdentification2 value) =>
-        value.BankAccountIdentification;
+    public static implicit operator AccountIdentification(IbanAccountIdentification2 value) =>
+        value.AccountIdentification;
 
     public static implicit operator IbanAccountIdentification2Properties(IbanAccountIdentification2 value) =>
         value.IbanAccountIdentification2Properties;
@@ -36,13 +36,13 @@ file class IbanAccountIdentification2Converter : JsonConverter<IbanAccountIdenti
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        var bankAccountIdentification = root.Deserialize<BankAccountIdentification>(options) ??
-            throw new JsonException("Failed to deserialize BankAccountIdentification");
+        var accountIdentification = root.Deserialize<AccountIdentification>(options) ??
+            throw new JsonException("Failed to deserialize AccountIdentification");
         var ibanAccountIdentification2Properties = root.Deserialize<IbanAccountIdentification2Properties>(options) ??
             throw new JsonException("Failed to deserialize IbanAccountIdentification2Properties");
         return new IbanAccountIdentification2
         {
-            BankAccountIdentification = bankAccountIdentification,
+            AccountIdentification = accountIdentification,
             IbanAccountIdentification2Properties = ibanAccountIdentification2Properties,
         };
     }
@@ -52,8 +52,8 @@ file class IbanAccountIdentification2Converter : JsonConverter<IbanAccountIdenti
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var bankAccountIdentificationJson = JsonSerializer.SerializeToElement(value.BankAccountIdentification, options);
-        foreach (var property in bankAccountIdentificationJson.EnumerateObject())
+        var accountIdentificationJson = JsonSerializer.SerializeToElement(value.AccountIdentification, options);
+        foreach (var property in accountIdentificationJson.EnumerateObject())
             property.WriteTo(writer);
         var ibanAccountIdentification2PropertiesJson =
             JsonSerializer.SerializeToElement(value.IbanAccountIdentification2Properties, options);

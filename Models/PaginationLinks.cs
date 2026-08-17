@@ -4,20 +4,35 @@ namespace Adyen.Models;
 
 public record PaginationLinks
 {
+    /// <summary>
+    /// The first page.
+    /// </summary>
     [JsonPropertyName("first")]
-    public required First First { get; init; }
+    public required LinksElement9 First { get; init; }
 
+    /// <summary>
+    /// The last page.
+    /// </summary>
     [JsonPropertyName("last")]
-    public required Last Last { get; init; }
+    public required LinksElement10 Last { get; init; }
 
+    /// <summary>
+    /// The next page. Only present if there is a next page.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("next")]
-    public Next? Next { get; init; }
+    public LinksElement11? Next { get; init; }
 
+    /// <summary>
+    /// The previous page. Only present if there is a previous page.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("prev")]
-    public Prev? Prev { get; init; }
+    public LinksElement12? Prev { get; init; }
 
+    /// <summary>
+    /// The current page.
+    /// </summary>
     [JsonPropertyName("self")]
-    public required Self Self { get; init; }
+    public required LinksElement13 Self { get; init; }
 }

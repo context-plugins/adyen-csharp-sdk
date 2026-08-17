@@ -34,7 +34,11 @@ public record CloseAccountResponse
     [JsonPropertyName("resultCode")]
     public string? ResultCode { get; init; }
 
+    /// <summary>
+    /// The new status of the account.
+    /// &gt;Permitted values: <c>Active</c>, <c>Inactive</c>, <c>Suspended</c>, <c>Closed</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status2? Status { get; init; }
+    public Status22? Status { get; init; }
 }

@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record CapturedSignature
 {
+    /// <summary>
+    /// Size of an area. Contain the size of the pad area where the signature is written, given with the maximum abscissa and ordinate values (X and Y). The maximum value is FFFF.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("AreaSize")]
-    public AreaSize? AreaSize { get; init; }
+    public AreaSize1? AreaSize { get; init; }
 
     /// <summary>
     /// Coordinates of a point where the pen changes direction or lift. Contain the Coordinates of a point of the written signature where the pen changes direction or lift where (X and Y). When the signer lifts the pen, both X and Y have the value FFFF.

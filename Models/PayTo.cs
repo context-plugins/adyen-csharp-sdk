@@ -43,7 +43,9 @@ public record PayTo
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>payto</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type411? Type { get; init; }
+    public Type41? Type { get; init; } = Type41.Payto;
 }

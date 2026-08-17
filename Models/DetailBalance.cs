@@ -10,19 +10,19 @@ public record DetailBalance
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("balance")]
-    public IReadOnlyList<Amount2>? Balance { get; init; }
+    public IReadOnlyList<Amount>? Balance { get; init; }
 
     /// <summary>
     /// The list of on hold balances held by the account.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("onHoldBalance")]
-    public IReadOnlyList<Amount2>? OnHoldBalance { get; init; }
+    public IReadOnlyList<Amount>? OnHoldBalance { get; init; }
 
     /// <summary>
     /// The list of pending balances held by the account.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pendingBalance")]
-    public IReadOnlyList<Amount2>? PendingBalance { get; init; }
+    public IReadOnlyList<Amount>? PendingBalance { get; init; }
 }

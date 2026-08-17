@@ -27,7 +27,7 @@ public sealed class ManageCardPin
     }
 
     /// <summary>
-    /// get-publicKey
+    /// Get an RSA public key
     /// </summary>
     /// <param name="purpose">The purpose of the public key.  Possible values: <b>pinChange</b>, <b>pinReveal</b>, <b>panReveal</b>.  Default value: <b>pinReveal</b>.</param>
     /// <param name="format">The encoding format of public key.  Possible values: <b>jwk</b>, <b>pem</b>.  Default value: <b>pem</b>.</param>
@@ -48,7 +48,7 @@ public sealed class ManageCardPin
         string? format,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/publicKey"),
+        _rawClient.Execute(_server.Default13("/publicKey"),
             [],
             [new Param("purpose", purpose), new Param("format", format)],
             [],
@@ -61,7 +61,7 @@ public sealed class ManageCardPin
             ct);
 
     /// <summary>
-    /// post-pins-change
+    /// Change a card PIN
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -78,7 +78,7 @@ public sealed class ManageCardPin
     public Task<PinChangeResponse> PostPinsChange(PinChangeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/pins/change"),
+        _rawClient.Execute(_server.Default13("/pins/change"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -91,7 +91,7 @@ public sealed class ManageCardPin
             ct);
 
     /// <summary>
-    /// post-pins-reveal
+    /// Reveal a card PIN
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -105,10 +105,10 @@ public sealed class ManageCardPin
     /// * Bank Issuing PIN Reveal Webservice role
     /// </para>
     /// </remarks>
-    public Task<RevealPinResponse> PostPinsReveal(PaymentInstrumentRevealRequest? body,
+    public Task<RevealPinResponse> PostPinsReveal(RevealPinRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/pins/reveal"),
+        _rawClient.Execute(_server.Default13("/pins/reveal"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

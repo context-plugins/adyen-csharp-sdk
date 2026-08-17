@@ -10,5 +10,5 @@ public record TerminalModelsResponse
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("data")]
-    public IReadOnlyList<NetworkTokenRequestor>? Data { get; init; }
+    public IReadOnlyList<Item>? Data { get; init; }
 }

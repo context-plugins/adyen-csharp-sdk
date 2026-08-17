@@ -9,38 +9,26 @@ namespace Adyen.Errors;
 
 public sealed class GetGrantsError : ApiError
 {
-    private readonly Optional<Grants404Error1> _grants404Error1Value;
+    private readonly Optional<RestServiceError> _restServiceErrorValue;
 
-    private readonly Optional<Grants422Error1> _grants422Error1Value;
-
-    private GetGrantsError(Optional<Grants404Error1> grants404Error1Value,
-        Optional<Grants422Error1> grants422Error1Value,
-        Optional<RawError> fallback) : base(fallback)
+    private GetGrantsError(Optional<RestServiceError> restServiceErrorValue, Optional<RawError> fallback) : base(fallback)
     {
-        _grants404Error1Value = grants404Error1Value;
-        _grants422Error1Value = grants422Error1Value;
+        _restServiceErrorValue = restServiceErrorValue;
     }
 
-    private static GetGrantsError AsGrants404Error1(Grants404Error1 value) =>
-        new(Optional<Grants404Error1>.Some(value), default, default);
-
-    private static GetGrantsError AsGrants422Error1(Grants422Error1 value) =>
-        new(default, Optional<Grants422Error1>.Some(value), default);
+    private static GetGrantsError AsRestServiceError(RestServiceError value) =>
+        new(Optional<RestServiceError>.Some(value), default);
 
     private static GetGrantsError AsFallback(RawError value) =>
-        new(default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetGrants404Error1(out Grants404Error1 value) =>
-        _grants404Error1Value.TryGetValue(out value);
-
-    public bool TryGetGrants422Error1(out Grants422Error1 value) =>
-        _grants422Error1Value.TryGetValue(out value);
+    public bool TryGetRestServiceError(out RestServiceError value) =>
+        _restServiceErrorValue.TryGetValue(out value);
 
     internal static Task<GetGrantsError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            404 => FromJson<Grants404Error1>(response, ct).As(AsGrants404Error1),
-            422 => FromJson<Grants422Error1>(response, ct).As(AsGrants422Error1),
+            400 or 401 or 403 or 404 or 422 or 500 => FromJson<RestServiceError>(response, ct).As(AsRestServiceError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

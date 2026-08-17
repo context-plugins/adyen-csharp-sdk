@@ -26,7 +26,7 @@ public sealed class Platform
     }
 
     /// <summary>
-    /// get-balancePlatforms-id
+    /// Get a balance platform
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -39,7 +39,7 @@ public sealed class Platform
     public Task<BalancePlatform> GetBalancePlatformsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -52,7 +52,7 @@ public sealed class Platform
             ct);
 
     /// <summary>
-    /// get-balancePlatforms-id-accountHolders
+    /// Get all account holders under a balance platform
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="offset">The number of items that you want to skip.</param>
@@ -72,7 +72,7 @@ public sealed class Platform
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}/accountHolders"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}/accountHolders"),
             [new TemplateParam("id", id)],
             [new Param("offset", offset), new Param("limit", limit)],
             [],
@@ -85,7 +85,7 @@ public sealed class Platform
             ct);
 
     /// <summary>
-    /// get-balancePlatforms-id-transactionRules
+    /// Get all transaction rules for a balance platform
     /// </summary>
     /// <param name="id">The unique identifier of the balance platform.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -98,7 +98,7 @@ public sealed class Platform
     public Task<TransactionRulesResponse> GetBalancePlatformsIdTransactionRules(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{id}/transactionRules"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{id}/transactionRules"),
             [new TemplateParam("id", id)],
             [],
             [],

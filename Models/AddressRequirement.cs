@@ -24,5 +24,5 @@ public record AddressRequirement
     /// <b>addressRequirement</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type710 Type { get; init; }
+    public string Type { get; } = "addressRequirement";
 }

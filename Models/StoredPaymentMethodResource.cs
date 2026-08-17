@@ -27,9 +27,12 @@ public record StoredPaymentMethodResource
     [JsonPropertyName("aliasType")]
     public string? AliasType { get; init; }
 
+    /// <summary>
+    /// The billing address associated with the stored payment method.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address5? BillingAddress { get; init; }
 
     /// <summary>
     /// The brand of the card.
@@ -122,9 +125,12 @@ public record StoredPaymentMethodResource
     [JsonPropertyName("lastFour")]
     public string? LastFour { get; init; }
 
+    /// <summary>
+    /// Mandate details for the stored payment method.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mandate")]
-    public TokenMandate? Mandate { get; init; }
+    public TokenMandate2? Mandate { get; init; }
 
     /// <summary>
     /// The display name of the stored payment method.

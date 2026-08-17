@@ -27,7 +27,7 @@ public sealed class TerminalOrdersCompanyLevel
     }
 
     /// <summary>
-    /// get-companies-companyId-billingEntities
+    /// Get a list of billing entities
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="name">The name of the billing entity.</param>
@@ -51,7 +51,7 @@ public sealed class TerminalOrdersCompanyLevel
         string? name,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/billingEntities"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/billingEntities"),
             [new TemplateParam("companyId", companyId)],
             [new Param("name", name)],
             [],
@@ -64,7 +64,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-shippingLocations
+    /// Get a list of shipping locations
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="name">The name of the shipping location.</param>
@@ -92,7 +92,7 @@ public sealed class TerminalOrdersCompanyLevel
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/shippingLocations"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/shippingLocations"),
             [new TemplateParam("companyId", companyId)],
             [new Param("name", name), new Param("offset", offset), new Param("limit", limit)],
             [],
@@ -105,7 +105,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-terminalModels
+    /// Get a list of terminal models
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -127,7 +127,7 @@ public sealed class TerminalOrdersCompanyLevel
     public Task<TerminalModelsResponse> GetCompaniesCompanyIdTerminalModels(string companyId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalModels"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalModels"),
             [new TemplateParam("companyId", companyId)],
             [],
             [],
@@ -140,7 +140,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-terminalOrders
+    /// Get a list of orders
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="customerOrderReference">Your purchase order number.</param>
@@ -170,7 +170,7 @@ public sealed class TerminalOrdersCompanyLevel
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalOrders"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalOrders"),
             [new TemplateParam("companyId", companyId)],
             [new Param("customerOrderReference", customerOrderReference),
                 new Param("status", status),
@@ -186,7 +186,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-terminalOrders-orderId
+    /// Get an order
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="orderId">The unique identifier of the order.</param>
@@ -209,7 +209,7 @@ public sealed class TerminalOrdersCompanyLevel
         string orderId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalOrders/{orderId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalOrders/{orderId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("orderId", orderId)],
             [],
             [],
@@ -222,7 +222,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-terminalProducts
+    /// Get a list of terminal products
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="country">The country to return products for, in <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> format. For example, <b>US</b></param>
@@ -250,7 +250,7 @@ public sealed class TerminalOrdersCompanyLevel
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalProducts"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalProducts"),
             [new TemplateParam("companyId", companyId)],
             [new Param("country", country),
                 new Param("terminalModelId", terminalModelId),
@@ -266,7 +266,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-terminalOrders-orderId
+    /// Update an order
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="orderId">The unique identifier of the order.</param>
@@ -296,7 +296,7 @@ public sealed class TerminalOrdersCompanyLevel
         TerminalOrderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalOrders/{orderId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalOrders/{orderId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("orderId", orderId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -309,7 +309,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-shippingLocations
+    /// Create a shipping location
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="body"></param>
@@ -331,7 +331,7 @@ public sealed class TerminalOrdersCompanyLevel
         ShippingLocation? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/shippingLocations"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/shippingLocations"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -344,7 +344,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-terminalOrders
+    /// Create an order
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="body"></param>
@@ -367,7 +367,7 @@ public sealed class TerminalOrdersCompanyLevel
         TerminalOrderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalOrders"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalOrders"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -380,7 +380,7 @@ public sealed class TerminalOrdersCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-terminalOrders-orderId-cancel
+    /// Cancel an order
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="orderId">The unique identifier of the order.</param>
@@ -404,7 +404,7 @@ public sealed class TerminalOrdersCompanyLevel
         string orderId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/terminalOrders/{orderId}/cancel"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/terminalOrders/{orderId}/cancel"),
             [new TemplateParam("companyId", companyId), new TemplateParam("orderId", orderId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -1,25 +1,24 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
+/// <summary>
+/// The name of the person funding the money.
+/// </summary>
 public record Name1
 {
     /// <summary>
-    /// The individual's first name. Must not be blank.
+    /// The first name.
     /// </summary>
     [JsonPropertyName("firstName")]
+    [MaxLength(80)]
     public required string FirstName { get; init; }
 
     /// <summary>
-    /// The infix in the individual's name, if any.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("infix")]
-    public string? Infix { get; init; }
-
-    /// <summary>
-    /// The individual's last name. Must not be blank.
+    /// The last name.
     /// </summary>
     [JsonPropertyName("lastName")]
+    [MaxLength(80)]
     public required string LastName { get; init; }
 }

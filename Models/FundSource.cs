@@ -12,13 +12,22 @@ public record FundSource
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// The address where to send the invoice.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address? BillingAddress { get; init; }
 
+    /// <summary>
+    /// Credit card data.
+    /// <para>
+    /// Optional if <c>shopperReference</c> and <c>selectedRecurringDetailReference</c> are provided.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card1? Card { get; init; }
 
     /// <summary>
     /// Email address of the person.
@@ -27,9 +36,12 @@ public record FundSource
     [JsonPropertyName("shopperEmail")]
     public string? ShopperEmail { get; init; }
 
+    /// <summary>
+    /// Name of the person.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// Phone number of the person

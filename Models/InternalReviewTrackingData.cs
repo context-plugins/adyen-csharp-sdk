@@ -5,10 +5,31 @@ namespace Adyen.Models;
 
 public record InternalReviewTrackingData
 {
+    /// <summary>
+    /// The reason why the transfer failed Adyen's internal review.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>refusedForRegulatoryReasons</b>: the transfer does not comply with Adyen's risk policy. For more information, <see href="https://www.adyen.help/hc/en-us/requests/new">contact the Support Team</see>.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reason")]
     public Reason11? Reason { get; init; }
 
+    /// <summary>
+    /// The status of the transfer.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>pending</b>: the transfer is under internal review by Adyen.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>failed</b>: the transfer failed Adyen's internal review. For details, see <c>reason</c>.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("status")]
     public required Status44 Status { get; init; }
 
@@ -22,5 +43,5 @@ public record InternalReviewTrackingData
     /// </list>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type90 Type { get; init; }
+    public string Type { get; } = "internalReview";
 }

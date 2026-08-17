@@ -19,9 +19,12 @@ public record CheckoutForwardRequestOptions
     [JsonPropertyName("dryRun")]
     public bool? DryRun { get; init; }
 
+    /// <summary>
+    /// The object that contains the details for forwarding a network token.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("networkToken")]
-    public CheckoutNetworkTokenOption? NetworkToken { get; init; }
+    public CheckoutNetworkTokenOption2? NetworkToken { get; init; }
 
     /// <summary>
     /// Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of networkTxReference in the incoming 3rd party response

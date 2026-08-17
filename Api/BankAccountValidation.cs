@@ -27,7 +27,7 @@ public sealed class BankAccountValidation
     }
 
     /// <summary>
-    /// post-validateBankAccountIdentification
+    /// Validate a bank account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class BankAccountValidation
     public Task PostValidateBankAccountIdentification(BankAccountIdentificationValidationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/validateBankAccountIdentification"),
+        _rawClient.Execute(_server.Default13("/validateBankAccountIdentification"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -15,17 +15,31 @@ public record StoreDetailRequest
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// A container for bank account data.
+    /// &gt; This field is mandatory if <c>card</c> is not provided.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bank")]
-    public Bank? Bank { get; init; }
+    public BankAccount? Bank { get; init; }
 
+    /// <summary>
+    /// The billing address.
+    /// <para>
+    /// &gt; The <c>billingAddress</c> object is required for cross-border payouts to and from Canada. Include all of the fields within this object.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address? BillingAddress { get; init; }
 
+    /// <summary>
+    /// A container for card data.
+    /// &gt; This field is mandatory if <c>bank</c> is not provided.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card? Card { get; init; }
 
     /// <summary>
     /// The date of birth.
@@ -36,6 +50,9 @@ public record StoreDetailRequest
     [JsonPropertyName("dateOfBirth")]
     public required DateTimeOffset DateOfBirth { get; init; }
 
+    /// <summary>
+    /// The type of the entity the payout is processed for.
+    /// </summary>
     [JsonPropertyName("entityType")]
     public required EntityType1 EntityType { get; init; }
 
@@ -62,8 +79,14 @@ public record StoreDetailRequest
     [MaxLength(2)]
     public required string Nationality { get; init; }
 
+    /// <summary>
+    /// A container for the type of recurring contract to be retrieved.
+    /// <para>
+    /// The recurring.contract must be set to <c>PAYOUT</c>
+    /// </para>
+    /// </summary>
     [JsonPropertyName("recurring")]
-    public required Recurring3 Recurring { get; init; }
+    public required Recurring Recurring { get; init; }
 
     /// <summary>
     /// The name of the brand to make a payout to.
@@ -81,9 +104,15 @@ public record StoreDetailRequest
     [JsonPropertyName("shopperEmail")]
     public required string ShopperEmail { get; init; }
 
+    /// <summary>
+    /// The shopper's name.
+    /// <para>
+    /// When the <c>entityType</c> is <c>Company</c>, the <c>shopperName.lastName</c> must contain the company name.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// The shopper's reference for the payment transaction.

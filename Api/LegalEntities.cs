@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Adyen.Core;
@@ -28,7 +29,7 @@ public sealed class LegalEntities
     }
 
     /// <summary>
-    /// get-legalEntities-id
+    /// Get a legal entity
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -53,7 +54,7 @@ public sealed class LegalEntities
     public Task<LegalEntity3> GetLegalEntitiesId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -66,7 +67,7 @@ public sealed class LegalEntities
             ct);
 
     /// <summary>
-    /// get-legalEntities-id-businessLines
+    /// Get all business lines under a legal entity
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -91,7 +92,7 @@ public sealed class LegalEntities
     public Task<BusinessLines> GetLegalEntitiesIdBusinessLines(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/businessLines"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/businessLines"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -104,7 +105,7 @@ public sealed class LegalEntities
             ct);
 
     /// <summary>
-    /// patch-legalEntities-id
+    /// Update a legal entity
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.</param>
     /// <param name="xRequestedVerificationCode">Use the requested verification code 0_0001 to resolve any suberrors associated with the legal entity. Requested verification codes can only be used in your test environment.</param>
@@ -139,7 +140,7 @@ public sealed class LegalEntities
         LegalEntityInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("x-requested-verification-code", xRequestedVerificationCode),
@@ -153,7 +154,7 @@ public sealed class LegalEntities
             ct);
 
     /// <summary>
-    /// post-legalEntities
+    /// Create a legal entity
     /// </summary>
     /// <param name="xRequestedVerificationCode">Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.</param>
     /// <param name="body"></param>
@@ -183,7 +184,7 @@ public sealed class LegalEntities
         LegalEntityInfoRequiredType? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities"),
+        _rawClient.Execute(_server.Default18("/legalEntities"),
             [],
             [],
             [new HeaderParam("x-requested-verification-code", xRequestedVerificationCode),
@@ -197,7 +198,7 @@ public sealed class LegalEntities
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-checkVerificationErrors
+    /// Check a legal entity's verification errors
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -222,7 +223,7 @@ public sealed class LegalEntities
     public Task<VerificationErrors> PostLegalEntitiesIdCheckVerificationErrors(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/checkVerificationErrors"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/checkVerificationErrors"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -235,7 +236,7 @@ public sealed class LegalEntities
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-confirmDataReview
+    /// Confirm data review
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -260,7 +261,7 @@ public sealed class LegalEntities
     public Task<DataReviewConfirmationResponse> PostLegalEntitiesIdConfirmDataReview(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/confirmDataReview"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/confirmDataReview"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -273,26 +274,26 @@ public sealed class LegalEntities
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-requestPeriodicReview
+    /// Request periodic data review.
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="JsonElement"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Requests a periodic data review for the legal entity of the user specified in the path.
     /// </remarks>
-    public Task<object> PostLegalEntitiesIdRequestPeriodicReview(string id,
+    public Task<JsonElement> PostLegalEntitiesIdRequestPeriodicReview(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/requestPeriodicReview"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/requestPeriodicReview"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             EmptyBody.Instance,
-            JsonResponse.Create<object>(),
+            JsonResponse.Create<JsonElement>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,

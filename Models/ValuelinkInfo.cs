@@ -11,6 +11,9 @@ public record ValuelinkInfo
     [JsonPropertyName("authorisationMid")]
     public required string AuthorisationMid { get; init; }
 
+    /// <summary>
+    /// PIN Support. For ecommerce, PIN is required.
+    /// </summary>
     [JsonPropertyName("pinSupport")]
     public required PinSupport PinSupport { get; init; }
 

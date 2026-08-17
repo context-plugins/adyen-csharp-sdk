@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// <b>dbarai</b>
+/// The type of the webhook you are configuring. Set to <b>balance</b>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type201>))]
 public sealed record Type201 : StringEnum<Type201>
@@ -13,7 +13,7 @@ public sealed record Type201 : StringEnum<Type201>
     {
     }
 
-    public static readonly Type201 Dbarai = new("dbarai");
+    public static readonly Type201 Balance = new("balance");
 
     public static Type201 FromValue(string value) => FromValueCore(value);
 }

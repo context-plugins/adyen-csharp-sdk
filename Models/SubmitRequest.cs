@@ -14,8 +14,11 @@ public record SubmitRequest
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// A container object for the payable amount information of the transaction.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
     /// <summary>
     /// The date of birth.
@@ -32,6 +35,15 @@ public record SubmitRequest
     [JsonPropertyName("dateOfBirth")]
     public DateTimeOffset? DateOfBirth { get; init; }
 
+    /// <summary>
+    /// The type of the entity the payout is processed for.
+    /// <para>
+    /// Allowed values:
+    /// * NaturalPerson
+    /// * Company
+    /// &gt; This field is required to update the existing <c>entityType</c> that is associated with this recurring contract.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("entityType")]
     public EntityType2? EntityType { get; init; }
@@ -62,8 +74,14 @@ public record SubmitRequest
     [JsonPropertyName("nationality")]
     public string? Nationality { get; init; }
 
+    /// <summary>
+    /// A container for the type of recurring contract to be retrieved.
+    /// <para>
+    /// The <c>recurring.contract</c> must be set to "PAYOUT".
+    /// </para>
+    /// </summary>
     [JsonPropertyName("recurring")]
-    public required Recurring3 Recurring { get; init; }
+    public required Recurring Recurring { get; init; }
 
     /// <summary>
     /// The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
@@ -86,9 +104,18 @@ public record SubmitRequest
     [JsonPropertyName("shopperEmail")]
     public required string ShopperEmail { get; init; }
 
+    /// <summary>
+    /// The shopper's name.
+    /// <para>
+    /// In case the <c>entityType</c> is <c>Company</c>, the <c>shopperName.lastName</c> must contain the company name.
+    /// </para>
+    /// <para>
+    /// &gt; This field is required to update the existing <c>shopperName</c> associated with a recurring contract.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// The shopper's reference for the payout transaction.

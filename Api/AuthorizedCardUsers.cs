@@ -24,7 +24,7 @@ public sealed class AuthorizedCardUsers
     }
 
     /// <summary>
-    /// delete-paymentInstruments-paymentInstrumentId-authorisedCardUsers
+    /// Delete the authorized users for a card.
     /// </summary>
     /// <param name="paymentInstrumentId"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -37,7 +37,7 @@ public sealed class AuthorizedCardUsers
     public Task DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(string paymentInstrumentId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
             [new TemplateParam("paymentInstrumentId", paymentInstrumentId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -50,7 +50,7 @@ public sealed class AuthorizedCardUsers
             ct);
 
     /// <summary>
-    /// get-paymentInstruments-paymentInstrumentId-authorisedCardUsers
+    /// Get authorized users for a card.
     /// </summary>
     /// <param name="paymentInstrumentId"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -63,7 +63,7 @@ public sealed class AuthorizedCardUsers
     public Task<AuthorisedCardUsers> GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(string paymentInstrumentId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
             [new TemplateParam("paymentInstrumentId", paymentInstrumentId)],
             [],
             [],
@@ -76,7 +76,7 @@ public sealed class AuthorizedCardUsers
             ct);
 
     /// <summary>
-    /// patch-paymentInstruments-paymentInstrumentId-authorisedCardUsers
+    /// Update the authorized users for a card.
     /// </summary>
     /// <param name="paymentInstrumentId"></param>
     /// <param name="body"></param>
@@ -94,7 +94,7 @@ public sealed class AuthorizedCardUsers
         AuthorisedCardUsers body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
             [new TemplateParam("paymentInstrumentId", paymentInstrumentId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -107,7 +107,7 @@ public sealed class AuthorizedCardUsers
             ct);
 
     /// <summary>
-    /// post-paymentInstruments-paymentInstrumentId-authorisedCardUsers
+    /// Create authorized users for a card.
     /// </summary>
     /// <param name="paymentInstrumentId"></param>
     /// <param name="body"></param>
@@ -122,7 +122,7 @@ public sealed class AuthorizedCardUsers
         AuthorisedCardUsers body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers"),
             [new TemplateParam("paymentInstrumentId", paymentInstrumentId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

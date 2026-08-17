@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// Type of terminal action: Uninstall an Android app.
+/// The type of the transfer event. Possible values: <b>accounting</b>, <b>tracking</b>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type73>))]
 public sealed record Type73 : StringEnum<Type73>
@@ -13,7 +13,11 @@ public sealed record Type73 : StringEnum<Type73>
     {
     }
 
-    public static readonly Type73 UninstallAndroidApp = new("UninstallAndroidApp");
+    public static readonly Type73 Accounting = new("accounting");
+
+    public static readonly Type73 Tracing = new("tracing");
+
+    public static readonly Type73 Tracking = new("tracking");
 
     public static Type73 FromValue(string value) => FromValueCore(value);
 }

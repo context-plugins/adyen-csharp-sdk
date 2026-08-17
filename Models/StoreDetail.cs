@@ -5,8 +5,11 @@ namespace Adyen.Models;
 
 public record StoreDetail
 {
+    /// <summary>
+    /// The address of the physical store where the account holder will process payments from.
+    /// </summary>
     [JsonPropertyName("address")]
-    public required ViasAddress Address { get; init; }
+    public required ViasAddress7 Address { get; init; }
 
     /// <summary>
     /// The phone number of the store provided as a single string.  It will be handled as a landline phone.
@@ -44,13 +47,19 @@ public record StoreDetail
     [JsonPropertyName("merchantHouseNumber")]
     public string? MerchantHouseNumber { get; init; }
 
+    /// <summary>
+    /// The phone number of the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phoneNumber")]
-    public PhoneNumber3? PhoneNumber { get; init; }
+    public ViasPhoneNumber4? PhoneNumber { get; init; }
 
+    /// <summary>
+    /// The sales channel. Possible values: <b>Ecommerce</b>, <b>POS</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperInteraction")]
-    public ShopperInteraction? ShopperInteraction { get; init; }
+    public PaymentFlow? ShopperInteraction { get; init; }
 
     /// <summary>
     /// The unique reference for the split configuration, returned when you configure splits in your Customer Area. When this is provided, the <c>virtualAccount</c> is also required. Adyen uses the configuration and the <c>virtualAccount</c> to split funds between accounts in your platform.
@@ -59,9 +68,12 @@ public record StoreDetail
     [JsonPropertyName("splitConfigurationUUID")]
     public string? SplitConfigurationUuid { get; init; }
 
+    /// <summary>
+    /// The status of the store. Possible values: <b>Pending</b>, <b>Active</b>, <b>Inactive</b>, <b>InactiveWithModifications</b>, <b>Closed</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status? Status { get; init; }
+    public Status8? Status { get; init; }
 
     /// <summary>
     /// Adyen-generated unique alphanumeric identifier (UUID) for the store, returned in the response when you create a store. Required when updating an existing store in an <c>/updateAccountHolder</c> request.

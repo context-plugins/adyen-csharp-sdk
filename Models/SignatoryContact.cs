@@ -4,9 +4,12 @@ namespace Adyen.Models;
 
 public record SignatoryContact
 {
+    /// <summary>
+    /// The address of the person.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public ViasAddress? Address { get; init; }
+    public ViasAddress2? Address { get; init; }
 
     /// <summary>
     /// The e-mail address of the person.
@@ -33,17 +36,26 @@ public record SignatoryContact
     [JsonPropertyName("jobTitle")]
     public string? JobTitle { get; init; }
 
+    /// <summary>
+    /// The name of the person.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
-    public ViasName? Name { get; init; }
+    public ViasName1? Name { get; init; }
 
+    /// <summary>
+    /// Contains information about the person.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("personalData")]
-    public ViasPersonalData? PersonalData { get; init; }
+    public ViasPersonalData1? PersonalData { get; init; }
 
+    /// <summary>
+    /// The phone number of the person.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phoneNumber")]
-    public PhoneNumber3? PhoneNumber { get; init; }
+    public ViasPhoneNumber1? PhoneNumber { get; init; }
 
     /// <summary>
     /// The unique identifier (UUID) of the signatory.

@@ -8,11 +8,19 @@ namespace Adyen.Models;
 /// </summary>
 public record LoyaltyData
 {
+    /// <summary>
+    /// Reference to the last CardAcquisition, to use the same card.
+    /// If the loyalty account ID comes from a previous CardAcquisition.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CardAcquisitionReference")]
-    public CardAcquisitionReference? CardAcquisitionReference { get; init; }
+    public TransactionIdType3? CardAcquisitionReference { get; init; }
 
+    /// <summary>
+    /// Identification of a Loyalty account.
+    /// If loyalty identification of the loyalty account is realised by the Sale System.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyAccountID")]
-    public LoyaltyAccountId3? LoyaltyAccountId { get; init; }
+    public LoyaltyAccountId1? LoyaltyAccountId { get; init; }
 }

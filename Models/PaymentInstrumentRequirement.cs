@@ -34,6 +34,9 @@ public record PaymentInstrumentRequirement
     [JsonPropertyName("onlyForCrossBalancePlatform")]
     public bool? OnlyForCrossBalancePlatform { get; init; }
 
+    /// <summary>
+    /// The type of the payment instrument. For example, "BankAccount" or "Card".
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentInstrumentType")]
     public PaymentInstrumentType? PaymentInstrumentType { get; init; }
@@ -42,5 +45,5 @@ public record PaymentInstrumentRequirement
     /// <b>paymentInstrumentRequirement</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type363 Type { get; init; }
+    public string Type { get; } = "paymentInstrumentRequirement";
 }

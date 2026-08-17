@@ -37,9 +37,13 @@ public record MobileData
     [JsonPropertyName("MaskedMSISDN")]
     public int? MaskedMsisdn { get; init; }
 
+    /// <summary>
+    /// Geographic location specified by geographic or UTM coordinates.
+    /// If data available.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("Geolocation")]
-    public Geolocation? Geolocation { get; init; }
+    public Geolocation1? Geolocation { get; init; }
 
     /// <summary>
     /// Sensitive information related to the mobile phone, protected by CMS.
@@ -49,7 +53,11 @@ public record MobileData
     [JsonPropertyName("ProtectedMobileData")]
     public string? ProtectedMobileData { get; init; }
 
+    /// <summary>
+    /// Sensitive information related to the mobile phone.
+    /// If unprotected mobile data.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SensitiveMobileData")]
-    public SensitiveMobileData? SensitiveMobileData { get; init; }
+    public SensitiveMobileData1? SensitiveMobileData { get; init; }
 }

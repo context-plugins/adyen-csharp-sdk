@@ -6,9 +6,12 @@ namespace Adyen.Models;
 
 public record PaymentMethodResponse
 {
+    /// <summary>
+    /// Pagination references.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public PaginationLinks? Links { get; init; }
+    public PaginationLinks1? Links { get; init; }
 
     /// <summary>
     /// The list of supported payment methods and their details.

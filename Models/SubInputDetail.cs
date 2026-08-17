@@ -17,7 +17,7 @@ public record SubInputDetail
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("items")]
-    public IReadOnlyList<NetworkTokenRequestor>? Items { get; init; }
+    public IReadOnlyList<Item>? Items { get; init; }
 
     /// <summary>
     /// The value to provide in the result.

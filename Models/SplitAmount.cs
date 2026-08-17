@@ -7,6 +7,10 @@ namespace Adyen.Models;
 /// The amount of the split item.
 /// <list type="bullet">
 ///   <item><description>Required for all split types in the <see href="https://docs.adyen.com/classic-platforms">Classic Platforms integration</see>.</description></item>
+///   <item><description>Required if <c>type</c> is <b>BalanceAccount</b>, <b>Commission</b>, <b>Surcharge</b>, <b>Default</b>, or <b>VAT</b> in your <see href="https://docs.adyen.com/adyen-for-platforms-model">Balance Platform</see> integration., The amount of the split item.</description></item>
+/// </list>
+/// <list type="bullet">
+///   <item><description>Required for all split types in the <see href="https://docs.adyen.com/classic-platforms">Classic Platforms integration</see>.</description></item>
 ///   <item><description>Required if <c>type</c> is <b>BalanceAccount</b>, <b>Commission</b>, <b>Default</b>, or <b>VAT</b> in your <see href="https://docs.adyen.com/adyen-for-platforms-model">Balance Platform</see> integration.</description></item>
 /// </list>
 /// </summary>

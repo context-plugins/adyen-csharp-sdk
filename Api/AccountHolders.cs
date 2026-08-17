@@ -29,33 +29,33 @@ public sealed class AccountHolders
     }
 
     /// <summary>
-    /// get-accountHolders-id
+    /// Get an account holder
     /// </summary>
     /// <param name="id">The unique identifier of the account holder.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccountHolder2"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccountHolder"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="GetAccountHoldersIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns an account holder.
     /// </remarks>
-    public Task<AccountHolder2> GetAccountHoldersId(string id,
+    public Task<AccountHolder> GetAccountHoldersId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders/{id}"),
+        _rawClient.Execute(_server.Default13("/accountHolders/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<AccountHolder2>(),
+            JsonResponse.Create<AccountHolder>(),
             GetAccountHoldersIdErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// get-accountHolders-id-balanceAccounts
+    /// Get all balance accounts of an account holder
     /// </summary>
     /// <param name="id">The unique identifier of the account holder.</param>
     /// <param name="offset">The number of items that you want to skip.</param>
@@ -75,7 +75,7 @@ public sealed class AccountHolders
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders/{id}/balanceAccounts"),
+        _rawClient.Execute(_server.Default13("/accountHolders/{id}/balanceAccounts"),
             [new TemplateParam("id", id)],
             [new Param("offset", offset), new Param("limit", limit)],
             [],
@@ -88,7 +88,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// get-accountHolders-id-taxFormSummary
+    /// Get summary of tax forms for an account holder
     /// </summary>
     /// <param name="id">The unique identifier of the account holder.</param>
     /// <param name="formType">The type of tax form you want a summary for. Accepted values are <b>US1099k</b> and <b>US1099nec</b>.</param>
@@ -103,7 +103,7 @@ public sealed class AccountHolders
         string formType,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders/{id}/taxFormSummary"),
+        _rawClient.Execute(_server.Default13("/accountHolders/{id}/taxFormSummary"),
             [new TemplateParam("id", id)],
             [new Param("formType", formType)],
             [],
@@ -116,7 +116,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// get-accountHolders-id-taxForms
+    /// Get a tax form
     /// </summary>
     /// <param name="id">The unique identifier of the account holder.</param>
     /// <param name="formType">The type of tax form you want to retrieve. Accepted values are <b>US1099k</b> and <b>US1099nec</b>.</param>
@@ -130,12 +130,12 @@ public sealed class AccountHolders
     /// Generates a tax form for account holders operating in the US. For more information, refer to US tax forms for <see href="https://docs.adyen.com/marketplaces/us-tax-forms/">marketplaces</see> or <see href="https://docs.adyen.com/platforms/us-tax-forms/">platforms</see> .
     /// </remarks>
     public Task<GetTaxFormResponse1> GetAccountHoldersIdTaxForms(string id,
-        FormType1 formType,
+        FormType formType,
         int year,
         string? legalEntityId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders/{id}/taxForms"),
+        _rawClient.Execute(_server.Default13("/accountHolders/{id}/taxForms"),
             [new TemplateParam("id", id)],
             [new Param("formType", formType), new Param("year", year), new Param("legalEntityId", legalEntityId)],
             [],
@@ -148,7 +148,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// get-accountHolders-id-transactionRules
+    /// Get all transaction rules for an account holder
     /// </summary>
     /// <param name="id">The unique identifier of the account holder.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -161,7 +161,7 @@ public sealed class AccountHolders
     public Task<TransactionRulesResponse> GetAccountHoldersIdTransactionRules(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders/{id}/transactionRules"),
+        _rawClient.Execute(_server.Default13("/accountHolders/{id}/transactionRules"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -174,61 +174,61 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// patch-accountHolders-id
+    /// Update an account holder
     /// </summary>
     /// <param name="id">The unique identifier of the account holder.</param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccountHolder2"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccountHolder"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PatchAccountHoldersIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Updates an account holder. When updating an account holder resource, if a parameter is not provided in the request, it is left unchanged.
     /// </remarks>
-    public Task<AccountHolder2> PatchAccountHoldersId(string id,
+    public Task<AccountHolder> PatchAccountHoldersId(string id,
         AccountHolderUpdateRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders/{id}"),
+        _rawClient.Execute(_server.Default13("/accountHolders/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             new HttpMethod("PATCH"),
             JsonRequest.Create(body),
-            JsonResponse.Create<AccountHolder2>(),
+            JsonResponse.Create<AccountHolder>(),
             PatchAccountHoldersIdErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-accountHolders
+    /// Create an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccountHolder2"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccountHolder"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostAccountHoldersError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates an account holder linked to a <see href="https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities">legal entity</see>.
     /// </remarks>
-    public Task<AccountHolder2> PostAccountHolders(AccountHolderInfo? body,
+    public Task<AccountHolder> PostAccountHolders(AccountHolderInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolders"),
+        _rawClient.Execute(_server.Default13("/accountHolders"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<AccountHolder2>(),
+            JsonResponse.Create<AccountHolder>(),
             PostAccountHoldersErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-closeAccountHolder
+    /// Close an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -241,7 +241,7 @@ public sealed class AccountHolders
     public Task<CloseAccountHolderResponse> PostCloseAccountHolder(CloseAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/closeAccountHolder"),
+        _rawClient.Execute(_server.Default10("/closeAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -254,7 +254,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-closeStores
+    /// Close stores
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -267,7 +267,7 @@ public sealed class AccountHolders
     public Task<GenericResponse> PostCloseStores(CloseStoresRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/closeStores"),
+        _rawClient.Execute(_server.Default10("/closeStores"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -280,7 +280,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-createAccountHolder
+    /// Create an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -293,7 +293,7 @@ public sealed class AccountHolders
     public Task<CreateAccountHolderResponse> PostCreateAccountHolder(CreateAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/createAccountHolder"),
+        _rawClient.Execute(_server.Default10("/createAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -306,7 +306,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-getAccountHolder
+    /// Get an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -319,7 +319,7 @@ public sealed class AccountHolders
     public Task<GetAccountHolderResponse> PostGetAccountHolder(GetAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getAccountHolder"),
+        _rawClient.Execute(_server.Default10("/getAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -332,7 +332,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-getTaxForm
+    /// Get a tax form
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -345,7 +345,7 @@ public sealed class AccountHolders
     public Task<GetTaxFormResponse> PostGetTaxForm(GetTaxFormRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getTaxForm"),
+        _rawClient.Execute(_server.Default10("/getTaxForm"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -358,7 +358,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-suspendAccountHolder
+    /// Suspend an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -371,7 +371,7 @@ public sealed class AccountHolders
     public Task<SuspendAccountHolderResponse> PostSuspendAccountHolder(SuspendAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/suspendAccountHolder"),
+        _rawClient.Execute(_server.Default10("/suspendAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -384,7 +384,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-unSuspendAccountHolder
+    /// Unsuspend an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -401,7 +401,7 @@ public sealed class AccountHolders
     public Task<UnSuspendAccountHolderResponse> PostUnSuspendAccountHolder(UnSuspendAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/unSuspendAccountHolder"),
+        _rawClient.Execute(_server.Default10("/unSuspendAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -414,7 +414,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-updateAccountHolder
+    /// Update an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -454,7 +454,7 @@ public sealed class AccountHolders
     public Task<UpdateAccountHolderResponse> PostUpdateAccountHolder(UpdateAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/updateAccountHolder"),
+        _rawClient.Execute(_server.Default10("/updateAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -467,7 +467,7 @@ public sealed class AccountHolders
             ct);
 
     /// <summary>
-    /// post-updateAccountHolderState
+    /// Update payout or processing state
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -480,7 +480,7 @@ public sealed class AccountHolders
     public Task<GetAccountHolderStatusResponse> PostUpdateAccountHolderState(UpdateAccountHolderStateRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/updateAccountHolderState"),
+        _rawClient.Execute(_server.Default10("/updateAccountHolderState"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

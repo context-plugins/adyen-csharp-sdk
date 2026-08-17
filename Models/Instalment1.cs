@@ -11,6 +11,13 @@ namespace Adyen.Models;
 /// </summary>
 public record Instalment1
 {
+    /// <summary>
+    /// Type of instalment transaction. For requesting an instalment payment transaction.
+    /// Possible values:
+    /// * <b>DeferredInstalments</b>
+    /// * <b>EqualInstalments</b>
+    /// * <b>InequalInstalments</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("InstalmentType")]
     public InstalmentType? InstalmentType { get; init; }
@@ -37,6 +44,14 @@ public record Instalment1
     [JsonPropertyName("Period")]
     public int? Period { get; init; }
 
+    /// <summary>
+    /// Type of instalment transaction.
+    /// Possible values:
+    /// * <b>Annual</b>
+    /// * <b>Daily</b>
+    /// * <b>Monthly</b>
+    /// * <b>Weekly</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PeriodUnit")]
     public PeriodUnit1? PeriodUnit { get; init; }

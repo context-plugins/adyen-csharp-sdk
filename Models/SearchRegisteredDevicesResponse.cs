@@ -19,9 +19,12 @@ public record SearchRegisteredDevicesResponse
     [JsonPropertyName("itemsTotal")]
     public int? ItemsTotal { get; init; }
 
+    /// <summary>
+    /// Contains links to the list pages.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("link")]
-    public Link? Link { get; init; }
+    public Link1? Link { get; init; }
 
     /// <summary>
     /// The total amount of list pages.

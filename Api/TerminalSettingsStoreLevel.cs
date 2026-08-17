@@ -27,7 +27,7 @@ public sealed class TerminalSettingsStoreLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-stores-reference-terminalLogos
+    /// Get the terminal logo
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="reference">The reference that identifies the store.</param>
@@ -54,7 +54,7 @@ public sealed class TerminalSettingsStoreLevel
         string model,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{reference}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores/{reference}/terminalLogos"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("reference", reference)],
             [new Param("model", model)],
             [],
@@ -67,7 +67,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-stores-reference-terminalSettings
+    /// Get terminal settings
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="reference">The reference that identifies the store.</param>
@@ -94,7 +94,7 @@ public sealed class TerminalSettingsStoreLevel
         string reference,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{reference}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores/{reference}/terminalSettings"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("reference", reference)],
             [],
             [],
@@ -107,7 +107,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// get-stores-storeId-terminalLogos
+    /// Get the terminal logo
     /// </summary>
     /// <param name="storeId">The unique identifier of the store.</param>
     /// <param name="model">The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
@@ -132,7 +132,7 @@ public sealed class TerminalSettingsStoreLevel
         string model,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores/{storeId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/stores/{storeId}/terminalLogos"),
             [new TemplateParam("storeId", storeId)],
             [new Param("model", model)],
             [],
@@ -145,7 +145,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// get-stores-storeId-terminalSettings
+    /// Get terminal settings
     /// </summary>
     /// <param name="storeId">The unique identifier of the store.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -170,7 +170,7 @@ public sealed class TerminalSettingsStoreLevel
     public Task<TerminalSettings> GetStoresStoreIdTerminalSettings(string storeId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores/{storeId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/stores/{storeId}/terminalSettings"),
             [new TemplateParam("storeId", storeId)],
             [],
             [],
@@ -183,7 +183,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-stores-reference-terminalLogos
+    /// Update the terminal logo
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="reference">The reference that identifies the store.</param>
@@ -214,7 +214,7 @@ public sealed class TerminalSettingsStoreLevel
         Logo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{reference}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores/{reference}/terminalLogos"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("reference", reference)],
             [new Param("model", model)],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -227,7 +227,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-stores-reference-terminalSettings
+    /// Update terminal settings
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="reference">The reference that identifies the store.</param>
@@ -260,7 +260,7 @@ public sealed class TerminalSettingsStoreLevel
         TerminalSettings? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/stores/{reference}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/stores/{reference}/terminalSettings"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("reference", reference)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -273,7 +273,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// patch-stores-storeId-terminalLogos
+    /// Update the terminal logo
     /// </summary>
     /// <param name="storeId">The unique identifier of the store.</param>
     /// <param name="model">The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
@@ -302,7 +302,7 @@ public sealed class TerminalSettingsStoreLevel
         Logo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores/{storeId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/stores/{storeId}/terminalLogos"),
             [new TemplateParam("storeId", storeId)],
             [new Param("model", model)],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -315,7 +315,7 @@ public sealed class TerminalSettingsStoreLevel
             ct);
 
     /// <summary>
-    /// patch-stores-storeId-terminalSettings
+    /// Update terminal settings
     /// </summary>
     /// <param name="storeId">The unique identifier of the store.</param>
     /// <param name="body"></param>
@@ -346,7 +346,7 @@ public sealed class TerminalSettingsStoreLevel
         TerminalSettings? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/stores/{storeId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/stores/{storeId}/terminalSettings"),
             [new TemplateParam("storeId", storeId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

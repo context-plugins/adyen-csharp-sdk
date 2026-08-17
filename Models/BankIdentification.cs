@@ -19,6 +19,12 @@ public record BankIdentification
     [JsonPropertyName("identification")]
     public string? Identification { get; init; }
 
+    /// <summary>
+    /// The type of the identification.
+    /// <para>
+    /// Possible values: <b>iban</b>, <b>routingNumber</b>, <b>sortCode</b>, <b>bic</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("identificationType")]
     public IdentificationType? IdentificationType { get; init; }

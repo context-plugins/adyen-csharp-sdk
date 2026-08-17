@@ -12,7 +12,9 @@ public record InstallAndroidAppDetails
     [JsonPropertyName("appId")]
     public string? AppId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Type of terminal action: Install an Android app.
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type310? Type { get; init; }
+    public Type32? Type { get; init; } = Type32.InstallAndroidApp;
 }

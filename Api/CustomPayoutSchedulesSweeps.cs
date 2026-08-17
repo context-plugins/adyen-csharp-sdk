@@ -27,7 +27,7 @@ public sealed class CustomPayoutSchedulesSweeps
     }
 
     /// <summary>
-    /// delete-balanceAccounts-balanceAccountId-sweeps-sweepId
+    /// Delete a sweep
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="sweepId">The unique identifier of the sweep.</param>
@@ -42,7 +42,7 @@ public sealed class CustomPayoutSchedulesSweeps
         string sweepId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("sweepId", sweepId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -55,7 +55,7 @@ public sealed class CustomPayoutSchedulesSweeps
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-balanceAccountId-sweeps
+    /// Get all sweeps for a balance account
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="offset">The number of items that you want to skip.</param>
@@ -75,7 +75,7 @@ public sealed class CustomPayoutSchedulesSweeps
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/sweeps"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/sweeps"),
             [new TemplateParam("balanceAccountId", balanceAccountId)],
             [new Param("offset", offset), new Param("limit", limit)],
             [],
@@ -88,7 +88,7 @@ public sealed class CustomPayoutSchedulesSweeps
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-balanceAccountId-sweeps-sweepId
+    /// Get a sweep
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="sweepId">The unique identifier of the sweep.</param>
@@ -103,7 +103,7 @@ public sealed class CustomPayoutSchedulesSweeps
         string sweepId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("sweepId", sweepId)],
             [],
             [],
@@ -116,7 +116,7 @@ public sealed class CustomPayoutSchedulesSweeps
             ct);
 
     /// <summary>
-    /// patch-balanceAccounts-balanceAccountId-sweeps-sweepId
+    /// Update a sweep
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="sweepId">The unique identifier of the sweep.</param>
@@ -133,7 +133,7 @@ public sealed class CustomPayoutSchedulesSweeps
         UpdateSweepConfigurationV2? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("sweepId", sweepId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -146,7 +146,7 @@ public sealed class CustomPayoutSchedulesSweeps
             ct);
 
     /// <summary>
-    /// post-balanceAccounts-balanceAccountId-sweeps
+    /// Create a sweep
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="body"></param>
@@ -164,7 +164,7 @@ public sealed class CustomPayoutSchedulesSweeps
         CreateSweepConfigurationV2? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/sweeps"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/sweeps"),
             [new TemplateParam("balanceAccountId", balanceAccountId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

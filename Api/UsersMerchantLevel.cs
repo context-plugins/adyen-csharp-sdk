@@ -27,7 +27,7 @@ public sealed class UsersMerchantLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-users
+    /// Get a list of users
     /// </summary>
     /// <param name="merchantId">Unique identifier of the merchant.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -50,7 +50,7 @@ public sealed class UsersMerchantLevel
         string? username,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/users"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/users"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize), new Param("username", username)],
             [],
@@ -63,7 +63,7 @@ public sealed class UsersMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-users-userId
+    /// Get user details
     /// </summary>
     /// <param name="merchantId">Unique identifier of the merchant.</param>
     /// <param name="userId">Unique identifier of the user.</param>
@@ -82,7 +82,7 @@ public sealed class UsersMerchantLevel
         string userId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/users/{userId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/users/{userId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("userId", userId)],
             [],
             [],
@@ -95,7 +95,7 @@ public sealed class UsersMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-users-userId
+    /// Update a user
     /// </summary>
     /// <param name="merchantId">Unique identifier of the merchant.</param>
     /// <param name="userId">Unique identifier of the user.</param>
@@ -116,7 +116,7 @@ public sealed class UsersMerchantLevel
         UpdateMerchantUserRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/users/{userId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/users/{userId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("userId", userId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -129,7 +129,7 @@ public sealed class UsersMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-users
+    /// Create a new user
     /// </summary>
     /// <param name="merchantId">Unique identifier of the merchant.</param>
     /// <param name="body"></param>
@@ -148,7 +148,7 @@ public sealed class UsersMerchantLevel
         CreateMerchantUserRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/users"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/users"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

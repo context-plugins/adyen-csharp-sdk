@@ -19,9 +19,15 @@ public record PayoutAccountHolderRequest
     [JsonPropertyName("accountHolderCode")]
     public required string AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// An object containing the currency and value of the payout.
+    /// If the account has multiple currencies, specify the currency to be used.
+    /// If the <c>bankAccountUUID</c> is provided in the request, the currency supported by the bank is used.
+    /// If the <c>payoutMethodCode</c> is provided in the request, the specified payout method is selected.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount? Amount { get; init; }
 
     /// <summary>
     /// The unique ID of the Bank Account held by the Account Holder to which the payout is to be made.
@@ -55,7 +61,9 @@ public record PayoutAccountHolderRequest
     [JsonPropertyName("payoutMethodCode")]
     public string? PayoutMethodCode { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Speed with which payouts for this account are processed. Permitted values: <c>STANDARD</c>, <c>SAME_DAY</c>.
+    /// </summary>
     [JsonPropertyName("payoutSpeed")]
-    public PayoutSpeed? PayoutSpeed { get; init; }
+    public PayoutSpeed? PayoutSpeed { get; init; } = PayoutSpeed.Standard;
 }

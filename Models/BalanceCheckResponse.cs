@@ -13,12 +13,18 @@ public record BalanceCheckResponse
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// The balance for the payment method.
+    /// </summary>
     [JsonPropertyName("balance")]
-    public required Balance1 Balance { get; init; }
+    public required Amount8 Balance { get; init; }
 
+    /// <summary>
+    /// The fraud result properties of the payment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fraudResult")]
-    public FraudResult? FraudResult { get; init; }
+    public FraudResult1? FraudResult { get; init; }
 
     /// <summary>
     /// Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
@@ -37,10 +43,24 @@ public record BalanceCheckResponse
     [JsonPropertyName("refusalReason")]
     public string? RefusalReason { get; init; }
 
+    /// <summary>
+    /// The result of the cancellation request.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>Success</b> – Indicates that the balance check was successful.</description></item>
+    ///   <item><description><b>NotEnoughBalance</b> – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount.</description></item>
+    ///   <item><description><b>Failed</b> – Indicates that the balance check failed.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("resultCode")]
     public required ResultCode ResultCode { get; init; }
 
+    /// <summary>
+    /// The maximum spendable balance for a single transaction. Applicable to some gift cards.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionLimit")]
-    public TransactionLimit? TransactionLimit { get; init; }
+    public Amount9? TransactionLimit { get; init; }
 }

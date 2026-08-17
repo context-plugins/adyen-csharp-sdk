@@ -20,9 +20,12 @@ public record AccountHolderInfo
     [JsonPropertyName("capabilities")]
     public IReadOnlyDictionary<string, AccountHolderCapability>? Capabilities { get; init; }
 
+    /// <summary>
+    /// Contact details of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("contactDetails")]
-    public ContactDetails? ContactDetails { get; init; }
+    public ContactDetails1? ContactDetails { get; init; }
 
     /// <summary>
     /// Your description for the account holder.

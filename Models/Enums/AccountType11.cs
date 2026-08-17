@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The type of the bank account.
+/// The type of the bank account. Possible values are <b>CURRENT</b>, <b>SAVINGS</b>, <b>BUSINESS</b>, <b>CREDIT_CARD</b>, <b>LOAN</b>, <b>UNKNOWN</b>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<AccountType11>))]
 public sealed record AccountType11 : StringEnum<AccountType11>
@@ -13,19 +13,17 @@ public sealed record AccountType11 : StringEnum<AccountType11>
     {
     }
 
-    public static readonly AccountType11 Balance = new("balance");
+    public static readonly AccountType11 Current = new("CURRENT");
 
-    public static readonly AccountType11 Checking = new("checking");
+    public static readonly AccountType11 Savings = new("SAVINGS");
 
-    public static readonly AccountType11 Deposit = new("deposit");
+    public static readonly AccountType11 Business = new("BUSINESS");
 
-    public static readonly AccountType11 General = new("general");
+    public static readonly AccountType11 CreditCard = new("CREDIT_CARD");
 
-    public static readonly AccountType11 Other = new("other");
+    public static readonly AccountType11 Loan = new("LOAN");
 
-    public static readonly AccountType11 Payment = new("payment");
-
-    public static readonly AccountType11 Savings = new("savings");
+    public static readonly AccountType11 Unknown = new("UNKNOWN");
 
     public static AccountType11 FromValue(string value) => FromValueCore(value);
 }

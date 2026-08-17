@@ -21,7 +21,9 @@ public record WeChatPay
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>wechatpay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type56? Type { get; init; }
+    public Type56? Type { get; init; } = Type56.Wechatpay;
 }

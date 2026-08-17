@@ -4,11 +4,17 @@ namespace Adyen.Models;
 
 public record Links3
 {
+    /// <summary>
+    /// Contains a link to the next page.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("next")]
-    public Next? Next { get; init; }
+    public LinksElement? Next { get; init; }
 
+    /// <summary>
+    /// Contains a link to the previous page.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("prev")]
-    public Prev? Prev { get; init; }
+    public LinksElement? Prev { get; init; }
 }

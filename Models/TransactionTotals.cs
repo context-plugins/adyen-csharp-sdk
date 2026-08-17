@@ -11,6 +11,15 @@ namespace Adyen.Models;
 /// </summary>
 public record TransactionTotals
 {
+    /// <summary>
+    /// Type of payment instrument.
+    /// Possible values:
+    /// * <b>Card</b>
+    /// * <b>Cash</b>
+    /// * <b>Check</b>
+    /// * <b>Mobile</b>
+    /// * <b>StoredValue</b>
+    /// </summary>
     [JsonPropertyName("PaymentInstrumentType")]
     public required PaymentInstrumentType11 PaymentInstrumentType { get; init; }
 

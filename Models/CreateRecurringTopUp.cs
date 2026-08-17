@@ -6,8 +6,11 @@ namespace Adyen.Models;
 
 public record CreateRecurringTopUp
 {
+    /// <summary>
+    /// The details about the counterparty that is funding the top-up.
+    /// </summary>
     [JsonPropertyName("counterparty")]
-    public required TopUpCounterparty Counterparty { get; init; }
+    public required TopUpCounterparty1 Counterparty { get; init; }
 
     /// <summary>
     /// Your description for the recurring top-up.
@@ -30,13 +33,31 @@ public record CreateRecurringTopUp
     [StringLength(80, MinimumLength = 0)]
     public string? ReferenceForBeneficiary { get; init; }
 
+    /// <summary>
+    /// The status of the recurring top-up. If not provided, by default, this is set to <b>active</b>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>:  the top up is enabled and funds will be pulled in.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>inactive</b>: the top up is disabled and cannot be triggered.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status211? Status { get; init; }
+    public Status6? Status { get; init; }
 
+    /// <summary>
+    /// The currency and value to be added to the balance account, specified in minor units. This can be a fixed amount or a target amount.
+    /// </summary>
     [JsonPropertyName("topUpAmount")]
-    public required TopUpAmount TopUpAmount { get; init; }
+    public required TopUpAmount1 TopUpAmount { get; init; }
 
+    /// <summary>
+    /// The condition that triggers the top-up. This can be a recurring schedule or a minimum balance threshold.
+    /// </summary>
     [JsonPropertyName("trigger")]
-    public required Trigger Trigger { get; init; }
+    public required Trigger1 Trigger { get; init; }
 }

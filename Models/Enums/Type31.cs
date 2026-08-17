@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The payment method type.
+/// <b>genericissuer</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type31>))]
 public sealed record Type31 : StringEnum<Type31>
@@ -13,7 +13,15 @@ public sealed record Type31 : StringEnum<Type31>
     {
     }
 
-    public static readonly Type31 Alma = new("alma");
+    public static readonly Type31 OnlineBankingPl = new("onlineBanking_PL");
+
+    public static readonly Type31 Eps = new("eps");
+
+    public static readonly Type31 OnlineBankingSk = new("onlineBanking_SK");
+
+    public static readonly Type31 OnlineBankingCz = new("onlineBanking_CZ");
+
+    public static readonly Type31 OnlinebankingIn = new("onlinebanking_IN");
 
     public static Type31 FromValue(string value) => FromValueCore(value);
 }

@@ -6,6 +6,12 @@ namespace Adyen.Models.Enums;
 /// <summary>
 /// The capability level that is allowed for the account holder.
 /// <para>
+/// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>., The capability level that is allowed for the legal entity.
+/// </para>
+/// <para>
+/// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>., The requested level of the capability. Some capabilities, such as those used in <see href="https://docs.adyen.com/issuing/add-capabilities#capability-levels">card issuing</see>, have different levels. Levels increase the capability, but also require additional checks and increased monitoring.
+/// </para>
+/// <para>
 /// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>.
 /// </para>
 /// </summary>

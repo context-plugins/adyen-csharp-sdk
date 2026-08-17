@@ -19,9 +19,21 @@ public record OtherInfo1
     [StringLength(2500, MinimumLength = 0)]
     public required string DescriptionOfIssue { get; init; }
 
+    /// <summary>
+    /// The specific category of <b>other</b> dispute that you are raising.
+    /// <para>
+    /// Possible values: <b>atmDispute</b>, <b>cancelledGoodsServices</b>, <b>cancelledRecurring</b>, <b>counterfeit</b>, <b>creditNotProcessed</b>, <b>notAsDescribed</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("subType")]
     public required SubType11 SubType { get; init; }
 
+    /// <summary>
+    /// The type of product that you purchased.
+    /// <para>
+    /// Possible values: <b>goods</b>, <b>services</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("whatWasPurchased")]
-    public required ProductType1 WhatWasPurchased { get; init; }
+    public required ProductType11 WhatWasPurchased { get; init; }
 }

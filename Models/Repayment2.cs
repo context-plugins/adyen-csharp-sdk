@@ -13,11 +13,17 @@ public record Repayment2
     [JsonPropertyName("basisPoints")]
     public required int BasisPoints { get; init; }
 
+    /// <summary>
+    /// An object containing the details of the configuration for repayment term.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("term")]
-    public Term? Term { get; init; }
+    public RepaymentTerm? Term { get; init; }
 
+    /// <summary>
+    /// An object containing the details of the 30-day repayment threshold.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threshold")]
-    public ThresholdRepayment? Threshold { get; init; }
+    public ThresholdRepayment2? Threshold { get; init; }
 }

@@ -24,8 +24,11 @@ public record VerifiedAccount
     [JsonPropertyName("accountNumber")]
     public required string AccountNumber { get; init; }
 
+    /// <summary>
+    /// The type of the bank account. Possible values are <b>CURRENT</b>, <b>SAVINGS</b>, <b>BUSINESS</b>, <b>CREDIT_CARD</b>, <b>LOAN</b>, <b>UNKNOWN</b>.
+    /// </summary>
     [JsonPropertyName("accountType")]
-    public required AccountType12 AccountType { get; init; }
+    public required AccountType11 AccountType { get; init; }
 
     /// <summary>
     /// The name of the banking institution where the bank account is held.
@@ -40,8 +43,11 @@ public record VerifiedAccount
     [JsonPropertyName("currency")]
     public required string Currency { get; init; }
 
+    /// <summary>
+    /// Contains various codes and details used to uniquely identify the bank account across different regions.
+    /// </summary>
     [JsonPropertyName("identifiers")]
-    public required AccountIdentifiers Identifiers { get; init; }
+    public required AccountIdentifiers1 Identifiers { get; init; }
 
     /// <summary>
     /// Contains details of all parties associated with the report.

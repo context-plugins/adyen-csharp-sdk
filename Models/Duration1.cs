@@ -8,6 +8,12 @@ namespace Adyen.Models;
 /// </summary>
 public record Duration1
 {
+    /// <summary>
+    /// The unit of time. You can only use <b>minutes</b> and <b>hours</b> if the <c>interval.type</c> is <b>sliding</b>.
+    /// <para>
+    /// Possible values: <b>minutes</b>, <b>hours</b>, <b>days</b>, <b>weeks</b>, or <b>months</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("unit")]
     public Unit? Unit { get; init; }

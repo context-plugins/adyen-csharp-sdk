@@ -10,9 +10,15 @@ namespace Adyen.Models;
 /// </summary>
 public record DeviceRenderOptions
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Supported SDK interface types.
+    /// Allowed values:
+    /// * native
+    /// * html
+    /// * both
+    /// </summary>
     [JsonPropertyName("sdkInterface")]
-    public SdkInterface? SdkInterface { get; init; }
+    public SdkInterface? SdkInterface { get; init; } = SdkInterface.Both;
 
     /// <summary>
     /// UI types supported for displaying specific challenges.

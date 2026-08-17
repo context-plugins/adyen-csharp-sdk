@@ -8,6 +8,12 @@ namespace Adyen.Models;
 /// </summary>
 public record PlatformChargebackLogic
 {
+    /// <summary>
+    /// The method of handling the chargeback.
+    /// <para>
+    /// Possible values: <b>deductFromLiableAccount</b>, <b>deductFromOneBalanceAccount</b>, <b>deductAccordingToSplitRatio</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("behavior")]
     public Behavior? Behavior { get; init; }

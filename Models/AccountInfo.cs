@@ -4,8 +4,21 @@ using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
+/// <summary>
+/// Shopper account information for 3D Secure 2.
+/// &gt; For 3D Secure 2 transactions, we recommend that you include this object to increase the chances of achieving a frictionless flow.
+/// </summary>
 public record AccountInfo
 {
+    /// <summary>
+    /// Indicator for the length of time since this shopper account was created in the merchant's environment.
+    /// Allowed values:
+    /// * notApplicable
+    /// * thisTransaction
+    /// * lessThan30Days
+    /// * from30To60Days
+    /// * moreThan60Days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountAgeIndicator")]
     public AccountAgeIndicator? AccountAgeIndicator { get; init; }
@@ -17,6 +30,14 @@ public record AccountInfo
     [JsonPropertyName("accountChangeDate")]
     public DateTimeOffset? AccountChangeDate { get; init; }
 
+    /// <summary>
+    /// Indicator for the length of time since the shopper's account was last updated.
+    /// Allowed values:
+    /// * thisTransaction
+    /// * lessThan30Days
+    /// * from30To60Days
+    /// * moreThan60Days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountChangeIndicator")]
     public AccountChangeIndicator? AccountChangeIndicator { get; init; }
@@ -28,9 +49,16 @@ public record AccountInfo
     [JsonPropertyName("accountCreationDate")]
     public DateTimeOffset? AccountCreationDate { get; init; }
 
+    /// <summary>
+    /// Indicates the type of account. For example, for a multi-account card product.
+    /// Allowed values:
+    /// * notApplicable
+    /// * credit
+    /// * debit
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountType")]
-    public AccountType1? AccountType { get; init; }
+    public AccountType? AccountType { get; init; }
 
     /// <summary>
     /// Number of attempts the shopper tried to add a card to their account in the last day.
@@ -46,6 +74,14 @@ public record AccountInfo
     [JsonPropertyName("deliveryAddressUsageDate")]
     public DateTimeOffset? DeliveryAddressUsageDate { get; init; }
 
+    /// <summary>
+    /// Indicator for the length of time since this delivery address was first used.
+    /// Allowed values:
+    /// * thisTransaction
+    /// * lessThan30Days
+    /// * from30To60Days
+    /// * moreThan60Days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryAddressUsageIndicator")]
     public DeliveryAddressUsageIndicator? DeliveryAddressUsageIndicator { get; init; }
@@ -71,6 +107,15 @@ public record AccountInfo
     [JsonPropertyName("passwordChangeDate")]
     public DateTimeOffset? PasswordChangeDate { get; init; }
 
+    /// <summary>
+    /// Indicator when the shopper has changed their password.
+    /// Allowed values:
+    /// * notApplicable
+    /// * thisTransaction
+    /// * lessThan30Days
+    /// * from30To60Days
+    /// * moreThan60Days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("passwordChangeIndicator")]
     public PasswordChangeIndicator? PasswordChangeIndicator { get; init; }
@@ -96,6 +141,15 @@ public record AccountInfo
     [JsonPropertyName("paymentAccountAge")]
     public DateTimeOffset? PaymentAccountAge { get; init; }
 
+    /// <summary>
+    /// Indicator for the length of time since this payment method was added to this shopper's account.
+    /// Allowed values:
+    /// * notApplicable
+    /// * thisTransaction
+    /// * lessThan30Days
+    /// * from30To60Days
+    /// * moreThan60Days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentAccountIndicator")]
     public PaymentAccountIndicator? PaymentAccountIndicator { get; init; }

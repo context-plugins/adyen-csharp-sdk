@@ -51,17 +51,26 @@ public record Profile
     [JsonPropertyName("eap")]
     public string? Eap { get; init; }
 
+    /// <summary>
+    /// For <c>authType</c> <b>wpa-eap</b> or <b>wpa2-eap</b>. The root certificate from the CA that signed the certificate of the RADIUS server that is part of your wireless network.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapCaCert")]
-    public FileModel? EapCaCert { get; init; }
+    public File1? EapCaCert { get; init; }
 
+    /// <summary>
+    /// For <c>eap</c> <b>tls</b>. The certificate chain for the terminals. All terminals in the same network will use the same EAP client certificate.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapClientCert")]
-    public FileModel? EapClientCert { get; init; }
+    public File2? EapClientCert { get; init; }
 
+    /// <summary>
+    /// For <c>eap</c> <b>tls</b>. The RSA private key for the client. Include the lines BEGIN RSA PRIVATE KEY and END RSA PRIVATE KEY.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapClientKey")]
-    public FileModel? EapClientKey { get; init; }
+    public File3? EapClientKey { get; init; }
 
     /// <summary>
     /// For <c>eap</c> <b>tls</b>. The password of the RSA key file, if that file is password-protected.
@@ -77,9 +86,12 @@ public record Profile
     [JsonPropertyName("eapIdentity")]
     public string? EapIdentity { get; init; }
 
+    /// <summary>
+    /// For <c>eap</c> <b>tls</b>. The EAP intermediate certificate.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("eapIntermediateCert")]
-    public FileModel? EapIntermediateCert { get; init; }
+    public File4? EapIntermediateCert { get; init; }
 
     /// <summary>
     /// For <c>eap</c> <b>peap</b>. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.

@@ -13,6 +13,9 @@ public record SamsungPay
     [JsonPropertyName("checkoutAttemptId")]
     public string? CheckoutAttemptId { get; init; }
 
+    /// <summary>
+    /// The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to <b>debit</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingSource")]
     public FundingSource? FundingSource { get; init; }
@@ -47,7 +50,9 @@ public record SamsungPay
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>samsungpay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type50? Type { get; init; }
+    public Type50? Type { get; init; } = Type50.Samsungpay;
 }

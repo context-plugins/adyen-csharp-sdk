@@ -4,8 +4,11 @@ namespace Adyen.Models;
 
 public record CreateOrderRequest
 {
+    /// <summary>
+    /// The total amount of the order.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount21 Amount { get; init; }
 
     /// <summary>
     /// The date when the order should expire. If not provided, the default expiry duration is 1 day.

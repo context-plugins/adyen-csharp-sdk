@@ -6,6 +6,15 @@ namespace Adyen.Models;
 
 public record PaymentAmountUpdateRequest
 {
+    /// <summary>
+    /// The type of adjustment. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>cardholderInitiatedTransaction</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>merchantInitiatedTransaction</b></description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("adjustAuthType")]
     public AdjustAuthType? AdjustAuthType { get; init; }
@@ -17,13 +26,25 @@ public record PaymentAmountUpdateRequest
     [JsonPropertyName("adjustAuthorisationData")]
     public string? AdjustAuthorisationData { get; init; }
 
+    /// <summary>
+    /// The updated amount. The <c>currency</c> must match the currency used in authorisation.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount29 Amount { get; init; }
 
+    /// <summary>
+    /// Information about your application. For more details, see <see href="https://docs.adyen.com/development-resources/building-adyen-solutions">Building Adyen solutions</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("applicationInfo")]
-    public ApplicationInfo1? ApplicationInfo { get; init; }
+    public ApplicationInfo? ApplicationInfo { get; init; }
 
+    /// <summary>
+    /// The reason for the amount update. Possible values:
+    /// * <b>delayedCharge</b>
+    /// * <b>noShow</b>
+    /// * <b>installment</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("industryUsage")]
     public IndustryUsage1? IndustryUsage { get; init; }
@@ -42,9 +63,12 @@ public record PaymentAmountUpdateRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// Authentication data from a <see href="https://en.wikipedia.org/wiki/Merchant_plug-in">merchant plug-in (MPI)</see> like Mastercard SecureCode, Visa Secure, or Cartes Bancaires. Required for cardholder-initiated transaction (CIT) adjustments.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mpiData")]
-    public MpiData? MpiData { get; init; }
+    public ThreeDSecureData3? MpiData { get; init; }
 
     /// <summary>
     /// Your reference for the amount update request. Maximum length: 80 characters.

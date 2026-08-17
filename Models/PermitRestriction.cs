@@ -4,13 +4,19 @@ namespace Adyen.Models;
 
 public record PermitRestriction
 {
+    /// <summary>
+    /// The total sum amount of one or more payments made using this permit may not exceed this amount if set.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("maxAmount")]
-    public MaxAmount3? MaxAmount { get; init; }
+    public Amount? MaxAmount { get; init; }
 
+    /// <summary>
+    /// The amount of any single payment using this permit may not exceed this amount if set.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("singleTransactionLimit")]
-    public SingleTransactionLimit? SingleTransactionLimit { get; init; }
+    public Amount? SingleTransactionLimit { get; init; }
 
     /// <summary>
     /// Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.

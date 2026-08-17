@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// Adyen-developed software to get payment details. For example, Checkout SDK, Secured Fields SDK, etc.
+/// Adyen-developed software to get payment details. For example, Checkout SDK, Secured Fields SDK, etc., Merchant developed software, such as cashier application, used to interact with the Adyen API., Adyen-developed software, such as libraries and plugins, used to interact with the Adyen API. For example, Magento plugin, Java API library, etc.
 /// </summary>
 public record CommonField
 {

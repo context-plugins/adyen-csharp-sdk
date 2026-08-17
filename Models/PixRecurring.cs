@@ -26,13 +26,19 @@ public record PixRecurring
     [JsonPropertyName("endsAt")]
     public string? EndsAt { get; init; }
 
+    /// <summary>
+    /// The frequency at which the shopper will be charged.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("frequency")]
     public Frequency2? Frequency { get; init; }
 
+    /// <summary>
+    /// For a billing plan where the payment amounts are variable, the minimum amount to charge the shopper for each recurring payment. When a shopper approves the billing plan, they can also specify a maximum amount in their banking app.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("minAmount")]
-    public MinAmount? MinAmount { get; init; }
+    public Amount42? MinAmount { get; init; }
 
     /// <summary>
     /// The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
@@ -41,9 +47,12 @@ public record PixRecurring
     [JsonPropertyName("originalPspReference")]
     public string? OriginalPspReference { get; init; }
 
+    /// <summary>
+    /// For a billing plan where the payment amount is fixed, the amount the shopper will be charged for each recurring payment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("recurringAmount")]
-    public RecurringAmount? RecurringAmount { get; init; }
+    public Amount43? RecurringAmount { get; init; }
 
     /// <summary>
     /// The text that that will be shown on the shopper's bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments.

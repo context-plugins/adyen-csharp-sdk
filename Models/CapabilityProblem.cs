@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record CapabilityProblem
 {
+    /// <summary>
+    /// Contains the type of the entity and the corresponding ID.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("entity")]
-    public CapabilityProblemEntity? Entity { get; init; }
+    public CapabilityProblemEntity2? Entity { get; init; }
 
     /// <summary>
     /// Contains information about the verification error.

@@ -11,11 +11,17 @@ public record TransactionEventViolation
     [JsonPropertyName("reason")]
     public string? Reason { get; init; }
 
+    /// <summary>
+    /// Contains information about the transaction rule.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionRule")]
-    public TransactionRuleReference? TransactionRule { get; init; }
+    public TransactionRuleReference2? TransactionRule { get; init; }
 
+    /// <summary>
+    /// Contains information about the resource to which the transaction rule applies.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionRuleSource")]
-    public TransactionRuleSource? TransactionRuleSource { get; init; }
+    public TransactionRuleSource2? TransactionRuleSource { get; init; }
 }

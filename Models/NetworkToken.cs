@@ -20,9 +20,12 @@ public record NetworkToken
     [JsonPropertyName("creationDate")]
     public DateTimeOffset? CreationDate { get; init; }
 
+    /// <summary>
+    /// Contains information about the device used to provision the network token.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("device")]
-    public DeviceInfo? Device { get; init; }
+    public DeviceInfo1? Device { get; init; }
 
     /// <summary>
     /// The unique identifier of the network token.
@@ -38,9 +41,12 @@ public record NetworkToken
     [JsonPropertyName("paymentInstrumentId")]
     public string? PaymentInstrumentId { get; init; }
 
+    /// <summary>
+    /// The status of the network token. Possible values: <b>active</b>, <b>inactive</b>, <b>suspended</b>, <b>closed</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status9? Status { get; init; }
+    public Status91? Status { get; init; }
 
     /// <summary>
     /// The last four digits of the network token <c>id</c>.
@@ -49,9 +55,12 @@ public record NetworkToken
     [JsonPropertyName("tokenLastFour")]
     public string? TokenLastFour { get; init; }
 
+    /// <summary>
+    /// The token requestor is an entity who requested tokenization of the card for secure payments.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("tokenRequestor")]
-    public NetworkTokenRequestor? TokenRequestor { get; init; }
+    public Item? TokenRequestor { get; init; }
 
     /// <summary>
     /// The type of network token. For example, <b>wallet</b>, <b>cof</b>.

@@ -27,7 +27,7 @@ public sealed class Accounts
     }
 
     /// <summary>
-    /// post-closeAccount
+    /// Close an account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class Accounts
     public Task<CloseAccountResponse> PostCloseAccount(CloseAccountRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/closeAccount"),
+        _rawClient.Execute(_server.Default10("/closeAccount"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -53,7 +53,7 @@ public sealed class Accounts
             ct);
 
     /// <summary>
-    /// post-createAccount
+    /// Create an account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +66,7 @@ public sealed class Accounts
     public Task<CreateAccountResponse> PostCreateAccount(CreateAccountRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/createAccount"),
+        _rawClient.Execute(_server.Default10("/createAccount"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -79,7 +79,7 @@ public sealed class Accounts
             ct);
 
     /// <summary>
-    /// post-updateAccount
+    /// Update an account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -92,7 +92,7 @@ public sealed class Accounts
     public Task<UpdateAccountResponse> PostUpdateAccount(UpdateAccountRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/updateAccount"),
+        _rawClient.Execute(_server.Default10("/updateAccount"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

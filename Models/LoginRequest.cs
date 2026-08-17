@@ -18,12 +18,19 @@ public record LoginRequest
     [JsonPropertyName("DateTime")]
     public required DateTimeOffset DateTime { get; init; }
 
+    /// <summary>
+    /// Information related to the software of the Sale System which manages the Sale to POI protocol.
+    /// </summary>
     [JsonPropertyName("SaleSoftware")]
-    public required SaleSoftware2 SaleSoftware { get; init; }
+    public required SaleSoftware1 SaleSoftware { get; init; }
 
+    /// <summary>
+    /// Information related to the software and hardware feature of the Sale Terminal.
+    /// Present if the login involve a Sale Terminal.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SaleTerminalData")]
-    public SaleTerminalData3? SaleTerminalData { get; init; }
+    public SaleTerminalData2? SaleTerminalData { get; init; }
 
     /// <summary>
     /// Training mode.
@@ -62,6 +69,14 @@ public record LoginRequest
     [RegularExpression("^.+$")]
     public string? ShiftNumber { get; init; }
 
+    /// <summary>
+    /// Type of token replacing the PAN of a payment card to identify the payment
+    ///  mean of the customer. It allows, for a merchant, to use a token for a transaction
+    ///  only or for a longer period.
+    /// Possible values:
+    /// * <b>Customer</b>
+    /// * <b>Transaction</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TokenRequestedType")]
     public TokenRequestedType1? TokenRequestedType { get; init; }
@@ -84,5 +99,5 @@ public record LoginRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("POISerialNumber")]
     [RegularExpression("^.+$")]
-    public string? PoiserialNumber { get; init; }
+    public string? PoiSerialNumber { get; init; }
 }

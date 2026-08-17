@@ -27,7 +27,7 @@ public sealed class TerminalSettingsMerchantLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-terminalLogos
+    /// Get the terminal logo
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="model">The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
@@ -52,7 +52,7 @@ public sealed class TerminalSettingsMerchantLevel
         string model,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalLogos"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("model", model)],
             [],
@@ -65,7 +65,7 @@ public sealed class TerminalSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-terminalSettings
+    /// Get terminal settings
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -90,7 +90,7 @@ public sealed class TerminalSettingsMerchantLevel
     public Task<TerminalSettings> GetMerchantsMerchantIdTerminalSettings(string merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalSettings"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [],
@@ -103,7 +103,7 @@ public sealed class TerminalSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-terminalLogos
+    /// Update the terminal logo
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="model">The terminal model. Allowed values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
@@ -132,7 +132,7 @@ public sealed class TerminalSettingsMerchantLevel
         Logo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalLogos"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("model", model)],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -145,7 +145,7 @@ public sealed class TerminalSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-terminalSettings
+    /// Update terminal settings
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -180,7 +180,7 @@ public sealed class TerminalSettingsMerchantLevel
         TerminalSettings? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/terminalSettings"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

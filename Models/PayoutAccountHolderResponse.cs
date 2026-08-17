@@ -27,9 +27,11 @@ public record PayoutAccountHolderResponse
     [JsonPropertyName("merchantReference")]
     public string? MerchantReference { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Speed with which payouts for this account are processed. Permitted values: <c>STANDARD</c>, <c>SAME_DAY</c>.
+    /// </summary>
     [JsonPropertyName("payoutSpeed")]
-    public PayoutSpeed? PayoutSpeed { get; init; }
+    public PayoutSpeed? PayoutSpeed { get; init; } = PayoutSpeed.Standard;
 
     /// <summary>
     /// The reference of a request. Can be used to uniquely identify the request.

@@ -12,6 +12,9 @@ public record AccountVerificationReportResponse
     [JsonPropertyName("accounts")]
     public required IReadOnlyList<VerifiedAccount> Accounts { get; init; }
 
+    /// <summary>
+    /// The location where the third-party individual's bank account is registered.
+    /// </summary>
     [JsonPropertyName("country")]
     public required AccountVerificationCountry1 Country { get; init; }
 

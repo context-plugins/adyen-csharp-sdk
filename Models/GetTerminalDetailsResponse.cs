@@ -157,9 +157,12 @@ public record GetTerminalDetailsResponse
     [JsonPropertyName("store")]
     public string? Store { get; init; }
 
+    /// <summary>
+    /// The store that the terminal is assigned to.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("storeDetails")]
-    public Store1? StoreDetails { get; init; }
+    public Store11? StoreDetails { get; init; }
 
     /// <summary>
     /// The unique terminal ID.
@@ -167,6 +170,18 @@ public record GetTerminalDetailsResponse
     [JsonPropertyName("terminal")]
     public required string Terminal { get; init; }
 
+    /// <summary>
+    /// The status of the terminal:
+    /// <list type="bullet">
+    ///   <item><description><c>OnlineToday</c>, <c>OnlineLast1Day</c>, <c>OnlineLast2Days</c> etcetera to <c>OnlineLast7Days</c>: Indicates when in the past week the terminal was last online.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><c>SwitchedOff</c>: Indicates it was more than a week ago that the terminal was last online.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><c>ReAssignToInventoryPending</c>, <c>ReAssignToStorePending</c>, <c>ReAssignToMerchantInventoryPending</c>: Indicates the terminal is scheduled to be reassigned.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("terminalStatus")]
     public TerminalStatus? TerminalStatus { get; init; }

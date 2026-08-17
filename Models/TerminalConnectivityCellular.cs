@@ -19,7 +19,10 @@ public record TerminalConnectivityCellular
     [JsonPropertyName("iccid2")]
     public string? Iccid2 { get; init; }
 
+    /// <summary>
+    /// On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status32? Status { get; init; }
+    public Status31? Status { get; init; }
 }

@@ -6,6 +6,9 @@ namespace Adyen.Models;
 
 public record DisputeAttachment
 {
+    /// <summary>
+    /// The type of information contained in the attachment: <b>receipt</b>, <b>correspondence</b>, <b>other</b>.
+    /// </summary>
     [JsonPropertyName("attachmentType")]
     public required AttachmentType1 AttachmentType { get; init; }
 

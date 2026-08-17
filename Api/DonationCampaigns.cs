@@ -29,7 +29,7 @@ public sealed class DonationCampaigns
     }
 
     /// <summary>
-    /// delete-companies-companyId-campaignManagement-donationCampaignId
+    /// Delete a donation campaign
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="donationCampaignId">The unique identifier of the donation campaign to be deleted.</param>
@@ -48,7 +48,7 @@ public sealed class DonationCampaigns
         string donationCampaignId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/campaignManagement/{donationCampaignId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/campaignManagement/{donationCampaignId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("donationCampaignId", donationCampaignId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -61,7 +61,7 @@ public sealed class DonationCampaigns
             ct);
 
     /// <summary>
-    /// get-companies-companyId-campaignManagement-accountHolders-accountHolderId
+    /// Get the donation campaigns for an account holder
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="accountHolderId">The unique identifier of the account holder.</param>
@@ -87,7 +87,7 @@ public sealed class DonationCampaigns
         int? pageSize = 10,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/campaignManagement/accountHolders/{accountHolderId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/campaignManagement/accountHolders/{accountHolderId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("accountHolderId", accountHolderId)],
             [new Param("status", status), new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -100,7 +100,7 @@ public sealed class DonationCampaigns
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-campaignManagement-donationCampaignId
+    /// Update a donation campaign
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="donationCampaignId">The unique identifier of the donation campaign to be updated.</param>
@@ -125,7 +125,7 @@ public sealed class DonationCampaigns
         DonationCampaignUpdate? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/campaignManagement/{donationCampaignId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/campaignManagement/{donationCampaignId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("donationCampaignId", donationCampaignId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -138,7 +138,7 @@ public sealed class DonationCampaigns
             ct);
 
     /// <summary>
-    /// post-companies-companyId-campaignManagement
+    /// Create a donation campaign
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="body"></param>
@@ -157,7 +157,7 @@ public sealed class DonationCampaigns
         DonationCampaignRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/campaignManagement"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/campaignManagement"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -170,7 +170,7 @@ public sealed class DonationCampaigns
             ct);
 
     /// <summary>
-    /// post-companies-companyId-campaignManagement-donationCampaignId-status-status
+    /// Activate or end a donation campaign
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="donationCampaignId">The unique identifier of the donation campaign to activate or end.</param>
@@ -189,10 +189,10 @@ public sealed class DonationCampaigns
     /// </remarks>
     public Task<DonationCampaign1> PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(string companyId,
         string donationCampaignId,
-        CampaignStatusTransition1 status,
+        CampaignStatusTransition status,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/campaignManagement/{donationCampaignId}/status/{status}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/campaignManagement/{donationCampaignId}/status/{status}"),
             [new TemplateParam("companyId", companyId),
                 new TemplateParam("donationCampaignId", donationCampaignId),
                 new TemplateParam("status", status)],
@@ -207,7 +207,7 @@ public sealed class DonationCampaigns
             ct);
 
     /// <summary>
-    /// post-companies-companyId-nonprofits
+    /// Get a list of nonprofits
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="searchTerm">A query to return nonprofit organizations for, maximum 100 characters. For example, <c>&amp;searchTerm=clean%20water</c>.</param>
@@ -230,7 +230,7 @@ public sealed class DonationCampaigns
         int? pageSize = 10,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/nonprofits"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/nonprofits"),
             [new TemplateParam("companyId", companyId)],
             [new Param("searchTerm", searchTerm),
                 new Param("pageNumber", pageNumber),

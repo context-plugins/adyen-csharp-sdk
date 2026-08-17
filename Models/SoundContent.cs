@@ -6,6 +6,12 @@ namespace Adyen.Models;
 
 public record SoundContent
 {
+    /// <summary>
+    /// Possible values:
+    /// * <b>MessageRef</b>
+    /// * <b>SoundRef</b>
+    /// * <b>Text</b>
+    /// </summary>
     [JsonPropertyName("SoundFormat")]
     public required SoundFormat1 SoundFormat { get; init; }
 

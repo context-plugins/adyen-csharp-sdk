@@ -19,9 +19,12 @@ public record Permit
     [JsonPropertyName("profileReference")]
     public string? ProfileReference { get; init; }
 
+    /// <summary>
+    /// Permit level restriction overrides.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("restriction")]
-    public PermitRestriction? Restriction { get; init; }
+    public PermitRestriction2? Restriction { get; init; }
 
     /// <summary>
     /// The key to link permit requests to permit results.

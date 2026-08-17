@@ -27,7 +27,7 @@ public sealed class ClientKeyMerchantLevel
     }
 
     /// <summary>
-    /// post-merchants-merchantId-apiCredentials-apiCredentialId-generateClientKey
+    /// Generate new client key
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -46,7 +46,7 @@ public sealed class ClientKeyMerchantLevel
         string apiCredentialId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/generateClientKey"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/generateClientKey"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

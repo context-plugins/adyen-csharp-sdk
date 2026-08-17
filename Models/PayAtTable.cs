@@ -5,6 +5,9 @@ namespace Adyen.Models;
 
 public record PayAtTable
 {
+    /// <summary>
+    /// Allowed authentication methods: Magswipe, Manual Entry.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("authenticationMethod")]
     public AuthenticationMethod? AuthenticationMethod { get; init; }
@@ -16,7 +19,10 @@ public record PayAtTable
     [JsonPropertyName("enablePayAtTable")]
     public bool? EnablePayAtTable { get; init; }
 
+    /// <summary>
+    /// Sets the allowed payment instrument for Pay at table transactions.  Can be: <b>cash</b> or <b>card</b>. If not set, the terminal presents both options.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentInstrument")]
-    public object? PaymentInstrument { get; init; }
+    public PaymentInstrument? PaymentInstrument { get; init; }
 }

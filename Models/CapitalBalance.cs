@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// Contains information about the balances of the disbursement.
+/// An object containing the details of the existing grant., Contains information about the balances of the disbursement., Contains information about the balances of the grant.
 /// </summary>
 public record CapitalBalance
 {

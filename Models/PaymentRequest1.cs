@@ -8,13 +8,21 @@ namespace Adyen.Models;
 
 public record PaymentRequest1
 {
+    /// <summary>
+    /// Shopper account information for 3D Secure 2.
+    /// &gt; For 3D Secure 2 transactions, we recommend that you include this object to increase the chances of achieving a frictionless flow.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountInfo")]
-    public AccountInfo2? AccountInfo { get; init; }
+    public AccountInfo? AccountInfo { get; init; }
 
+    /// <summary>
+    /// If you want a <see href="https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification">BIN or card verification</see> request to use a non-zero value, assign this value to <c>additionalAmount</c> (while the amount must be still set to 0 to trigger BIN or card verification).
+    /// Required to be in the same currency as the <c>amount</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("additionalAmount")]
-    public AdditionalAmount? AdditionalAmount { get; init; }
+    public Amount? AdditionalAmount { get; init; }
 
     /// <summary>
     /// This field contains additional data, which may be required for a particular payment request.
@@ -26,24 +34,44 @@ public record PaymentRequest1
     [JsonPropertyName("additionalData")]
     public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
 
+    /// <summary>
+    /// The amount information for the transaction (in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>). For <see href="https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification">BIN or card verification</see> requests, set amount to 0 (zero).
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
+    /// <summary>
+    /// Information about your application. For more details, see <see href="https://docs.adyen.com/development-resources/building-adyen-solutions">Building Adyen solutions</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("applicationInfo")]
-    public ApplicationInfo1? ApplicationInfo { get; init; }
+    public ApplicationInfo? ApplicationInfo { get; init; }
 
+    /// <summary>
+    /// The details of the bank account, from which the payment should be made.
+    /// &gt; Either <c>bankAccount</c> or <c>card</c> field must be provided in a payment request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("bankAccount")]
-    public BankAccount9? BankAccount { get; init; }
+    public BankAccount1? BankAccount { get; init; }
 
+    /// <summary>
+    /// The address where to send the invoice.
+    /// &gt; The <c>billingAddress</c> object is required in the following scenarios. Include all of the fields within this object.
+    /// &gt;* For 3D Secure 2 transactions in all browser-based and mobile implementations.
+    /// &gt;* For cross-border payouts to and from Canada.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address? BillingAddress { get; init; }
 
+    /// <summary>
+    /// The shopper's browser information.
+    /// &gt; For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the <c>userAgent</c> and <c>acceptHeader</c> fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("browserInfo")]
-    public BrowserInfo2? BrowserInfo { get; init; }
+    public BrowserInfo? BrowserInfo { get; init; }
 
     /// <summary>
     /// The delay between the authorisation and scheduled auto-capture, specified in hours.
@@ -52,9 +80,13 @@ public record PaymentRequest1
     [JsonPropertyName("captureDelayHours")]
     public int? CaptureDelayHours { get; init; }
 
+    /// <summary>
+    /// A container for card data.
+    /// &gt; Either <c>bankAccount</c> or <c>card</c> field must be provided in a payment request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public Card6? Card { get; init; }
+    public Card3? Card { get; init; }
 
     /// <summary>
     /// The shopper's date of birth.
@@ -66,13 +98,19 @@ public record PaymentRequest1
     [JsonPropertyName("dateOfBirth")]
     public DateTimeOffset? DateOfBirth { get; init; }
 
+    /// <summary>
+    /// The forex quote as returned in the response of the forex service.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("dccQuote")]
-    public ForexQuote? DccQuote { get; init; }
+    public ForexQuote11? DccQuote { get; init; }
 
+    /// <summary>
+    /// The address where the purchased goods should be delivered.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryAddress")]
-    public DeliveryAddress6? DeliveryAddress { get; init; }
+    public Address? DeliveryAddress { get; init; }
 
     /// <summary>
     /// The date and time the purchased goods should be delivered.
@@ -95,6 +133,9 @@ public record PaymentRequest1
     [MaxLength(5000)]
     public string? DeviceFingerprint { get; init; }
 
+    /// <summary>
+    /// The type of the entity the payment is processed for.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("entityType")]
     public EntityType? EntityType { get; init; }
@@ -106,21 +147,33 @@ public record PaymentRequest1
     [JsonPropertyName("fraudOffset")]
     public int? FraudOffset { get; init; }
 
+    /// <summary>
+    /// the person or entity receiving the money
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundDestination")]
-    public FundDestination? FundDestination { get; init; }
+    public FundDestination1? FundDestination { get; init; }
 
+    /// <summary>
+    /// The person or entity funding the money.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundSource")]
-    public FundSource? FundSource { get; init; }
+    public FundSource1? FundSource { get; init; }
 
+    /// <summary>
+    /// The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to <b>debit</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingSource")]
     public FundingSource? FundingSource { get; init; }
 
+    /// <summary>
+    /// Contains installment settings. For more information, refer to <see href="https://docs.adyen.com/payment-methods/cards/credit-card-installments">Installments</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("installments")]
-    public Installments2? Installments { get; init; }
+    public Installments? Installments { get; init; }
 
     /// <summary>
     /// The <c>localizedShopperStatement</c> field lets you use dynamic values for your shopper statement in a local character set. If this parameter is left empty, not provided, or not applicable (in case of cross-border transactions), then <b>shopperStatement</b> is used.
@@ -135,9 +188,12 @@ public record PaymentRequest1
     [JsonPropertyName("localizedShopperStatement")]
     public IReadOnlyDictionary<string, string>? LocalizedShopperStatement { get; init; }
 
+    /// <summary>
+    /// The mandate details to initiate recurring transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mandate")]
-    public Mandate1? Mandate { get; init; }
+    public Mandate? Mandate { get; init; }
 
     /// <summary>
     /// The <see href="https://en.wikipedia.org/wiki/Merchant_category_code">merchant category code</see> (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
@@ -161,9 +217,13 @@ public record PaymentRequest1
     [JsonPropertyName("merchantOrderReference")]
     public string? MerchantOrderReference { get; init; }
 
+    /// <summary>
+    /// Additional risk fields for 3D Secure 2.
+    /// &gt; For 3D Secure 2 transactions, we recommend that you include this object to increase the chances of achieving a frictionless flow.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("merchantRiskIndicator")]
-    public MerchantRiskIndicator? MerchantRiskIndicator { get; init; }
+    public MerchantRiskIndicator11? MerchantRiskIndicator { get; init; }
 
     /// <summary>
     /// Metadata consists of entries, each of which includes a key and a value.
@@ -176,9 +236,12 @@ public record PaymentRequest1
     [JsonPropertyName("metadata")]
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
+    /// <summary>
+    /// Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mpiData")]
-    public MpiData? MpiData { get; init; }
+    public ThreeDSecureData? MpiData { get; init; }
 
     /// <summary>
     /// The two-character country code of the shopper's nationality.
@@ -195,14 +258,27 @@ public record PaymentRequest1
     [JsonPropertyName("orderReference")]
     public string? OrderReference { get; init; }
 
+    /// <summary>
+    /// Defines how to book chargebacks when using <see href="https://docs.adyen.com/adyen-for-platforms-model">Adyen for Platforms</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformChargebackLogic")]
-    public PlatformChargebackLogic1? PlatformChargebackLogic { get; init; }
+    public PlatformChargebackLogic? PlatformChargebackLogic { get; init; }
 
+    /// <summary>
+    /// The recurring settings for the payment. Use this property when you want to enable <see href="https://docs.adyen.com/classic-integration/recurring-payments">recurring payments</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("recurring")]
-    public Recurring3? Recurring { get; init; }
+    public Recurring? Recurring { get; init; }
 
+    /// <summary>
+    /// Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details.
+    /// Allowed values:
+    /// * <c>Subscription</c> – A transaction for a fixed or variable amount, which follows a fixed schedule.
+    /// * <c>CardOnFile</c> – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction.
+    /// * <c>UnscheduledCardOnFile</c> – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("recurringProcessingModel")]
     public RecurringProcessingModel? RecurringProcessingModel { get; init; }
@@ -215,9 +291,12 @@ public record PaymentRequest1
     [JsonPropertyName("reference")]
     public required string Reference { get; init; }
 
+    /// <summary>
+    /// Checkout data for a Secure Remote Commerce payment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("secureRemoteCommerceCheckoutData")]
-    public SecureRemoteCommerceCheckoutData? SecureRemoteCommerceCheckoutData { get; init; }
+    public SecureRemoteCommerceCheckoutData2? SecureRemoteCommerceCheckoutData { get; init; }
 
     /// <summary>
     /// Some payment methods require defining a value for this field to specify how to process the transaction.
@@ -260,9 +339,20 @@ public record PaymentRequest1
     [JsonPropertyName("shopperIP")]
     public string? ShopperIp { get; init; }
 
+    /// <summary>
+    /// Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer.
+    /// For the web service API, Adyen assumes Ecommerce shopper interaction by default.
+    /// <para>
+    /// This field has the following possible values:
+    /// * <c>Ecommerce</c> - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request.
+    /// * <c>ContAuth</c> - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment).
+    /// * <c>Moto</c> - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone.
+    /// * <c>POS</c> - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperInteraction")]
-    public ShopperInteraction1? ShopperInteraction { get; init; }
+    public ShopperInteraction? ShopperInteraction { get; init; }
 
     /// <summary>
     /// The language for the payment. The value combines the two-letter <see href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes">ISO 639-1</see> language code with the <see href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166-1 alpha-2</see> country code. For example, <b>nl-NL</b>.
@@ -274,9 +364,12 @@ public record PaymentRequest1
     [JsonPropertyName("shopperLocale")]
     public string? ShopperLocale { get; init; }
 
+    /// <summary>
+    /// The shopper's full name.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name? ShopperName { get; init; }
 
     /// <summary>
     /// Required for recurring payments.
@@ -327,15 +420,18 @@ public record PaymentRequest1
     [JsonPropertyName("telephoneNumber")]
     public string? TelephoneNumber { get; init; }
 
+    /// <summary>
+    /// Request fields for 3D Secure 2. To check if any of the following fields are required for your integration, refer to <see href="https://docs.adyen.com/online-payments">Online payments</see> or <see href="https://docs.adyen.com/classic-integration">Classic integration</see> documentation.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDS2RequestData")]
-    public ThreeDs2RequestData1? ThreeDs2RequestData { get; init; }
+    public ThreeDs2RequestData11? ThreeDs2RequestData { get; init; }
 
     /// <summary>
     /// Required to trigger the <see href="https://docs.adyen.com/online-payments/3d-secure/authentication-only/">authentication-only flow</see>. If set to <b>true</b>, you will only perform the 3D Secure 2 authentication, and will not proceed to the payment authorization.Default: <b>false</b>.
     /// </summary>
     [JsonPropertyName("threeDSAuthenticationOnly")]
-    public bool? ThreeDsauthenticationOnly { get; init; } = false;
+    public bool? ThreeDsAuthenticationOnly { get; init; } = false;
 
     /// <summary>
     /// The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).

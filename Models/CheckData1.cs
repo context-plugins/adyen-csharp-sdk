@@ -37,9 +37,13 @@ public record CheckData1
     [RegularExpression("^.+$")]
     public string? CheckNumber { get; init; }
 
+    /// <summary>
+    /// Magnetic track or magnetic ink characters line.
+    /// Mandatory if CheckNumber absent.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TrackData")]
-    public TrackData2? TrackData { get; init; }
+    public TrackData1? TrackData { get; init; }
 
     /// <summary>
     /// Check guarantee card number.
@@ -50,6 +54,12 @@ public record CheckData1
     [RegularExpression("^.+$")]
     public string? CheckCardNumber { get; init; }
 
+    /// <summary>
+    /// Type of bank check.
+    /// Possible values:
+    /// * <b>Company</b>
+    /// * <b>Personal</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TypeCode")]
     public TypeCode1? TypeCode { get; init; }

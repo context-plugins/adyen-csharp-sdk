@@ -9,27 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class PostGetNotificationConfigurationError : ApiError
 {
-    private readonly Optional<ServiceError> _serviceErrorValue;
+    private readonly Optional<ServiceError1> _serviceError1Value;
 
-    private PostGetNotificationConfigurationError(Optional<ServiceError> serviceErrorValue,
+    private PostGetNotificationConfigurationError(Optional<ServiceError1> serviceError1Value,
         Optional<RawError> fallback) : base(fallback)
     {
-        _serviceErrorValue = serviceErrorValue;
+        _serviceError1Value = serviceError1Value;
     }
 
-    private static PostGetNotificationConfigurationError AsServiceError(ServiceError value) =>
-        new(Optional<ServiceError>.Some(value), default);
+    private static PostGetNotificationConfigurationError AsServiceError1(ServiceError1 value) =>
+        new(Optional<ServiceError1>.Some(value), default);
 
     private static PostGetNotificationConfigurationError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetServiceError(out ServiceError value) => _serviceErrorValue.TryGetValue(out value);
+    public bool TryGetServiceError1(out ServiceError1 value) => _serviceError1Value.TryGetValue(out value);
 
     internal static Task<PostGetNotificationConfigurationError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 403 or 422 or 500 => FromJson<ServiceError>(response, ct).As(AsServiceError),
+            400 or 401 or 403 or 422 or 500 => FromJson<ServiceError1>(response, ct).As(AsServiceError1),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

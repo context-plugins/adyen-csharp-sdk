@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -89,15 +88,18 @@ public record CheckoutBankTransferAction
     [JsonPropertyName("sortCode")]
     public string? SortCode { get; init; }
 
+    /// <summary>
+    /// The amount of the bank transfer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("totalAmount")]
-    public TotalAmount2? TotalAmount { get; init; }
+    public Amount10? TotalAmount { get; init; }
 
     /// <summary>
     /// The type of the action.
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type503 Type { get; init; }
+    public string Type { get; } = "bankTransfer";
 
     /// <summary>
     /// Specifies the URL to redirect to.

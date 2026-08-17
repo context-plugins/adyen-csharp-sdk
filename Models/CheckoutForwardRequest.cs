@@ -4,9 +4,12 @@ namespace Adyen.Models;
 
 public record CheckoutForwardRequest
 {
+    /// <summary>
+    /// The amount of the forwarded payment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount11? Amount { get; init; }
 
     /// <summary>
     /// The base URL of the third party API, where Adyen will send the request to forward the payment details.
@@ -27,16 +30,25 @@ public record CheckoutForwardRequest
     [JsonPropertyName("merchantReference")]
     public string? MerchantReference { get; init; }
 
+    /// <summary>
+    /// The customizations that can be applied when making a forward request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("options")]
-    public CheckoutForwardRequestOptions? Options { get; init; }
+    public CheckoutForwardRequestOptions2? Options { get; init; }
 
+    /// <summary>
+    /// The card details.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentMethod")]
-    public CheckoutForwardRequestCard? PaymentMethod { get; init; }
+    public CheckoutForwardRequestCard2? PaymentMethod { get; init; }
 
+    /// <summary>
+    /// The <see href="https://docs.adyen.com/online-payments/tokenization/forward-payment-details#request-to-adyen-card">details of the request</see> that you want to forward to the third-party.
+    /// </summary>
     [JsonPropertyName("request")]
-    public required CheckoutOutgoingForwardRequest Request { get; init; }
+    public required CheckoutOutgoingForwardRequest2 Request { get; init; }
 
     /// <summary>
     /// Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.

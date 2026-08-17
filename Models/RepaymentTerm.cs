@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// Contains information about the time period in which your user must repay the total amount of the grant.
+/// An object containing the details of the configuration for repayment term., Contains information about the time period in which your user must repay the total amount of the grant.
 /// </summary>
 public record RepaymentTerm
 {

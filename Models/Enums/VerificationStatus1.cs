@@ -4,22 +4,14 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The status of the verification checks for the capability.
+/// The status of the verification process for the bank account.
 /// <para>
 /// Possible values:
+/// * <b>valid</b>: the verification was successful.
+/// * <b>pending</b>: the verification is in progress.
+/// * <b>invalid</b>: the information provided is not complete.
+/// * <b>rejected</b>:  there are reasons to refuse working with this entity.
 /// </para>
-/// <list type="bullet">
-///   <item><description><b>pending</b>: Adyen is running the verification.</description></item>
-/// </list>
-/// <list type="bullet">
-///   <item><description><b>invalid</b>: The verification failed. Check if the <c>errors</c> array contains more information.</description></item>
-/// </list>
-/// <list type="bullet">
-///   <item><description><b>valid</b>: The verification has been successfully completed.</description></item>
-/// </list>
-/// <list type="bullet">
-///   <item><description><b>rejected</b>: Adyen has verified the information, but found reasons to not allow the capability.</description></item>
-/// </list>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<VerificationStatus1>))]
 public sealed record VerificationStatus1 : StringEnum<VerificationStatus1>

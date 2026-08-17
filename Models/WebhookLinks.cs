@@ -4,20 +4,35 @@ namespace Adyen.Models;
 
 public record WebhookLinks
 {
+    /// <summary>
+    /// The company account that the webhook is configured for. Only present for company-level webhooks.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("company")]
-    public Company4? Company { get; init; }
+    public LinksElement15? Company { get; init; }
 
+    /// <summary>
+    /// Generate an HMAC key.
+    /// </summary>
     [JsonPropertyName("generateHmac")]
-    public required GenerateHmac GenerateHmac { get; init; }
+    public required LinksElement16 GenerateHmac { get; init; }
 
+    /// <summary>
+    /// The merchant account that the webhook is configured for. Only present for merchant-level webhooks.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("merchant")]
-    public Merchant1? Merchant { get; init; }
+    public LinksElement17? Merchant { get; init; }
 
+    /// <summary>
+    /// Link to the resource itself.
+    /// </summary>
     [JsonPropertyName("self")]
-    public required Self Self { get; init; }
+    public required LinksElement6 Self { get; init; }
 
+    /// <summary>
+    /// Test the webhook setup.
+    /// </summary>
     [JsonPropertyName("testWebhook")]
-    public required TestWebhook TestWebhook { get; init; }
+    public required LinksElement19 TestWebhook { get; init; }
 }

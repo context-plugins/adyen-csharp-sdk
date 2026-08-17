@@ -76,11 +76,19 @@ public record CardData1
     [JsonPropertyName("ProtectedCardData")]
     public string? ProtectedCardData { get; init; }
 
+    /// <summary>
+    /// Sensitive information related to the payment card, entered or read by the Sale System.
+    /// If structure non empty and unprotected.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SensitiveCardData")]
-    public SensitiveCardData2? SensitiveCardData { get; init; }
+    public SensitiveCardData1? SensitiveCardData { get; init; }
 
+    /// <summary>
+    /// Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean of the customer. It allows, for a merchant, to identify the customer.
+    /// Restriction of product payable by a card.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentToken")]
-    public PaymentToken2? PaymentToken { get; init; }
+    public PaymentToken1? PaymentToken { get; init; }
 }

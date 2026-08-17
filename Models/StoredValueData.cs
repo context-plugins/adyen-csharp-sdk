@@ -20,16 +20,34 @@ public record StoredValueData
     [RegularExpression("^.+$")]
     public string? StoredValueProvider { get; init; }
 
+    /// <summary>
+    /// Identification of operation to proceed on the stored value account or the stored value card.
+    /// Possible values:
+    /// * <b>Activate</b>
+    /// * <b>Duplicate</b>
+    /// * <b>Load</b>
+    /// * <b>Reserve</b>
+    /// * <b>Reverse</b>
+    /// * <b>Unload</b>
+    /// </summary>
     [JsonPropertyName("StoredValueTransactionType")]
     public required StoredValueTransactionType1 StoredValueTransactionType { get; init; }
 
+    /// <summary>
+    /// Identification of the stored value account or the stored value card.
+    /// If the identification of the Stored Value account or card has been made by the Sale System before the request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("StoredValueAccountID")]
-    public StoredValueAccountId2? StoredValueAccountId { get; init; }
+    public StoredValueAccountId1? StoredValueAccountId { get; init; }
 
+    /// <summary>
+    /// Identification of a previous POI transaction.
+    /// If StoredValueTransactionType is Reverse or Duplicate.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("OriginalPOITransaction")]
-    public OriginalPoitransaction3? OriginalPoitransaction { get; init; }
+    public OriginalPoiTransaction1? OriginalPoiTransaction { get; init; }
 
     /// <summary>
     /// Product code of item purchased with the transaction.

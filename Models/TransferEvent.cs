@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
 using Adyen.Models.Enums;
+using Adyen.Models.OneOf;
 
 namespace Adyen.Models;
 
 public record TransferEvent
 {
+    /// <summary>
+    /// The original journal amount. Only applicable for <see href="https://docs.adyen.com/issuing/">issuing</see> integrations.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount5? Amount { get; init; }
+    public Amount17? Amount { get; init; }
 
     /// <summary>
     /// The amount adjustments in this transfer. Only applicable for <see href="https://docs.adyen.com/issuing/">issuing</see> integrations.
@@ -47,9 +50,12 @@ public record TransferEvent
     [JsonPropertyName("eventsData")]
     public IReadOnlyList<EventsDatum>? EventsData { get; init; }
 
+    /// <summary>
+    /// The external reason for the transfer status.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("externalReason")]
-    public ExternalReason? ExternalReason { get; init; }
+    public ExternalReason1? ExternalReason { get; init; }
 
     /// <summary>
     /// The unique identifier of the transfer event.
@@ -58,9 +64,12 @@ public record TransferEvent
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// The payment modification. Only applicable for <see href="https://docs.adyen.com/platforms/internal-fund-transfers/internal-transfer-webhooks/#returned-internal-transfer">returned internal transfers</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modification")]
-    public Modification? Modification { get; init; }
+    public Modification2? Modification { get; init; }
 
     /// <summary>
     /// The list of balance mutations per event.
@@ -69,17 +78,26 @@ public record TransferEvent
     [JsonPropertyName("mutations")]
     public IReadOnlyList<BalanceMutation>? Mutations { get; init; }
 
+    /// <summary>
+    /// The amount in the original currency. Only applicable for <see href="https://docs.adyen.com/issuing/">issuing</see> integrations.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("originalAmount")]
-    public OriginalAmount? OriginalAmount { get; init; }
+    public Amount17? OriginalAmount { get; init; }
 
+    /// <summary>
+    /// The reason for the transfer status.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reason")]
-    public Reason2? Reason { get; init; }
+    public Reason1? Reason { get; init; }
 
+    /// <summary>
+    /// The status of the transfer event.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status25? Status { get; init; }
+    public Status24? Status { get; init; }
 
     /// <summary>
     /// Additional tracing information for the tracing event.
@@ -102,9 +120,12 @@ public record TransferEvent
     [JsonPropertyName("transactionId")]
     public string? TransactionId { get; init; }
 
+    /// <summary>
+    /// The type of the transfer event. Possible values: <b>accounting</b>, <b>tracking</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type74? Type { get; init; }
+    public Type73? Type { get; init; }
 
     /// <summary>
     /// The date when the tracking status was updated.

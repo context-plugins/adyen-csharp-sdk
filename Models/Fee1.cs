@@ -7,6 +7,9 @@ namespace Adyen.Models;
 /// </summary>
 public record Fee1
 {
+    /// <summary>
+    /// Contains the fee amount.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 }

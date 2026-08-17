@@ -36,7 +36,9 @@ public record AuPay
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>aupay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type91? Type { get; init; }
+    public Type9? Type { get; init; } = Type9.Aupay;
 }

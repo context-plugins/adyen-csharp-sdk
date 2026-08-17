@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -56,5 +55,5 @@ public record KlarnaNetwork
     /// <b>klarna_network</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type69 Type { get; init; }
+    public string Type { get; } = "klarna_network";
 }

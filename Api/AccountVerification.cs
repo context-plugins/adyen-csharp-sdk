@@ -24,7 +24,7 @@ public sealed class AccountVerification
     }
 
     /// <summary>
-    /// get-accountVerification-reports-code
+    /// Get account verification report
     /// </summary>
     /// <param name="code">The unique code you receive after a successful open banking flow that is included as a query parameter in the <c>redirectUrl</c> callback.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -37,7 +37,7 @@ public sealed class AccountVerification
     public Task<AccountVerificationReportResponse> GetAccountVerificationReportsCode(string code,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountVerification/reports/{code}"),
+        _rawClient.Execute(_server.Default21("/accountVerification/reports/{code}"),
             [new TemplateParam("code", code)],
             [],
             [],
@@ -50,7 +50,7 @@ public sealed class AccountVerification
             ct);
 
     /// <summary>
-    /// post-accountVerification-routes
+    /// Create routes for account verification
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -63,7 +63,7 @@ public sealed class AccountVerification
     public Task<AccountVerificationRoutesResponse> PostAccountVerificationRoutes(AccountVerificationRoutesRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountVerification/routes"),
+        _rawClient.Execute(_server.Default21("/accountVerification/routes"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

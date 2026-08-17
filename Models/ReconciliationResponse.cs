@@ -10,9 +10,20 @@ namespace Adyen.Models;
 /// </summary>
 public record ReconciliationResponse
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Type of Reconciliation requested by the Sale to the POI.
+    /// Possible values:
+    /// * <b>AcquirerReconciliation</b>
+    /// * <b>AcquirerSynchronisation</b>
+    /// * <b>PreviousReconciliation</b>
+    /// * <b>SaleReconciliation</b>
+    /// </summary>
     [JsonPropertyName("ReconciliationType")]
     public required ReconciliationType1 ReconciliationType { get; init; }
 
@@ -22,7 +33,7 @@ public record ReconciliationResponse
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("POIReconciliationID")]
-    public int? PoireconciliationId { get; init; }
+    public int? PoiReconciliationId { get; init; }
 
     /// <summary>
     /// Result of the Sale to POI Reconciliation processing.

@@ -30,11 +30,17 @@ public record CapabilitySettings11
     [JsonPropertyName("fundingSource")]
     public IReadOnlyList<FundingSource>? FundingSource { get; init; }
 
+    /// <summary>
+    /// The period when the rule conditions apply.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("interval")]
     public Interval? Interval { get; init; }
 
+    /// <summary>
+    /// The maximum amount a card holder can withdraw per day.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("maxAmount")]
-    public MaxAmount? MaxAmount { get; init; }
+    public PatchableAmountDto? MaxAmount { get; init; }
 }

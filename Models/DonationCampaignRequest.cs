@@ -13,9 +13,12 @@ public record DonationCampaignRequest
     [JsonPropertyName("accountHolderIds")]
     public IReadOnlyList<string>? AccountHolderIds { get; init; }
 
+    /// <summary>
+    /// The settings for in-person donations collected as part of the campaign.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inPerson")]
-    public InPersonDonationSettings? InPerson { get; init; }
+    public InPersonDonationSettings2? InPerson { get; init; }
 
     /// <summary>
     /// The name of the donation campaign.
@@ -31,7 +34,10 @@ public record DonationCampaignRequest
     [MinLength(1)]
     public required string NonprofitCauseId { get; init; }
 
+    /// <summary>
+    /// The settings for online donations collected as part of the campaign.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("online")]
-    public OnlineDonationSettings? Online { get; init; }
+    public OnlineDonationSettings2? Online { get; init; }
 }

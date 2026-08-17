@@ -12,7 +12,9 @@ public record UninstallAndroidCertificateDetails
     [JsonPropertyName("certificateId")]
     public string? CertificateId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Type of terminal action: Uninstall an Android certificate.
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type82? Type { get; init; }
+    public Type81? Type { get; init; } = Type81.UninstallAndroidCertificate;
 }

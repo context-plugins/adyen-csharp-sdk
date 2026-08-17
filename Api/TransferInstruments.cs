@@ -27,7 +27,7 @@ public sealed class TransferInstruments
     }
 
     /// <summary>
-    /// delete-transferInstruments-id
+    /// Delete a transfer instrument
     /// </summary>
     /// <param name="id">The unique identifier of the transfer instrument to be deleted.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -52,7 +52,7 @@ public sealed class TransferInstruments
     public Task DeleteTransferInstrumentsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transferInstruments/{id}"),
+        _rawClient.Execute(_server.Default18("/transferInstruments/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -65,7 +65,7 @@ public sealed class TransferInstruments
             ct);
 
     /// <summary>
-    /// get-transferInstruments-id
+    /// Get a transfer instrument
     /// </summary>
     /// <param name="id">The unique identifier of the transfer instrument.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -90,7 +90,7 @@ public sealed class TransferInstruments
     public Task<TransferInstrument> GetTransferInstrumentsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transferInstruments/{id}"),
+        _rawClient.Execute(_server.Default18("/transferInstruments/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -103,7 +103,7 @@ public sealed class TransferInstruments
             ct);
 
     /// <summary>
-    /// patch-transferInstruments-id
+    /// Update a transfer instrument
     /// </summary>
     /// <param name="id">The unique identifier of the transfer instrument.</param>
     /// <param name="xRequestedVerificationCode">Use the requested verification code 0_0001 to resolve any suberrors associated with the transfer instrument. Requested verification codes can only be used in your test environment.</param>
@@ -132,7 +132,7 @@ public sealed class TransferInstruments
         TransferInstrumentInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transferInstruments/{id}"),
+        _rawClient.Execute(_server.Default18("/transferInstruments/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("x-requested-verification-code", xRequestedVerificationCode),
@@ -146,7 +146,7 @@ public sealed class TransferInstruments
             ct);
 
     /// <summary>
-    /// post-transferInstruments
+    /// Create a transfer instrument
     /// </summary>
     /// <param name="xRequestedVerificationCode">Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.</param>
     /// <param name="body"></param>
@@ -179,7 +179,7 @@ public sealed class TransferInstruments
         TransferInstrumentInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transferInstruments"),
+        _rawClient.Execute(_server.Default18("/transferInstruments"),
             [],
             [],
             [new HeaderParam("x-requested-verification-code", xRequestedVerificationCode),

@@ -24,5 +24,5 @@ public record BankAccountIdentificationTypeRequirement
     /// <b>bankAccountIdentificationTypeRequirement</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type293 Type { get; init; }
+    public string Type { get; } = "bankAccountIdentificationTypeRequirement";
 }

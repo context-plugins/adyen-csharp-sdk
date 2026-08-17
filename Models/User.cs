@@ -6,9 +6,12 @@ namespace Adyen.Models;
 
 public record User
 {
+    /// <summary>
+    /// References to resources connected with this user.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public Links2? Links { get; init; }
+    public Links1? Links { get; init; }
 
     /// <summary>
     /// The list of <see href="https://docs.adyen.com/account/account-structure#account-groups">account groups</see> associated with this user.
@@ -43,9 +46,12 @@ public record User
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// The user's full name.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
-    public Name5? Name { get; init; }
+    public Name? Name { get; init; }
 
     /// <summary>
     /// The list of <see href="https://docs.adyen.com/account/user-roles">roles</see> for this user.

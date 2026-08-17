@@ -27,7 +27,7 @@ public sealed class MyApiCredential
     }
 
     /// <summary>
-    /// delete-me-allowedOrigins-originId
+    /// Remove allowed origin
     /// </summary>
     /// <param name="originId">Unique identifier of the allowed origin.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -44,7 +44,7 @@ public sealed class MyApiCredential
     public Task DeleteMeAllowedOriginsOriginId(string originId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/me/allowedOrigins/{originId}"),
+        _rawClient.Execute(_server.Default9("/me/allowedOrigins/{originId}"),
             [new TemplateParam("originId", originId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -57,7 +57,7 @@ public sealed class MyApiCredential
             ct);
 
     /// <summary>
-    /// get-me
+    /// Get API credential details
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -70,7 +70,7 @@ public sealed class MyApiCredential
     /// </para>
     /// </remarks>
     public Task<MeApiCredential> GetMe(RequestOptions? requestOptions = null, CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/me"),
+        _rawClient.Execute(_server.Default9("/me"),
             [],
             [],
             [],
@@ -83,7 +83,7 @@ public sealed class MyApiCredential
             ct);
 
     /// <summary>
-    /// get-me-allowedOrigins
+    /// Get allowed origins
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -97,7 +97,7 @@ public sealed class MyApiCredential
     /// </remarks>
     public Task<AllowedOriginsResponse> GetMeAllowedOrigins(RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/me/allowedOrigins"),
+        _rawClient.Execute(_server.Default9("/me/allowedOrigins"),
             [],
             [],
             [],
@@ -110,7 +110,7 @@ public sealed class MyApiCredential
             ct);
 
     /// <summary>
-    /// get-me-allowedOrigins-originId
+    /// Get allowed origin details
     /// </summary>
     /// <param name="originId">Unique identifier of the allowed origin.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -127,7 +127,7 @@ public sealed class MyApiCredential
     public Task<AllowedOrigin> GetMeAllowedOriginsOriginId(string originId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/me/allowedOrigins/{originId}"),
+        _rawClient.Execute(_server.Default9("/me/allowedOrigins/{originId}"),
             [new TemplateParam("originId", originId)],
             [],
             [],
@@ -140,7 +140,7 @@ public sealed class MyApiCredential
             ct);
 
     /// <summary>
-    /// post-me-allowedOrigins
+    /// Add allowed origin
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -157,7 +157,7 @@ public sealed class MyApiCredential
     public Task<AllowedOrigin> PostMeAllowedOrigins(CreateAllowedOriginRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/me/allowedOrigins"),
+        _rawClient.Execute(_server.Default9("/me/allowedOrigins"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -170,7 +170,7 @@ public sealed class MyApiCredential
             ct);
 
     /// <summary>
-    /// post-me-generateClientKey
+    /// Generate a client key
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -187,7 +187,7 @@ public sealed class MyApiCredential
     /// </remarks>
     public Task<GenerateClientKeyResponse> PostMeGenerateClientKey(RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/me/generateClientKey"),
+        _rawClient.Execute(_server.Default9("/me/generateClientKey"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

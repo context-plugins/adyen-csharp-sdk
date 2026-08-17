@@ -19,6 +19,16 @@ public record NetworkReason
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// The namespace that corresponds to the reason code.
+    /// <para>
+    /// Possible values:
+    /// *  <b>ukFpsRejectionCode</b>
+    /// *  <b>ukFpsReturnReasonCode</b>
+    /// *  <b>usAchReturnReasonCode</b>
+    /// *  <b>iso8583ResponseCode</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("namespace")]
     public Namespace? Namespace { get; init; }

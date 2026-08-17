@@ -39,6 +39,9 @@ public record Doku
     [JsonPropertyName("shopperEmail")]
     public required string ShopperEmail { get; init; }
 
+    /// <summary>
+    /// <b>doku</b>
+    /// </summary>
     [JsonPropertyName("type")]
     public required Type23 Type { get; init; }
 }

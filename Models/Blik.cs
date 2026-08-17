@@ -43,7 +43,10 @@ public record Blik
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// <b>blik</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type131? Type { get; init; }
+    public Type13? Type { get; init; }
 }

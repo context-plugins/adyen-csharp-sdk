@@ -12,9 +12,12 @@ public record NumberAndBicAccountIdentification1Properties
     [MaxLength(34)]
     public required string AccountNumber { get; init; }
 
+    /// <summary>
+    /// Additional identification codes of the bank. Some banks may require these identifiers for cross-border transfers.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("additionalBankIdentification")]
-    public AdditionalBankIdentification? AdditionalBankIdentification { get; init; }
+    public AdditionalBankIdentification11? AdditionalBankIdentification { get; init; }
 
     /// <summary>
     /// The bank's 8- or 11-character BIC or SWIFT code.
@@ -27,5 +30,5 @@ public record NumberAndBicAccountIdentification1Properties
     /// <b>numberAndBic</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public string Type { get; init; } = "numberAndBic";
 }

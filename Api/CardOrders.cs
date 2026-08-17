@@ -28,7 +28,7 @@ public sealed class CardOrders
     }
 
     /// <summary>
-    /// get-cardorders
+    /// Get a list of card orders
     /// </summary>
     /// <param name="id">The unique identifier of the card order.</param>
     /// <param name="cardManufacturingProfileId">The unique identifier of the card manufacturer profile.</param>
@@ -61,7 +61,7 @@ public sealed class CardOrders
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/cardorders"),
+        _rawClient.Execute(_server.Default13("/cardorders"),
             [],
             [new Param("id", id),
                 new Param("cardManufacturingProfileId", cardManufacturingProfileId),
@@ -84,7 +84,7 @@ public sealed class CardOrders
             ct);
 
     /// <summary>
-    /// get-cardorders-id-items
+    /// Get card order items
     /// </summary>
     /// <param name="id">The unique identifier of the card order.</param>
     /// <param name="offset">Specifies the position of an element in a list of card orders. The response includes a list of card order items that starts at the specified offset.  <b>Default:</b> 0, which means that the response contains all the elements in the list of card order items.</param>
@@ -101,7 +101,7 @@ public sealed class CardOrders
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/cardorders/{id}/items"),
+        _rawClient.Execute(_server.Default13("/cardorders/{id}/items"),
             [new TemplateParam("id", id)],
             [new Param("offset", offset), new Param("limit", limit)],
             [],

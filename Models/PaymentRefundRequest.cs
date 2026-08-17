@@ -1,16 +1,23 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
 public record PaymentRefundRequest
 {
+    /// <summary>
+    /// The amount that you want to refund. The <c>currency</c> must match the currency used in authorisation, the <c>value</c> must be smaller than or equal to the authorised amount.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount38 Amount { get; init; }
 
+    /// <summary>
+    /// Information about your application. For more details, see <see href="https://docs.adyen.com/development-resources/building-adyen-solutions">Building Adyen solutions</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("applicationInfo")]
-    public ApplicationInfo1? ApplicationInfo { get; init; }
+    public ApplicationInfo? ApplicationInfo { get; init; }
 
     /// <summary>
     /// This is only available for PayPal refunds. The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the specific capture to refund.
@@ -19,9 +26,12 @@ public record PaymentRefundRequest
     [JsonPropertyName("capturePspReference")]
     public string? CapturePspReference { get; init; }
 
+    /// <summary>
+    /// Enhanced scheme data that may be required for processing the payment. For example, airline information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("enhancedSchemeData")]
-    public EnhancedSchemeData? EnhancedSchemeData { get; init; }
+    public EnhancedSchemeData1? EnhancedSchemeData { get; init; }
 
     /// <summary>
     /// Price and product information of the refunded items, required for <see href="https://docs.adyen.com/online-payments/refund#refund-a-payment">partial refunds</see>.
@@ -37,9 +47,30 @@ public record PaymentRefundRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// The reason for the refund request.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>FRAUD</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>CUSTOMER REQUEST</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>RETURN</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>DUPLICATE</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>OTHER</b></description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("merchantRefundReason")]
-    public object? MerchantRefundReason { get; init; }
+    public MerchantRefundReason? MerchantRefundReason { get; init; }
 
     /// <summary>
     /// Your reference for the refund request. Maximum length: 80 characters.

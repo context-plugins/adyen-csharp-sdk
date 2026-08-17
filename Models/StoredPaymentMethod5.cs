@@ -49,7 +49,9 @@ public record StoredPaymentMethod5
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>paybybank_pix</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type45? Type { get; init; }
+    public Type45? Type { get; init; } = Type45.PaybybankPix;
 }

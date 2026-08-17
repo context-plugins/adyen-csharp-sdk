@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -27,15 +28,33 @@ public record PatchableCreateRecurringTopUp
     [StringLength(80, MinimumLength = 0)]
     public string? ReferenceForBeneficiary { get; init; }
 
+    /// <summary>
+    /// The status of the recurring top-up. If not provided, by default, this is set to <b>active</b>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>:  the top up is enabled and funds will be pulled in.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>inactive</b>: the top up is disabled and cannot be triggered.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public object? Status { get; init; }
+    public Status6? Status { get; init; }
 
+    /// <summary>
+    /// The currency and value to be added to the balance account, specified in minor units. This can be a fixed amount or a target amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("topUpAmount")]
-    public PatchableTopUpAmount? TopUpAmount { get; init; }
+    public PatchableTopUpAmount2? TopUpAmount { get; init; }
 
+    /// <summary>
+    /// The condition that triggers the top-up. This can be a recurring schedule or a minimum balance threshold.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("trigger")]
-    public PatchableTrigger? Trigger { get; init; }
+    public PatchableTrigger2? Trigger { get; init; }
 }

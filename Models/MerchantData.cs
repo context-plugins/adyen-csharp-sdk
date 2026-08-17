@@ -25,9 +25,12 @@ public record MerchantData
     [JsonPropertyName("merchantId")]
     public string? MerchantId { get; init; }
 
+    /// <summary>
+    /// Contains the name and location of the merchant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("nameLocation")]
-    public NameLocation? NameLocation { get; init; }
+    public NameLocation2? NameLocation { get; init; }
 
     /// <summary>
     /// The postal code of the merchant.

@@ -27,7 +27,7 @@ public sealed class PaymentLinks
     }
 
     /// <summary>
-    /// get-paymentLinks-linkId
+    /// Get a payment link
     /// </summary>
     /// <param name="linkId">Unique identifier of the payment link.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -53,7 +53,7 @@ public sealed class PaymentLinks
             ct);
 
     /// <summary>
-    /// patch-paymentLinks-linkId
+    /// Update the status of a payment link
     /// </summary>
     /// <param name="linkId">Unique identifier of the payment link.</param>
     /// <param name="body"></param>
@@ -81,7 +81,7 @@ public sealed class PaymentLinks
             ct);
 
     /// <summary>
-    /// post-paymentLinks
+    /// Create a payment link
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>

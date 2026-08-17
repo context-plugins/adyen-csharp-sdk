@@ -16,13 +16,19 @@ public record FundRecipient1
     [JsonPropertyName("IBAN")]
     public string? Iban { get; init; }
 
+    /// <summary>
+    /// The address where to send the invoice.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address3? BillingAddress { get; init; }
 
+    /// <summary>
+    /// The payment method used by the shopper.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentMethod")]
-    public CardDetails? PaymentMethod { get; init; }
+    public CardDetails1? PaymentMethod { get; init; }
 
     /// <summary>
     /// The email address of the shopper.
@@ -31,9 +37,12 @@ public record FundRecipient1
     [JsonPropertyName("shopperEmail")]
     public string? ShopperEmail { get; init; }
 
+    /// <summary>
+    /// The name of the shopper.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name2? ShopperName { get; init; }
 
     /// <summary>
     /// Required for recurring payments.
@@ -53,9 +62,13 @@ public record FundRecipient1
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// Required for back-to-back/purchase-driven-load transactions, where the funds are taken from the shopper's stored card when the wallet balance is insufficient.
+    /// The final merchant who will receive the money, also known as a <see href="https://docs.adyen.com/get-started-with-adyen/payment-glossary/#submerchant">sub-merchant</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subMerchant")]
-    public SubMerchant1? SubMerchant { get; init; }
+    public SubMerchant2? SubMerchant { get; init; }
 
     /// <summary>
     /// The telephone number of the shopper.
@@ -78,6 +91,9 @@ public record FundRecipient1
     [JsonPropertyName("walletOwnerTaxId")]
     public string? WalletOwnerTaxId { get; init; }
 
+    /// <summary>
+    /// The purpose of a digital wallet transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("walletPurpose")]
     public WalletPurpose? WalletPurpose { get; init; }

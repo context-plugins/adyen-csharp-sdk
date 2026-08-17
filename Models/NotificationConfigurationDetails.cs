@@ -75,6 +75,10 @@ public record NotificationConfigurationDetails
     [JsonPropertyName("notifyUsername")]
     public string? NotifyUsername { get; init; }
 
+    /// <summary>
+    /// The SSL protocol employed by the endpoint.
+    /// &gt;Permitted values: <c>TLSv12</c>, <c>TLSv13</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sslProtocol")]
     public SslProtocol? SslProtocol { get; init; }

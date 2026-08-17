@@ -13,6 +13,9 @@ public record IdealPaymentDetailsRequestProperties
     [StringLength(200, MinimumLength = 1)]
     public required string Payload { get; init; }
 
+    /// <summary>
+    /// The source used to obtain the payload. Possible values: <c>qr</c>, <c>redirect</c>, and <c>pushNotification</c>.
+    /// </summary>
     [JsonPropertyName("source")]
     public required PaymentSource2 Source { get; init; }
 }

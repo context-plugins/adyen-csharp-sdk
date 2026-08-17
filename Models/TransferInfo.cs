@@ -7,8 +7,11 @@ namespace Adyen.Models;
 
 public record TransferInfo
 {
+    /// <summary>
+    /// The amount of the transfer.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 
     /// <summary>
     /// The unique identifier of the source <see href="https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id">balance account</see>.
@@ -20,11 +23,38 @@ public record TransferInfo
     [JsonPropertyName("balanceAccountId")]
     public string? BalanceAccountId { get; init; }
 
+    /// <summary>
+    /// The category of the transfer.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>bank</b>: A transfer involving a <see href="https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id">transfer instrument</see> or a bank account.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>card</b>: A transfer involving a third-party card.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>internal</b>: A transfer between <see href="https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id">balance accounts</see> within your platform.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>issuedCard</b>: A transfer initiated by an Adyen-issued card.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>platformPayment</b>: Funds movements related to payments that are acquired for your users.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>topUp</b>: An incoming transfer initiated by your user to top up their balance account.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("category")]
     public required Category3 Category { get; init; }
 
+    /// <summary>
+    /// The other party involved in the funds transfer. A bank account, a balance account, a card, or a transfer instrument is required.
+    /// </summary>
     [JsonPropertyName("counterparty")]
-    public required CounterpartyInfoV3 Counterparty { get; init; }
+    public required CounterpartyInfoV31 Counterparty { get; init; }
 
     /// <summary>
     /// Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
@@ -40,9 +70,17 @@ public record TransferInfo
     [MaxLength(140)]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// The date when the transfer will be processed. This date must be within 30 days of the current date.
+    /// <para>
+    /// Until the <c>executionDate</c>:
+    /// - The <c>status</c> of the transfer remains as <b>received</b>.
+    /// - The <c>reason</c> of the transfer remains as <b>pending</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("executionDate")]
-    public ExecutionDate? ExecutionDate { get; init; }
+    public ExecutionDate3? ExecutionDate { get; init; }
 
     /// <summary>
     /// The unique identifier of the source <see href="https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id">payment instrument</see>.
@@ -83,11 +121,35 @@ public record TransferInfo
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("priorities")]
-    public IReadOnlyList<Priority>? Priorities { get; init; }
+    public IReadOnlyList<Priority1>? Priorities { get; init; }
 
+    /// <summary>
+    /// The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with <c>category</c> <b>bank</b>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>regular</b>: For normal, low-value transactions.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>fast</b>: A faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>wire</b>: The fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>instant</b>: For instant funds transfers within the United States and in <see href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html">SEPA locations</see>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>crossBorder</b>: For high-value transfers to a recipient in a different country.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>internal</b>: For transfers to an Adyen-issued business bank account (by bank account number/IBAN).</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("priority")]
-    public Priority? Priority { get; init; }
+    public Priority1? Priority { get; init; }
 
     /// <summary>
     /// Your reference for the transfer, used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference.
@@ -113,15 +175,32 @@ public record TransferInfo
     [JsonPropertyName("referenceForBeneficiary")]
     public string? ReferenceForBeneficiary { get; init; }
 
+    /// <summary>
+    /// Contains information required for triggering transfer reviews.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("review")]
-    public TransferRequestReview? Review { get; init; }
+    public TransferRequestReview2? Review { get; init; }
 
+    /// <summary>
+    /// The type of transfer.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>bankTransfer</b>: for push transfers to a transfer instrument or a bank account. The <c>category</c> must be <b>bank</b>.</description></item>
+    ///   <item><description><b>internalTransfer</b>: for push transfers between balance accounts. The <c>category</c> must be <b>internal</b>.</description></item>
+    ///   <item><description><b>internalDirectDebit</b>: for pull transfers (direct debits) between balance accounts. The <c>category</c> must be <b>internal</b>.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type112? Type { get; init; }
+    public Type113? Type { get; init; }
 
+    /// <summary>
+    /// The ultimate sender of the funds of the transfer (ultimate debtor).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ultimateParty")]
-    public UltimatePartyIdentification? UltimateParty { get; init; }
+    public UltimatePartyIdentification1? UltimateParty { get; init; }
 }

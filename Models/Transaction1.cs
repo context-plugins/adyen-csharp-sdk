@@ -6,74 +6,116 @@ namespace Adyen.Models;
 
 public record Transaction1
 {
-    [JsonPropertyName("accountHolder")]
-    public required ResourceReference AccountHolder { get; init; }
-
+    /// <summary>
+    /// The amount of the transaction.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
-
-    [JsonPropertyName("balanceAccount")]
-    public required ResourceReference BalanceAccount { get; init; }
+    public Amount? Amount { get; init; }
 
     /// <summary>
-    /// The unique identifier of the balance platform.
+    /// The details of the bank account to where a payout was made.
     /// </summary>
-    [JsonPropertyName("balancePlatform")]
-    public required string BalancePlatform { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("bankAccountDetail")]
+    public BankAccountDetail? BankAccountDetail { get; init; }
 
     /// <summary>
-    /// The date the transaction was booked into the balance account.
+    /// The merchant reference of a related capture.
     /// </summary>
-    [JsonPropertyName("bookingDate")]
-    public required DateTimeOffset BookingDate { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("captureMerchantReference")]
+    public string? CaptureMerchantReference { get; init; }
 
     /// <summary>
-    /// The date and time when the event was triggered, in ISO 8601 extended format. For example, <b>2025-03-19T10:15:30+01:00</b>.
+    /// The psp reference of a related capture.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("capturePspReference")]
+    public string? CapturePspReference { get; init; }
+
+    /// <summary>
+    /// The date on which the transaction was performed.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("creationDate")]
     public DateTimeOffset? CreationDate { get; init; }
 
     /// <summary>
-    /// The <c>description</c> from the <c>/transfers</c> request.
+    /// A description of the transaction.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
     /// <summary>
-    /// The unique identifier of the transaction.
+    /// The code of the account to which funds were credited during an outgoing fund transfer.
     /// </summary>
-    [JsonPropertyName("id")]
-    public required string Id { get; init; }
-
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("paymentInstrument")]
-    public PaymentInstrument2? PaymentInstrument { get; init; }
+    [JsonPropertyName("destinationAccountCode")]
+    public string? DestinationAccountCode { get; init; }
 
     /// <summary>
-    /// The reference sent to or received from the counterparty.
-    /// <list type="bullet">
-    ///   <item><description>For outgoing funds, this is the <see href="https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary"><c>referenceForBeneficiary</c></see> from the  <see href="https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary"><c>/transfers</c></see> request.</description></item>
-    /// </list>
-    /// <list type="bullet">
-    ///   <item><description>For incoming funds, this is the reference from the sender.</description></item>
-    /// </list>
+    /// The psp reference of the related dispute.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("referenceForBeneficiary")]
-    public string? ReferenceForBeneficiary { get; init; }
-
-    [JsonPropertyName("status")]
-    public required Status71 Status { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("transfer")]
-    public TransferView? Transfer { get; init; }
+    [JsonPropertyName("disputePspReference")]
+    public string? DisputePspReference { get; init; }
 
     /// <summary>
-    /// The date the transfer amount becomes available in the balance account.
+    /// The reason code of a dispute.
     /// </summary>
-    [JsonPropertyName("valueDate")]
-    public required DateTimeOffset ValueDate { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("disputeReasonCode")]
+    public string? DisputeReasonCode { get; init; }
+
+    /// <summary>
+    /// The merchant reference of a transaction.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("merchantReference")]
+    public string? MerchantReference { get; init; }
+
+    /// <summary>
+    /// The psp reference of the related authorisation or transfer.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("paymentPspReference")]
+    public string? PaymentPspReference { get; init; }
+
+    /// <summary>
+    /// The psp reference of the related payout.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("payoutPspReference")]
+    public string? PayoutPspReference { get; init; }
+
+    /// <summary>
+    /// The psp reference of a transaction.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("pspReference")]
+    public string? PspReference { get; init; }
+
+    /// <summary>
+    /// The code of the account from which funds were debited during an incoming fund transfer.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("sourceAccountCode")]
+    public string? SourceAccountCode { get; init; }
+
+    /// <summary>
+    /// The status of the transaction.
+    /// &gt;Permitted values: <c>PendingCredit</c>, <c>CreditFailed</c>, <c>CreditClosed</c>, <c>CreditSuspended</c>, <c>Credited</c>, <c>Converted</c>, <c>PendingDebit</c>, <c>DebitFailed</c>, <c>Debited</c>, <c>DebitReversedReceived</c>, <c>DebitedReversed</c>, <c>ChargebackReceived</c>, <c>Chargeback</c>, <c>ChargebackReversedReceived</c>, <c>ChargebackReversed</c>, <c>Payout</c>, <c>PayoutReversed</c>, <c>FundTransfer</c>, <c>PendingFundTransfer</c>, <c>ManualCorrected</c>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("transactionStatus")]
+    public TransactionStatus1? TransactionStatus { get; init; }
+
+    /// <summary>
+    /// The transfer code of the transaction.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("transferCode")]
+    public string? TransferCode { get; init; }
 }

@@ -6,13 +6,19 @@ namespace Adyen.Models;
 
 public record LegalArrangementEntityDetail
 {
+    /// <summary>
+    /// The address of the entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public ViasAddress? Address { get; init; }
+    public ViasAddress5? Address { get; init; }
 
+    /// <summary>
+    /// Required when creating an entity with <c>legalEntityType</c> <b>Business</b>, <b>NonProfit</b>, <b>PublicCompany</b>, or <b>Partnership</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("businessDetails")]
-    public BusinessDetails? BusinessDetails { get; init; }
+    public BusinessDetails1? BusinessDetails { get; init; }
 
     /// <summary>
     /// The e-mail address of the entity.
@@ -29,9 +35,12 @@ public record LegalArrangementEntityDetail
     [JsonPropertyName("fullPhoneNumber")]
     public string? FullPhoneNumber { get; init; }
 
+    /// <summary>
+    /// Required when creating an entity with <c>legalEntityType</c> <b>Individual</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("individualDetails")]
-    public IndividualDetails? IndividualDetails { get; init; }
+    public IndividualDetails1? IndividualDetails { get; init; }
 
     /// <summary>
     /// Adyen-generated unique alphanumeric identifier (UUID) for the entry, returned in the response when you create a legal arrangement entity.
@@ -67,13 +76,22 @@ public record LegalArrangementEntityDetail
     [JsonPropertyName("legalArrangementMembers")]
     public IReadOnlyList<LegalArrangementMember>? LegalArrangementMembers { get; init; }
 
+    /// <summary>
+    /// The legal entity type.
+    /// <para>
+    /// Possible values: <b>Business</b>, <b>Individual</b>, <b>NonProfit</b>, <b>PublicCompany</b>, or <b>Partnership</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("legalEntityType")]
     public LegalEntityType? LegalEntityType { get; init; }
 
+    /// <summary>
+    /// The phone number of the entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phoneNumber")]
-    public PhoneNumber3? PhoneNumber { get; init; }
+    public ViasPhoneNumber2? PhoneNumber { get; init; }
 
     /// <summary>
     /// The URL of the website of the contact.

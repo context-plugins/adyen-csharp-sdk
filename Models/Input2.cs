@@ -9,6 +9,19 @@ namespace Adyen.Models;
 /// </summary>
 public record Input2
 {
+    /// <summary>
+    /// Type of requested input. Can be: <b>GetConfirmation</b>, <b>TextString</b>, <b>DigitString</b>, <b>DecimalString</b> or <b>GetMenuEntry</b>.
+    /// Possible values:
+    /// * <b>DecimalString</b>
+    /// * <b>DigitString</b>
+    /// * <b>GetAnyKey</b>
+    /// * <b>GetConfirmation</b>
+    /// * <b>GetFunctionKey</b>
+    /// * <b>GetMenuEntry</b>
+    /// * <b>Password</b>
+    /// * <b>SiteManager</b>
+    /// * <b>TextString</b>
+    /// </summary>
     [JsonPropertyName("InputCommand")]
     public required InputCommand1 InputCommand { get; init; }
 

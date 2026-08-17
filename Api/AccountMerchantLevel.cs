@@ -27,7 +27,7 @@ public sealed class AccountMerchantLevel
     }
 
     /// <summary>
-    /// get-merchants
+    /// Get a list of merchant accounts
     /// </summary>
     /// <param name="pageNumber">The number of the page to fetch.</param>
     /// <param name="pageSize">The number of items to have on a page, maximum 100. The default is 10 items on a page.</param>
@@ -46,7 +46,7 @@ public sealed class AccountMerchantLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants"),
+        _rawClient.Execute(_server.Default9("/merchants"),
             [],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -59,7 +59,7 @@ public sealed class AccountMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId
+    /// Get a merchant account
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -76,7 +76,7 @@ public sealed class AccountMerchantLevel
     public Task<Merchant> GetMerchantsMerchantId(string merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [],
@@ -89,7 +89,7 @@ public sealed class AccountMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants
+    /// Create a merchant account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -109,7 +109,7 @@ public sealed class AccountMerchantLevel
     public Task<CreateMerchantResponse> PostMerchants(CreateMerchantRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants"),
+        _rawClient.Execute(_server.Default9("/merchants"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -122,7 +122,7 @@ public sealed class AccountMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-activate
+    /// Request to activate a merchant account
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -145,7 +145,7 @@ public sealed class AccountMerchantLevel
     public Task<RequestActivationResponse> PostMerchantsMerchantIdActivate(string merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/activate"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/activate"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

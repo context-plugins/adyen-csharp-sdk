@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// <b>ach</b>
+/// <b>aupay</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type9>))]
 public sealed record Type9 : StringEnum<Type9>
@@ -13,9 +13,7 @@ public sealed record Type9 : StringEnum<Type9>
     {
     }
 
-    public static readonly Type9 Ach = new("ach");
-
-    public static readonly Type9 AchPlaid = new("ach_plaid");
+    public static readonly Type9 Aupay = new("aupay");
 
     public static Type9 FromValue(string value) => FromValueCore(value);
 }

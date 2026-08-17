@@ -12,6 +12,9 @@ public record DefenseReasonsResponse
     [JsonPropertyName("defenseReasons")]
     public IReadOnlyList<DefenseReason>? DefenseReasons { get; init; }
 
+    /// <summary>
+    /// The result of the dispute service.
+    /// </summary>
     [JsonPropertyName("disputeServiceResult")]
-    public required DisputeServiceResult DisputeServiceResult { get; init; }
+    public required DisputeServiceResult1 DisputeServiceResult { get; init; }
 }

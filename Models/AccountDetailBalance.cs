@@ -11,7 +11,10 @@ public record AccountDetailBalance
     [JsonPropertyName("accountCode")]
     public string? AccountCode { get; init; }
 
+    /// <summary>
+    /// Details of the balance held by the account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("detailBalance")]
-    public DetailBalance? DetailBalance { get; init; }
+    public DetailBalance3? DetailBalance { get; init; }
 }

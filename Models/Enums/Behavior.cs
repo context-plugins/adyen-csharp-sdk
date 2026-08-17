@@ -6,7 +6,13 @@ namespace Adyen.Models.Enums;
 /// <summary>
 /// The method of handling the chargeback.
 /// <para>
-/// Possible values: <b>deductFromLiableAccount</b>, <b>deductFromOneBalanceAccount</b>, <b>deductAccordingToSplitRatio</b>.
+/// Possible values: <b>deductFromLiableAccount</b>, <b>deductFromOneBalanceAccount</b>, <b>deductAccordingToSplitRatio</b>., Specifies how and from which balance account(s) to deduct the chargeback amount.
+/// </para>
+/// <para>
+/// Possible values: <b>deductFromLiableAccount</b>, <b>deductFromOneBalanceAccount</b>, <b>deductAccordingToSplitRatio</b>., Specifies how and from which balance account(s) to deduct the refund amount.
+/// </para>
+/// <para>
+/// Possible values: <b>deductFromLiableAccount</b>, <b>deductFromOneBalanceAccount</b>, <b>deductAccordingToSplitRatio</b>
 /// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Behavior>))]

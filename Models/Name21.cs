@@ -1,28 +1,23 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
-/// <summary>
-/// The individual's name.
-/// </summary>
 public record Name21
 {
     /// <summary>
-    /// The individual's first name. Must not be blank.
-    /// </summary>
-    [JsonPropertyName("firstName")]
-    public required string FirstName { get; init; }
-
-    /// <summary>
-    /// The infix in the individual's name, if any.
+    /// The first name.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("infix")]
-    public string? Infix { get; init; }
+    [JsonPropertyName("firstName")]
+    [MaxLength(80)]
+    public string? FirstName { get; init; }
 
     /// <summary>
-    /// The individual's last name. Must not be blank.
+    /// The last name.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("lastName")]
-    public required string LastName { get; init; }
+    [MaxLength(80)]
+    public string? LastName { get; init; }
 }

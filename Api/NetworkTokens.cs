@@ -27,7 +27,7 @@ public sealed class NetworkTokens
     }
 
     /// <summary>
-    /// get-networkTokens-networkTokenId
+    /// Get a network token
     /// </summary>
     /// <param name="networkTokenId">The unique identifier of the network token.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class NetworkTokens
     public Task<GetNetworkTokenResponse> GetNetworkTokensNetworkTokenId(string networkTokenId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/networkTokens/{networkTokenId}"),
+        _rawClient.Execute(_server.Default13("/networkTokens/{networkTokenId}"),
             [new TemplateParam("networkTokenId", networkTokenId)],
             [],
             [],
@@ -53,7 +53,7 @@ public sealed class NetworkTokens
             ct);
 
     /// <summary>
-    /// patch-networkTokens-networkTokenId
+    /// Update a network token
     /// </summary>
     /// <param name="networkTokenId">The unique identifier of the network token.</param>
     /// <param name="body"></param>
@@ -68,7 +68,7 @@ public sealed class NetworkTokens
         UpdateNetworkTokenRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/networkTokens/{networkTokenId}"),
+        _rawClient.Execute(_server.Default13("/networkTokens/{networkTokenId}"),
             [new TemplateParam("networkTokenId", networkTokenId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

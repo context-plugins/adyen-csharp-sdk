@@ -9,6 +9,15 @@ namespace Adyen.Models;
 /// </summary>
 public record AcctInfo
 {
+    /// <summary>
+    /// Length of time that the cardholder has had the account with the 3DS Requestor.
+    /// Allowed values:
+    /// * <b>01</b> — No account
+    /// * <b>02</b> — Created during this transaction
+    /// * <b>03</b> — Less than 30 days
+    /// * <b>04</b> — 30–60 days
+    /// * <b>05</b> — More than 60 days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("chAccAgeInd")]
     public ChAccAgeInd? ChAccAgeInd { get; init; }
@@ -21,6 +30,14 @@ public record AcctInfo
     [JsonPropertyName("chAccChange")]
     public string? ChAccChange { get; init; }
 
+    /// <summary>
+    /// Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added.
+    /// Allowed values:
+    /// * <b>01</b> — Changed during this transaction
+    /// * <b>02</b> — Less than 30 days
+    /// * <b>03</b> — 30–60 days
+    /// * <b>04</b> — More than 60 days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("chAccChangeInd")]
     public ChAccChangeInd? ChAccChangeInd { get; init; }
@@ -33,6 +50,15 @@ public record AcctInfo
     [JsonPropertyName("chAccPwChange")]
     public string? ChAccPwChange { get; init; }
 
+    /// <summary>
+    /// Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset.
+    /// Allowed values:
+    /// * <b>01</b> — No change
+    /// * <b>02</b> — Changed during this transaction
+    /// * <b>03</b> — Less than 30 days
+    /// * <b>04</b> — 30–60 days
+    /// * <b>05</b> — More than 60 days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("chAccPwChangeInd")]
     public ChAccPwChangeInd? ChAccPwChangeInd { get; init; }
@@ -60,6 +86,15 @@ public record AcctInfo
     [JsonPropertyName("paymentAccAge")]
     public string? PaymentAccAge { get; init; }
 
+    /// <summary>
+    /// Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor.
+    /// Allowed values:
+    /// * <b>01</b> — No account (guest checkout)
+    /// * <b>02</b> — During this transaction
+    /// * <b>03</b> — Less than 30 days
+    /// * <b>04</b> — 30–60 days
+    /// * <b>05</b> — More than 60 days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("paymentAccInd")]
     public PaymentAccInd? PaymentAccInd { get; init; }
@@ -79,14 +114,34 @@ public record AcctInfo
     [JsonPropertyName("shipAddressUsage")]
     public string? ShipAddressUsage { get; init; }
 
+    /// <summary>
+    /// Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.
+    /// Allowed values:
+    /// * <b>01</b> — This transaction
+    /// * <b>02</b> — Less than 30 days
+    /// * <b>03</b> — 30–60 days
+    /// * <b>04</b> — More than 60 days
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shipAddressUsageInd")]
     public ShipAddressUsageInd? ShipAddressUsageInd { get; init; }
 
+    /// <summary>
+    /// Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction.
+    /// Allowed values:
+    /// * <b>01</b> — Account Name identical to shipping Name
+    /// * <b>02</b> — Account Name different to shipping Name
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shipNameIndicator")]
     public ShipNameIndicator? ShipNameIndicator { get; init; }
 
+    /// <summary>
+    /// Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account.
+    /// Allowed values:
+    /// * <b>01</b> — No suspicious activity has been observed
+    /// * <b>02</b> — Suspicious activity has been observed
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("suspiciousAccActivity")]
     public SuspiciousAccActivity? SuspiciousAccActivity { get; init; }

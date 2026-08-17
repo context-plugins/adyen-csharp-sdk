@@ -4,11 +4,9 @@ namespace Adyen.Models;
 
 public record Links
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("cancel")]
-    public Href? Cancel { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("success")]
-    public Href? Success { get; init; }
+    /// <summary>
+    /// Link to the resource itself.
+    /// </summary>
+    [JsonPropertyName("self")]
+    public required LinksElement6 Self { get; init; }
 }

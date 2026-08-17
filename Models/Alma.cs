@@ -13,6 +13,9 @@ public record Alma
     [JsonPropertyName("checkoutAttemptId")]
     public string? CheckoutAttemptId { get; init; }
 
+    /// <summary>
+    /// <b>Alma payment request fee type</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("feeType")]
     public FeeType? FeeType { get; init; }
@@ -25,7 +28,10 @@ public record Alma
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
+    /// <summary>
+    /// The payment method type.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type31? Type { get; init; }
+    public Type3? Type { get; init; }
 }

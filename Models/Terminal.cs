@@ -6,9 +6,12 @@ namespace Adyen.Models;
 
 public record Terminal
 {
+    /// <summary>
+    /// Indicates the account level to which the terminal is assigned, the <see href="https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api">assignment status</see>, and where the terminals is in the process of being reassigned to.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("assignment")]
-    public TerminalAssignment? Assignment { get; init; }
+    public TerminalAssignment2? Assignment { get; init; }
 
     /// <summary>
     /// The <see href="https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications">regional base URL</see> to use for sending Terminal API requests when using cloud communications.
@@ -17,9 +20,12 @@ public record Terminal
     [JsonPropertyName("cloudDeviceApiEndpoint")]
     public string? CloudDeviceApiEndpoint { get; init; }
 
+    /// <summary>
+    /// Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("connectivity")]
-    public TerminalConnectivity? Connectivity { get; init; }
+    public TerminalConnectivity2? Connectivity { get; init; }
 
     /// <summary>
     /// The country code of the country where the terminal is located.
@@ -47,7 +53,7 @@ public record Terminal
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("installedAPKs")]
-    public IReadOnlyList<InstalledApks>? InstalledApks { get; init; }
+    public IReadOnlyList<InstalledApKs>? InstalledApKs { get; init; }
 
     /// <summary>
     /// Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.

@@ -8,15 +8,25 @@ namespace Adyen.Models;
 /// </summary>
 public record PaymentRequest21
 {
+    /// <summary>
+    /// Data related to the Sale System.
+    /// </summary>
     [JsonPropertyName("SaleData")]
-    public required SaleData2 SaleData { get; init; }
+    public required SaleData1 SaleData { get; init; }
 
+    /// <summary>
+    /// Data related to the payment and loyalty transaction.
+    /// </summary>
     [JsonPropertyName("PaymentTransaction")]
-    public required PaymentTransaction PaymentTransaction { get; init; }
+    public required PaymentTransaction1 PaymentTransaction { get; init; }
 
+    /// <summary>
+    /// Data related to the payment transaction.
+    /// If one data element is present.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentData")]
-    public PaymentData? PaymentData { get; init; }
+    public PaymentData1? PaymentData { get; init; }
 
     /// <summary>
     /// Data related to a Loyalty program or account.

@@ -3,18 +3,19 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// The recipient of the funds transfer. A bank account or a transfer instrument.
+/// Contains information about the party that receives the payment funds.
 /// </summary>
 public record Counterparty11
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("bankAccount")]
-    public BankAccount? BankAccount { get; init; }
+    /// <summary>
+    /// Contains the full name of the person or entity that receives the payment funds).
+    /// </summary>
+    [JsonPropertyName("accountHolder")]
+    public required AccountHolder11 AccountHolder { get; init; }
 
     /// <summary>
-    /// The unique identifier of the <see href="https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id">transfer instrument</see>.
+    /// Contains the account number to which the payment funds are sent.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("transferInstrumentId")]
-    public string? TransferInstrumentId { get; init; }
+    [JsonPropertyName("accountIdentification")]
+    public required AccountIdentification1 AccountIdentification { get; init; }
 }

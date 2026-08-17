@@ -3,40 +3,49 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// The residential address of the individual.
+/// The address details of the billing entity.
 /// </summary>
 public record Address11
 {
     /// <summary>
-    /// The name of the city. Required if <c>stateOrProvince</c> is provided.
-    /// <para>
-    /// If you specify the city, you must also send <c>postalCode</c> and <c>street</c>.
-    /// </para>
+    /// The name of the city.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("city")]
     public string? City { get; init; }
 
     /// <summary>
-    /// The two-letter <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> country code.
+    /// The name of the company.
     /// </summary>
-    [JsonPropertyName("country")]
-    public required string Country { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("companyName")]
+    public string? CompanyName { get; init; }
 
     /// <summary>
-    /// The postal code. Required if <c>stateOrProvince</c> and/or <c>city</c> is provided.
-    /// <para>
-    /// When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or SW1A 1AA.
-    /// </para>
+    /// The two-letter country code, in <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> format.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("country")]
+    public string? Country { get; init; }
+
+    /// <summary>
+    /// The postal code.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("postalCode")]
     public string? PostalCode { get; init; }
 
     /// <summary>
-    /// The two-letter ISO 3166-2 state or province code. For example, <b>CA</b> in the US. Required for Australia and New Zealand.
+    /// The state or province as defined in <see href="https://www.iso.org/standard/72483.html">ISO 3166-2</see>. For example, <b>ON</b> for Ontario, Canada.
     /// <para>
-    /// If you specify the state or province, you must also send <c>city</c>, <c>postalCode</c>, and <c>street</c>.
+    /// Applicable for the following countries:
+    /// - Australia
+    /// - Brazil
+    /// - Canada
+    /// - India
+    /// - Mexico
+    /// - New Zealand
+    /// - United States
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -44,16 +53,16 @@ public record Address11
     public string? StateOrProvince { get; init; }
 
     /// <summary>
-    /// The name of the street, and the house or building number. Required if <c>stateOrProvince</c> and/or <c>city</c> is provided.
+    /// The name of the street, and the house or building number.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("street")]
-    public string? Street { get; init; }
+    [JsonPropertyName("streetAddress")]
+    public string? StreetAddress { get; init; }
 
     /// <summary>
-    /// The apartment, unit, or suite number.
+    /// Additional address details, if any.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("street2")]
-    public string? Street2 { get; init; }
+    [JsonPropertyName("streetAddress2")]
+    public string? StreetAddress2 { get; init; }
 }

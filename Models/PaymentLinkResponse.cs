@@ -18,16 +18,25 @@ public record PaymentLinkResponse
     [JsonPropertyName("allowedPaymentMethods")]
     public IReadOnlyList<string>? AllowedPaymentMethods { get; init; }
 
+    /// <summary>
+    /// The payment amount and currency.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount35 Amount { get; init; }
 
+    /// <summary>
+    /// Information about your application. For more details, see <see href="https://docs.adyen.com/development-resources/building-adyen-solutions">Building Adyen solutions</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("applicationInfo")]
-    public ApplicationInfo1? ApplicationInfo { get; init; }
+    public ApplicationInfo? ApplicationInfo { get; init; }
 
+    /// <summary>
+    /// The address where to send the invoice.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("billingAddress")]
-    public BillingAddress7? BillingAddress { get; init; }
+    public Address3? BillingAddress { get; init; }
 
     /// <summary>
     /// List of payment methods to be hidden from the shopper. To refer to payment methods, use their <see href="https://docs.adyen.com/payment-methods/payment-method-types">payment method type</see>.
@@ -74,9 +83,12 @@ public record PaymentLinkResponse
     [JsonPropertyName("deliverAt")]
     public DateTimeOffset? DeliverAt { get; init; }
 
+    /// <summary>
+    /// The address where the purchased goods should be delivered.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryAddress")]
-    public DeliveryAddress6? DeliveryAddress { get; init; }
+    public Address2? DeliveryAddress { get; init; }
 
     /// <summary>
     /// A short description visible on the payment page.
@@ -102,13 +114,19 @@ public record PaymentLinkResponse
     [JsonPropertyName("expiresAt")]
     public DateTimeOffset? ExpiresAt { get; init; }
 
+    /// <summary>
+    /// The person or entity funding the money.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundOrigin")]
-    public FundOrigin? FundOrigin { get; init; }
+    public FundOrigin1? FundOrigin { get; init; }
 
+    /// <summary>
+    /// the person or entity receiving the money
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundRecipient")]
-    public FundRecipient? FundRecipient { get; init; }
+    public FundRecipient1? FundRecipient { get; init; }
 
     /// <summary>
     /// A unique identifier of the payment link.
@@ -171,10 +189,20 @@ public record PaymentLinkResponse
     [JsonPropertyName("metadata")]
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
+    /// <summary>
+    /// Dictates the behavior of how a potential chargeback should be booked when using Adyen Platforms.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformChargebackLogic")]
-    public PlatformChargebackLogic1? PlatformChargebackLogic { get; init; }
+    public PlatformChargebackLogic4? PlatformChargebackLogic { get; init; }
 
+    /// <summary>
+    /// Defines a recurring payment type. Required when <c>storePaymentMethodMode</c> is set to <b>askForConsent</b> or <b>enabled</b>.
+    /// Possible values:
+    /// * <b>Subscription</b> – A transaction for a fixed or variable amount, which follows a fixed schedule.
+    /// * <b>CardOnFile</b> – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction.
+    /// * <b>UnscheduledCardOnFile</b> – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("recurringProcessingModel")]
     public RecurringProcessingModel4? RecurringProcessingModel { get; init; }
@@ -216,9 +244,12 @@ public record PaymentLinkResponse
     [JsonPropertyName("reusable")]
     public bool? Reusable { get; init; }
 
+    /// <summary>
+    /// Any risk-related settings to apply to the payment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("riskData")]
-    public RiskData? RiskData { get; init; }
+    public RiskData1? RiskData { get; init; }
 
     /// <summary>
     /// The shopper's email address.
@@ -239,9 +270,12 @@ public record PaymentLinkResponse
     [MaxLength(32)]
     public string? ShopperLocale { get; init; }
 
+    /// <summary>
+    /// The shopper's full name. This object is required for some payment methods such as AfterPay, Klarna, or if you're enrolled in the PayPal Seller Protection program.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shopperName")]
-    public ShopperName? ShopperName { get; init; }
+    public Name4? ShopperName { get; init; }
 
     /// <summary>
     /// Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.
@@ -289,8 +323,15 @@ public record PaymentLinkResponse
     [JsonPropertyName("splits")]
     public IReadOnlyList<Split>? Splits { get; init; }
 
+    /// <summary>
+    /// Status of the payment link. Possible values:
+    /// * <b>active</b>: The link can be used to make payments.
+    /// * <b>expired</b>: The expiry date for the payment link has passed. Shoppers can no longer use the link to make payments.
+    /// * <b>completed</b>: The shopper completed the payment.
+    /// * <b>paymentPending</b>: The shopper is in the process of making the payment. Applies to payment methods with an asynchronous flow.
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status31 Status { get; init; }
+    public required Status3 Status { get; init; }
 
     /// <summary>
     /// The physical store, for which this payment is processed.
@@ -299,6 +340,13 @@ public record PaymentLinkResponse
     [JsonPropertyName("store")]
     public string? Store { get; init; }
 
+    /// <summary>
+    /// Indicates if the details of the payment method will be stored for the shopper. Possible values:
+    /// * <b>disabled</b> – No details will be stored (default).
+    /// * <b>askForConsent</b> – If the <c>shopperReference</c> is provided, the Drop-in/Component shows a checkbox where the shopper can select to store their payment details for card payments.
+    /// * <b>enabled</b> – If the <c>shopperReference</c> is provided, the details will be stored without asking the shopper for consent.
+    ///  When set to <b>askForConsent</b> or <b>enabled</b>, you must also include the <c>recurringProcessingModel</c> parameter.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("storePaymentMethodMode")]
     public StorePaymentMethodMode2? StorePaymentMethodMode { get; init; }
@@ -320,9 +368,12 @@ public record PaymentLinkResponse
     [JsonPropertyName("themeId")]
     public string? ThemeId { get; init; }
 
+    /// <summary>
+    /// The cardholder phone number need to be part of the authentication message for payment data. It is a requirement for Visa Secure Authentication Data Field Mandate effective August 2024.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDS2RequestData")]
-    public CheckoutSessionThreeDs2RequestData? ThreeDs2RequestData { get; init; }
+    public CheckoutSessionThreeDs2RequestData3? ThreeDs2RequestData { get; init; }
 
     /// <summary>
     /// The date when the payment link status was updated.

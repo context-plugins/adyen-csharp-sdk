@@ -23,7 +23,11 @@ public record GetTotalsRequest2
     [JsonPropertyName("TotalDetails")]
     public IReadOnlyList<TotalDetail>? TotalDetails { get; init; }
 
+    /// <summary>
+    /// Filter to compute the totals.
+    /// Used for the Get Totals, to request totals for a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or TotalsGroupID.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("TotalFilter")]
-    public TotalFilter? TotalFilter { get; init; }
+    public TotalFilter2? TotalFilter { get; init; }
 }

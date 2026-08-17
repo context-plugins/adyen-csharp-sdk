@@ -37,6 +37,27 @@ public record SweepSchedule
     [JsonPropertyName("cronExpression")]
     public string? CronExpression { get; init; }
 
+    /// <summary>
+    /// The schedule type.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>cron</b>: push out funds based on a <c>cronExpression</c>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>daily</b>: push out funds daily at 07:00 AM CET.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>weekly</b>: push out funds every Monday at 07:00 AM CET.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>monthly</b>: push out funds every first of the month at 07:00 AM CET.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>balance</b>: execute the sweep instantly if the <c>triggerAmount</c> is reached.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type6 Type { get; init; }
+    public required Type62 Type { get; init; }
 }

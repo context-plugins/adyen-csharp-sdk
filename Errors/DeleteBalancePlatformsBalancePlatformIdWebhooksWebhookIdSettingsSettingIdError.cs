@@ -9,119 +9,28 @@ namespace Adyen.Errors;
 
 public sealed class DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError : ApiError
 {
-    private readonly Optional<BalancePlatformsWebhooksSettingsSettingId400Error1> _balancePlatformsWebhooksSettingsSettingId400Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<BalancePlatformsWebhooksSettingsSettingId401Error1> _balancePlatformsWebhooksSettingsSettingId401Error1Value;
-
-    private readonly Optional<BalancePlatformsWebhooksSettingsSettingId403Error1> _balancePlatformsWebhooksSettingsSettingId403Error1Value;
-
-    private readonly Optional<BalancePlatformsWebhooksSettingsSettingId404Error1> _balancePlatformsWebhooksSettingsSettingId404Error1Value;
-
-    private readonly Optional<BalancePlatformsWebhooksSettingsSettingId422Error1> _balancePlatformsWebhooksSettingsSettingId422Error1Value;
-
-    private readonly Optional<BalancePlatformsWebhooksSettingsSettingId500Error1> _balancePlatformsWebhooksSettingsSettingId500Error1Value;
-
-    private DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError(Optional<BalancePlatformsWebhooksSettingsSettingId400Error1> balancePlatformsWebhooksSettingsSettingId400Error1Value,
-        Optional<BalancePlatformsWebhooksSettingsSettingId401Error1> balancePlatformsWebhooksSettingsSettingId401Error1Value,
-        Optional<BalancePlatformsWebhooksSettingsSettingId403Error1> balancePlatformsWebhooksSettingsSettingId403Error1Value,
-        Optional<BalancePlatformsWebhooksSettingsSettingId404Error1> balancePlatformsWebhooksSettingsSettingId404Error1Value,
-        Optional<BalancePlatformsWebhooksSettingsSettingId422Error1> balancePlatformsWebhooksSettingsSettingId422Error1Value,
-        Optional<BalancePlatformsWebhooksSettingsSettingId500Error1> balancePlatformsWebhooksSettingsSettingId500Error1Value,
+    private DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _balancePlatformsWebhooksSettingsSettingId400Error1Value = balancePlatformsWebhooksSettingsSettingId400Error1Value;
-        _balancePlatformsWebhooksSettingsSettingId401Error1Value = balancePlatformsWebhooksSettingsSettingId401Error1Value;
-        _balancePlatformsWebhooksSettingsSettingId403Error1Value = balancePlatformsWebhooksSettingsSettingId403Error1Value;
-        _balancePlatformsWebhooksSettingsSettingId404Error1Value = balancePlatformsWebhooksSettingsSettingId404Error1Value;
-        _balancePlatformsWebhooksSettingsSettingId422Error1Value = balancePlatformsWebhooksSettingsSettingId422Error1Value;
-        _balancePlatformsWebhooksSettingsSettingId500Error1Value = balancePlatformsWebhooksSettingsSettingId500Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsBalancePlatformsWebhooksSettingsSettingId400Error1(BalancePlatformsWebhooksSettingsSettingId400Error1 value) =>
-        new(Optional<BalancePlatformsWebhooksSettingsSettingId400Error1>.Some(value),
-            default,
-            default,
-            default,
-            default,
-            default,
-            default);
-
-    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsBalancePlatformsWebhooksSettingsSettingId401Error1(BalancePlatformsWebhooksSettingsSettingId401Error1 value) =>
-        new(default,
-            Optional<BalancePlatformsWebhooksSettingsSettingId401Error1>.Some(value),
-            default,
-            default,
-            default,
-            default,
-            default);
-
-    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsBalancePlatformsWebhooksSettingsSettingId403Error1(BalancePlatformsWebhooksSettingsSettingId403Error1 value) =>
-        new(default,
-            default,
-            Optional<BalancePlatformsWebhooksSettingsSettingId403Error1>.Some(value),
-            default,
-            default,
-            default,
-            default);
-
-    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsBalancePlatformsWebhooksSettingsSettingId404Error1(BalancePlatformsWebhooksSettingsSettingId404Error1 value) =>
-        new(default,
-            default,
-            default,
-            Optional<BalancePlatformsWebhooksSettingsSettingId404Error1>.Some(value),
-            default,
-            default,
-            default);
-
-    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsBalancePlatformsWebhooksSettingsSettingId422Error1(BalancePlatformsWebhooksSettingsSettingId422Error1 value) =>
-        new(default,
-            default,
-            default,
-            default,
-            Optional<BalancePlatformsWebhooksSettingsSettingId422Error1>.Some(value),
-            default,
-            default);
-
-    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsBalancePlatformsWebhooksSettingsSettingId500Error1(BalancePlatformsWebhooksSettingsSettingId500Error1 value) =>
-        new(default,
-            default,
-            default,
-            default,
-            default,
-            Optional<BalancePlatformsWebhooksSettingsSettingId500Error1>.Some(value),
-            default);
+    private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError AsFallback(RawError value) =>
-        new(default, default, default, default, default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetBalancePlatformsWebhooksSettingsSettingId400Error1(out BalancePlatformsWebhooksSettingsSettingId400Error1 value) =>
-        _balancePlatformsWebhooksSettingsSettingId400Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalancePlatformsWebhooksSettingsSettingId401Error1(out BalancePlatformsWebhooksSettingsSettingId401Error1 value) =>
-        _balancePlatformsWebhooksSettingsSettingId401Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalancePlatformsWebhooksSettingsSettingId403Error1(out BalancePlatformsWebhooksSettingsSettingId403Error1 value) =>
-        _balancePlatformsWebhooksSettingsSettingId403Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalancePlatformsWebhooksSettingsSettingId404Error1(out BalancePlatformsWebhooksSettingsSettingId404Error1 value) =>
-        _balancePlatformsWebhooksSettingsSettingId404Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalancePlatformsWebhooksSettingsSettingId422Error1(out BalancePlatformsWebhooksSettingsSettingId422Error1 value) =>
-        _balancePlatformsWebhooksSettingsSettingId422Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalancePlatformsWebhooksSettingsSettingId500Error1(out BalancePlatformsWebhooksSettingsSettingId500Error1 value) =>
-        _balancePlatformsWebhooksSettingsSettingId500Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 => FromJson<BalancePlatformsWebhooksSettingsSettingId400Error1>(response, ct).As(AsBalancePlatformsWebhooksSettingsSettingId400Error1),
-            401 => FromJson<BalancePlatformsWebhooksSettingsSettingId401Error1>(response, ct).As(AsBalancePlatformsWebhooksSettingsSettingId401Error1),
-            403 => FromJson<BalancePlatformsWebhooksSettingsSettingId403Error1>(response, ct).As(AsBalancePlatformsWebhooksSettingsSettingId403Error1),
-            404 => FromJson<BalancePlatformsWebhooksSettingsSettingId404Error1>(response, ct).As(AsBalancePlatformsWebhooksSettingsSettingId404Error1),
-            422 => FromJson<BalancePlatformsWebhooksSettingsSettingId422Error1>(response, ct).As(AsBalancePlatformsWebhooksSettingsSettingId422Error1),
-            500 => FromJson<BalancePlatformsWebhooksSettingsSettingId500Error1>(response, ct).As(AsBalancePlatformsWebhooksSettingsSettingId500Error1),
+            400 or 401 or 403 or 404 or 422 or 500 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

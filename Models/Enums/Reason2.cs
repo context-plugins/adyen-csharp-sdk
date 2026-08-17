@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The reason for the transfer status.
+/// Additional information about the status of the transfer.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Reason2>))]
 public sealed record Reason2 : StringEnum<Reason2>

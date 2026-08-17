@@ -1,9 +1,17 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
 public record ServiceError
 {
+    /// <summary>
+    /// Contains additional information about the payment. Some data fields are included only if you select them first. Go to <b>Customer Area</b> &gt; <b>Developers</b> &gt; <b>Additional data</b>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("additionalData")]
+    public IReadOnlyDictionary<string, string>? AdditionalData { get; init; }
+
     /// <summary>
     /// The error code mapped to the error message.
     /// </summary>

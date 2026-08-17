@@ -26,7 +26,7 @@ public sealed class AccountCompanyLevel
     }
 
     /// <summary>
-    /// get-companies
+    /// Get a list of company accounts
     /// </summary>
     /// <param name="pageNumber">The number of the page to fetch.</param>
     /// <param name="pageSize">The number of items to have on a page, maximum 100. The default is 10 items on a page.</param>
@@ -47,7 +47,7 @@ public sealed class AccountCompanyLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies"),
+        _rawClient.Execute(_server.Default9("/companies"),
             [],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -60,7 +60,7 @@ public sealed class AccountCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId
+    /// Get a company account
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -77,7 +77,7 @@ public sealed class AccountCompanyLevel
     public Task<Company2> GetCompaniesCompanyId(string companyId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}"),
             [new TemplateParam("companyId", companyId)],
             [],
             [],
@@ -90,7 +90,7 @@ public sealed class AccountCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-merchants
+    /// Get a list of merchant accounts
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -111,7 +111,7 @@ public sealed class AccountCompanyLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/merchants"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/merchants"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],

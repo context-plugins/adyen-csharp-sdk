@@ -21,12 +21,18 @@ public record AdjustAuthorisationRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// The currency and value of the new total amount in minor units. For example, to increase the amount, the value is the sum of the pre-authorized amount and the additional amount.
+    /// </summary>
     [JsonPropertyName("modificationAmount")]
-    public required ModificationAmount ModificationAmount { get; init; }
+    public required Amount ModificationAmount { get; init; }
 
+    /// <summary>
+    /// Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mpiData")]
-    public MpiData? MpiData { get; init; }
+    public ThreeDSecureData? MpiData { get; init; }
 
     /// <summary>
     /// The original merchant reference to cancel.
@@ -44,9 +50,12 @@ public record AdjustAuthorisationRequest
     [JsonPropertyName("originalReference")]
     public required string OriginalReference { get; init; }
 
+    /// <summary>
+    /// Defines how to book chargebacks when using <see href="https://docs.adyen.com/adyen-for-platforms-model">Adyen for Platforms</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformChargebackLogic")]
-    public PlatformChargebackLogic1? PlatformChargebackLogic { get; init; }
+    public PlatformChargebackLogic? PlatformChargebackLogic { get; init; }
 
     /// <summary>
     /// Your reference for the payment modification. This reference is visible in Customer Area and in reports.

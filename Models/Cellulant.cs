@@ -28,7 +28,9 @@ public record Cellulant
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>Cellulant</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type17? Type { get; init; }
+    public Type17? Type { get; init; } = Type17.Cellulant;
 }

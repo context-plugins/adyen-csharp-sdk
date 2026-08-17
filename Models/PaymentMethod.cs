@@ -11,7 +11,7 @@ public record PaymentMethod
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("apps")]
-    public IReadOnlyList<PaymentMethodUpiapps>? Apps { get; init; }
+    public IReadOnlyList<PaymentMethodUpiApps>? Apps { get; init; }
 
     /// <summary>
     /// Brand for the selected gift card. For example: plastix, hmclub.
@@ -34,13 +34,19 @@ public record PaymentMethod
     [JsonPropertyName("configuration")]
     public IReadOnlyDictionary<string, string>? Configuration { get; init; }
 
+    /// <summary>
+    /// The funding source of the payment method.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fundingSource")]
-    public FundingSource? FundingSource { get; init; }
+    public FundingSource9? FundingSource { get; init; }
 
+    /// <summary>
+    /// The group where this payment method belongs to.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("group")]
-    public PaymentMethodGroup? Group { get; init; }
+    public PaymentMethodGroup2? Group { get; init; }
 
     /// <summary>
     /// All input details to be provided to complete the payment with this payment method.

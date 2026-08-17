@@ -8,12 +8,19 @@ namespace Adyen.Models;
 /// </summary>
 public record BalanceInquiryResponse2
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Data related to the result of a Balance Inquiry request.
+    /// If BalanceInquiryRequest. PaymentAccount present.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentAccountStatus")]
-    public PaymentAccountStatus? PaymentAccountStatus { get; init; }
+    public PaymentAccountStatus2? PaymentAccountStatus { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentReceipt")]

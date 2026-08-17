@@ -5,13 +5,19 @@ namespace Adyen.Models;
 
 public record SubMerchantInfo
 {
+    /// <summary>
+    /// Required for transactions performed by registered payment facilitators. The sub-merchant's address.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public BillingAddress? Address { get; init; }
+    public BillingAddress4? Address { get; init; }
 
+    /// <summary>
+    /// Required for transactions performed by registered payment facilitators. The amount of the payment corresponding to each sub-merchant. This value will be different than the request amount if shopper is purchasing items at different sub-merchants' shops.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount32? Amount { get; init; }
 
     /// <summary>
     /// Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant's account.

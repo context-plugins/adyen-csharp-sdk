@@ -9,6 +9,17 @@ namespace Adyen.Models;
 /// </summary>
 public record PaymentReceipt
 {
+    /// <summary>
+    /// Qualification of the document to print to the Cashier or the Customer.
+    /// SaleReceipt or CashierReceipt.
+    /// Possible values:
+    /// * <b>CashierReceipt</b>
+    /// * <b>CustomerReceipt</b>
+    /// * <b>Document</b>
+    /// * <b>Journal</b>
+    /// * <b>SaleReceipt</b>
+    /// * <b>Voucher</b>
+    /// </summary>
     [JsonPropertyName("DocumentQualifier")]
     public required DocumentQualifier1 DocumentQualifier { get; init; }
 
@@ -25,6 +36,9 @@ public record PaymentReceipt
     [JsonPropertyName("RequiredSignatureFlag")]
     public bool? RequiredSignatureFlag { get; init; } = false;
 
+    /// <summary>
+    /// Content to display or print.
+    /// </summary>
     [JsonPropertyName("OutputContent")]
-    public required OutputContent2 OutputContent { get; init; }
+    public required OutputContent1 OutputContent { get; init; }
 }

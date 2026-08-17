@@ -73,6 +73,30 @@ public record LegalEntityAssociation
     [JsonPropertyName("settlorExemptionReason")]
     public IReadOnlyList<string>? SettlorExemptionReason { get; init; }
 
+    /// <summary>
+    /// Defines the relationship of the legal entity to the current legal entity.
+    /// <para>
+    /// Possible value for individuals: <b>legalRepresentative</b>.
+    /// </para>
+    /// <para>
+    /// Possible values for organizations: <b>director</b>, <b>signatory</b>, <b>trustOwnership</b>, <b>uboThroughOwnership</b>, <b>uboThroughControl</b>, <b>ultimateParentCompany</b>, or <b>immediateParentCompany</b>.
+    /// </para>
+    /// <para>
+    /// Possible values for sole proprietorships: <b>soleProprietorship</b>.
+    /// </para>
+    /// <para>
+    /// Possible value for trusts: <b>trust</b>.
+    /// </para>
+    /// <para>
+    /// Possible values for trust members: <b>definedBeneficiary</b>, <b>protector</b>, <b>secondaryTrustee</b>, <b>settlor</b>, <b>uboThroughControl</b>, or <b>uboThroughOwnership</b>.
+    /// </para>
+    /// <para>
+    /// Possible value for unincorporated partnership: <b>unincorporatedPartnership</b>.
+    /// </para>
+    /// <para>
+    /// Possible values for unincorporated partnership members: <b>secondaryPartner</b>, <b>uboThroughControl</b>, <b>uboThroughOwnership</b>
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
     public required Type142 Type { get; init; }
 }

@@ -9,14 +9,17 @@ namespace Adyen.Models;
 /// </summary>
 public record GetTotalsResponse
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
     /// <summary>
     /// Identification of the reconciliation period between Sale and POI.
     /// </summary>
     [JsonPropertyName("POIReconciliationID")]
-    public required int PoireconciliationId { get; init; }
+    public required int PoiReconciliationId { get; init; }
 
     /// <summary>
     /// Result of the Sale to POI Reconciliation processing.

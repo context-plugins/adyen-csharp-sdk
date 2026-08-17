@@ -16,7 +16,10 @@ public record TotalAmountRestriction1
     [JsonPropertyName("operation")]
     public required string Operation { get; init; }
 
+    /// <summary>
+    /// The amount value and currency.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("value")]
-    public Value7? Value { get; init; }
+    public Amount17? Value { get; init; }
 }

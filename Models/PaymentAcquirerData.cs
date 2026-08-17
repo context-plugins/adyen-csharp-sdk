@@ -30,9 +30,13 @@ public record PaymentAcquirerData
     [RegularExpression("^.+$")]
     public required string AcquirerPoiid { get; init; }
 
+    /// <summary>
+    /// Identification of the Transaction for the Acquirer.
+    /// If provided by the Acquirer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("AcquirerTransactionID")]
-    public AcquirerTransactionId? AcquirerTransactionId { get; init; }
+    public TransactionIdType6? AcquirerTransactionId { get; init; }
 
     /// <summary>
     /// Code assigned to a transaction approval by the Acquirer.

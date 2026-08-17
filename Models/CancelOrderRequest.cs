@@ -10,6 +10,9 @@ public record CancelOrderRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// The order request object that contains a pspReference that represents the order and the matching encrypted order data.
+    /// </summary>
     [JsonPropertyName("order")]
-    public required EncryptedOrderData Order { get; init; }
+    public required EncryptedOrderData4 Order { get; init; }
 }

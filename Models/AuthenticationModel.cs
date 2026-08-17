@@ -26,7 +26,25 @@ public record AuthenticationModel
     [StringLength(30, MinimumLength = 1)]
     public string? Password { get; init; }
 
+    /// <summary>
+    /// The phone number where the one-time password (OTP) is sent.
+    /// <para>
+    /// This object must have:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>A <c>type</c> set to <b>mobile</b>.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>A <c>number</c> with a valid country code.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description>A <c>number</c> with more than 4 digits, excluding the country code.</description></item>
+    /// </list>
+    /// <para>
+    /// &gt;Make sure to verify that the card user owns the phone number.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone")]
-    public Phone? Phone { get; init; }
+    public Phone11? Phone { get; init; }
 }

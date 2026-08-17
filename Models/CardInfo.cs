@@ -6,9 +6,12 @@ namespace Adyen.Models;
 
 public record CardInfo
 {
+    /// <summary>
+    /// Contains the card user's password and mobile phone number. This is required when you issue cards that can be used to make online payments within the EEA and the UK, or can be added to digital wallets. Refer to <see href="https://docs.adyen.com/issuing/3d-secure-and-wallets">3D Secure and digital wallets</see> for more information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("authentication")]
-    public AuthenticationModel? Authentication { get; init; }
+    public Authentication1? Authentication { get; init; }
 
     /// <summary>
     /// The brand of the physical or the virtual card.
@@ -32,14 +35,30 @@ public record CardInfo
     [MaxLength(26)]
     public required string CardholderName { get; init; }
 
+    /// <summary>
+    /// Contains information about the configuration profile for your cards. The configuration profile consists of settings required when creating a physical or a virtual card. You identify a configuration profile with its <c>configurationProfileId</c>.
+    /// <para>
+    /// When you provide this field in a request, you can override the settings of an existing configuration profile.
+    /// </para>
+    /// <para>
+    /// Reach out to your Adyen contact to get the values that you can send in this object.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("configuration")]
-    public CardConfiguration? Configuration { get; init; }
+    public CardConfiguration2? Configuration { get; init; }
 
+    /// <summary>
+    /// The delivery contact (name and address) for physical card delivery.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deliveryContact")]
-    public DeliveryContact? DeliveryContact { get; init; }
+    public DeliveryContact1? DeliveryContact { get; init; }
 
+    /// <summary>
+    /// The form factor of the card.
+    /// Possible values: <b>virtual</b>, <b>physical</b>.
+    /// </summary>
     [JsonPropertyName("formFactor")]
     public required FormFactor1 FormFactor { get; init; }
 
@@ -49,7 +68,7 @@ public record CardInfo
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSecure")]
-    public string? ThreeDsecure { get; init; }
+    public string? ThreeDSecure { get; init; }
 
     /// <summary>
     /// Specifies how many times the card can be used. Possible values: <b>singleUse</b>, <b>multiUse</b>.

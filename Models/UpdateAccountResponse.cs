@@ -47,10 +47,19 @@ public record UpdateAccountResponse
     [JsonPropertyName("payoutMethodCode")]
     public string? PayoutMethodCode { get; init; }
 
+    /// <summary>
+    /// The details of the payout schedule to which the account is updated.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutSchedule")]
-    public PayoutScheduleResponse? PayoutSchedule { get; init; }
+    public PayoutScheduleResponse3? PayoutSchedule { get; init; }
 
+    /// <summary>
+    /// Speed at which payouts for this account are processed.
+    /// <para>
+    /// Possible values: <c>STANDARD</c>, <c>SAME_DAY</c>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutSpeed")]
     public PayoutSpeed4? PayoutSpeed { get; init; }

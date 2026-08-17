@@ -9,8 +9,11 @@ namespace Adyen.Models;
 /// </summary>
 public record AbortRequest
 {
+    /// <summary>
+    /// Identification of a previous POI transaction.
+    /// </summary>
     [JsonPropertyName("MessageReference")]
-    public required MessageReference1 MessageReference { get; init; }
+    public required MessageReference4 MessageReference { get; init; }
 
     /// <summary>
     /// Reason of aborting a transaction.
@@ -19,7 +22,11 @@ public record AbortRequest
     [RegularExpression("^.+$")]
     public required string AbortReason { get; init; }
 
+    /// <summary>
+    /// Information to display and the way to process the display.
+    /// To display an abort message to the Customer.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("DisplayOutput")]
-    public DisplayOutput3? DisplayOutput { get; init; }
+    public DisplayOutput1? DisplayOutput { get; init; }
 }

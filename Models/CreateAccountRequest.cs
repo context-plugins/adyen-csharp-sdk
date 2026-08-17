@@ -42,6 +42,13 @@ public record CreateAccountRequest
     [JsonPropertyName("payoutMethodCode")]
     public string? PayoutMethodCode { get; init; }
 
+    /// <summary>
+    /// The payout schedule for the account.
+    /// <para>
+    /// Possible values: <c>DEFAULT</c>, <c>DAILY</c>, <c>DAILY_US</c>, <c>DAILY_EU</c>, <c>DAILY_AU</c>, <c>DAILY_SG</c>, <c>WEEKLY</c>, <c>WEEKLY_ON_TUE_FRI_MIDNIGHT</c>, <c>BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT</c>, <c>MONTHLY</c>, <c>HOLD</c>.
+    /// &gt; <c>HOLD</c> prevents scheduled payouts, but you can still initiate payouts manually.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutSchedule")]
     public PayoutSchedule? PayoutSchedule { get; init; }
@@ -54,7 +61,12 @@ public record CreateAccountRequest
     [JsonPropertyName("payoutScheduleReason")]
     public string? PayoutScheduleReason { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Speed at which payouts for this account are processed.
+    /// <para>
+    /// Possible values: <c>STANDARD</c> (default), <c>SAME_DAY</c>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("payoutSpeed")]
-    public PayoutSpeed1? PayoutSpeed { get; init; }
+    public PayoutSpeed1? PayoutSpeed { get; init; } = PayoutSpeed1.Standard;
 }

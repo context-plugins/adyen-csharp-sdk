@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Adyen.Core;
 using Adyen.Core.Authentication;
+using Adyen.Core.ErrorResponse;
 using Adyen.Core.Exceptions;
 using Adyen.Core.Models;
 using Adyen.Core.Request;
@@ -27,7 +28,7 @@ public sealed class General
     }
 
     /// <summary>
-    /// post-acceptDispute
+    /// Accept a dispute
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +41,7 @@ public sealed class General
     public Task<AcceptDisputeResponse> PostAcceptDispute(AcceptDisputeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/acceptDispute"),
+        _rawClient.Execute(_server.Default22("/acceptDispute"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -53,7 +54,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-accountHolderBalance
+    /// Get the balances of an account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +67,7 @@ public sealed class General
     public Task<AccountHolderBalanceResponse> PostAccountHolderBalance(CloseAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolderBalance"),
+        _rawClient.Execute(_server.Default16("/accountHolderBalance"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -79,7 +80,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-accountHolderTransactionList
+    /// Get a list of transactions
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -92,7 +93,7 @@ public sealed class General
     public Task<AccountHolderTransactionListResponse> PostAccountHolderTransactionList(AccountHolderTransactionListRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/accountHolderTransactionList"),
+        _rawClient.Execute(_server.Default16("/accountHolderTransactionList"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -105,7 +106,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-assignTerminals
+    /// Assign terminals
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -121,7 +122,7 @@ public sealed class General
     public Task<AssignTerminalsResponse> PostAssignTerminals(AssignTerminalsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/assignTerminals"),
+        _rawClient.Execute(_server.Default28("/assignTerminals"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -134,7 +135,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-changeStatus
+    /// Changes the status of the payment method.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -147,7 +148,7 @@ public sealed class General
     public Task<StoredValueStatusChangeResponse> PostChangeStatus(StoredValueStatusChangeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/changeStatus"),
+        _rawClient.Execute(_server.Default5("/changeStatus"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -160,7 +161,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-checkBalance
+    /// Checks the balance.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -173,7 +174,7 @@ public sealed class General
     public Task<StoredValueBalanceCheckResponse> PostCheckBalance(StoredValueBalanceCheckRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/checkBalance"),
+        _rawClient.Execute(_server.Default5("/checkBalance"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -186,7 +187,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-createNotificationConfiguration
+    /// Subscribe to notifications
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -199,7 +200,7 @@ public sealed class General
     public Task<GetNotificationConfigurationResponse> PostCreateNotificationConfiguration(CreateNotificationConfigurationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/createNotificationConfiguration"),
+        _rawClient.Execute(_server.Default12("/createNotificationConfiguration"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -212,7 +213,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-createPermit
+    /// Create new permits linked to a recurring contract.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -225,7 +226,7 @@ public sealed class General
     public Task<CreatePermitResult> PostCreatePermit(CreatePermitRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/createPermit"),
+        _rawClient.Execute(_server.Default2("/createPermit"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -238,7 +239,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-createTestCardRanges
+    /// Creates one or more test card ranges.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -251,7 +252,7 @@ public sealed class General
     public Task<CreateTestCardRangesResult> PostCreateTestCardRanges(CreateTestCardRangesRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/createTestCardRanges"),
+        _rawClient.Execute(_server.Default8("/createTestCardRanges"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -264,7 +265,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-debitAccountHolder
+    /// Send a direct debit request
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -280,7 +281,7 @@ public sealed class General
     public Task<DebitAccountHolderResponse> PostDebitAccountHolder(DebitAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/debitAccountHolder"),
+        _rawClient.Execute(_server.Default16("/debitAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -293,7 +294,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-defendDispute
+    /// Defend a dispute
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -306,7 +307,7 @@ public sealed class General
     public Task<DefendDisputeResponse> PostDefendDispute(DefendDisputeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/defendDispute"),
+        _rawClient.Execute(_server.Default22("/defendDispute"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -319,7 +320,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-deleteDisputeDefenseDocument
+    /// Delete a defense document
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -332,7 +333,7 @@ public sealed class General
     public Task<DeleteDefenseDocumentResponse> PostDeleteDisputeDefenseDocument(DeleteDefenseDocumentRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deleteDisputeDefenseDocument"),
+        _rawClient.Execute(_server.Default22("/deleteDisputeDefenseDocument"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -345,7 +346,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-deleteNotificationConfigurations
+    /// Delete a notification subscription configuration
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -358,7 +359,7 @@ public sealed class General
     public Task<GenericResponse> PostDeleteNotificationConfigurations(DeleteNotificationConfigurationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/deleteNotificationConfigurations"),
+        _rawClient.Execute(_server.Default12("/deleteNotificationConfigurations"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -371,7 +372,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-disable
+    /// Disable stored payment details
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -387,7 +388,7 @@ public sealed class General
     public Task<DisableResult> PostDisable(DisableRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disable"),
+        _rawClient.Execute(_server.Default2("/disable"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -400,7 +401,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-disablePermit
+    /// Disable an existing permit.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -413,7 +414,7 @@ public sealed class General
     public Task<DisablePermitResult> PostDisablePermit(DisablePermitRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disablePermit"),
+        _rawClient.Execute(_server.Default2("/disablePermit"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -426,7 +427,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-findTerminal
+    /// Get the account or store of a terminal
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -442,7 +443,7 @@ public sealed class General
     public Task<FindTerminalResponse> PostFindTerminal(FindTerminalRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/findTerminal"),
+        _rawClient.Execute(_server.Default28("/findTerminal"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -455,12 +456,12 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-get3dsAvailability
+    /// Check if 3D Secure is available
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ThreeDsavailabilityResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ThreeDsAvailabilityResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostGet3DsAvailabilityError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Verifies whether 3D Secure is available for the specified BIN or card brand. For 3D Secure 2, this endpoint also returns device fingerprinting keys.
@@ -468,23 +469,23 @@ public sealed class General
     /// For more information, refer to <see href="https://docs.adyen.com/online-payments/3d-secure/native-3ds2">3D Secure 2</see>.
     /// </para>
     /// </remarks>
-    public Task<ThreeDsavailabilityResponse> PostGet3DsAvailability(ThreeDsavailabilityRequest? body,
+    public Task<ThreeDsAvailabilityResponse> PostGet3DsAvailability(ThreeDsAvailabilityRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/get3dsAvailability"),
+        _rawClient.Execute(_server.Default4("/get3dsAvailability"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ThreeDsavailabilityResponse>(),
+            JsonResponse.Create<ThreeDsAvailabilityResponse>(),
             PostGet3DsAvailabilityErrorResponse.Instance,
             [new AuthSchemeAny(_auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-getCostEstimate
+    /// Get a fees cost estimate
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -506,7 +507,7 @@ public sealed class General
     public Task<CostEstimateResponse> PostGetCostEstimate(CostEstimateRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getCostEstimate"),
+        _rawClient.Execute(_server.Default4("/getCostEstimate"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -519,7 +520,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-getNotificationConfiguration
+    /// Get a notification subscription configuration
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -532,7 +533,7 @@ public sealed class General
     public Task<GetNotificationConfigurationResponse> PostGetNotificationConfiguration(GetNotificationConfigurationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getNotificationConfiguration"),
+        _rawClient.Execute(_server.Default12("/getNotificationConfiguration"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -545,7 +546,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-getNotificationConfigurationList
+    /// Get a list of notification subscription configurations
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -558,7 +559,7 @@ public sealed class General
     public Task<GetNotificationConfigurationListResponse> PostGetNotificationConfigurationList(object? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getNotificationConfigurationList"),
+        _rawClient.Execute(_server.Default12("/getNotificationConfigurationList"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -571,7 +572,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-getStoresUnderAccount
+    /// Get the stores of an account
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -587,7 +588,7 @@ public sealed class General
     public Task<GetStoresUnderAccountResponse> PostGetStoresUnderAccount(GetStoresUnderAccountRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getStoresUnderAccount"),
+        _rawClient.Execute(_server.Default28("/getStoresUnderAccount"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -600,7 +601,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-getTerminalDetails
+    /// Get the details of a terminal
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -613,10 +614,10 @@ public sealed class General
     /// &gt;From January 1, 2025 POS Terminal Management API is deprecated and support stops on April 1, 2025. To automate the management of your terminal fleet, use our <see href="https://docs.adyen.com/api-explorer/Management/latest/overview">Management API</see>.
     /// </para>
     /// </remarks>
-    public Task<GetTerminalDetailsResponse> PostGetTerminalDetails(FindTerminalRequest? body,
+    public Task<GetTerminalDetailsResponse> PostGetTerminalDetails(GetTerminalDetailsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getTerminalDetails"),
+        _rawClient.Execute(_server.Default28("/getTerminalDetails"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -629,7 +630,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-getTerminalsUnderAccount
+    /// Get the list of terminals
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -645,7 +646,7 @@ public sealed class General
     public Task<GetTerminalsUnderAccountResponse> PostGetTerminalsUnderAccount(GetTerminalsUnderAccountRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getTerminalsUnderAccount"),
+        _rawClient.Execute(_server.Default28("/getTerminalsUnderAccount"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -658,7 +659,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-issue
+    /// Issues a new card.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -671,7 +672,7 @@ public sealed class General
     public Task<StoredValueIssueResponse> PostIssue(StoredValueIssueRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/issue"),
+        _rawClient.Execute(_server.Default5("/issue"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -684,7 +685,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-listRecurringDetails
+    /// Get stored payment details
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -700,7 +701,7 @@ public sealed class General
     public Task<RecurringDetailsResult> PostListRecurringDetails(RecurringDetailsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/listRecurringDetails"),
+        _rawClient.Execute(_server.Default2("/listRecurringDetails"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -713,7 +714,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-load
+    /// Loads the payment method.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -726,7 +727,7 @@ public sealed class General
     public Task<StoredValueLoadResponse> PostLoad(StoredValueLoadRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/load"),
+        _rawClient.Execute(_server.Default5("/load"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -739,7 +740,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-mergeBalance
+    /// Merge the balance of two cards.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -752,7 +753,7 @@ public sealed class General
     public Task<StoredValueBalanceMergeResponse> PostMergeBalance(StoredValueBalanceMergeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/mergeBalance"),
+        _rawClient.Execute(_server.Default5("/mergeBalance"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -765,7 +766,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-notifyShopper
+    /// Ask issuer to notify the shopper
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -778,7 +779,7 @@ public sealed class General
     public Task<NotifyShopperResult> PostNotifyShopper(NotifyShopperRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/notifyShopper"),
+        _rawClient.Execute(_server.Default2("/notifyShopper"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -791,7 +792,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-payoutAccountHolder
+    /// Pay out from an account to the account holder
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -804,7 +805,7 @@ public sealed class General
     public Task<PayoutAccountHolderResponse> PostPayoutAccountHolder(PayoutAccountHolderRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/payoutAccountHolder"),
+        _rawClient.Execute(_server.Default16("/payoutAccountHolder"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -817,7 +818,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-refundFundsTransfer
+    /// Refund a funds transfer
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -830,7 +831,7 @@ public sealed class General
     public Task<RefundFundsTransferResponse> PostRefundFundsTransfer(RefundFundsTransferRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/refundFundsTransfer"),
+        _rawClient.Execute(_server.Default16("/refundFundsTransfer"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -843,7 +844,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-refundNotPaidOutTransfers
+    /// Refund all transactions of an account since the most recent payout
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -856,7 +857,7 @@ public sealed class General
     public Task<GenericResponse> PostRefundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/refundNotPaidOutTransfers"),
+        _rawClient.Execute(_server.Default16("/refundNotPaidOutTransfers"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -869,7 +870,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-requestSubjectErasure
+    /// Submit a Subject Erasure Request.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -882,7 +883,7 @@ public sealed class General
     public Task<SubjectErasureResponse> PostRequestSubjectErasure(SubjectErasureByPspReferenceRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/requestSubjectErasure"),
+        _rawClient.Execute(_server.Default6("/requestSubjectErasure"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -895,7 +896,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-retrieveApplicableDefenseReasons
+    /// Get applicable defense reasons
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -905,10 +906,10 @@ public sealed class General
     /// <remarks>
     /// Returns a list of all applicable defense reasons to defend a specific dispute.
     /// </remarks>
-    public Task<DefenseReasonsResponse> PostRetrieveApplicableDefenseReasons(AcceptDisputeRequest? body,
+    public Task<DefenseReasonsResponse> PostRetrieveApplicableDefenseReasons(DefenseReasonsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/retrieveApplicableDefenseReasons"),
+        _rawClient.Execute(_server.Default22("/retrieveApplicableDefenseReasons"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -921,7 +922,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-scheduleAccountUpdater
+    /// Schedule running the Account Updater
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -936,7 +937,7 @@ public sealed class General
     public Task<ScheduleAccountUpdaterResult> PostScheduleAccountUpdater(ScheduleAccountUpdaterRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scheduleAccountUpdater"),
+        _rawClient.Execute(_server.Default2("/scheduleAccountUpdater"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -949,7 +950,35 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-setupBeneficiary
+    /// Create a communication session
+    /// </summary>
+    /// <param name="body"></param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="ct">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CertificateLoadingResponse"/> instance.</returns>
+    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Establishes a secure communications session between the POS Mobile SDK and the Adyen payments platform, through mutual authentication.
+    /// The request sends a setup token that identifies the SDK and the device. The response returns a session token that the SDK can use to authenticate responses received from the Adyen payments platform.
+    /// &gt;This request applies to <b>mobile in-person</b> transactions. You cannot use this request to create online payments sessions.
+    /// </remarks>
+    public Task<CertificateLoadingResponse> PostSessions3(CreateSessionRequest? body,
+        RequestOptions? requestOptions = null,
+        CancellationToken ct = default) =>
+        _rawClient.Execute(_server.Default27("/sessions"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(body),
+            JsonResponse.Create<CertificateLoadingResponse>(),
+            RawErrorResponse.Instance,
+            [new AuthSchemeAny(_auth.BasicAuth, _auth.ApiKeyAuth)],
+            requestOptions,
+            ct);
+
+    /// <summary>
+    /// Designate a beneficiary account and transfer the benefactor's current balance
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -962,7 +991,7 @@ public sealed class General
     public Task<GenericResponse> PostSetupBeneficiary(SetupBeneficiaryRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/setupBeneficiary"),
+        _rawClient.Execute(_server.Default16("/setupBeneficiary"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -975,7 +1004,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-supplyDefenseDocument
+    /// Supply a defense document
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -988,7 +1017,7 @@ public sealed class General
     public Task<SupplyDefenseDocumentResponse> PostSupplyDefenseDocument(SupplyDefenseDocumentRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/supplyDefenseDocument"),
+        _rawClient.Execute(_server.Default22("/supplyDefenseDocument"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -1001,7 +1030,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-testNotificationConfiguration
+    /// Test a notification configuration
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -1014,7 +1043,7 @@ public sealed class General
     public Task<TestNotificationConfigurationResponse> PostTestNotificationConfiguration(TestNotificationConfigurationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/testNotificationConfiguration"),
+        _rawClient.Execute(_server.Default12("/testNotificationConfiguration"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -1027,7 +1056,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-transferFunds
+    /// Transfer funds between platform accounts
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -1040,7 +1069,7 @@ public sealed class General
     public Task<TransferFundsResponse> PostTransferFunds(TransferFundsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transferFunds"),
+        _rawClient.Execute(_server.Default16("/transferFunds"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -1053,7 +1082,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-updateNotificationConfiguration
+    /// Update a notification subscription configuration
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -1066,7 +1095,7 @@ public sealed class General
     public Task<GetNotificationConfigurationResponse> PostUpdateNotificationConfiguration(UpdateNotificationConfigurationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/updateNotificationConfiguration"),
+        _rawClient.Execute(_server.Default12("/updateNotificationConfiguration"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -1079,7 +1108,7 @@ public sealed class General
             ct);
 
     /// <summary>
-    /// post-voidTransaction
+    /// Voids a transaction.
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -1092,7 +1121,7 @@ public sealed class General
     public Task<StoredValueVoidResponse> PostVoidTransaction(StoredValueVoidRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/voidTransaction"),
+        _rawClient.Execute(_server.Default5("/voidTransaction"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

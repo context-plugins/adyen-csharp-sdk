@@ -1,13 +1,15 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
 public record InterchangeData
 {
+    /// <summary>
+    /// The currency and value of the adjusted interchange fee.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("interchangeAmount")]
-    public InterchangeAmount? InterchangeAmount { get; init; }
+    public Amount17? InterchangeAmount { get; init; }
 
     /// <summary>
     /// A 3-character alphanumeric code assigned by Visa that identifies the specific interchange reimbursement program a transaction qualified for. The code is assigned based on the card type, entry mode, and security data provided.
@@ -26,5 +28,5 @@ public record InterchangeData
     /// </list>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type85 Type { get; init; }
+    public string Type { get; } = "interchangeData";
 }

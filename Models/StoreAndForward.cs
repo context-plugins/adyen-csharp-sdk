@@ -19,7 +19,10 @@ public record StoreAndForward
     [JsonPropertyName("maxPayments")]
     public int? MaxPayments { get; init; }
 
+    /// <summary>
+    /// The type of card for which the terminal accepts store-and-forward payments. You can specify multiple card types.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("supportedCardTypes")]
-    public SupportedCardTypes? SupportedCardTypes { get; init; }
+    public SupportedCardTypes2? SupportedCardTypes { get; init; }
 }

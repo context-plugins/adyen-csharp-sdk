@@ -27,7 +27,7 @@ public sealed class Reviewing
     }
 
     /// <summary>
-    /// post-confirmThirdParty
+    /// Confirm a payout
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -56,7 +56,7 @@ public sealed class Reviewing
     public Task<ModifyResponse> PostConfirmThirdParty(ModifyRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/confirmThirdParty"),
+        _rawClient.Execute(_server.Default3("/confirmThirdParty"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -69,7 +69,7 @@ public sealed class Reviewing
             ct);
 
     /// <summary>
-    /// post-declineThirdParty
+    /// Cancel a payout
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -98,7 +98,7 @@ public sealed class Reviewing
     public Task<ModifyResponse> PostDeclineThirdParty(ModifyRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/declineThirdParty"),
+        _rawClient.Execute(_server.Default3("/declineThirdParty"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

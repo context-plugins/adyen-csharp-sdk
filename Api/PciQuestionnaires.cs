@@ -27,7 +27,7 @@ public sealed class PciQuestionnaires
     }
 
     /// <summary>
-    /// get-legalEntities-id-pciQuestionnaires
+    /// Get PCI questionnaire details
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity to get PCI questionnaire information.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -52,7 +52,7 @@ public sealed class PciQuestionnaires
     public Task<GetPciQuestionnaireInfosResponse> GetLegalEntitiesIdPciQuestionnaires(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/pciQuestionnaires"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/pciQuestionnaires"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -65,7 +65,7 @@ public sealed class PciQuestionnaires
             ct);
 
     /// <summary>
-    /// get-legalEntities-id-pciQuestionnaires-pciid
+    /// Get PCI questionnaire
     /// </summary>
     /// <param name="id">The legal entity ID of the individual who signed the PCI questionnaire.</param>
     /// <param name="pciid">The unique identifier of the signed PCI questionnaire.</param>
@@ -92,7 +92,7 @@ public sealed class PciQuestionnaires
         string pciid,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/pciQuestionnaires/{pciid}"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/pciQuestionnaires/{pciid}"),
             [new TemplateParam("id", id), new TemplateParam("pciid", pciid)],
             [],
             [],
@@ -105,7 +105,7 @@ public sealed class PciQuestionnaires
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-pciQuestionnaires-generatePciTemplates
+    /// Generate PCI questionnaire
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity to get PCI questionnaire information.</param>
     /// <param name="body"></param>
@@ -132,7 +132,7 @@ public sealed class PciQuestionnaires
         GeneratePciDescriptionRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/pciQuestionnaires/generatePciTemplates"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/pciQuestionnaires/generatePciTemplates"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -145,7 +145,7 @@ public sealed class PciQuestionnaires
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-pciQuestionnaires-signPciTemplates
+    /// Sign PCI questionnaire
     /// </summary>
     /// <param name="id">The legal entity ID of the user that has a contractual relationship with your platform.</param>
     /// <param name="body"></param>
@@ -172,7 +172,7 @@ public sealed class PciQuestionnaires
         PciSigningRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/pciQuestionnaires/signPciTemplates"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/pciQuestionnaires/signPciTemplates"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -185,7 +185,7 @@ public sealed class PciQuestionnaires
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-pciQuestionnaires-signingRequired
+    /// Calculate PCI status of a legal entity
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity to calculate PCI status.</param>
     /// <param name="body"></param>
@@ -212,7 +212,7 @@ public sealed class PciQuestionnaires
         CalculatePciStatusRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/pciQuestionnaires/signingRequired"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/pciQuestionnaires/signingRequired"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

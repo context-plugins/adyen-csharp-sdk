@@ -6,10 +6,25 @@ namespace Adyen.Models;
 
 public record OnlineDonationSettings
 {
+    /// <summary>
+    /// The default amount for donations.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("defaultAmount")]
-    public DonationAmount? DefaultAmount { get; init; }
+    public DonationAmount1? DefaultAmount { get; init; }
 
+    /// <summary>
+    /// The type of donation to collect from the shopper. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>roundup</b>: Round up the transaction amount.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>fixedAmounts</b>: Choose a fixed amount.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>fixedAmountsRoundup</b>: Round up, or choose a fixed amount.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donationType")]
     public DonationType1? DonationType { get; init; }

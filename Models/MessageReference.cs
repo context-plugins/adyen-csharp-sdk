@@ -10,6 +10,38 @@ namespace Adyen.Models;
 /// </summary>
 public record MessageReference
 {
+    /// <summary>
+    /// Category of message.
+    /// CardAcquisition, Display, Input, Loyalty, Payment, Print, CardReaderInit, CardReaderPowerOff.
+    /// Possible values:
+    /// * <b>Abort</b>
+    /// * <b>Admin</b>
+    /// * <b>BalanceInquiry</b>
+    /// * <b>Batch</b>
+    /// * <b>CardAcquisition</b>
+    /// * <b>CardReaderInit</b>
+    /// * <b>CardReaderPowerOff</b>
+    /// * <b>Diagnosis</b>
+    /// * <b>Display</b>
+    /// * <b>EnableService</b>
+    /// * <b>Event</b>
+    /// * <b>GetTotals</b>
+    /// * <b>Input</b>
+    /// * <b>InputUpdate</b>
+    /// * <b>Login</b>
+    /// * <b>Logout</b>
+    /// * <b>Loyalty</b>
+    /// * <b>None</b>
+    /// * <b>PIN</b>
+    /// * <b>Payment</b>
+    /// * <b>Print</b>
+    /// * <b>Reconciliation</b>
+    /// * <b>Reversal</b>
+    /// * <b>Sound</b>
+    /// * <b>StoredValue</b>
+    /// * <b>TransactionStatus</b>
+    /// * <b>Transmit</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("MessageCategory")]
     public MessageCategory2? MessageCategory { get; init; }

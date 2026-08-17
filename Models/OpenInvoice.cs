@@ -57,7 +57,9 @@ public record OpenInvoice
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>openinvoice</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type39? Type { get; init; }
+    public Type39? Type { get; init; } = Type39.Openinvoice;
 }

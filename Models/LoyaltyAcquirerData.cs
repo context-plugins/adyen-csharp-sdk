@@ -21,9 +21,12 @@ public record LoyaltyAcquirerData
     [RegularExpression("^.+$")]
     public string? ApprovalCode { get; init; }
 
+    /// <summary>
+    /// Identification of a transaction for the Sale System or the POI System.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyTransactionID")]
-    public LoyaltyTransactionId? LoyaltyTransactionId { get; init; }
+    public TransactionIdType? LoyaltyTransactionId { get; init; }
 
     /// <summary>
     /// Identifier of a reconciliation period with a payment or loyalty host. Allows the assignment of a transaction to the Acquirer reconciliation (or batch).

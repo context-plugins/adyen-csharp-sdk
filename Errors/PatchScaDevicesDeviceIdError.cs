@@ -9,82 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class PatchScaDevicesDeviceIdError : ApiError
 {
-    private readonly Optional<ScaDevices400Error1> _scaDevices400Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<ScaDevices401Error1> _scaDevices401Error1Value;
-
-    private readonly Optional<ScaDevices403Error1> _scaDevices403Error1Value;
-
-    private readonly Optional<ScaDevices404Error1> _scaDevices404Error1Value;
-
-    private readonly Optional<ScaDevices422Error1> _scaDevices422Error1Value;
-
-    private readonly Optional<ScaDevices500Error1> _scaDevices500Error1Value;
-
-    private PatchScaDevicesDeviceIdError(Optional<ScaDevices400Error1> scaDevices400Error1Value,
-        Optional<ScaDevices401Error1> scaDevices401Error1Value,
-        Optional<ScaDevices403Error1> scaDevices403Error1Value,
-        Optional<ScaDevices404Error1> scaDevices404Error1Value,
-        Optional<ScaDevices422Error1> scaDevices422Error1Value,
-        Optional<ScaDevices500Error1> scaDevices500Error1Value,
+    private PatchScaDevicesDeviceIdError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _scaDevices400Error1Value = scaDevices400Error1Value;
-        _scaDevices401Error1Value = scaDevices401Error1Value;
-        _scaDevices403Error1Value = scaDevices403Error1Value;
-        _scaDevices404Error1Value = scaDevices404Error1Value;
-        _scaDevices422Error1Value = scaDevices422Error1Value;
-        _scaDevices500Error1Value = scaDevices500Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static PatchScaDevicesDeviceIdError AsScaDevices400Error1(ScaDevices400Error1 value) =>
-        new(Optional<ScaDevices400Error1>.Some(value), default, default, default, default, default, default);
-
-    private static PatchScaDevicesDeviceIdError AsScaDevices401Error1(ScaDevices401Error1 value) =>
-        new(default, Optional<ScaDevices401Error1>.Some(value), default, default, default, default, default);
-
-    private static PatchScaDevicesDeviceIdError AsScaDevices403Error1(ScaDevices403Error1 value) =>
-        new(default, default, Optional<ScaDevices403Error1>.Some(value), default, default, default, default);
-
-    private static PatchScaDevicesDeviceIdError AsScaDevices404Error1(ScaDevices404Error1 value) =>
-        new(default, default, default, Optional<ScaDevices404Error1>.Some(value), default, default, default);
-
-    private static PatchScaDevicesDeviceIdError AsScaDevices422Error1(ScaDevices422Error1 value) =>
-        new(default, default, default, default, Optional<ScaDevices422Error1>.Some(value), default, default);
-
-    private static PatchScaDevicesDeviceIdError AsScaDevices500Error1(ScaDevices500Error1 value) =>
-        new(default, default, default, default, default, Optional<ScaDevices500Error1>.Some(value), default);
+    private static PatchScaDevicesDeviceIdError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static PatchScaDevicesDeviceIdError AsFallback(RawError value) =>
-        new(default, default, default, default, default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetScaDevices400Error1(out ScaDevices400Error1 value) =>
-        _scaDevices400Error1Value.TryGetValue(out value);
-
-    public bool TryGetScaDevices401Error1(out ScaDevices401Error1 value) =>
-        _scaDevices401Error1Value.TryGetValue(out value);
-
-    public bool TryGetScaDevices403Error1(out ScaDevices403Error1 value) =>
-        _scaDevices403Error1Value.TryGetValue(out value);
-
-    public bool TryGetScaDevices404Error1(out ScaDevices404Error1 value) =>
-        _scaDevices404Error1Value.TryGetValue(out value);
-
-    public bool TryGetScaDevices422Error1(out ScaDevices422Error1 value) =>
-        _scaDevices422Error1Value.TryGetValue(out value);
-
-    public bool TryGetScaDevices500Error1(out ScaDevices500Error1 value) =>
-        _scaDevices500Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<PatchScaDevicesDeviceIdError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 => FromJson<ScaDevices400Error1>(response, ct).As(AsScaDevices400Error1),
-            401 => FromJson<ScaDevices401Error1>(response, ct).As(AsScaDevices401Error1),
-            403 => FromJson<ScaDevices403Error1>(response, ct).As(AsScaDevices403Error1),
-            404 => FromJson<ScaDevices404Error1>(response, ct).As(AsScaDevices404Error1),
-            422 => FromJson<ScaDevices422Error1>(response, ct).As(AsScaDevices422Error1),
-            500 => FromJson<ScaDevices500Error1>(response, ct).As(AsScaDevices500Error1),
+            400 or 401 or 403 or 404 or 422 or 500 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

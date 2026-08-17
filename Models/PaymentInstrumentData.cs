@@ -9,6 +9,15 @@ namespace Adyen.Models;
 /// </summary>
 public record PaymentInstrumentData
 {
+    /// <summary>
+    /// Type of payment instrument.
+    /// Possible values:
+    /// * <b>Card</b>
+    /// * <b>Cash</b>
+    /// * <b>Check</b>
+    /// * <b>Mobile</b>
+    /// * <b>StoredValue</b>
+    /// </summary>
     [JsonPropertyName("PaymentInstrumentType")]
     public required PaymentInstrumentType11 PaymentInstrumentType { get; init; }
 
@@ -20,19 +29,34 @@ public record PaymentInstrumentData
     [JsonPropertyName("ProtectedCardData")]
     public string? ProtectedCardData { get; init; }
 
+    /// <summary>
+    /// Information related to the payment card used for the transaction.
+    /// If PaymentInstrumentType is Card.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CardData")]
-    public CardData2? CardData { get; init; }
+    public CardData1? CardData { get; init; }
 
+    /// <summary>
+    /// Information related to the paper check used for the transaction.
+    /// If PaymentInstrumentType is Check.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CheckData")]
-    public CheckData2? CheckData { get; init; }
+    public CheckData1? CheckData { get; init; }
 
+    /// <summary>
+    /// Information related to the mobile for the payment transaction.
+    /// If PaymentInstrumentType is Mobile.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("MobileData")]
-    public MobileData2? MobileData { get; init; }
+    public MobileData1? MobileData { get; init; }
 
+    /// <summary>
+    /// Identification of the stored value account or the stored value card and the associated product sold by the Sale System for stored value requests.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("StoredValueAccountID")]
-    public StoredValueAccountId2? StoredValueAccountId { get; init; }
+    public StoredValueAccountId? StoredValueAccountId { get; init; }
 }

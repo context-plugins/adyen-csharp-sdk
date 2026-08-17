@@ -43,7 +43,9 @@ public record IdealDetails
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>ideal</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public A2ApaymentMethod? Type { get; init; }
+    public Type25? Type { get; init; } = Type25.Ideal;
 }

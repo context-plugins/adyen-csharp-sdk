@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
 public record PaymentCaptureResponse
 {
+    /// <summary>
+    /// The captured amount.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount33 Amount { get; init; }
 
     /// <summary>
     /// Price and product information of the refunded items, required for <see href="https://docs.adyen.com/online-payments/refund#refund-a-payment">partial refunds</see>.
@@ -29,9 +31,12 @@ public record PaymentCaptureResponse
     [JsonPropertyName("paymentPspReference")]
     public required string PaymentPspReference { get; init; }
 
+    /// <summary>
+    /// Defines how to book chargebacks when using <see href="https://docs.adyen.com/adyen-for-platforms-model">Adyen for Platforms</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformChargebackLogic")]
-    public PlatformChargebackLogic1? PlatformChargebackLogic { get; init; }
+    public PlatformChargebackLogic? PlatformChargebackLogic { get; init; }
 
     /// <summary>
     /// Adyen's 16-character reference associated with the capture request.
@@ -57,7 +62,7 @@ public record PaymentCaptureResponse
     /// The status of your request. This will always have the value <b>received</b>.
     /// </summary>
     [JsonPropertyName("status")]
-    public required Status20 Status { get; init; }
+    public string Status { get; } = "received";
 
     /// <summary>
     /// List of sub-merchants.

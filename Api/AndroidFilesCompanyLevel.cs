@@ -27,7 +27,7 @@ public sealed class AndroidFilesCompanyLevel
     }
 
     /// <summary>
-    /// get-companies-companyId-androidApps
+    /// Get a list of Android apps
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -59,7 +59,7 @@ public sealed class AndroidFilesCompanyLevel
         int? versionCode,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/androidApps"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/androidApps"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber),
                 new Param("pageSize", pageSize),
@@ -75,7 +75,7 @@ public sealed class AndroidFilesCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-androidApps-id
+    /// Get Android app
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="id">The unique identifier of the app.</param>
@@ -99,7 +99,7 @@ public sealed class AndroidFilesCompanyLevel
         string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/androidApps/{id}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/androidApps/{id}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("id", id)],
             [],
             [],
@@ -112,7 +112,7 @@ public sealed class AndroidFilesCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-androidCertificates
+    /// Get a list of Android certificates
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -142,7 +142,7 @@ public sealed class AndroidFilesCompanyLevel
         string? certificateName,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/androidCertificates"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/androidCertificates"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber),
                 new Param("pageSize", pageSize),
@@ -157,7 +157,7 @@ public sealed class AndroidFilesCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-androidApps-id
+    /// Reprocess Android App
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="id">The unique identifier of the app.</param>
@@ -178,7 +178,7 @@ public sealed class AndroidFilesCompanyLevel
         string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/androidApps/{id}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/androidApps/{id}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -191,12 +191,12 @@ public sealed class AndroidFilesCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-androidApps
+    /// Upload Android App
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="EntityReference"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="UploadAndroidAppResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostCompaniesCompanyIdAndroidAppsError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Uploads an Android APK file to Adyen.
@@ -208,28 +208,28 @@ public sealed class AndroidFilesCompanyLevel
     /// &gt;By choosing to upload, install, or run any third-party applications on an Adyen payment terminal, you accept full responsibility and liability for any consequences of uploading, installing, or running any such applications.
     /// </para>
     /// </remarks>
-    public Task<EntityReference> PostCompaniesCompanyIdAndroidApps(string companyId,
+    public Task<UploadAndroidAppResponse> PostCompaniesCompanyIdAndroidApps(string companyId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/androidApps"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/androidApps"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             EmptyBody.Instance,
-            JsonResponse.Create<EntityReference>(),
+            JsonResponse.Create<UploadAndroidAppResponse>(),
             PostCompaniesCompanyIdAndroidAppsErrorResponse.Instance,
             [new AuthSchemeAny(_auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-companies-companyId-androidCertificates
+    /// Upload Android Certificate
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="EntityReference"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="UploadAndroidCertificateResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostCompaniesCompanyIdAndroidCertificatesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Uploads an Android Certificate file to Adyen.
@@ -237,16 +237,16 @@ public sealed class AndroidFilesCompanyLevel
     /// In the live environment, requests to this endpoint are subject to <see href="https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment">rate limits</see>.
     /// </para>
     /// </remarks>
-    public Task<EntityReference> PostCompaniesCompanyIdAndroidCertificates(string companyId,
+    public Task<UploadAndroidCertificateResponse> PostCompaniesCompanyIdAndroidCertificates(string companyId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/androidCertificates"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/androidCertificates"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             EmptyBody.Instance,
-            JsonResponse.Create<EntityReference>(),
+            JsonResponse.Create<UploadAndroidCertificateResponse>(),
             PostCompaniesCompanyIdAndroidCertificatesErrorResponse.Instance,
             [new AuthSchemeAny(_auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,

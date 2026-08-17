@@ -9,39 +9,28 @@ namespace Adyen.Errors;
 
 public sealed class GetBalanceAccountsIdTransferLimitsCurrentError : ApiError
 {
-    private readonly Optional<BalanceAccountsTransferLimitsCurrent404Error1> _balanceAccountsTransferLimitsCurrent404Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<BalanceAccountsTransferLimitsCurrent422Error1> _balanceAccountsTransferLimitsCurrent422Error1Value;
-
-    private GetBalanceAccountsIdTransferLimitsCurrentError(Optional<BalanceAccountsTransferLimitsCurrent404Error1> balanceAccountsTransferLimitsCurrent404Error1Value,
-        Optional<BalanceAccountsTransferLimitsCurrent422Error1> balanceAccountsTransferLimitsCurrent422Error1Value,
+    private GetBalanceAccountsIdTransferLimitsCurrentError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _balanceAccountsTransferLimitsCurrent404Error1Value = balanceAccountsTransferLimitsCurrent404Error1Value;
-        _balanceAccountsTransferLimitsCurrent422Error1Value = balanceAccountsTransferLimitsCurrent422Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static GetBalanceAccountsIdTransferLimitsCurrentError AsBalanceAccountsTransferLimitsCurrent404Error1(BalanceAccountsTransferLimitsCurrent404Error1 value) =>
-        new(Optional<BalanceAccountsTransferLimitsCurrent404Error1>.Some(value), default, default);
-
-    private static GetBalanceAccountsIdTransferLimitsCurrentError AsBalanceAccountsTransferLimitsCurrent422Error1(BalanceAccountsTransferLimitsCurrent422Error1 value) =>
-        new(default, Optional<BalanceAccountsTransferLimitsCurrent422Error1>.Some(value), default);
+    private static GetBalanceAccountsIdTransferLimitsCurrentError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static GetBalanceAccountsIdTransferLimitsCurrentError AsFallback(RawError value) =>
-        new(default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetBalanceAccountsTransferLimitsCurrent404Error1(out BalanceAccountsTransferLimitsCurrent404Error1 value) =>
-        _balanceAccountsTransferLimitsCurrent404Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalanceAccountsTransferLimitsCurrent422Error1(out BalanceAccountsTransferLimitsCurrent422Error1 value) =>
-        _balanceAccountsTransferLimitsCurrent422Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<GetBalanceAccountsIdTransferLimitsCurrentError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            404 => FromJson<BalanceAccountsTransferLimitsCurrent404Error1>(response, ct).As(AsBalanceAccountsTransferLimitsCurrent404Error1),
-            422 => FromJson<BalanceAccountsTransferLimitsCurrent422Error1>(response, ct).As(AsBalanceAccountsTransferLimitsCurrent422Error1),
+            404 or 422 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

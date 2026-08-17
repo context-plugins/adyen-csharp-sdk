@@ -43,6 +43,9 @@ public record Twint
     [JsonPropertyName("subtype")]
     public string? Subtype { get; init; }
 
+    /// <summary>
+    /// The payment method type.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
     public Type53? Type { get; init; }

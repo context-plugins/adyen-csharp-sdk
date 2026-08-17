@@ -13,13 +13,22 @@ public record LegalEntityCapability
     [JsonPropertyName("allowed")]
     public bool? Allowed { get; init; }
 
+    /// <summary>
+    /// The capability level that is allowed for the legal entity.
+    /// <para>
+    /// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("allowedLevel")]
     public AllowedLevel? AllowedLevel { get; init; }
 
+    /// <summary>
+    /// The settings that are allowed for the legal entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("allowedSettings")]
-    public CapabilitySettings2? AllowedSettings { get; init; }
+    public CapabilitySettings11? AllowedSettings { get; init; }
 
     /// <summary>
     /// Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the <c>allowed</c> field.
@@ -28,13 +37,22 @@ public record LegalEntityCapability
     [JsonPropertyName("requested")]
     public bool? Requested { get; init; }
 
+    /// <summary>
+    /// The requested level of the capability. Some capabilities, such as those used in <see href="https://docs.adyen.com/issuing/add-capabilities#capability-levels">card issuing</see>, have different levels. Levels increase the capability, but also require additional checks and increased monitoring.
+    /// <para>
+    /// Possible values: <b>notApplicable</b>, <b>low</b>, <b>medium</b>, <b>high</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("requestedLevel")]
     public AllowedLevel? RequestedLevel { get; init; }
 
+    /// <summary>
+    /// The settings that are requested for the legal entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("requestedSettings")]
-    public CapabilitySettings2? RequestedSettings { get; init; }
+    public CapabilitySettings21? RequestedSettings { get; init; }
 
     /// <summary>
     /// The capability status of transfer instruments associated with the legal entity.

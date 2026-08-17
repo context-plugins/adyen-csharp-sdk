@@ -7,9 +7,12 @@ namespace Adyen.Models;
 /// </summary>
 public record BillingEntity1
 {
+    /// <summary>
+    /// The address details of the billing entity.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public Address6? Address { get; init; }
+    public Address11? Address { get; init; }
 
     /// <summary>
     /// The email address of the billing entity.

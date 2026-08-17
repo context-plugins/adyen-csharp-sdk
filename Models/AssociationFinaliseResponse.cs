@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -24,5 +23,5 @@ public record AssociationFinaliseResponse
     /// The type of resource that you associated with the SCA device.
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type123 Type { get; init; }
+    public string Type { get; } = "PAYMENT_INSTRUMENT";
 }

@@ -14,13 +14,19 @@ public record GetAccountHolderResponse
     [JsonPropertyName("accountHolderCode")]
     public string? AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// Details of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolderDetails")]
-    public AccountHolderDetails? AccountHolderDetails { get; init; }
+    public AccountHolderDetails3? AccountHolderDetails { get; init; }
 
+    /// <summary>
+    /// The status of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolderStatus")]
-    public AccountHolderStatus? AccountHolderStatus { get; init; }
+    public AccountHolderStatus3? AccountHolderStatus { get; init; }
 
     /// <summary>
     /// A list of the accounts under the account holder.
@@ -43,13 +49,19 @@ public record GetAccountHolderResponse
     [JsonPropertyName("invalidFields")]
     public IReadOnlyList<ErrorFieldType>? InvalidFields { get; init; }
 
+    /// <summary>
+    /// The legal entity of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("legalEntity")]
     public LegalEntity2? LegalEntity { get; init; }
 
+    /// <summary>
+    /// Details of the account holder migrated to the balance platform.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("migrationData")]
-    public MigrationData? MigrationData { get; init; }
+    public MigrationData2? MigrationData { get; init; }
 
     /// <summary>
     /// The three-character <see href="https://docs.adyen.com/development-resources/currency-codes">ISO currency code</see>, with which the prospective account holder primarily deals.
@@ -79,9 +91,12 @@ public record GetAccountHolderResponse
     [JsonPropertyName("systemUpToDateTime")]
     public DateTimeOffset? SystemUpToDateTime { get; init; }
 
+    /// <summary>
+    /// The details of KYC Verification of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("verification")]
-    public KycverificationResult? Verification { get; init; }
+    public KycVerificationResult1? Verification { get; init; }
 
     /// <summary>
     /// The identifier of the profile that applies to this entity.

@@ -5,10 +5,19 @@ namespace Adyen.Models;
 
 public record AmountAdjustment
 {
+    /// <summary>
+    /// The adjustment amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount5? Amount { get; init; }
+    public Amount17? Amount { get; init; }
 
+    /// <summary>
+    /// The type of markup that is applied to an authorised payment.
+    /// <para>
+    /// Possible values: <b>exchange</b>, <b>forexMarkup</b>, <b>authHoldReserve</b>, <b>atmMarkup</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amountAdjustmentType")]
     public AmountAdjustmentType? AmountAdjustmentType { get; init; }

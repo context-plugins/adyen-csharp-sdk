@@ -19,17 +19,26 @@ public record DisputeResponse
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// The amount for which you dispute the transaction. The disputed amount cannot be greater than the transaction amount. If you do not provide an amount, the entire transaction amount will be disputed.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("disputedAmount")]
-    public DisputedAmount? DisputedAmount { get; init; }
+    public Amount17? DisputedAmount { get; init; }
 
+    /// <summary>
+    /// Additional information for raising a dispute of <c>type</c> <b>duplicate</b>. Required for disputes of <c>type</c> <b>duplicate</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("duplicateInfo")]
-    public DuplicateInfo? DuplicateInfo { get; init; }
+    public DuplicateInfo1? DuplicateInfo { get; init; }
 
+    /// <summary>
+    /// Additional information for raising a dispute of <c>type</c> <b>fraud</b>. Required for disputes of <c>type</c> <b>fraud</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fraudInfo")]
-    public FraudInfo? FraudInfo { get; init; }
+    public FraudInfo1? FraudInfo { get; init; }
 
     /// <summary>
     /// The unique identifier of the raised dispute.
@@ -38,14 +47,32 @@ public record DisputeResponse
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// Additional information for raising a dispute of <c>type</c> <b>notDelivered</b>. Required for disputes of <c>type</c> <b>notDelivered</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("notDeliveredInfo")]
-    public NotDeliveredInfo? NotDeliveredInfo { get; init; }
+    public NotDeliveredInfo1? NotDeliveredInfo { get; init; }
 
+    /// <summary>
+    /// Additional information for raising a dispute of <c>type</c> <b>other</b>. Required for disputes of <c>type</c> <b>other</b>
+    /// <para>
+    /// <b>Note:</b> The <b>other</b> dispute <c>type</c> is currently in beta testing. Do not create or submit any disputes for this dispute <c>type</c> at this time.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("otherInfo")]
-    public OtherInfo? OtherInfo { get; init; }
+    public OtherInfo1? OtherInfo { get; init; }
 
+    /// <summary>
+    /// The current status of the dispute.
+    /// <para>
+    /// When you create a dispute, you can only set the <c>status</c> to <b>draft</b>. When you update a dispute, you can set the <c>status</c> to <b>submitted</b> or <b>closed</b>.
+    /// </para>
+    /// <para>
+    /// Possible values: <b>draft</b>, <b>submitted</b>, <b>closed</b>, <b>won</b>, <b>chargeback</b>, <b>secondPresentment</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
     public DisputeStatus1? Status { get; init; }

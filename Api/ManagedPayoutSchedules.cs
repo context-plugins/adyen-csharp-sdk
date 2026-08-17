@@ -26,7 +26,7 @@ public sealed class ManagedPayoutSchedules
     }
 
     /// <summary>
-    /// delete-balanceAccounts-balanceAccountId-payoutSchedules-id
+    /// Delete a managed payout schedule on a balance account
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="id">The unique identifier of the payout schedule applied to the balance account.</param>
@@ -41,7 +41,7 @@ public sealed class ManagedPayoutSchedules
         string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -54,7 +54,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-balanceAccountId-payoutSchedules
+    /// Get all managed payout schedules on a balance account
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="currency">The three-character <see href="https://docs.adyen.com/development-resources/currency-codes">ISO currency code</see> of the currency used in the payout schedule.</param>
@@ -73,7 +73,7 @@ public sealed class ManagedPayoutSchedules
         int? limit = 10,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/payoutSchedules"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/payoutSchedules"),
             [new TemplateParam("balanceAccountId", balanceAccountId)],
             [new Param("currency", currency), new Param("cursor", cursor), new Param("limit", limit)],
             [],
@@ -86,7 +86,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-balanceAccountId-payoutSchedules-id
+    /// Get a specific managed payout schedule on a balance account
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="id">The unique identifier of the payout schedule for the balance account.</param>
@@ -101,7 +101,7 @@ public sealed class ManagedPayoutSchedules
         string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("id", id)],
             [],
             [],
@@ -114,7 +114,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// get-balanceAccounts-balanceAccountId-payoutSchedules-id-executions
+    /// View executions of a managed payout schedule
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="id">The unique identifier of the payout schedule on the balance account.</param>
@@ -135,7 +135,7 @@ public sealed class ManagedPayoutSchedules
         int? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}/executions"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}/executions"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("id", id)],
             [new Param("offset", offset), new Param("results", results), new Param("limit", limit)],
             [],
@@ -148,7 +148,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// get-balancePlatforms-balancePlatformId-payoutSchedules
+    /// Get all managed payout schedules on your balance platform
     /// </summary>
     /// <param name="balancePlatformId">The unique identifier of the balance platform.</param>
     /// <param name="countryCode">The two-letter <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> country code of the country to which the payout configuration applies.</param>
@@ -165,7 +165,7 @@ public sealed class ManagedPayoutSchedules
         string? currency,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{balancePlatformId}/payoutSchedules"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{balancePlatformId}/payoutSchedules"),
             [new TemplateParam("balancePlatformId", balancePlatformId)],
             [new Param("countryCode", countryCode), new Param("currency", currency)],
             [],
@@ -178,7 +178,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// get-balancePlatforms-balancePlatformId-payoutSchedules-id
+    /// Get a specific managed payout schedule on your balance platform
     /// </summary>
     /// <param name="balancePlatformId">The unique identifier of the balance platform.</param>
     /// <param name="id">The unique identifier of the payout configuration for your balance platform.</param>
@@ -193,7 +193,7 @@ public sealed class ManagedPayoutSchedules
         string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balancePlatforms/{balancePlatformId}/payoutSchedules/{id}"),
+        _rawClient.Execute(_server.Default13("/balancePlatforms/{balancePlatformId}/payoutSchedules/{id}"),
             [new TemplateParam("balancePlatformId", balancePlatformId), new TemplateParam("id", id)],
             [],
             [],
@@ -206,7 +206,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// patch-balanceAccounts-balanceAccountId-payoutSchedules-id
+    /// Update a managed payout schedule on a balance account
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="id">The unique identifier of the payout schedule applied to the balance account.</param>
@@ -223,7 +223,7 @@ public sealed class ManagedPayoutSchedules
         BalanceAccountConfigurationUpdate body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
             [new TemplateParam("balanceAccountId", balanceAccountId), new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -236,7 +236,7 @@ public sealed class ManagedPayoutSchedules
             ct);
 
     /// <summary>
-    /// post-balanceAccounts-balanceAccountId-payoutSchedules
+    /// Apply a managed payout schedule to a balance account
     /// </summary>
     /// <param name="balanceAccountId">The unique identifier of the balance account.</param>
     /// <param name="body"></param>
@@ -251,7 +251,7 @@ public sealed class ManagedPayoutSchedules
         BalanceAccountConfigurationRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceAccounts/{balanceAccountId}/payoutSchedules"),
+        _rawClient.Execute(_server.Default13("/balanceAccounts/{balanceAccountId}/payoutSchedules"),
             [new TemplateParam("balanceAccountId", balanceAccountId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

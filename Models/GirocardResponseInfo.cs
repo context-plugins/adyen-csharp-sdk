@@ -4,7 +4,10 @@ namespace Adyen.Models;
 
 public record GirocardResponseInfo
 {
+    /// <summary>
+    /// Information regarding the transaction description.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionDescription")]
-    public TransactionDescriptionInfo? TransactionDescription { get; init; }
+    public TransactionDescriptionResponseInfo1? TransactionDescription { get; init; }
 }

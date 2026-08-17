@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// <b>amazonpay</b>
+/// <b>payto</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type41>))]
 public sealed record Type41 : StringEnum<Type41>
@@ -13,7 +13,7 @@ public sealed record Type41 : StringEnum<Type41>
     {
     }
 
-    public static readonly Type41 Amazonpay = new("amazonpay");
+    public static readonly Type41 Payto = new("payto");
 
     public static Type41 FromValue(string value) => FromValueCore(value);
 }

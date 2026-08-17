@@ -12,9 +12,15 @@ public record CardOrderItem
     [JsonPropertyName("balancePlatform")]
     public string? BalancePlatform { get; init; }
 
+    /// <summary>
+    /// The status of the card delivery.
+    /// <para>
+    /// Possible values: <b>created</b>, <b>rejected</b>, <b>processing</b>, <b>produced</b>, <b>shipped</b>, <b>delivered</b>, <b>notApplicable</b>, <b>unknown</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card")]
-    public CardOrderItemDeliveryStatus? Card { get; init; }
+    public CardOrderItemDeliveryStatus3? Card { get; init; }
 
     /// <summary>
     /// The unique identifier of the card order item.
@@ -44,9 +50,12 @@ public record CardOrderItem
     [JsonPropertyName("paymentInstrumentId")]
     public string? PaymentInstrumentId { get; init; }
 
+    /// <summary>
+    /// Contains information about the status of the PIN delivery.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pin")]
-    public CardOrderItemDeliveryStatus? Pin { get; init; }
+    public CardOrderItemDeliveryStatus1? Pin { get; init; }
 
     /// <summary>
     /// The shipping method used to deliver the card or the PIN.

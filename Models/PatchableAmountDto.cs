@@ -5,7 +5,7 @@ namespace Adyen.Models;
 /// <summary>
 /// Required if <c>type</c> is <b>business</b>, <b>assetSale</b>, <b>gamblingWinnings</b> or <b>inheritance</b>.
 /// <para>
-/// For <c>type</c> <b>business</b>, provide the annual turn over of the business. For <c>type</c> <b>assetSale</b>, <b>gamblingWinnings</b> or <b>inheritance</b>, provide the amount of the funds.
+/// For <c>type</c> <b>business</b>, provide the annual turn over of the business. For <c>type</c> <b>assetSale</b>, <b>gamblingWinnings</b> or <b>inheritance</b>, provide the amount of the funds., The amount of the funds the financier provided., The maximum amount a card holder can withdraw per day.
 /// </para>
 /// </summary>
 public record PatchableAmountDto

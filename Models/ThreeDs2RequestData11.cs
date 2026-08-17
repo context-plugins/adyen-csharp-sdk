@@ -9,10 +9,19 @@ namespace Adyen.Models;
 /// </summary>
 public record ThreeDs2RequestData11
 {
+    /// <summary>
+    /// Additional information about the cardholder’s account provided by the 3DS Requestor.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("acctInfo")]
-    public AcctInfo1? AcctInfo { get; init; }
+    public AcctInfo? AcctInfo { get; init; }
 
+    /// <summary>
+    /// Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values:
+    /// * <b>01</b> — Not applicable
+    /// * <b>02</b> — Credit
+    /// * <b>03</b> — Debit
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("acctType")]
     public AcctType? AcctType { get; init; }
@@ -31,6 +40,11 @@ public record ThreeDs2RequestData11
     [JsonPropertyName("acquirerMerchantID")]
     public string? AcquirerMerchantId { get; init; }
 
+    /// <summary>
+    /// Indicates whether the cardholder shipping address and cardholder billing address are the same. Allowed values:
+    /// * <b>Y</b> — Shipping address matches billing address.
+    /// * <b>N</b> — Shipping address does not match billing address.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("addrMatch")]
     public AddrMatch? AddrMatch { get; init; }
@@ -41,6 +55,14 @@ public record ThreeDs2RequestData11
     [JsonPropertyName("authenticationOnly")]
     public bool? AuthenticationOnly { get; init; } = false;
 
+    /// <summary>
+    /// Possibility to specify a preference for receiving a challenge from the issuer.
+    /// Allowed values:
+    /// * <c>noPreference</c>
+    /// * <c>requestNoChallenge</c>
+    /// * <c>requestChallenge</c>
+    /// * <c>requestChallengeAsMandate</c>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("challengeIndicator")]
     public ChallengeIndicator? ChallengeIndicator { get; init; }
@@ -54,13 +76,21 @@ public record ThreeDs2RequestData11
     [JsonPropertyName("deviceChannel")]
     public required string DeviceChannel { get; init; }
 
+    /// <summary>
+    /// Display options for the 3D Secure 2 SDK.
+    /// Optional and only for <c>deviceChannel</c> <b>app</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceRenderOptions")]
-    public DeviceRenderOptions2? DeviceRenderOptions { get; init; }
+    public DeviceRenderOptions? DeviceRenderOptions { get; init; }
 
+    /// <summary>
+    /// The home phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.
+    /// &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the <c>shopperEmail</c>, and did not send the shopper's phone number in <c>telephoneNumber</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("homePhone")]
-    public HomePhone? HomePhone { get; init; }
+    public Phone? HomePhone { get; init; }
 
     /// <summary>
     /// Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly <see href="https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only">authentication-only integrations</see>. The <c>mcc</c> is a four-digit code with which the previously given <c>acquirerMerchantID</c> is registered at the scheme.
@@ -84,9 +114,13 @@ public record ThreeDs2RequestData11
     [JsonPropertyName("messageVersion")]
     public string? MessageVersion { get; init; }
 
+    /// <summary>
+    /// The mobile phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.
+    /// &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the <c>shopperEmail</c>, and did not send the shopper's phone number in <c>telephoneNumber</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mobilePhone")]
-    public MobilePhone? MobilePhone { get; init; }
+    public Phone? MobilePhone { get; init; }
 
     /// <summary>
     /// URL to where the issuer should send the <c>CRes</c>. Required if you are not using components for <c>channel</c> <b>Web</b> or if you are using classic integration <c>deviceChannel</c> <b>browser</b>.
@@ -148,9 +182,13 @@ public record ThreeDs2RequestData11
     [JsonPropertyName("sdkEncData")]
     public string? SdkEncData { get; init; }
 
+    /// <summary>
+    /// The <c>sdkEphemPubKey</c> value as received from the 3D Secure 2 SDK.
+    /// Required for <c>deviceChannel</c> set to <b>app</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sdkEphemPubKey")]
-    public SdkEphemPubKey3? SdkEphemPubKey { get; init; }
+    public SdkEphemPubKey? SdkEphemPubKey { get; init; }
 
     /// <summary>
     /// The maximum amount of time in minutes for the 3D Secure 2 authentication process.
@@ -188,52 +226,78 @@ public record ThreeDs2RequestData11
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSCompInd")]
-    public string? ThreeDscompInd { get; init; }
+    public string? ThreeDsCompInd { get; init; }
 
     /// <summary>
     /// Indicates the type of Authentication request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorAuthenticationInd")]
-    public string? ThreeDsrequestorAuthenticationInd { get; init; }
+    public string? ThreeDsRequestorAuthenticationInd { get; init; }
 
+    /// <summary>
+    /// Information about how the 3DS Requestor authenticated the cardholder before or during the transaction
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorAuthenticationInfo")]
-    public ThreeDsrequestorAuthenticationInfo1? ThreeDsrequestorAuthenticationInfo { get; init; }
+    public ThreeDsRequestorAuthenticationInfo? ThreeDsRequestorAuthenticationInfo { get; init; }
 
+    /// <summary>
+    /// Indicates whether a challenge is requested for this transaction. Possible values:
+    /// * <b>01</b> — No preference
+    /// * <b>02</b> — No challenge requested
+    /// * <b>03</b> — Challenge requested (3DS Requestor preference)
+    /// * <b>04</b> — Challenge requested (Mandate)
+    /// * <b>05</b> — No challenge (transactional risk analysis is already performed)
+    /// * <b>06</b> — Data Only
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorChallengeInd")]
-    public ThreeDsreqAuthMethod? ThreeDsrequestorChallengeInd { get; init; }
+    public ThreeDsReqAuthMethod? ThreeDsRequestorChallengeInd { get; init; }
 
     /// <summary>
     /// Required for <see href="https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only">authentication-only integration</see> for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorID")]
-    public string? ThreeDsrequestorId { get; init; }
+    public string? ThreeDsRequestorId { get; init; }
 
     /// <summary>
     /// Required for <see href="https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only">authentication-only integration</see> for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorName")]
-    public string? ThreeDsrequestorName { get; init; }
+    public string? ThreeDsRequestorName { get; init; }
 
+    /// <summary>
+    /// Information about how the 3DS Requestor authenticated the cardholder as part of a previous 3DS transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorPriorAuthenticationInfo")]
-    public ThreeDsrequestorPriorAuthenticationInfo1? ThreeDsrequestorPriorAuthenticationInfo { get; init; }
+    public ThreeDsRequestorPriorAuthenticationInfo? ThreeDsRequestorPriorAuthenticationInfo { get; init; }
 
     /// <summary>
     /// URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorURL")]
-    public string? ThreeDsrequestorUrl { get; init; }
+    public string? ThreeDsRequestorUrl { get; init; }
 
+    /// <summary>
+    /// Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values:
+    /// * <b>01</b> — Goods/Service Purchase
+    /// * <b>03</b> — Check Acceptance
+    /// * <b>10</b> — Account Funding
+    /// * <b>11</b> — Quasi-Cash Transaction
+    /// * <b>28</b> — Prepaid Activation and Load
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transType")]
     public TransType? TransType { get; init; }
 
+    /// <summary>
+    /// Identify the type of the transaction being authenticated.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionType")]
     public TransactionType? TransactionType { get; init; }
@@ -245,7 +309,11 @@ public record ThreeDs2RequestData11
     [JsonPropertyName("whiteListStatus")]
     public string? WhiteListStatus { get; init; }
 
+    /// <summary>
+    /// The work phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.
+    /// &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the <c>shopperEmail</c>, and did not send the shopper's phone number in <c>telephoneNumber</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("workPhone")]
-    public WorkPhone? WorkPhone { get; init; }
+    public Phone? WorkPhone { get; init; }
 }

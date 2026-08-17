@@ -25,7 +25,7 @@ public sealed class DynamicOffers
     }
 
     /// <summary>
-    /// get-dynamicOffers
+    /// Get all available dynamic offers
     /// </summary>
     /// <param name="accountHolderId">The unique identifier of the account holder that the dynamic offer is for.</param>
     /// <param name="financingType">The type of financing that the offer is for. If the value is not specified, returns all available types.  Possible values: <b>businessFinancing</b></param>
@@ -37,10 +37,10 @@ public sealed class DynamicOffers
     /// Returns a list of all <see href="https://docs.adyen.com/capital/get-grant-offers/dynamic-offers/">dynamic offers</see> available for <c>accountHolderId</c> specified as a query parameter.
     /// </remarks>
     public Task<GetDynamicOffersResponse> GetDynamicOffers(string accountHolderId,
-        FinancingType1? financingType,
+        FinancingType? financingType,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/dynamicOffers"),
+        _rawClient.Execute(_server.Default15("/dynamicOffers"),
             [],
             [new Param("accountHolderId", accountHolderId), new Param("financingType", financingType)],
             [],
@@ -53,7 +53,7 @@ public sealed class DynamicOffers
             ct);
 
     /// <summary>
-    /// post-dynamicOffers-id-calculate
+    /// Calculate a preliminary offer for a selected financing amount
     /// </summary>
     /// <param name="id">The unique identifier of the dynamic offer from which the user selected the financing amount.</param>
     /// <param name="body"></param>
@@ -77,7 +77,7 @@ public sealed class DynamicOffers
         CalculateGrantOfferRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/dynamicOffers/{id}/calculate"),
+        _rawClient.Execute(_server.Default15("/dynamicOffers/{id}/calculate"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -90,7 +90,7 @@ public sealed class DynamicOffers
             ct);
 
     /// <summary>
-    /// post-dynamicOffers-id-grantOffer
+    /// Create a static offer for a selected financing amount
     /// </summary>
     /// <param name="id">The unique identifier of the dynamic offer from which the user selected the financing amount.</param>
     /// <param name="body"></param>
@@ -114,7 +114,7 @@ public sealed class DynamicOffers
         CreateGrantOfferRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/dynamicOffers/{id}/grantOffer"),
+        _rawClient.Execute(_server.Default15("/dynamicOffers/{id}/grantOffer"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

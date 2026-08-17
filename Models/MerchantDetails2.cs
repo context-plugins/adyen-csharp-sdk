@@ -22,7 +22,7 @@ public record MerchantDetails2
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("enrolledIn3DSecure")]
-    public bool? EnrolledIn3Dsecure { get; init; }
+    public bool? EnrolledIn3DSecure { get; init; }
 
     /// <summary>
     /// The merchant category code (MCC) is a four-digit number which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.

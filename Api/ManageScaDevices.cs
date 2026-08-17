@@ -27,7 +27,7 @@ public sealed class ManageScaDevices
     }
 
     /// <summary>
-    /// delete-registeredDevices-id
+    /// Delete a registration of an SCA device
     /// </summary>
     /// <param name="id">The unique identifier of the SCA device.</param>
     /// <param name="paymentInstrumentId">The unique identifier of the payment instrument linked to the SCA device.</param>
@@ -42,7 +42,7 @@ public sealed class ManageScaDevices
         string paymentInstrumentId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/registeredDevices/{id}"),
+        _rawClient.Execute(_server.Default13("/registeredDevices/{id}"),
             [new TemplateParam("id", id)],
             [new Param("paymentInstrumentId", paymentInstrumentId)],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -55,7 +55,7 @@ public sealed class ManageScaDevices
             ct);
 
     /// <summary>
-    /// get-registeredDevices
+    /// Get a list of registered SCA devices
     /// </summary>
     /// <param name="paymentInstrumentId">The unique identifier of a payment instrument. It limits the returned list to SCA devices associated to this payment instrument.</param>
     /// <param name="pageNumber">The index of the page to retrieve. The index of the first page is 0 (zero).  Default: 0.</param>
@@ -72,7 +72,7 @@ public sealed class ManageScaDevices
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/registeredDevices"),
+        _rawClient.Execute(_server.Default13("/registeredDevices"),
             [],
             [new Param("paymentInstrumentId", paymentInstrumentId),
                 new Param("pageNumber", pageNumber),
@@ -87,7 +87,7 @@ public sealed class ManageScaDevices
             ct);
 
     /// <summary>
-    /// patch-registeredDevices-deviceId-associations
+    /// Complete an association between an SCA device and a resource
     /// </summary>
     /// <param name="deviceId">The unique identifier of the SCA device that you are associating with a resource.</param>
     /// <param name="body"></param>
@@ -105,7 +105,7 @@ public sealed class ManageScaDevices
         AssociationFinaliseRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/registeredDevices/{deviceId}/associations"),
+        _rawClient.Execute(_server.Default13("/registeredDevices/{deviceId}/associations"),
             [new TemplateParam("deviceId", deviceId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -118,40 +118,40 @@ public sealed class ManageScaDevices
             ct);
 
     /// <summary>
-    /// patch-registeredDevices-id
+    /// Complete the registration of an SCA device
     /// </summary>
     /// <param name="id">The unique identifier of the SCA device. You obtain this <c>id</c> in the response of a POST&amp;nbsp;<see href="https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id">/registeredDevices</see> request.</param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RegisterScafinalResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RegisterScaFinalResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PatchRegisteredDevicesIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Completes the registration of an SCA device by validating the authentication data of the device. You can register SCA devices for <see href="https://docs.adyen.com/platforms/business-accounts/sca">business accounts</see> or <see href="https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk">Adyen-issued cards</see>.
     /// </remarks>
-    public Task<RegisterScafinalResponse> PatchRegisteredDevicesId(string id,
-        RegisterScarequest? body,
+    public Task<RegisterScaFinalResponse> PatchRegisteredDevicesId(string id,
+        RegisterScaRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/registeredDevices/{id}"),
+        _rawClient.Execute(_server.Default13("/registeredDevices/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             new HttpMethod("PATCH"),
             JsonRequest.Create(body),
-            JsonResponse.Create<RegisterScafinalResponse>(),
+            JsonResponse.Create<RegisterScaFinalResponse>(),
             PatchRegisteredDevicesIdErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-registeredDevices
+    /// Initiate the registration of an SCA device
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RegisterScaresponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RegisterScaResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostRegisteredDevicesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Initiates the registration of a user's device for Strong Customer Authentication (SCA). You can register SCA devices for <see href="https://docs.adyen.com/platforms/business-accounts/sca/register-devices">business accounts</see> or <see href="https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk/register-devices">Adyen-issued cards</see>.
@@ -159,23 +159,23 @@ public sealed class ManageScaDevices
     /// For a successful request, the device must be eligible for SCA.
     /// </para>
     /// </remarks>
-    public Task<RegisterScaresponse> PostRegisteredDevices(RegisterScarequest? body,
+    public Task<RegisterScaResponse> PostRegisteredDevices(RegisterScaRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/registeredDevices"),
+        _rawClient.Execute(_server.Default13("/registeredDevices"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<RegisterScaresponse>(),
+            JsonResponse.Create<RegisterScaResponse>(),
             PostRegisteredDevicesErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-registeredDevices-deviceId-associations
+    /// Initiate an association between an SCA device and a resource
     /// </summary>
     /// <param name="deviceId">The unique identifier of the SCA device that you are associating with a resource.</param>
     /// <param name="body"></param>
@@ -190,7 +190,7 @@ public sealed class ManageScaDevices
         AssociationInitiateRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/registeredDevices/{deviceId}/associations"),
+        _rawClient.Execute(_server.Default13("/registeredDevices/{deviceId}/associations"),
             [new TemplateParam("deviceId", deviceId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -21,9 +21,12 @@ public record OnboardingLinkInfo
     [JsonPropertyName("redirectUrl")]
     public string? RedirectUrl { get; init; }
 
+    /// <summary>
+    /// Key-value pairs indicating the settings for the hosted onboarding page. The key represents a specific setting.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("settings")]
-    public OnboardingLinkSettings? Settings { get; init; }
+    public OnboardingLinkSettings2? Settings { get; init; }
 
     /// <summary>
     /// The unique identifier of the hosted onboarding theme.

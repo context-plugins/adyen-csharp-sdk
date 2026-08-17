@@ -42,6 +42,9 @@ public record StoredPaymentMethod2
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// <b>genericissuer</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type311 Type { get; init; }
+    public required Type31 Type { get; init; }
 }

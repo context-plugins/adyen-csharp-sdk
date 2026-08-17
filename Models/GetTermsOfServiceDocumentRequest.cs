@@ -18,6 +18,22 @@ public record GetTermsOfServiceDocumentRequest
     [JsonPropertyName("termsOfServiceDocumentFormat")]
     public string? TermsOfServiceDocumentFormat { get; init; }
 
+    /// <summary>
+    /// The type of Terms of Service.
+    /// <para>
+    /// Possible values:
+    /// *  <b>adyenForPlatformsManage</b>
+    /// *  <b>adyenIssuing</b>
+    /// *  <b>adyenForPlatformsAdvanced</b>
+    /// *  <b>adyenCapital</b>
+    /// *  <b>adyenAccount</b>
+    /// *  <b>adyenCard</b>
+    /// *  <b>adyenFranchisee</b>
+    /// *  <b>adyenPccr</b>
+    /// *  <b>adyenChargeCard</b>
+    /// *  <b>kycOnInvite</b>
+    /// </para>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type25 Type { get; init; }
+    public required Type64 Type { get; init; }
 }

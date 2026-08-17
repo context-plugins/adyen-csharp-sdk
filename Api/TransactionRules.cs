@@ -27,7 +27,7 @@ public sealed class TransactionRules
     }
 
     /// <summary>
-    /// delete-transactionRules-transactionRuleId
+    /// Delete a transaction rule
     /// </summary>
     /// <param name="transactionRuleId">The unique identifier of the transaction rule.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -40,7 +40,7 @@ public sealed class TransactionRules
     public Task<TransactionRule> DeleteTransactionRulesTransactionRuleId(string transactionRuleId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transactionRules/{transactionRuleId}"),
+        _rawClient.Execute(_server.Default13("/transactionRules/{transactionRuleId}"),
             [new TemplateParam("transactionRuleId", transactionRuleId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -53,7 +53,7 @@ public sealed class TransactionRules
             ct);
 
     /// <summary>
-    /// get-transactionRules-transactionRuleId
+    /// Get a transaction rule
     /// </summary>
     /// <param name="transactionRuleId">The unique identifier of the transaction rule.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +66,7 @@ public sealed class TransactionRules
     public Task<TransactionRuleResponse> GetTransactionRulesTransactionRuleId(string transactionRuleId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transactionRules/{transactionRuleId}"),
+        _rawClient.Execute(_server.Default13("/transactionRules/{transactionRuleId}"),
             [new TemplateParam("transactionRuleId", transactionRuleId)],
             [],
             [],
@@ -79,7 +79,7 @@ public sealed class TransactionRules
             ct);
 
     /// <summary>
-    /// patch-transactionRules-transactionRuleId
+    /// Update a transaction rule
     /// </summary>
     /// <param name="transactionRuleId">The unique identifier of the transaction rule.</param>
     /// <param name="body"></param>
@@ -100,7 +100,7 @@ public sealed class TransactionRules
         TransactionRuleInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transactionRules/{transactionRuleId}"),
+        _rawClient.Execute(_server.Default13("/transactionRules/{transactionRuleId}"),
             [new TemplateParam("transactionRuleId", transactionRuleId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -113,7 +113,7 @@ public sealed class TransactionRules
             ct);
 
     /// <summary>
-    /// post-transactionRules
+    /// Create a transaction rule
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -126,7 +126,7 @@ public sealed class TransactionRules
     public Task<TransactionRule> PostTransactionRules(TransactionRuleInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/transactionRules"),
+        _rawClient.Execute(_server.Default13("/transactionRules"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

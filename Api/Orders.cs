@@ -26,7 +26,7 @@ public sealed class Orders
     }
 
     /// <summary>
-    /// post-orders
+    /// Create an order
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -54,7 +54,7 @@ public sealed class Orders
             ct);
 
     /// <summary>
-    /// post-orders-cancel
+    /// Cancel an order
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -82,7 +82,7 @@ public sealed class Orders
             ct);
 
     /// <summary>
-    /// post-paymentMethods-balance
+    /// Get the balance of a gift card
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>

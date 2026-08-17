@@ -12,9 +12,20 @@ public record CalculatedGrantOffer
     [JsonPropertyName("accountHolderId")]
     public required string AccountHolderId { get; init; }
 
+    /// <summary>
+    /// The financing amount that would be paid out to your user.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount5 Amount { get; init; }
+    public required Amount17 Amount { get; init; }
 
+    /// <summary>
+    /// The contract type of the offer.
+    /// <para>
+    /// Possible values:
+    /// * <b>loan</b>
+    /// * <b>cashAdvance</b>
+    /// </para>
+    /// </summary>
     [JsonPropertyName("contractType")]
     public required ContractType ContractType { get; init; }
 
@@ -24,11 +35,17 @@ public record CalculatedGrantOffer
     [JsonPropertyName("expiresAt")]
     public required DateTimeOffset ExpiresAt { get; init; }
 
+    /// <summary>
+    /// Contains information about the fee that your user would pay for the grant.
+    /// </summary>
     [JsonPropertyName("fee")]
-    public required GrantOfferFee Fee { get; init; }
+    public required GrantOfferFee1 Fee { get; init; }
 
+    /// <summary>
+    /// Contains information about the repayment configuration of the grant.
+    /// </summary>
     [JsonPropertyName("repayment")]
-    public required Repayment1 Repayment { get; init; }
+    public required Repayment11 Repayment { get; init; }
 
     /// <summary>
     /// The starting date and time of the offer validity period.

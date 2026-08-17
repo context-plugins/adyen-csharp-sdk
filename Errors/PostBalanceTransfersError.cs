@@ -9,38 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class PostBalanceTransfersError : ApiError
 {
-    private readonly Optional<BalanceTransfers401Error1> _balanceTransfers401Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<BalanceTransfers422Error1> _balanceTransfers422Error1Value;
-
-    private PostBalanceTransfersError(Optional<BalanceTransfers401Error1> balanceTransfers401Error1Value,
-        Optional<BalanceTransfers422Error1> balanceTransfers422Error1Value,
+    private PostBalanceTransfersError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _balanceTransfers401Error1Value = balanceTransfers401Error1Value;
-        _balanceTransfers422Error1Value = balanceTransfers422Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static PostBalanceTransfersError AsBalanceTransfers401Error1(BalanceTransfers401Error1 value) =>
-        new(Optional<BalanceTransfers401Error1>.Some(value), default, default);
-
-    private static PostBalanceTransfersError AsBalanceTransfers422Error1(BalanceTransfers422Error1 value) =>
-        new(default, Optional<BalanceTransfers422Error1>.Some(value), default);
+    private static PostBalanceTransfersError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static PostBalanceTransfersError AsFallback(RawError value) =>
-        new(default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetBalanceTransfers401Error1(out BalanceTransfers401Error1 value) =>
-        _balanceTransfers401Error1Value.TryGetValue(out value);
-
-    public bool TryGetBalanceTransfers422Error1(out BalanceTransfers422Error1 value) =>
-        _balanceTransfers422Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<PostBalanceTransfersError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            401 => FromJson<BalanceTransfers401Error1>(response, ct).As(AsBalanceTransfers401Error1),
-            422 => FromJson<BalanceTransfers422Error1>(response, ct).As(AsBalanceTransfers422Error1),
+            401 or 422 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

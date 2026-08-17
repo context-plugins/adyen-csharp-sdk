@@ -12,6 +12,12 @@ public record TransferReview
     [JsonPropertyName("numberOfApprovalsRequired")]
     public int? NumberOfApprovalsRequired { get; init; }
 
+    /// <summary>
+    /// Shows the status of the Strong Customer Authentication (SCA) process.
+    /// <para>
+    /// Possible values: <b>required</b>, <b>notApplicable</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scaOnApproval")]
     public ScaOnApproval? ScaOnApproval { get; init; }

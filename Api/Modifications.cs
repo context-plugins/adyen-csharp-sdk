@@ -27,7 +27,7 @@ public sealed class Modifications
     }
 
     /// <summary>
-    /// post-adjustAuthorisation
+    /// Change the authorised amount
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -48,7 +48,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostAdjustAuthorisation(AdjustAuthorisationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/adjustAuthorisation"),
+        _rawClient.Execute(_server.Default1("/adjustAuthorisation"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -61,7 +61,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-cancel
+    /// Cancel an authorisation
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -85,7 +85,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostCancel(CancelRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/cancel"),
+        _rawClient.Execute(_server.Default1("/cancel"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -98,7 +98,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-cancelOrRefund
+    /// Cancel or refund a payment
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -130,7 +130,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostCancelOrRefund(CancelOrRefundRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/cancelOrRefund"),
+        _rawClient.Execute(_server.Default1("/cancelOrRefund"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -143,7 +143,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-cancels
+    /// Cancel an authorised payment
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -180,7 +180,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-capture
+    /// Capture an authorisation
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -207,7 +207,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostCapture(CaptureRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/capture"),
+        _rawClient.Execute(_server.Default1("/capture"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -220,7 +220,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-donate
+    /// Create a donation
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -241,7 +241,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostDonate(DonationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/donate"),
+        _rawClient.Execute(_server.Default1("/donate"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -254,7 +254,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-payments-paymentPspReference-amountUpdates
+    /// Update an authorised amount
     /// </summary>
     /// <param name="paymentPspReference">The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the payment.</param>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
@@ -293,7 +293,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-payments-paymentPspReference-cancels
+    /// Cancel an authorised payment
     /// </summary>
     /// <param name="paymentPspReference">The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the payment that you want to cancel.</param>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
@@ -332,7 +332,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-payments-paymentPspReference-captures
+    /// Capture an authorised payment
     /// </summary>
     /// <param name="paymentPspReference">The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the payment that you want to capture.</param>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
@@ -371,7 +371,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-payments-paymentPspReference-refunds
+    /// Refund a captured payment
     /// </summary>
     /// <param name="paymentPspReference">The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the payment that you want to refund.</param>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
@@ -413,7 +413,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-payments-paymentPspReference-reversals
+    /// Refund or cancel a payment
     /// </summary>
     /// <param name="paymentPspReference">The <see href="https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference"><c>pspReference</c></see> of the payment that you want to reverse.</param>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
@@ -450,7 +450,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-refund
+    /// Refund a captured payment
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -478,7 +478,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostRefund(RefundRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/refund"),
+        _rawClient.Execute(_server.Default1("/refund"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -491,7 +491,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-technicalCancel
+    /// Cancel an authorisation using your reference
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -518,7 +518,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostTechnicalCancel(TechnicalCancelRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/technicalCancel"),
+        _rawClient.Execute(_server.Default1("/technicalCancel"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -531,7 +531,7 @@ public sealed class Modifications
             ct);
 
     /// <summary>
-    /// post-voidPendingRefund
+    /// Cancel an in-person refund
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -550,7 +550,7 @@ public sealed class Modifications
     public Task<ModificationResult> PostVoidPendingRefund(VoidPendingRefundRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/voidPendingRefund"),
+        _rawClient.Execute(_server.Default1("/voidPendingRefund"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

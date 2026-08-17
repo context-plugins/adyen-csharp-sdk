@@ -88,6 +88,9 @@ public record Riverty
     [JsonPropertyName("subtype")]
     public string? Subtype { get; init; }
 
+    /// <summary>
+    /// <b>riverty</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type49 Type { get; init; }
+    public Type49 Type { get; init; } = Type49.Riverty;
 }

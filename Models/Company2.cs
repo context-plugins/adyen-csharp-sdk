@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record Company2
 {
+    /// <summary>
+    /// References to resources connected with this company.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public CompanyLinks? Links { get; init; }
+    public CompanyLinks2? Links { get; init; }
 
     /// <summary>
     /// List of available data centers.

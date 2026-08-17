@@ -7,6 +7,9 @@ namespace Adyen.Models;
 /// </summary>
 public record Links7
 {
+    /// <summary>
+    /// Link to the resource itself.
+    /// </summary>
     [JsonPropertyName("self")]
-    public required Self Self { get; init; }
+    public required LinksElement6 Self { get; init; }
 }

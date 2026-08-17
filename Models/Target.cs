@@ -18,6 +18,18 @@ public record Target
     [MinLength(1)]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// The resource for which you want to receive notifications. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>balancePlatform</b>: receive notifications about balance changes in your entire balance platform.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>accountHolder</b>: receive notifications about balance changes of a specific user.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>balanceAccount</b>: receive notifications about balance changes in a specific balance account.</description></item>
+    /// </list>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type18 Type { get; init; }
+    public required Type181 Type { get; init; }
 }

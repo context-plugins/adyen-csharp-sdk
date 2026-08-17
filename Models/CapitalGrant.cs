@@ -5,20 +5,32 @@ namespace Adyen.Models;
 
 public record CapitalGrant
 {
+    /// <summary>
+    /// An object containing the amount of the grant, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount5? Amount { get; init; }
+    public Amount17? Amount { get; init; }
 
+    /// <summary>
+    /// An object containing the details of the existing grant.
+    /// </summary>
     [JsonPropertyName("balances")]
-    public required Balances Balances { get; init; }
+    public required CapitalBalance Balances { get; init; }
 
+    /// <summary>
+    /// An object containing the details of the receiving party of the grant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("counterparty")]
-    public Counterparty10? Counterparty { get; init; }
+    public GrantCounterparty2? Counterparty { get; init; }
 
+    /// <summary>
+    /// An object containing the fee currency and value, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fee")]
-    public Fee2? Fee { get; init; }
+    public Fee4? Fee { get; init; }
 
     /// <summary>
     /// The identifier of the grant account used for the grant.
@@ -38,10 +50,16 @@ public record CapitalGrant
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// An object containing the details of the 30-day repayment threshold.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("repayment")]
-    public Repayment8? Repayment { get; init; }
+    public Repayment? Repayment { get; init; }
 
+    /// <summary>
+    /// The current status of the grant. Possible values: <b>Pending</b>, <b>Active</b>, <b>Repaid</b>, <b>WrittenOff</b>, <b>Failed</b>, <b>Revoked</b>.
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status18 Status { get; init; }
+    public required Status14 Status { get; init; }
 }

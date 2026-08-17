@@ -24,7 +24,7 @@ public sealed class CashOutApi
     }
 
     /// <summary>
-    /// post-cashouts
+    /// Initiate a cashout
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -37,7 +37,7 @@ public sealed class CashOutApi
     public Task<CashOut> PostCashouts(CashOutInfo body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/cashouts"),
+        _rawClient.Execute(_server.Default14("/cashouts"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

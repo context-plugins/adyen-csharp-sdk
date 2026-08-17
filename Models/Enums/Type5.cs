@@ -4,16 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The type of additional bank identification, depending on the country.
-/// <para>
-/// Possible values:
-/// </para>
-/// <list type="bullet">
-///   <item><description><b>auBsbCode</b>: The 6-digit <see href="https://en.wikipedia.org/wiki/Bank_state_branch">Australian Bank State Branch (BSB) code</see>, without separators or spaces.</description></item>
-///   <item><description><b>caRoutingNumber</b>: The 9-digit <see href="https://en.wikipedia.org/wiki/Routing_number_(Canada">Canadian routing number</see>), in EFT format, without separators or spaces.</description></item>
-///   <item><description><b>gbSortCode</b>: The 6-digit <see href="https://en.wikipedia.org/wiki/Sort_code">UK sort code</see>, without separators or spaces</description></item>
-///   <item><description><b>usRoutingNumber</b>: The 9-digit <see href="https://en.wikipedia.org/wiki/ABA_routing_transit_number">routing number</see>, without separators or spaces.</description></item>
-/// </list>
+/// <b>ancv</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type5>))]
 public sealed record Type5 : StringEnum<Type5>
@@ -22,13 +13,7 @@ public sealed record Type5 : StringEnum<Type5>
     {
     }
 
-    public static readonly Type5 AuBsbCode = new("auBsbCode");
-
-    public static readonly Type5 CaRoutingNumber = new("caRoutingNumber");
-
-    public static readonly Type5 GbSortCode = new("gbSortCode");
-
-    public static readonly Type5 UsRoutingNumber = new("usRoutingNumber");
+    public static readonly Type5 Ancv = new("ancv");
 
     public static Type5 FromValue(string value) => FromValueCore(value);
 }

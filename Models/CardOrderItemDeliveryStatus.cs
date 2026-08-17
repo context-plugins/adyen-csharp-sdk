@@ -12,9 +12,12 @@ public record CardOrderItemDeliveryStatus
     [JsonPropertyName("errorMessage")]
     public string? ErrorMessage { get; init; }
 
+    /// <summary>
+    /// The status of the PIN delivery.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status7? Status { get; init; }
+    public Status71? Status { get; init; }
 
     /// <summary>
     /// The tracking number of the PIN delivery.

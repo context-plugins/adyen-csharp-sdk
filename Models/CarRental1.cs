@@ -34,6 +34,10 @@ public record CarRental1
     [JsonPropertyName("pickupInfo")]
     public PickupInfo? PickupInfo { get; init; }
 
+    /// <summary>
+    /// Indicates whether the rental rate is daily or weekly.
+    /// * <b>additionalData key:</b> <c>carRental.rateIndicator</c>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("rateType")]
     public RateType? RateType { get; init; }

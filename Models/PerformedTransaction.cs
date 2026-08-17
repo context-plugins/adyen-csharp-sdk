@@ -6,16 +6,27 @@ namespace Adyen.Models;
 
 public record PerformedTransaction
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// If Result is Success, <c>ErrorCondition</c> is absent or not used in the processing of the message. In the other cases, the <c>ErrorCondition</c> has to be present and can refine the processing of the message response. <c>AdditionalResponse</c> gives more information about the success or the failure of the message request processing, for logging without real time involvements.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response1 Response { get; init; }
 
+    /// <summary>
+    /// Data associated with the Sale System, with a particular value during the processing of the payment by the POI, including the cards acquisition.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("SaleData")]
-    public SaleData2? SaleData { get; init; }
+    public SaleData? SaleData { get; init; }
 
+    /// <summary>
+    /// Data related to the POI System.
+    /// In the Message Response, identification of the POI transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("POIData")]
-    public Poidata2? Poidata { get; init; }
+    public PoiData? PoiData { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentResult")]

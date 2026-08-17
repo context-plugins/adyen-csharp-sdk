@@ -24,33 +24,7 @@ public sealed class GrantsApi
     }
 
     /// <summary>
-    /// get-grants
-    /// </summary>
-    /// <param name="counterpartyAccountHolderId">The unique identifier of the account holder that received the grants.</param>
-    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Grants"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="GetGrantsError"/> when the server returns an error response.</exception>
-    /// <remarks>
-    /// Returns a list of all the grants of a specific account holder.
-    /// </remarks>
-    public Task<Grants> GetGrants(string counterpartyAccountHolderId,
-        RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grants"),
-            [],
-            [new Param("counterpartyAccountHolderId", counterpartyAccountHolderId)],
-            [],
-            HttpMethod.Get,
-            EmptyBody.Instance,
-            JsonResponse.Create<Grants>(),
-            GetGrantsErrorResponse.Instance,
-            [],
-            requestOptions,
-            ct);
-
-    /// <summary>
-    /// get-grants-grantId
+    /// Get the details of a grant
     /// </summary>
     /// <param name="grantId">The unique identifier of the grant reference.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -63,7 +37,7 @@ public sealed class GrantsApi
     public Task<Grant> GetGrantsGrantId(string grantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grants/{grantId}"),
+        _rawClient.Execute(_server.Default15("/grants/{grantId}"),
             [new TemplateParam("grantId", grantId)],
             [],
             [],
@@ -76,7 +50,7 @@ public sealed class GrantsApi
             ct);
 
     /// <summary>
-    /// get-grants-grantId-disbursements
+    /// Get all the disbursements of a grant
     /// </summary>
     /// <param name="grantId">The unique identifier of the grant reference.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -89,7 +63,7 @@ public sealed class GrantsApi
     public Task<Disbursements> GetGrantsGrantIdDisbursements(string grantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grants/{grantId}/disbursements"),
+        _rawClient.Execute(_server.Default15("/grants/{grantId}/disbursements"),
             [new TemplateParam("grantId", grantId)],
             [],
             [],
@@ -102,7 +76,7 @@ public sealed class GrantsApi
             ct);
 
     /// <summary>
-    /// get-grants-grantId-disbursements-disbursementId
+    /// Get disbursement details
     /// </summary>
     /// <param name="grantId">The unique identifier of the grant reference.</param>
     /// <param name="disbursementId">The unique identifier of the disbursement.</param>
@@ -117,7 +91,7 @@ public sealed class GrantsApi
         string disbursementId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grants/{grantId}/disbursements/{disbursementId}"),
+        _rawClient.Execute(_server.Default15("/grants/{grantId}/disbursements/{disbursementId}"),
             [new TemplateParam("grantId", grantId), new TemplateParam("disbursementId", disbursementId)],
             [],
             [],
@@ -130,7 +104,33 @@ public sealed class GrantsApi
             ct);
 
     /// <summary>
-    /// patch-grants-grantId-disbursements-disbursementId
+    /// Get all the grants of an account holder
+    /// </summary>
+    /// <param name="counterpartyAccountHolderId">The unique identifier of the account holder that received the grants.</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="ct">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Grants"/> instance.</returns>
+    /// <exception cref="SdkException{TResult}"> of <see cref="GetGrants2Error"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Returns a list of all the grants of a specific account holder.
+    /// </remarks>
+    public Task<Grants> GetGrants2(string counterpartyAccountHolderId,
+        RequestOptions? requestOptions = null,
+        CancellationToken ct = default) =>
+        _rawClient.Execute(_server.Default15("/grants"),
+            [],
+            [new Param("counterpartyAccountHolderId", counterpartyAccountHolderId)],
+            [],
+            HttpMethod.Get,
+            EmptyBody.Instance,
+            JsonResponse.Create<Grants>(),
+            GetGrants2ErrorResponse.Instance,
+            [],
+            requestOptions,
+            ct);
+
+    /// <summary>
+    /// Update the repayment configuration of a disbursement
     /// </summary>
     /// <param name="grantId">The unique identifier of the grant reference.</param>
     /// <param name="disbursementId">The unique identifier of the disbursement.</param>
@@ -147,7 +147,7 @@ public sealed class GrantsApi
         DisbursementInfoUpdate body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grants/{grantId}/disbursements/{disbursementId}"),
+        _rawClient.Execute(_server.Default15("/grants/{grantId}/disbursements/{disbursementId}"),
             [new TemplateParam("grantId", grantId), new TemplateParam("disbursementId", disbursementId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -160,27 +160,27 @@ public sealed class GrantsApi
             ct);
 
     /// <summary>
-    /// post-grants
+    /// Make a request for a grant
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="Grant"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="PostGrantsError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="PostGrants2Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Make a request for a grant on behalf of an account holder.
     /// </remarks>
-    public Task<Grant> PostGrants(GrantInfo? body,
+    public Task<Grant> PostGrants2(CapitalGrantInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/grants"),
+        _rawClient.Execute(_server.Default15("/grants"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<Grant>(),
-            PostGrantsErrorResponse.Instance,
+            PostGrants2ErrorResponse.Instance,
             [],
             requestOptions,
             ct);

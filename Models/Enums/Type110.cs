@@ -4,13 +4,22 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The type of entity that owns the bank account or card.
+/// The <see href="https://docs.adyen.com/classic-platforms/verification-process/legal-arrangements#types-of-legal-arrangements">type of legal arrangement</see>.
 /// <para>
-/// Possible values: <b>individual</b>, <b>organization</b>, or <b>unknown</b>.
+/// Possible values:
 /// </para>
-/// <para>
-/// Required when <c>category</c> is <b>card</b>. In this case, the value must be <b>individual</b>.
-/// </para>
+/// <list type="bullet">
+///   <item><description><b>Association</b></description></item>
+/// </list>
+/// <list type="bullet">
+///   <item><description><b>Partnership</b></description></item>
+/// </list>
+/// <list type="bullet">
+///   <item><description><b>SoleProprietorship</b></description></item>
+/// </list>
+/// <list type="bullet">
+///   <item><description><b>Trust</b></description></item>
+/// </list>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type110>))]
 public sealed record Type110 : StringEnum<Type110>
@@ -19,11 +28,13 @@ public sealed record Type110 : StringEnum<Type110>
     {
     }
 
-    public static readonly Type110 Individual = new("individual");
+    public static readonly Type110 Association = new("Association");
 
-    public static readonly Type110 Organization = new("organization");
+    public static readonly Type110 Partnership = new("Partnership");
 
-    public static readonly Type110 Unknown = new("unknown");
+    public static readonly Type110 SoleProprietorship = new("SoleProprietorship");
+
+    public static readonly Type110 Trust = new("Trust");
 
     public static Type110 FromValue(string value) => FromValueCore(value);
 }

@@ -16,6 +16,11 @@ public record Installments
     [JsonPropertyName("extra")]
     public int? Extra { get; init; }
 
+    /// <summary>
+    /// The installment plan, used for <see href="https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan">card installments in Japan</see>.
+    /// and <see href="https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico">Mexico</see>.
+    /// By default, this is set to <b>regular</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("plan")]
     public Plan? Plan { get; init; }

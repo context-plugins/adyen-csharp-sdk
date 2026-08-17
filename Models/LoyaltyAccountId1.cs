@@ -28,9 +28,26 @@ public record LoyaltyAccountId1
     [JsonPropertyName("EntryMode")]
     public required IReadOnlyList<EntryMode> EntryMode { get; init; }
 
+    /// <summary>
+    /// Type of account identification. In a request message, it informs the POI System the type of the account or card identification, when provided by the Sale Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner device). In a response message, it informs the Sale System the type of the account or card identification.
+    /// Possible values:
+    /// * <b>AccountNumber</b>
+    /// * <b>BarCode</b>
+    /// * <b>ISOTrack2</b>
+    /// * <b>PAN</b>
+    /// * <b>PhoneNumber</b>
+    /// </summary>
     [JsonPropertyName("IdentificationType")]
     public required IdentificationType11 IdentificationType { get; init; }
 
+    /// <summary>
+    /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification.
+    /// Possible values:
+    /// * <b>HybridCard</b>
+    /// * <b>LinkedCard</b>
+    /// * <b>LoyaltyCard</b>
+    /// * <b>NoCard</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("IdentificationSupport")]
     public IdentificationSupport1? IdentificationSupport { get; init; }

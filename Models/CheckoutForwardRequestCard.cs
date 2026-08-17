@@ -74,7 +74,9 @@ public record CheckoutForwardRequestCard
     [JsonPropertyName("number")]
     public string? Number { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// Default payment method details. Common for scheme payment methods, and for simple payment method details.
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type181? Type { get; init; }
+    public Type18? Type { get; init; } = Type18.Scheme;
 }

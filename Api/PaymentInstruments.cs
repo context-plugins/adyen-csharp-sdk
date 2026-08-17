@@ -27,33 +27,33 @@ public sealed class PaymentInstruments
     }
 
     /// <summary>
-    /// get-paymentInstruments-id
+    /// Get a payment instrument
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PaymentInstrument"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PaymentInstrument1"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="GetPaymentInstrumentsIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns the details of a payment instrument.
     /// </remarks>
-    public Task<PaymentInstrument> GetPaymentInstrumentsId(string id,
+    public Task<PaymentInstrument1> GetPaymentInstrumentsId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<PaymentInstrument>(),
+            JsonResponse.Create<PaymentInstrument1>(),
             GetPaymentInstrumentsIdErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// get-paymentInstruments-id-networkTokenActivationData
+    /// Get network token activation data
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +66,7 @@ public sealed class PaymentInstruments
     public Task<NetworkTokenActivationDataResponse> GetPaymentInstrumentsIdNetworkTokenActivationData(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}/networkTokenActivationData"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}/networkTokenActivationData"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -79,7 +79,7 @@ public sealed class PaymentInstruments
             ct);
 
     /// <summary>
-    /// get-paymentInstruments-id-networkTokens
+    /// List network tokens
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -92,7 +92,7 @@ public sealed class PaymentInstruments
     public Task<ListNetworkTokensResponse> GetPaymentInstrumentsIdNetworkTokens(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}/networkTokens"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}/networkTokens"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -105,7 +105,7 @@ public sealed class PaymentInstruments
             ct);
 
     /// <summary>
-    /// get-paymentInstruments-id-reveal
+    /// Get the PAN of a payment instrument
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -124,7 +124,7 @@ public sealed class PaymentInstruments
     public Task<PaymentInstrumentRevealInfo> GetPaymentInstrumentsIdReveal(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}/reveal"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}/reveal"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -137,7 +137,7 @@ public sealed class PaymentInstruments
             ct);
 
     /// <summary>
-    /// get-paymentInstruments-id-transactionRules
+    /// Get all transaction rules for a payment instrument
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -150,7 +150,7 @@ public sealed class PaymentInstruments
     public Task<TransactionRulesResponse> GetPaymentInstrumentsIdTransactionRules(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}/transactionRules"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}/transactionRules"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -163,7 +163,7 @@ public sealed class PaymentInstruments
             ct);
 
     /// <summary>
-    /// patch-paymentInstruments-id
+    /// Update a payment instrument
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="body"></param>
@@ -178,7 +178,7 @@ public sealed class PaymentInstruments
         PaymentInstrumentUpdateRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -191,12 +191,12 @@ public sealed class PaymentInstruments
             ct);
 
     /// <summary>
-    /// post-paymentInstruments
+    /// Create a payment instrument
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PaymentInstrument"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PaymentInstrument1"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostPaymentInstrumentsError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates a payment instrument to issue a physical card, a virtual card, or a business account to your user.
@@ -204,23 +204,23 @@ public sealed class PaymentInstruments
     ///  For more information, refer to <see href="https://docs.adyen.com/issuing/create-cards">Issue cards</see> or <see href="https://docs.adyen.com/platforms/business-accounts">Issue business accounts</see>.
     /// </para>
     /// </remarks>
-    public Task<PaymentInstrument> PostPaymentInstruments(PaymentInstrumentInfo? body,
+    public Task<PaymentInstrument1> PostPaymentInstruments(PaymentInstrumentInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<PaymentInstrument>(),
+            JsonResponse.Create<PaymentInstrument1>(),
             PostPaymentInstrumentsErrorResponse.Instance,
             [new AuthSchemeAny(_auth.ClientKey, _auth.BasicAuth, _auth.ApiKeyAuth)],
             requestOptions,
             ct);
 
     /// <summary>
-    /// post-paymentInstruments-id-networkTokenActivationData
+    /// Create network token provisioning data
     /// </summary>
     /// <param name="id">The unique identifier of the payment instrument.</param>
     /// <param name="body"></param>
@@ -235,7 +235,7 @@ public sealed class PaymentInstruments
         NetworkTokenActivationDataRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/{id}/networkTokenActivationData"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/{id}/networkTokenActivationData"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -248,7 +248,7 @@ public sealed class PaymentInstruments
             ct);
 
     /// <summary>
-    /// post-paymentInstruments-reveal
+    /// Reveal the data of a payment instrument
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -273,7 +273,7 @@ public sealed class PaymentInstruments
     public Task<PaymentInstrumentRevealResponse> PostPaymentInstrumentsReveal(PaymentInstrumentRevealRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/paymentInstruments/reveal"),
+        _rawClient.Execute(_server.Default13("/paymentInstruments/reveal"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

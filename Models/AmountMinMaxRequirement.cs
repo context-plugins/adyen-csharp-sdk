@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -30,5 +29,5 @@ public record AmountMinMaxRequirement
     /// <b>amountMinMaxRequirement</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type810 Type { get; init; }
+    public string Type { get; } = "amountMinMaxRequirement";
 }

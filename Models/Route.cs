@@ -12,6 +12,9 @@ public record Route
     [MinLength(1)]
     public required string Link { get; init; }
 
+    /// <summary>
+    /// Metadata about the selected provider, including the name and company logo. You can use this information to inform the user about the provider they will be redirected to when they select the link.
+    /// </summary>
     [JsonPropertyName("provider")]
-    public required Provider Provider { get; init; }
+    public required Provider2 Provider { get; init; }
 }

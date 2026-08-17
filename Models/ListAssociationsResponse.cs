@@ -5,8 +5,11 @@ namespace Adyen.Models;
 
 public record ListAssociationsResponse
 {
+    /// <summary>
+    /// A list of hyperlinks to resources related to this response.
+    /// </summary>
     [JsonPropertyName("_links")]
-    public required Link Links { get; init; }
+    public required Link3 Links { get; init; }
 
     /// <summary>
     /// Contains a list of associations and their corresponding details.

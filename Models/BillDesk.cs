@@ -27,6 +27,9 @@ public record BillDesk
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
+    /// <summary>
+    /// <b>billdesk</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public required Type121 Type { get; init; }
+    public required Type12 Type { get; init; }
 }

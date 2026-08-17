@@ -41,6 +41,9 @@ public record SecureRemoteCommerceCheckoutData2
     [MaxLength(80)]
     public string? DigitalCardId { get; init; }
 
+    /// <summary>
+    /// The Secure Remote Commerce scheme.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scheme")]
     public Scheme? Scheme { get; init; }

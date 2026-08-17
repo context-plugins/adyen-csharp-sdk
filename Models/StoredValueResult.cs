@@ -11,6 +11,17 @@ namespace Adyen.Models;
 /// </summary>
 public record StoredValueResult
 {
+    /// <summary>
+    /// Identification of operation to proceed on the stored value account or the stored value card.
+    /// Copy.
+    /// Possible values:
+    /// * <b>Activate</b>
+    /// * <b>Duplicate</b>
+    /// * <b>Load</b>
+    /// * <b>Reserve</b>
+    /// * <b>Reverse</b>
+    /// * <b>Unload</b>
+    /// </summary>
     [JsonPropertyName("StoredValueTransactionType")]
     public required StoredValueTransactionType2 StoredValueTransactionType { get; init; }
 
@@ -50,11 +61,18 @@ public record StoredValueResult
     [RegularExpression("^[A-Z]{3,3}$")]
     public string? Currency { get; init; }
 
+    /// <summary>
+    /// Data related to the result of the stored value card transaction.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("StoredValueAccountStatus")]
-    public StoredValueAccountStatus? StoredValueAccountStatus { get; init; }
+    public StoredValueAccountStatus1? StoredValueAccountStatus { get; init; }
 
+    /// <summary>
+    /// Identification of the transaction by the host in charge of the stored value transaction.
+    /// If provided by the Host.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("HostTransactionID")]
-    public HostTransactionId? HostTransactionId { get; init; }
+    public TransactionIdType7? HostTransactionId { get; init; }
 }

@@ -20,8 +20,11 @@ public record GivexInfo1
     [JsonPropertyName("password")]
     public required string Password { get; init; }
 
+    /// <summary>
+    /// The sales channel used for the payment.
+    /// </summary>
     [JsonPropertyName("paymentFlow")]
-    public required ShopperInteraction PaymentFlow { get; init; }
+    public required PaymentFlow PaymentFlow { get; init; }
 
     /// <summary>
     /// The username provided by the acquirer.

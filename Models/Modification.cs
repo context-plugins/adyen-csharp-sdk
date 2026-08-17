@@ -26,9 +26,12 @@ public record Modification
     [JsonPropertyName("reference")]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The status of the transfer event.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status25? Status { get; init; }
+    public Status24? Status { get; init; }
 
     /// <summary>
     /// The type of transfer modification.

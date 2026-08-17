@@ -5,7 +5,9 @@ namespace Adyen.Models;
 
 public record ForceRebootDetails
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// The type of terminal action. The value <b>ForceReboot</b> triggers an immediate reboot of the specified terminal(s).
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type210? Type { get; init; }
+    public Type210? Type { get; init; } = Type210.ForceReboot;
 }

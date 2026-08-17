@@ -19,6 +19,9 @@ public record ModificationResult
     [JsonPropertyName("pspReference")]
     public required string PspReference { get; init; }
 
+    /// <summary>
+    /// Indicates if the modification request has been received for processing.
+    /// </summary>
     [JsonPropertyName("response")]
     public required ResponseEnum Response { get; init; }
 }

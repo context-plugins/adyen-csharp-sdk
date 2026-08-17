@@ -25,6 +25,10 @@ public record UpdateAccountHolderStateRequest
     [JsonPropertyName("reason")]
     public string? Reason { get; init; }
 
+    /// <summary>
+    /// The state to be updated.
+    /// &gt;Permitted values are: <c>Processing</c>, <c>Payout</c>
+    /// </summary>
     [JsonPropertyName("stateType")]
     public required StateType StateType { get; init; }
 }

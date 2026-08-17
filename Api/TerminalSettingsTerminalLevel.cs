@@ -27,7 +27,7 @@ public sealed class TerminalSettingsTerminalLevel
     }
 
     /// <summary>
-    /// get-terminals-terminalId-terminalLogos
+    /// Get the terminal logo
     /// </summary>
     /// <param name="terminalId">The unique identifier of the payment terminal.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -49,7 +49,7 @@ public sealed class TerminalSettingsTerminalLevel
     public Task<Logo> GetTerminalsTerminalIdTerminalLogos(string terminalId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals/{terminalId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/terminals/{terminalId}/terminalLogos"),
             [new TemplateParam("terminalId", terminalId)],
             [],
             [],
@@ -62,7 +62,7 @@ public sealed class TerminalSettingsTerminalLevel
             ct);
 
     /// <summary>
-    /// get-terminals-terminalId-terminalSettings
+    /// Get terminal settings
     /// </summary>
     /// <param name="terminalId">The unique identifier of the payment terminal.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -87,7 +87,7 @@ public sealed class TerminalSettingsTerminalLevel
     public Task<TerminalSettings> GetTerminalsTerminalIdTerminalSettings(string terminalId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals/{terminalId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/terminals/{terminalId}/terminalSettings"),
             [new TemplateParam("terminalId", terminalId)],
             [],
             [],
@@ -100,7 +100,7 @@ public sealed class TerminalSettingsTerminalLevel
             ct);
 
     /// <summary>
-    /// patch-terminals-terminalId-terminalLogos
+    /// Update the logo
     /// </summary>
     /// <param name="terminalId">The unique identifier of the payment terminal.</param>
     /// <param name="body"></param>
@@ -126,7 +126,7 @@ public sealed class TerminalSettingsTerminalLevel
         Logo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals/{terminalId}/terminalLogos"),
+        _rawClient.Execute(_server.Default9("/terminals/{terminalId}/terminalLogos"),
             [new TemplateParam("terminalId", terminalId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -139,7 +139,7 @@ public sealed class TerminalSettingsTerminalLevel
             ct);
 
     /// <summary>
-    /// patch-terminals-terminalId-terminalSettings
+    /// Update terminal settings
     /// </summary>
     /// <param name="terminalId">The unique identifier of the payment terminal.</param>
     /// <param name="body"></param>
@@ -170,7 +170,7 @@ public sealed class TerminalSettingsTerminalLevel
         TerminalSettings? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/terminals/{terminalId}/terminalSettings"),
+        _rawClient.Execute(_server.Default9("/terminals/{terminalId}/terminalSettings"),
             [new TemplateParam("terminalId", terminalId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

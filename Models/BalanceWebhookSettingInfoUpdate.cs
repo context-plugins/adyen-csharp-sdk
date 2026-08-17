@@ -24,15 +24,28 @@ public record BalanceWebhookSettingInfoUpdate
     [MinLength(1)]
     public string? Currency { get; init; }
 
+    /// <summary>
+    /// The status of the webhook setting. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>: You receive a balance webhook if any of the conditions in this setting are met.</description></item>
+    ///   <item><description><b>inactive</b>: You do not receive a balance webhook even if the conditions in this settings are met.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status19? Status { get; init; }
+    public Status6? Status { get; init; }
 
+    /// <summary>
+    /// The type and ID of the resource about whose balance changes you want to be notified.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("target")]
-    public TargetUpdate? Target { get; init; }
+    public TargetUpdate2? Target { get; init; }
 
+    /// <summary>
+    /// The type of the webhook you are configuring. Set to <b>balance</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type20? Type { get; init; }
+    public Type201? Type { get; init; }
 }

@@ -9,20 +9,20 @@ namespace Adyen.Errors;
 
 public sealed class PostTransfersApproveError : ApiError
 {
-    private readonly Optional<ServiceError> _serviceErrorValue;
+    private readonly Optional<ServiceError1> _serviceError1Value;
 
     private readonly Optional<TransferServiceRestServiceError> _transferServiceRestServiceErrorValue;
 
-    private PostTransfersApproveError(Optional<ServiceError> serviceErrorValue,
+    private PostTransfersApproveError(Optional<ServiceError1> serviceError1Value,
         Optional<TransferServiceRestServiceError> transferServiceRestServiceErrorValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _serviceErrorValue = serviceErrorValue;
+        _serviceError1Value = serviceError1Value;
         _transferServiceRestServiceErrorValue = transferServiceRestServiceErrorValue;
     }
 
-    private static PostTransfersApproveError AsServiceError(ServiceError value) =>
-        new(Optional<ServiceError>.Some(value), default, default);
+    private static PostTransfersApproveError AsServiceError1(ServiceError1 value) =>
+        new(Optional<ServiceError1>.Some(value), default, default);
 
     private static PostTransfersApproveError AsTransferServiceRestServiceError(TransferServiceRestServiceError value) =>
         new(default, Optional<TransferServiceRestServiceError>.Some(value), default);
@@ -30,7 +30,7 @@ public sealed class PostTransfersApproveError : ApiError
     private static PostTransfersApproveError AsFallback(RawError value) =>
         new(default, default, Optional<RawError>.Some(value));
 
-    public bool TryGetServiceError(out ServiceError value) => _serviceErrorValue.TryGetValue(out value);
+    public bool TryGetServiceError1(out ServiceError1 value) => _serviceError1Value.TryGetValue(out value);
 
     public bool TryGetTransferServiceRestServiceError(out TransferServiceRestServiceError value) =>
         _transferServiceRestServiceErrorValue.TryGetValue(out value);
@@ -38,7 +38,7 @@ public sealed class PostTransfersApproveError : ApiError
     internal static Task<PostTransfersApproveError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            401 => FromJson<ServiceError>(response, ct).As(AsServiceError),
+            401 => FromJson<ServiceError1>(response, ct).As(AsServiceError1),
             403 or 422 or 500 => FromJson<TransferServiceRestServiceError>(response, ct).As(AsTransferServiceRestServiceError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };

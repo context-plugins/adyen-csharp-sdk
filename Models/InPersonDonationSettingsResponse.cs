@@ -20,14 +20,32 @@ public record InPersonDonationSettingsResponse
     [JsonPropertyName("defaultCurrency")]
     public string? DefaultCurrency { get; init; }
 
+    /// <summary>
+    /// The text shown on the payment terminal, asking the shopper for a donation.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("displayTextField")]
     public DisplayTextField1? DisplayTextField { get; init; }
 
+    /// <summary>
+    /// The interaction flow for in-person donations: complete payment for the purchase and the donation in one go, or separately.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donationFlow")]
     public DonationFlow4? DonationFlow { get; init; }
 
+    /// <summary>
+    /// The type of donation to collect from the shopper. Possible values:
+    /// <list type="bullet">
+    ///   <item><description><b>roundup</b>: Round up the transaction amount.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>fixedAmounts</b>: Choose a fixed amount.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>fixedAmountsRoundup</b>: Round up, or choose a fixed amount.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donationType")]
     public DonationType1? DonationType { get; init; }

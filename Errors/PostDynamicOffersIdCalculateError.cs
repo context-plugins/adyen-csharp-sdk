@@ -9,28 +9,28 @@ namespace Adyen.Errors;
 
 public sealed class PostDynamicOffersIdCalculateError : ApiError
 {
-    private readonly Optional<DynamicOffersCalculate422Error1> _dynamicOffersCalculate422Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private PostDynamicOffersIdCalculateError(Optional<DynamicOffersCalculate422Error1> dynamicOffersCalculate422Error1Value,
+    private PostDynamicOffersIdCalculateError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _dynamicOffersCalculate422Error1Value = dynamicOffersCalculate422Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static PostDynamicOffersIdCalculateError AsDynamicOffersCalculate422Error1(DynamicOffersCalculate422Error1 value) =>
-        new(Optional<DynamicOffersCalculate422Error1>.Some(value), default);
+    private static PostDynamicOffersIdCalculateError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static PostDynamicOffersIdCalculateError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetDynamicOffersCalculate422Error1(out DynamicOffersCalculate422Error1 value) =>
-        _dynamicOffersCalculate422Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<PostDynamicOffersIdCalculateError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            422 => FromJson<DynamicOffersCalculate422Error1>(response, ct).As(AsDynamicOffersCalculate422Error1),
+            422 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

@@ -26,6 +26,9 @@ public record GetAcceptedTermsOfServiceDocumentResponse
     [JsonPropertyName("termsOfServiceAcceptanceReference")]
     public string? TermsOfServiceAcceptanceReference { get; init; }
 
+    /// <summary>
+    /// The format of the Terms of Service document.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("termsOfServiceDocumentFormat")]
     public TermsOfServiceDocumentFormat? TermsOfServiceDocumentFormat { get; init; }

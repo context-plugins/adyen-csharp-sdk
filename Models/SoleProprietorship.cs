@@ -46,12 +46,18 @@ public record SoleProprietorship
     [JsonPropertyName("name")]
     public required string Name { get; init; }
 
+    /// <summary>
+    /// The business address. Required if the principal place of business is different from the <c>registeredAddress</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("principalPlaceOfBusiness")]
-    public Address1? PrincipalPlaceOfBusiness { get; init; }
+    public Address41? PrincipalPlaceOfBusiness { get; init; }
 
+    /// <summary>
+    /// The address registered at the registrar, such as the Chamber of Commerce.
+    /// </summary>
     [JsonPropertyName("registeredAddress")]
-    public required Address1 RegisteredAddress { get; init; }
+    public required Address51 RegisteredAddress { get; init; }
 
     /// <summary>
     /// The registration number.
@@ -74,6 +80,12 @@ public record SoleProprietorship
     [JsonPropertyName("taxInformation")]
     public IReadOnlyList<TaxInformation>? TaxInformation { get; init; }
 
+    /// <summary>
+    /// The reason for not providing a VAT number.
+    /// <para>
+    /// Possible values: <b>industryExemption</b>, <b>belowTaxThreshold</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("vatAbsenceReason")]
     public VatAbsenceReason1? VatAbsenceReason { get; init; }

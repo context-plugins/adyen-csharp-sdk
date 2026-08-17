@@ -10,16 +10,27 @@ namespace Adyen.Models;
 /// </summary>
 public record ReversalResponse
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Data related to the POI System.
+    /// If Result is Success.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("POIData")]
-    public Poidata2? Poidata { get; init; }
+    public PoiData4? PoiData { get; init; }
 
+    /// <summary>
+    /// Identification of a previous POI transaction.
+    /// In the Payment Request message, it allows using the card of a previous CardAcquisition or Payment request.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("OriginalPOITransaction")]
-    public OriginalPoitransaction3? OriginalPoitransaction { get; init; }
+    public OriginalPoiTransaction? OriginalPoiTransaction { get; init; }
 
     /// <summary>
     /// Amount of the payment or loyalty to reverse.

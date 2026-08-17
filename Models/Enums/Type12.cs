@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// <b>affirm</b>
+/// <b>billdesk</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type12>))]
 public sealed record Type12 : StringEnum<Type12>
@@ -13,7 +13,9 @@ public sealed record Type12 : StringEnum<Type12>
     {
     }
 
-    public static readonly Type12 Affirm = new("affirm");
+    public static readonly Type12 BilldeskOnline = new("billdesk_online");
+
+    public static readonly Type12 BilldeskWallet = new("billdesk_wallet");
 
     public static Type12 FromValue(string value) => FromValueCore(value);
 }

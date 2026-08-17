@@ -25,9 +25,22 @@ public record BalanceAccountConfigurationUpdate
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; init; }
 
+    /// <summary>
+    /// The frequency of payouts initiated by this payout schedule.
+    /// <para>
+    /// Possible values:
+    /// * daily
+    /// * weekdays
+    /// * weekly
+    /// * monthly
+    /// </para>
+    /// <para>
+    /// Default value: The <c>defaultFrequency</c> from the balance platform schedule that you are applying.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("frequency")]
-    public Frequency? Frequency { get; init; }
+    public Frequency1? Frequency { get; init; }
 
     /// <summary>
     /// The date of the month or day of the week when payouts are initiated. Allowed only if <c>frequency</c> is <b>monthly</b> or <b>weekly</b>.

@@ -64,6 +64,9 @@ public record PayPal
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// The type of flow to initiate.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subtype")]
     public Subtype? Subtype { get; init; }
@@ -72,5 +75,5 @@ public record PayPal
     /// <b>paypal</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type76 Type { get; init; }
+    public string Type { get; } = "paypal";
 }

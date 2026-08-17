@@ -3,9 +3,6 @@ using Adyen.Core.Enum;
 
 namespace Adyen.Models.Enums;
 
-/// <summary>
-/// <b>aupay</b>
-/// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type91>))]
 public sealed record Type91 : StringEnum<Type91>
 {
@@ -13,7 +10,11 @@ public sealed record Type91 : StringEnum<Type91>
     {
     }
 
-    public static readonly Type91 Aupay = new("aupay");
+    public static readonly Type91 Back = new("BACK");
+
+    public static readonly Type91 Front = new("FRONT");
+
+    public static readonly Type91 Undefined = new("UNDEFINED");
 
     public static Type91 FromValue(string value) => FromValueCore(value);
 }

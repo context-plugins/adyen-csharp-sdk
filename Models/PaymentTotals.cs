@@ -9,6 +9,30 @@ namespace Adyen.Models;
 /// </summary>
 public record PaymentTotals
 {
+    /// <summary>
+    /// Type of transaction for which totals are grouped.
+    /// Debit, Credit, ReverseDebit, ReverseCredit, OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation, CompletedReservation, CashAdvance.
+    /// Possible values:
+    /// * <b>Award</b>
+    /// * <b>CashAdvance</b>
+    /// * <b>CompletedDeffered</b>
+    /// * <b>CompletedReservation</b>
+    /// * <b>Credit</b>
+    /// * <b>Debit</b>
+    /// * <b>Declined</b>
+    /// * <b>Failed</b>
+    /// * <b>FirstReservation</b>
+    /// * <b>IssuerInstalment</b>
+    /// * <b>OneTimeReservation</b>
+    /// * <b>Rebate</b>
+    /// * <b>Redemption</b>
+    /// * <b>ReverseAward</b>
+    /// * <b>ReverseCredit</b>
+    /// * <b>ReverseDebit</b>
+    /// * <b>ReverseRebate</b>
+    /// * <b>ReverseRedemption</b>
+    /// * <b>UpdateReservation</b>
+    /// </summary>
     [JsonPropertyName("TransactionType")]
     public required TransactionType11 TransactionType { get; init; }
 

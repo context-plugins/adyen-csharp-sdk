@@ -26,7 +26,13 @@ public record Device
     [JsonPropertyName("paymentInstrumentId")]
     public string? PaymentInstrumentId { get; init; }
 
+    /// <summary>
+    /// The type of device.
+    /// <para>
+    /// Possible values: <b>ios</b>, <b>android</b>, <b>browser</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type10? Type { get; init; }
+    public Type101? Type { get; init; }
 }

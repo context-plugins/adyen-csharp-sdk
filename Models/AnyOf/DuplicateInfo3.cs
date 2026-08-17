@@ -14,25 +14,16 @@ public record DuplicateInfo3
 {
     private readonly Optional<PatchableDuplicateInfo> _patchableDuplicateInfoValue;
 
-    private readonly Optional<object?> _anonymousObjectValue;
-
-    private DuplicateInfo3(Optional<PatchableDuplicateInfo> patchableDuplicateInfoValue,
-        Optional<object?> anonymousObjectValue)
+    private DuplicateInfo3(Optional<PatchableDuplicateInfo> patchableDuplicateInfoValue)
     {
         _patchableDuplicateInfoValue = patchableDuplicateInfoValue;
-        _anonymousObjectValue = anonymousObjectValue;
     }
 
     public static DuplicateInfo3 PatchableDuplicateInfo(PatchableDuplicateInfo value) =>
-        new(Optional<PatchableDuplicateInfo>.Some(value), default);
-
-    public static DuplicateInfo3 AnonymousObject(object? value) =>
-        new(default, Optional<object?>.Some(value));
+        new(Optional<PatchableDuplicateInfo>.Some(value));
 
     public bool TryGetPatchableDuplicateInfo(out PatchableDuplicateInfo value) =>
         _patchableDuplicateInfoValue.TryGetValue(out value);
-
-    public bool TryGetAnonymousObject(out object? value) => _anonymousObjectValue.TryGetValue(out value);
 
     public static implicit operator DuplicateInfo3(PatchableDuplicateInfo value) =>
         PatchableDuplicateInfo(value);
@@ -52,11 +43,7 @@ file sealed class DuplicateInfo3Converter : JsonConverter<DuplicateInfo3>
         {
             return DuplicateInfo3.PatchableDuplicateInfo(patchableDuplicateInfoValue);
         }
-        if (JsonSerializer.TryDeserialize<object?>(root, options, out var anonymousObjectValue))
-        {
-            return DuplicateInfo3.AnonymousObject(anonymousObjectValue);
-        }
-        throw new JsonException($"JSON does not match PatchableDuplicateInfo or object? schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match PatchableDuplicateInfo schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, DuplicateInfo3 value, JsonSerializerOptions options)
@@ -64,10 +51,6 @@ file sealed class DuplicateInfo3Converter : JsonConverter<DuplicateInfo3>
         if (value.TryGetPatchableDuplicateInfo(out var patchableDuplicateInfoValue))
         {
             JsonSerializer.Serialize(writer, patchableDuplicateInfoValue, options);
-        }
-        else if (value.TryGetAnonymousObject(out var anonymousObjectValue))
-        {
-            JsonSerializer.Serialize(writer, anonymousObjectValue, options);
         }
         else
         {

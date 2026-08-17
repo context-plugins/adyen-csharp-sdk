@@ -4,6 +4,9 @@ namespace Adyen.Models;
 
 public record GetNetworkTokenResponse
 {
+    /// <summary>
+    /// The details of the network token.
+    /// </summary>
     [JsonPropertyName("token")]
-    public required NetworkToken Token { get; init; }
+    public required NetworkToken2 Token { get; init; }
 }

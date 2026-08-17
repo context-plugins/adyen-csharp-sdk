@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -34,5 +33,5 @@ public record PaymentCancelResponse
     /// The status of your request. This will always have the value <b>received</b>.
     /// </summary>
     [JsonPropertyName("status")]
-    public required Status20 Status { get; init; }
+    public string Status { get; } = "received";
 }

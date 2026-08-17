@@ -7,23 +7,38 @@ namespace Adyen.Models;
 /// </summary>
 public record Link2
 {
+    /// <summary>
+    /// The link to the first page of the list.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("first")]
-    public First? First { get; init; }
+    public LinksElement? First { get; init; }
 
+    /// <summary>
+    /// The link to the last page of the list.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("last")]
-    public Last? Last { get; init; }
+    public LinksElement? Last { get; init; }
 
+    /// <summary>
+    /// The link to the next page of the list.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("next")]
-    public Next? Next { get; init; }
+    public LinksElement? Next { get; init; }
 
+    /// <summary>
+    /// The link to the previous page of the list.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("previous")]
-    public Previous? Previous { get; init; }
+    public LinksElement? Previous { get; init; }
 
+    /// <summary>
+    /// The link to the list page you are currently viewing.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("self")]
-    public Self? Self { get; init; }
+    public LinksElement? Self { get; init; }
 }

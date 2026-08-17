@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
+/// <summary>
+/// The user's full name.
+/// </summary>
 public record Name22
 {
     /// <summary>

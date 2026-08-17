@@ -27,7 +27,7 @@ public sealed class HostedOnboarding
     }
 
     /// <summary>
-    /// get-themes
+    /// Get a list of hosted onboarding page themes
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -49,7 +49,7 @@ public sealed class HostedOnboarding
     /// </list>
     /// </remarks>
     public Task<OnboardingThemes> GetThemes(RequestOptions? requestOptions = null, CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/themes"),
+        _rawClient.Execute(_server.Default18("/themes"),
             [],
             [],
             [],
@@ -62,7 +62,7 @@ public sealed class HostedOnboarding
             ct);
 
     /// <summary>
-    /// get-themes-id
+    /// Get an onboarding link theme
     /// </summary>
     /// <param name="id">The unique identifier of the theme</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -87,7 +87,7 @@ public sealed class HostedOnboarding
     public Task<OnboardingTheme> GetThemesId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/themes/{id}"),
+        _rawClient.Execute(_server.Default18("/themes/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -100,7 +100,7 @@ public sealed class HostedOnboarding
             ct);
 
     /// <summary>
-    /// post-legalEntities-id-onboardingLinks
+    /// Get a link to an Adyen-hosted onboarding page
     /// </summary>
     /// <param name="id">The unique identifier of the legal entity</param>
     /// <param name="body"></param>
@@ -127,7 +127,7 @@ public sealed class HostedOnboarding
         OnboardingLinkInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/legalEntities/{id}/onboardingLinks"),
+        _rawClient.Execute(_server.Default18("/legalEntities/{id}/onboardingLinks"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

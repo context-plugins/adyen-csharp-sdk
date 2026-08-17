@@ -21,7 +21,9 @@ public record MobilePay
     [MaxLength(50000)]
     public string? SdkData { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>mobilepay</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type37? Type { get; init; }
+    public Type37? Type { get; init; } = Type37.Mobilepay;
 }

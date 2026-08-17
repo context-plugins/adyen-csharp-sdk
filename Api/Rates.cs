@@ -24,26 +24,26 @@ public sealed class Rates
     }
 
     /// <summary>
-    /// post-rates-calculate
+    /// Calculate amount in a different currency
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RatesCalculateResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CalculateRateResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="PostRatesCalculateError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns the calculated amounts and rates required to convert the currency of a transaction.
     /// </remarks>
-    public Task<RatesCalculateResponse> PostRatesCalculate(RatesCalculateRequest body,
+    public Task<CalculateRateResponse> PostRatesCalculate(CalculateRateRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/rates/calculate"),
+        _rawClient.Execute(_server.Default7("/rates/calculate"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<RatesCalculateResponse>(),
+            JsonResponse.Create<CalculateRateResponse>(),
             PostRatesCalculateErrorResponse.Instance,
             [],
             requestOptions,

@@ -69,7 +69,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AdminResponse1&gt; AdminRequest(AdminRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AdminResponse&gt; AdminRequest(AdminRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -94,7 +94,7 @@ Content of the Custom Admin Request message.
 try
 {
     var response = await client.AdminRequest(body);
-    // TODO: Handle 'response' of type AdminResponse1
+    // TODO: Handle 'response' of type AdminResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -122,7 +122,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminResponse1](Models/AdminResponse1.cs)</code>
+**OnSuccess**: <code>[AdminResponse](Models/AdminResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -135,7 +135,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;BalanceinquiryResponse1&gt; BalanceInquiryRequest(BalanceInquiryRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;BalanceInquiryResponse&gt; BalanceInquiryRequest(BalanceInquiryRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -160,7 +160,7 @@ Content of the Balance Inquiry Request message.
 try
 {
     var response = await client.BalanceInquiryRequest(body);
-    // TODO: Handle 'response' of type BalanceinquiryResponse1
+    // TODO: Handle 'response' of type BalanceInquiryResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -188,7 +188,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[BalanceinquiryResponse1](Models/BalanceinquiryResponse1.cs)</code>
+**OnSuccess**: <code>[BalanceInquiryResponse](Models/BalanceInquiryResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -201,7 +201,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;CardacquisitionResponse4&gt; CardAcquisitionRequest(CardAcquisitionRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CardAcquisitionResponse&gt; CardAcquisitionRequest(CardAcquisitionRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -226,7 +226,7 @@ Content of the Card Acquisition Request message.
 try
 {
     var response = await client.CardAcquisitionRequest(body);
-    // TODO: Handle 'response' of type CardacquisitionResponse4
+    // TODO: Handle 'response' of type CardAcquisitionResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -254,7 +254,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CardacquisitionResponse4](Models/CardacquisitionResponse4.cs)</code>
+**OnSuccess**: <code>[CardAcquisitionResponse](Models/CardAcquisitionResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -267,7 +267,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;CardreaderapduResponse4&gt; CardReaderApdurequest(CardReaderApdurequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CardReaderApduResponse&gt; CardReaderApduRequest(CardReaderApduRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -291,8 +291,8 @@ Content of the Card Reader APDU Request message.
 ```csharp
 try
 {
-    var response = await client.CardReaderApdurequest(body);
-    // TODO: Handle 'response' of type CardreaderapduResponse4
+    var response = await client.CardReaderApduRequest(body);
+    // TODO: Handle 'response' of type CardReaderApduResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -310,7 +310,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[CardReaderApdurequest?](Models/CardReaderApdurequest.cs)</code> | - |
+| <code>body</code> | <code>[CardReaderApduRequest?](Models/CardReaderApduRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -320,7 +320,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CardreaderapduResponse4](Models/CardreaderapduResponse4.cs)</code>
+**OnSuccess**: <code>[CardReaderApduResponse](Models/CardReaderApduResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -333,7 +333,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DiagnosisResponse1&gt; DiagnosisRequest(DiagnosisRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DiagnosisResponse&gt; DiagnosisRequest(DiagnosisRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -358,7 +358,7 @@ Content of the Diagnosis Request message.
 try
 {
     var response = await client.DiagnosisRequest(body);
-    // TODO: Handle 'response' of type DiagnosisResponse1
+    // TODO: Handle 'response' of type DiagnosisResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -386,7 +386,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DiagnosisResponse1](Models/DiagnosisResponse1.cs)</code>
+**OnSuccess**: <code>[DiagnosisResponse](Models/DiagnosisResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -399,7 +399,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DisplayResponse1&gt; DisplayRequest(DisplayRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DisplayResponse&gt; DisplayRequest(DisplayRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -424,7 +424,7 @@ Content of the Display Request message.
 try
 {
     var response = await client.DisplayRequest(body);
-    // TODO: Handle 'response' of type DisplayResponse1
+    // TODO: Handle 'response' of type DisplayResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -452,7 +452,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DisplayResponse1](Models/DisplayResponse1.cs)</code>
+**OnSuccess**: <code>[DisplayResponse](Models/DisplayResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -465,7 +465,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;EnableserviceResponse1&gt; EnableServiceRequest(EnableServiceRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;EnableServiceResponse&gt; EnableServiceRequest(EnableServiceRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -490,7 +490,7 @@ Content of the Enable Service Request message.
 try
 {
     var response = await client.EnableServiceRequest(body);
-    // TODO: Handle 'response' of type EnableserviceResponse1
+    // TODO: Handle 'response' of type EnableServiceResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -518,7 +518,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[EnableserviceResponse1](Models/EnableserviceResponse1.cs)</code>
+**OnSuccess**: <code>[EnableServiceResponse](Models/EnableServiceResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -531,7 +531,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GettotalsResponse1&gt; GetTotalsRequest(GetTotalsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetTotalsResponse&gt; GetTotalsRequest(GetTotalsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -556,7 +556,7 @@ Content of the Get Totals Request message.
 try
 {
     var response = await client.GetTotalsRequest(body);
-    // TODO: Handle 'response' of type GettotalsResponse1
+    // TODO: Handle 'response' of type GetTotalsResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -584,7 +584,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GettotalsResponse1](Models/GettotalsResponse1.cs)</code>
+**OnSuccess**: <code>[GetTotalsResponse](Models/GetTotalsResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -597,7 +597,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;InputResponse1&gt; InputRequest(InputRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;InputResponse&gt; InputRequest(InputRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -621,7 +621,7 @@ Content of the `InputRequest` message. It conveys the data to display and how to
 try
 {
     var response = await client.InputRequest(body);
-    // TODO: Handle 'response' of type InputResponse1
+    // TODO: Handle 'response' of type InputResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -649,7 +649,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[InputResponse1](Models/InputResponse1.cs)</code>
+**OnSuccess**: <code>[InputResponse](Models/InputResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -662,7 +662,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;LoginResponse1&gt; LoginRequest(LoginRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;LoginResponse&gt; LoginRequest(LoginRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -687,7 +687,7 @@ Content of the `LoginRequest` message.
 try
 {
     var response = await client.LoginRequest(body);
-    // TODO: Handle 'response' of type LoginResponse1
+    // TODO: Handle 'response' of type LoginResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -715,7 +715,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[LoginResponse1](Models/LoginResponse1.cs)</code>
+**OnSuccess**: <code>[LoginResponse](Models/LoginResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -728,7 +728,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;LogoutResponse1&gt; LogoutRequest(LogoutRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;LogoutResponse&gt; LogoutRequest(LogoutRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -753,7 +753,7 @@ Content of the Logout Request message.
 try
 {
     var response = await client.LogoutRequest(body);
-    // TODO: Handle 'response' of type LogoutResponse1
+    // TODO: Handle 'response' of type LogoutResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -781,7 +781,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[LogoutResponse1](Models/LogoutResponse1.cs)</code>
+**OnSuccess**: <code>[LogoutResponse](Models/LogoutResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -794,7 +794,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PaymentResponse6&gt; PaymentRequest(PaymentRequest2? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PaymentResponse4&gt; PaymentRequest(PaymentRequest2? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -820,7 +820,7 @@ Content of the `PaymentRequest` message.
 try
 {
     var response = await client.PaymentRequest(body);
-    // TODO: Handle 'response' of type PaymentResponse6
+    // TODO: Handle 'response' of type PaymentResponse4
 }
 catch (SdkException<RawError> ex)
 {
@@ -848,7 +848,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PaymentResponse6](Models/PaymentResponse6.cs)</code>
+**OnSuccess**: <code>[PaymentResponse4](Models/PaymentResponse4.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -861,7 +861,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PrintResponse1&gt; PrintRequest(PrintRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PrintResponse&gt; PrintRequest(PrintRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -886,7 +886,7 @@ It conveys the complete data to print and how to process the print.
 try
 {
     var response = await client.PrintRequest(body);
-    // TODO: Handle 'response' of type PrintResponse1
+    // TODO: Handle 'response' of type PrintResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -914,7 +914,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PrintResponse1](Models/PrintResponse1.cs)</code>
+**OnSuccess**: <code>[PrintResponse](Models/PrintResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -927,7 +927,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ReconciliationResponse1&gt; ReconciliationRequest(ReconciliationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ReconciliationResponse&gt; ReconciliationRequest(ReconciliationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -952,7 +952,7 @@ It conveys Information related to the Reconciliation requested by the Sale Syste
 try
 {
     var response = await client.ReconciliationRequest(body);
-    // TODO: Handle 'response' of type ReconciliationResponse1
+    // TODO: Handle 'response' of type ReconciliationResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -980,7 +980,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ReconciliationResponse1](Models/ReconciliationResponse1.cs)</code>
+**OnSuccess**: <code>[ReconciliationResponse](Models/ReconciliationResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -993,7 +993,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ReversalResponse4&gt; ReversalRequest(ReversalRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ReversalResponse&gt; ReversalRequest(ReversalRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1018,7 +1018,7 @@ Content of the Reversal Request message.
 try
 {
     var response = await client.ReversalRequest(body);
-    // TODO: Handle 'response' of type ReversalResponse4
+    // TODO: Handle 'response' of type ReversalResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -1046,7 +1046,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ReversalResponse4](Models/ReversalResponse4.cs)</code>
+**OnSuccess**: <code>[ReversalResponse](Models/ReversalResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -1059,7 +1059,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;StoredvalueResponse4&gt; StoredValueRequest(StoredValueRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;StoredValueResponse&gt; StoredValueRequest(StoredValueRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1084,7 +1084,7 @@ Content of the Stored Value Request message.
 try
 {
     var response = await client.StoredValueRequest(body);
-    // TODO: Handle 'response' of type StoredvalueResponse4
+    // TODO: Handle 'response' of type StoredValueResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -1112,7 +1112,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[StoredvalueResponse4](Models/StoredvalueResponse4.cs)</code>
+**OnSuccess**: <code>[StoredValueResponse](Models/StoredValueResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -1125,7 +1125,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;TransactionstatusResponse1&gt; TransactionStatusRequest(TransactionStatusRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TransactionStatusResponse&gt; TransactionStatusRequest(TransactionStatusRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1150,7 +1150,7 @@ It conveys Information requested for status of the last or current Payment, Loya
 try
 {
     var response = await client.TransactionStatusRequest(body);
-    // TODO: Handle 'response' of type TransactionstatusResponse1
+    // TODO: Handle 'response' of type TransactionStatusResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -1178,7 +1178,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TransactionstatusResponse1](Models/TransactionstatusResponse1.cs)</code>
+**OnSuccess**: <code>[TransactionStatusResponse](Models/TransactionStatusResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -1228,9 +1228,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdApiCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdApiCredentialsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1302,9 +1302,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdApiCredentialsApiCredentialIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdApiCredentialsApiCredentialIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1376,9 +1376,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1458,9 +1458,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdApiCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdApiCredentialsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1536,9 +1536,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdApiCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdApiCredentialsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1610,9 +1610,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdApiCredentialsApiCredentialIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1684,9 +1684,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdApiCredentialsApiCredentialIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdApiCredentialsApiCredentialIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1766,9 +1766,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdApiCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdApiCredentialsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1843,9 +1843,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKeyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKeyError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1920,9 +1920,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -1997,9 +1997,9 @@ try
 }
 catch (SdkException<GetCompaniesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2069,9 +2069,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2140,9 +2140,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdMerchantsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdMerchantsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2217,9 +2217,9 @@ try
 }
 catch (SdkException<GetMerchantsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2289,9 +2289,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2362,9 +2362,9 @@ try
 }
 catch (SdkException<PostMerchantsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2437,9 +2437,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdActivateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdActivateError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2518,9 +2518,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdStoresError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdStoresError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2595,9 +2595,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdStoresStoreIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdStoresStoreIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2670,9 +2670,9 @@ try
 }
 catch (SdkException<GetStoresError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetStoresError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2747,9 +2747,9 @@ try
 }
 catch (SdkException<GetStoresStoreIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetStoresStoreIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2820,9 +2820,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdStoresStoreIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdStoresStoreIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2896,9 +2896,9 @@ try
 }
 catch (SdkException<PatchStoresStoreIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchStoresStoreIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -2970,9 +2970,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdStoresError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdStoresError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3044,9 +3044,9 @@ try
 }
 catch (SdkException<PostStoresError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostStoresError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3116,9 +3116,9 @@ try
 }
 catch (SdkException<GetAccountVerificationReportsCodeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountVerificationReportsCodeError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -3184,9 +3184,9 @@ try
 }
 catch (SdkException<PostAccountVerificationRoutesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostAccountVerificationRoutesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -3228,7 +3228,7 @@ catch (SdkException<PostAccountVerificationRoutesError> ex)
 > Source: [AccountHolders](Api/AccountHolders.cs)
 
 <details>
-<summary><code>Task&lt;AccountHolder2&gt; GetAccountHoldersId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AccountHolder&gt; GetAccountHoldersId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3252,13 +3252,13 @@ Returns an account holder.
 try
 {
     var response = await client.AccountHolders.GetAccountHoldersId(id);
-    // TODO: Handle 'response' of type AccountHolder2
+    // TODO: Handle 'response' of type AccountHolder
 }
 catch (SdkException<GetAccountHoldersIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountHoldersIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3283,7 +3283,7 @@ catch (SdkException<GetAccountHoldersIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AccountHolder2](Models/AccountHolder2.cs)</code>
+**OnSuccess**: <code>[AccountHolder](Models/AccountHolder.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetAccountHoldersIdError](Errors/GetAccountHoldersIdError.cs)&gt;</code>
 
@@ -3326,9 +3326,9 @@ try
 }
 catch (SdkException<GetAccountHoldersIdBalanceAccountsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountHoldersIdBalanceAccountsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3434,7 +3434,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetTaxFormResponse1&gt; GetAccountHoldersIdTaxForms(string id, FormType1 formType, int year, string? legalEntityId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetTaxFormResponse1&gt; GetAccountHoldersIdTaxForms(string id, FormType formType, int year, string? legalEntityId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3462,9 +3462,9 @@ try
 }
 catch (SdkException<GetAccountHoldersIdTaxFormsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountHoldersIdTaxFormsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3480,7 +3480,7 @@ catch (SdkException<GetAccountHoldersIdTaxFormsError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>id</code> | <code>string</code> | The unique identifier of the account holder. |
-| <code>formType</code> | <code>[FormType1](Models/Enums/FormType1.cs)</code> | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
+| <code>formType</code> | <code>[FormType](Models/Enums/FormType.cs)</code> | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
 | <code>year</code> | <code>int</code> | The tax year in **YYYY** format for the tax form you want to retrieve. |
 | <code>legalEntityId</code> | <code>string?</code> | The legal entity reference whose tax form you want to retrieve. |
 
@@ -3533,9 +3533,9 @@ try
 }
 catch (SdkException<GetAccountHoldersIdTransactionRulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountHoldersIdTransactionRulesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3573,7 +3573,7 @@ catch (SdkException<GetAccountHoldersIdTransactionRulesError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AccountHolder2&gt; PatchAccountHoldersId(string id, AccountHolderUpdateRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AccountHolder&gt; PatchAccountHoldersId(string id, AccountHolderUpdateRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3597,13 +3597,13 @@ Updates an account holder. When updating an account holder resource, if a parame
 try
 {
     var response = await client.AccountHolders.PatchAccountHoldersId(id, body);
-    // TODO: Handle 'response' of type AccountHolder2
+    // TODO: Handle 'response' of type AccountHolder
 }
 catch (SdkException<PatchAccountHoldersIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchAccountHoldersIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3629,7 +3629,7 @@ catch (SdkException<PatchAccountHoldersIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AccountHolder2](Models/AccountHolder2.cs)</code>
+**OnSuccess**: <code>[AccountHolder](Models/AccountHolder.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PatchAccountHoldersIdError](Errors/PatchAccountHoldersIdError.cs)&gt;</code>
 
@@ -3642,7 +3642,7 @@ catch (SdkException<PatchAccountHoldersIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AccountHolder2&gt; PostAccountHolders(AccountHolderInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AccountHolder&gt; PostAccountHolders(AccountHolderInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3668,13 +3668,13 @@ Creates an account holder linked to a [legal entity](https://docs.adyen.com/api-
 try
 {
     var response = await client.AccountHolders.PostAccountHolders(body);
-    // TODO: Handle 'response' of type AccountHolder2
+    // TODO: Handle 'response' of type AccountHolder
 }
 catch (SdkException<PostAccountHoldersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostAccountHoldersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -3699,7 +3699,7 @@ catch (SdkException<PostAccountHoldersError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AccountHolder2](Models/AccountHolder2.cs)</code>
+**OnSuccess**: <code>[AccountHolder](Models/AccountHolder.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostAccountHoldersError](Errors/PostAccountHoldersError.cs)&gt;</code>
 
@@ -3740,9 +3740,9 @@ try
 }
 catch (SdkException<PostCloseAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCloseAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -3808,9 +3808,9 @@ try
 }
 catch (SdkException<PostCloseStoresError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCloseStoresError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -3876,9 +3876,9 @@ try
 }
 catch (SdkException<PostCreateAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCreateAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -3944,9 +3944,9 @@ try
 }
 catch (SdkException<PostGetAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4012,9 +4012,9 @@ try
 }
 catch (SdkException<PostGetTaxFormError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetTaxFormError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4080,9 +4080,9 @@ try
 }
 catch (SdkException<PostSuspendAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostSuspendAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4151,9 +4151,9 @@ try
 }
 catch (SdkException<PostUnSuspendAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostUnSuspendAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4239,9 +4239,9 @@ try
 }
 catch (SdkException<PostUpdateAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostUpdateAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4307,9 +4307,9 @@ try
 }
 catch (SdkException<PostUpdateAccountHolderStateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostUpdateAccountHolderStateError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4379,9 +4379,9 @@ try
 }
 catch (SdkException<PostCloseAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCloseAccountError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4447,9 +4447,9 @@ try
 }
 catch (SdkException<PostCreateAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCreateAccountError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4515,9 +4515,9 @@ try
 }
 catch (SdkException<PostUpdateAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostUpdateAccountError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -4591,9 +4591,9 @@ try
 }
 catch (SdkException<DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -4665,9 +4665,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -4739,9 +4739,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -4814,9 +4814,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -4892,9 +4892,9 @@ try
 }
 catch (SdkException<DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -4966,9 +4966,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5040,9 +5040,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5115,9 +5115,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5202,9 +5202,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdAndroidAppsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdAndroidAppsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5281,9 +5281,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdAndroidAppsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdAndroidAppsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5362,9 +5362,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdAndroidCertificatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdAndroidCertificatesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5438,9 +5438,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdAndroidAppsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdAndroidAppsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5479,7 +5479,7 @@ catch (SdkException<PatchCompaniesCompanyIdAndroidAppsIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;EntityReference&gt; PostCompaniesCompanyIdAndroidApps(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UploadAndroidAppResponse&gt; PostCompaniesCompanyIdAndroidApps(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -5509,13 +5509,13 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 try
 {
     var response = await client.AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidApps(companyId);
-    // TODO: Handle 'response' of type EntityReference
+    // TODO: Handle 'response' of type UploadAndroidAppResponse
 }
 catch (SdkException<PostCompaniesCompanyIdAndroidAppsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdAndroidAppsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5540,7 +5540,7 @@ catch (SdkException<PostCompaniesCompanyIdAndroidAppsError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[EntityReference](Models/EntityReference.cs)</code>
+**OnSuccess**: <code>[UploadAndroidAppResponse](Models/UploadAndroidAppResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostCompaniesCompanyIdAndroidAppsError](Errors/PostCompaniesCompanyIdAndroidAppsError.cs)&gt;</code>
 
@@ -5553,7 +5553,7 @@ catch (SdkException<PostCompaniesCompanyIdAndroidAppsError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;EntityReference&gt; PostCompaniesCompanyIdAndroidCertificates(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UploadAndroidCertificateResponse&gt; PostCompaniesCompanyIdAndroidCertificates(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -5579,13 +5579,13 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 try
 {
     var response = await client.AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidCertificates(companyId);
-    // TODO: Handle 'response' of type EntityReference
+    // TODO: Handle 'response' of type UploadAndroidCertificateResponse
 }
 catch (SdkException<PostCompaniesCompanyIdAndroidCertificatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdAndroidCertificatesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -5610,7 +5610,7 @@ catch (SdkException<PostCompaniesCompanyIdAndroidCertificatesError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[EntityReference](Models/EntityReference.cs)</code>
+**OnSuccess**: <code>[UploadAndroidCertificateResponse](Models/UploadAndroidCertificateResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostCompaniesCompanyIdAndroidCertificatesError](Errors/PostCompaniesCompanyIdAndroidCertificatesError.cs)&gt;</code>
 
@@ -5654,9 +5654,9 @@ try
 }
 catch (SdkException<DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -5722,9 +5722,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -5792,9 +5792,9 @@ try
 }
 catch (SdkException<PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -5861,9 +5861,9 @@ try
 }
 catch (SdkException<PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -5934,9 +5934,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -6004,9 +6004,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsIdPaymentInstrumentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsIdPaymentInstrumentsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -6075,9 +6075,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsIdTransactionRulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsIdTransactionRulesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -6143,9 +6143,9 @@ try
 }
 catch (SdkException<PatchBalanceAccountsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchBalanceAccountsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -6212,9 +6212,9 @@ try
 }
 catch (SdkException<PostBalanceAccountsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceAccountsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -6289,9 +6289,9 @@ try
 }
 catch (SdkException<PostBalanceTransfersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceTransfersError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6328,12 +6328,12 @@ catch (SdkException<PostBalanceTransfersError> ex)
 
 </details>
 
-## BalancesApi
+## Balances
 
-> Source: [BalancesApi](Api/BalancesApi.cs)
+> Source: [Balances](Api/Balances.cs)
 
 <details>
-<summary><code>Task&lt;object&gt; DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(string balancePlatformId, string webhookId, string settingId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;JsonElement&gt; DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(string balancePlatformId, string webhookId, string settingId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -6356,16 +6356,16 @@ Deletes a balance webhook setting that contains the conditions for triggering [b
 ```csharp
 try
 {
-    var response = await client.BalancesApi.DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(balancePlatformId,
+    var response = await client.Balances.DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(balancePlatformId,
         webhookId,
         settingId);
-    // TODO: Handle 'response' of type object
+    // TODO: Handle 'response' of type JsonElement
 }
 catch (SdkException<DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6392,7 +6392,7 @@ catch (SdkException<DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSett
 <dl>
 <dd>
 
-**OnSuccess**: <code>object</code>
+**OnSuccess**: <code>JsonElement</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError](Errors/DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError.cs)&gt;</code>
 
@@ -6428,15 +6428,15 @@ Returns all balance webhook settings configured for triggering [balance webhooks
 ```csharp
 try
 {
-    var response = await client.BalancesApi.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettings(balancePlatformId,
+    var response = await client.Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettings(balancePlatformId,
         webhookId);
     // TODO: Handle 'response' of type WebhookSettings
 }
 catch (SdkException<GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6498,16 +6498,16 @@ Returns the details of a specific balance webhook setting configured for trigger
 ```csharp
 try
 {
-    var response = await client.BalancesApi.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(balancePlatformId,
+    var response = await client.Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(balancePlatformId,
         webhookId,
         settingId);
     // TODO: Handle 'response' of type WebhookSetting
 }
 catch (SdkException<GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6570,7 +6570,7 @@ Updates the conditions the balance change needs to meet for Adyen to send a [bal
 ```csharp
 try
 {
-    var response = await client.BalancesApi.PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(balancePlatformId,
+    var response = await client.Balances.PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(balancePlatformId,
         webhookId,
         settingId,
         body);
@@ -6578,9 +6578,9 @@ try
 }
 catch (SdkException<PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6652,16 +6652,16 @@ You can get notified about balance changes in your entire balance platform, in t
 ```csharp
 try
 {
-    var response = await client.BalancesApi.PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettings(balancePlatformId,
+    var response = await client.Balances.PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettings(balancePlatformId,
         webhookId,
         body);
     // TODO: Handle 'response' of type WebhookSetting
 }
 catch (SdkException<PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6750,9 +6750,9 @@ try
 }
 catch (SdkException<GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6836,9 +6836,9 @@ try
 }
 catch (SdkException<GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -6908,9 +6908,9 @@ try
 }
 catch (SdkException<PostValidateBankAccountIdentificationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostValidateBankAccountIdentificationError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -6991,9 +6991,9 @@ try
 }
 catch (SdkException<DeleteBusinessLinesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBusinessLinesIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -7069,9 +7069,9 @@ try
 }
 catch (SdkException<GetBusinessLinesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetBusinessLinesIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -7147,9 +7147,9 @@ try
 }
 catch (SdkException<PatchBusinessLinesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PatchBusinessLinesIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -7230,9 +7230,9 @@ try
 }
 catch (SdkException<PostBusinessLinesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostBusinessLinesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -7274,6 +7274,74 @@ catch (SdkException<PostBusinessLinesError> ex)
 > Source: [Capital](Api/Capital.cs)
 
 <details>
+<summary><code>Task&lt;CapitalGrants&gt; GetGrants(string? counterpartyAccountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns a list of grants with status and outstanding balances.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Capital.GetGrants(counterpartyAccountHolderId);
+    // TODO: Handle 'response' of type CapitalGrants
+}
+catch (SdkException<GetGrantsError> ex)
+{
+    if (ex.Error.TryGetRestServiceError(out var error))
+    {
+        // TODO: Handle 'error' of type RestServiceError
+    }
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>counterpartyAccountHolderId</code> | <code>string?</code> | The counterparty account holder id. |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CapitalGrants](Models/CapitalGrants.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrantsError](Errors/GetGrantsError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;CapitalGrant&gt; GetGrantsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
@@ -7302,9 +7370,9 @@ try
 }
 catch (SdkException<GetGrantsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -7332,6 +7400,75 @@ catch (SdkException<GetGrantsIdError> ex)
 **OnSuccess**: <code>[CapitalGrant](Models/CapitalGrant.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrantsIdError](Errors/GetGrantsIdError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;CapitalGrant&gt; PostGrants(string? idempotencyKey, CapitalGrantInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Requests the payout of the selected grant offer.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Capital.PostGrants(idempotencyKey, body);
+    // TODO: Handle 'response' of type CapitalGrant
+}
+catch (SdkException<PostGrantsError> ex)
+{
+    if (ex.Error.TryGetRestServiceError(out var error))
+    {
+        // TODO: Handle 'error' of type RestServiceError
+    }
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>idempotencyKey</code> | <code>string?</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID). |
+| <code>body</code> | <code>[CapitalGrantInfo?](Models/CapitalGrantInfo.cs)</code> | - |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CapitalGrant](Models/CapitalGrant.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostGrantsError](Errors/PostGrantsError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -7384,9 +7521,9 @@ try
 }
 catch (SdkException<GetCardordersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCardordersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -7462,9 +7599,9 @@ try
 }
 catch (SdkException<GetCardordersIdItemsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCardordersIdItemsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -7536,9 +7673,9 @@ try
 }
 catch (SdkException<PostCashoutsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostCashoutsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -7612,9 +7749,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -7689,9 +7826,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -7720,316 +7857,6 @@ catch (SdkException<PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerate
 **OnSuccess**: <code>[GenerateClientKeyResponse](Models/GenerateClientKeyResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyError](Errors/PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-## CloudEndpointsAndConnection
-
-> Source: [CloudEndpointsAndConnection](Api/CloudEndpointsAndConnection.cs)
-
-<details>
-<summary><code>Task&lt;ConnectedDevicesResponse&gt; GetMerchantsMerchantAccountConnectedDevices(string merchantAccount, string? store, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-Get a list of payment terminals or SDK installation IDs (in a Mobile solution) belonging to the specified merchant account that have an active cloud connection.  The `store` query parameter limits the list of devices to those belonging to a specific store under the specified merchant account. 
-
-To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
-
-
-* **Cloud Device API role**
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.CloudEndpointsAndConnection.GetMerchantsMerchantAccountConnectedDevices(merchantAccount,
-        store);
-    // TODO: Handle 'response' of type ConnectedDevicesResponse
-}
-catch (SdkException<GetMerchantsMerchantAccountConnectedDevicesError> ex)
-{
-    if (ex.Error.TryGetError(out var error))
-    {
-        // TODO: Handle 'error' of type GetMerchantsMerchantAccountConnectedDevicesError
-    }
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>merchantAccount</code> | <code>string</code> | The unique identifier of the merchant account. |
-| <code>store</code> | <code>string?</code> | The store ID of the store belonging to the merchant account specified in the path. |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[ConnectedDevicesResponse](Models/ConnectedDevicesResponse.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetMerchantsMerchantAccountConnectedDevicesError](Errors/GetMerchantsMerchantAccountConnectedDevicesError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;DeviceStatusResponse&gt; GetMerchantsMerchantAccountDevicesDeviceIdStatus(string merchantAccount, string deviceId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-Check if the specified payment terminal or SDK installation ID (in an IPP Mobile solution) has an active cloud connection.
-
-To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
-
-
-* **Cloud Device API role**
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.CloudEndpointsAndConnection.GetMerchantsMerchantAccountDevicesDeviceIdStatus(merchantAccount,
-        deviceId);
-    // TODO: Handle 'response' of type DeviceStatusResponse
-}
-catch (SdkException<GetMerchantsMerchantAccountDevicesDeviceIdStatusError> ex)
-{
-    if (ex.Error.TryGetError(out var error))
-    {
-        // TODO: Handle 'error' of type GetMerchantsMerchantAccountDevicesDeviceIdStatusError
-    }
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>merchantAccount</code> | <code>string</code> | The unique identifier of the merchant account. |
-| <code>deviceId</code> | <code>string</code> | The unique identifier of the device. <br><br>For a payment terminal, use the terminal ID in the format _[terminal model]-[serial number]_, for example, **P400‑123456789**. <br>In a Mobile solution, use the installation ID of the SDK. |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[DeviceStatusResponse](Models/DeviceStatusResponse.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetMerchantsMerchantAccountDevicesDeviceIdStatusError](Errors/GetMerchantsMerchantAccountDevicesDeviceIdStatusError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;string&gt; PostMerchantsMerchantAccountDevicesDeviceIdAsync(string merchantAccount, string deviceId, string? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-Sends a Terminal API request and receives the response asynchronously.
-
-The request body is a JSON object containing a Terminal API request. For the structure, see the various request types under [Terminal API](https://docs.adyen.com/api-explorer/terminal-api/1/overview).
-
-A HTTP status code of **200 OK** is returned when the payment device is online and our backend has sent the request. The actual Terminal API response is returned as an event notification webhook to your event notification endpoint. See [Receiving an asynchronous result](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/#async).
-
-To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
-
-
-* **Cloud Device API role**
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.CloudEndpointsAndConnection.PostMerchantsMerchantAccountDevicesDeviceIdAsync(merchantAccount,
-        deviceId,
-        body);
-    // TODO: Handle 'response' of type string
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>merchantAccount</code> | <code>string</code> | The unique identifier of the merchant account. |
-| <code>deviceId</code> | <code>string</code> | The unique identifier of the payment device that you send this request to. Must be the same as the `POIID` in the `MessageHeader` of the Terminal API request. <br><br>In an integration with payment terminals, use the terminal ID in the format _[terminal model]-[serial number]_, for example, **P400‑123456789**. In a Mobile solution, use the installation ID of the SDK. |
-| <code>body</code> | <code>string?</code> | - |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>string</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;string&gt; PostMerchantsMerchantAccountDevicesDeviceIdSync(string merchantAccount, string deviceId, string? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-Sends a Terminal API request and receives the response synchronously.
-
-The request body is a JSON object containing a Terminal API request. For the structure, see the various request types under [Terminal API](https://docs.adyen.com/api-explorer/terminal-api/1/overview).
-
-The response returns a Terminal API response. See [Receiving a synchronous result](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/#sync).
-
-To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
-
-
-* **Cloud Device API role**
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.CloudEndpointsAndConnection.PostMerchantsMerchantAccountDevicesDeviceIdSync(merchantAccount,
-        deviceId,
-        body);
-    // TODO: Handle 'response' of type string
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>merchantAccount</code> | <code>string</code> | The unique identifier of the merchant account. |
-| <code>deviceId</code> | <code>string</code> | The unique identifier of the payment device that you send this request to. Must be the same as the `POIID` in the `MessageHeader` of the Terminal API request. <br><br>In an integration with payment terminals, use the terminal ID in the format _[terminal model]-[serial number]_, for example, **P400‑123456789**. In a Mobile solution, use the installation ID of the SDK. |
-| <code>body</code> | <code>string?</code> | - |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>string</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -8072,9 +7899,9 @@ try
 }
 catch (SdkException<DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -8145,9 +7972,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsBalanceAccountIdSweepsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsBalanceAccountIdSweepsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -8216,9 +8043,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsBalanceAccountIdSweepsSweepIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsBalanceAccountIdSweepsSweepIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -8287,9 +8114,9 @@ try
 }
 catch (SdkException<PatchBalanceAccountsBalanceAccountIdSweepsSweepIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchBalanceAccountsBalanceAccountIdSweepsSweepIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -8360,9 +8187,9 @@ try
 }
 catch (SdkException<PostBalanceAccountsBalanceAccountIdSweepsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceAccountsBalanceAccountIdSweepsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -8433,9 +8260,9 @@ try
 }
 catch (SdkException<GetMandatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetMandatesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8475,7 +8302,7 @@ catch (SdkException<GetMandatesError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;Mandate&gt; GetMandatesMandateId(string mandateId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;Mandate1&gt; GetMandatesMandateId(string mandateId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -8499,13 +8326,13 @@ Returns the details of the specified [direct debit mandate](https://docs.adyen.c
 try
 {
     var response = await client.DirectDebitMandates.GetMandatesMandateId(mandateId);
-    // TODO: Handle 'response' of type Mandate
+    // TODO: Handle 'response' of type Mandate1
 }
 catch (SdkException<GetMandatesMandateIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetMandatesMandateIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8530,7 +8357,7 @@ catch (SdkException<GetMandatesMandateIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Mandate](Models/Mandate.cs)</code>
+**OnSuccess**: <code>[Mandate1](Models/Mandate1.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetMandatesMandateIdError](Errors/GetMandatesMandateIdError.cs)&gt;</code>
 
@@ -8570,9 +8397,9 @@ try
 }
 catch (SdkException<PatchMandatesMandateIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchMandatesMandateIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8638,9 +8465,9 @@ try
 }
 catch (SdkException<PostMandatesMandateIdCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostMandatesMandateIdCancelError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8709,9 +8536,9 @@ try
 }
 catch (SdkException<DeleteDisputesDisputeIdAttachmentsAttachmentIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteDisputesDisputeIdAttachmentsAttachmentIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8778,9 +8605,9 @@ try
 }
 catch (SdkException<GetDisputesDisputeIdAttachmentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetDisputesDisputeIdAttachmentsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8846,9 +8673,9 @@ try
 }
 catch (SdkException<GetDisputesDisputeIdAttachmentsAttachmentIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetDisputesDisputeIdAttachmentsAttachmentIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8915,9 +8742,9 @@ try
 }
 catch (SdkException<PostDisputesDisputeIdAttachmentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostDisputesDisputeIdAttachmentsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -8997,9 +8824,9 @@ try
 }
 catch (SdkException<DeleteDocumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type DeleteDocumentsIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -9075,9 +8902,9 @@ try
 }
 catch (SdkException<GetDocumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetDocumentsIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -9156,9 +8983,9 @@ try
 }
 catch (SdkException<PatchDocumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PatchDocumentsIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -9242,9 +9069,9 @@ try
 }
 catch (SdkException<PostDocumentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDocumentsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -9318,9 +9145,9 @@ try
 }
 catch (SdkException<DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9393,9 +9220,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9473,9 +9300,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9546,9 +9373,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdCampaignManagementError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdCampaignManagementError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9587,7 +9414,7 @@ catch (SdkException<PostCompaniesCompanyIdCampaignManagementError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DonationCampaign1&gt; PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(string companyId, string donationCampaignId, CampaignStatusTransition1 status, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DonationCampaign1&gt; PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(string companyId, string donationCampaignId, CampaignStatusTransition status, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -9621,9 +9448,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9640,7 +9467,7 @@ catch (SdkException<PostCompaniesCompanyIdCampaignManagementDonationCampaignIdSt
 | --- | --- | --- |
 | <code>companyId</code> | <code>string</code> | The unique identifier of the company account. |
 | <code>donationCampaignId</code> | <code>string</code> | The unique identifier of the donation campaign to activate or end. |
-| <code>status</code> | <code>[CampaignStatusTransition1](Models/Enums/CampaignStatusTransition1.cs)</code> | The desired status change. Possible values: **activate** or **end**. |
+| <code>status</code> | <code>[CampaignStatusTransition](Models/Enums/CampaignStatusTransition.cs)</code> | The desired status change. Possible values: **activate** or **end**. |
 
 </dd>
 </dl>
@@ -9695,9 +9522,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdNonprofitsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdNonprofitsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9772,9 +9599,9 @@ try
 }
 catch (SdkException<PostDonationCampaignsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostDonationCampaignsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -9843,9 +9670,9 @@ try
 }
 catch (SdkException<PostDonationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostDonationsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -9888,7 +9715,7 @@ catch (SdkException<PostDonationsError> ex)
 > Source: [DynamicOffers](Api/DynamicOffers.cs)
 
 <details>
-<summary><code>Task&lt;GetDynamicOffersResponse&gt; GetDynamicOffers(string accountHolderId, FinancingType1? financingType, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetDynamicOffersResponse&gt; GetDynamicOffers(string accountHolderId, FinancingType? financingType, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -9916,9 +9743,9 @@ try
 }
 catch (SdkException<GetDynamicOffersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetDynamicOffersError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -9934,7 +9761,7 @@ catch (SdkException<GetDynamicOffersError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>accountHolderId</code> | <code>string</code> | The unique identifier of the account holder that the dynamic offer is for. |
-| <code>financingType</code> | <code>[FinancingType1?](Models/Enums/FinancingType1.cs)</code> | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing** |
+| <code>financingType</code> | <code>[FinancingType?](Models/Enums/FinancingType.cs)</code> | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing** |
 
 </dd>
 </dl>
@@ -9993,9 +9820,9 @@ try
 }
 catch (SdkException<PostDynamicOffersIdCalculateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostDynamicOffersIdCalculateError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -10070,9 +9897,9 @@ try
 }
 catch (SdkException<PostDynamicOffersIdGrantOfferError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostDynamicOffersIdGrantOfferError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -10143,9 +9970,9 @@ try
 }
 catch (SdkException<PostAcceptDisputeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostAcceptDisputeError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10211,9 +10038,9 @@ try
 }
 catch (SdkException<PostAccountHolderBalanceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostAccountHolderBalanceError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10279,9 +10106,9 @@ try
 }
 catch (SdkException<PostAccountHolderTransactionListError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostAccountHolderTransactionListError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10349,9 +10176,9 @@ try
 }
 catch (SdkException<PostAssignTerminalsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostAssignTerminalsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10417,9 +10244,9 @@ try
 }
 catch (SdkException<PostChangeStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostChangeStatusError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -10485,9 +10312,9 @@ try
 }
 catch (SdkException<PostCheckBalanceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCheckBalanceError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -10553,9 +10380,9 @@ try
 }
 catch (SdkException<PostCreateNotificationConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCreateNotificationConfigurationError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10621,9 +10448,9 @@ try
 }
 catch (SdkException<PostCreatePermitError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCreatePermitError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -10689,9 +10516,9 @@ try
 }
 catch (SdkException<PostCreateTestCardRangesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCreateTestCardRangesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10759,9 +10586,9 @@ try
 }
 catch (SdkException<PostDebitAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDebitAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10827,9 +10654,9 @@ try
 }
 catch (SdkException<PostDefendDisputeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDefendDisputeError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10895,9 +10722,9 @@ try
 }
 catch (SdkException<PostDeleteDisputeDefenseDocumentError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeleteDisputeDefenseDocumentError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -10963,9 +10790,9 @@ try
 }
 catch (SdkException<PostDeleteNotificationConfigurationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeleteNotificationConfigurationsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11033,9 +10860,9 @@ try
 }
 catch (SdkException<PostDisableError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostDisableError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11101,9 +10928,9 @@ try
 }
 catch (SdkException<PostDisablePermitError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostDisablePermitError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11171,9 +10998,9 @@ try
 }
 catch (SdkException<PostFindTerminalError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostFindTerminalError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11211,7 +11038,7 @@ catch (SdkException<PostFindTerminalError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ThreeDsavailabilityResponse&gt; PostGet3DsAvailability(ThreeDsavailabilityRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ThreeDsAvailabilityResponse&gt; PostGet3DsAvailability(ThreeDsAvailabilityRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -11237,13 +11064,13 @@ For more information, refer to [3D Secure 2](https://docs.adyen.com/online-payme
 try
 {
     var response = await client.General.PostGet3DsAvailability(body);
-    // TODO: Handle 'response' of type ThreeDsavailabilityResponse
+    // TODO: Handle 'response' of type ThreeDsAvailabilityResponse
 }
 catch (SdkException<PostGet3DsAvailabilityError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostGet3DsAvailabilityError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11258,7 +11085,7 @@ catch (SdkException<PostGet3DsAvailabilityError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ThreeDsavailabilityRequest?](Models/ThreeDsavailabilityRequest.cs)</code> | - |
+| <code>body</code> | <code>[ThreeDsAvailabilityRequest?](Models/ThreeDsAvailabilityRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -11268,7 +11095,7 @@ catch (SdkException<PostGet3DsAvailabilityError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ThreeDsavailabilityResponse](Models/ThreeDsavailabilityResponse.cs)</code>
+**OnSuccess**: <code>[ThreeDsAvailabilityResponse](Models/ThreeDsAvailabilityResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostGet3DsAvailabilityError](Errors/PostGet3DsAvailabilityError.cs)&gt;</code>
 
@@ -11315,9 +11142,9 @@ try
 }
 catch (SdkException<PostGetCostEstimateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostGetCostEstimateError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11383,9 +11210,9 @@ try
 }
 catch (SdkException<PostGetNotificationConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetNotificationConfigurationError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11451,9 +11278,9 @@ try
 }
 catch (SdkException<PostGetNotificationConfigurationListError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetNotificationConfigurationListError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11521,9 +11348,9 @@ try
 }
 catch (SdkException<PostGetStoresUnderAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetStoresUnderAccountError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11561,7 +11388,7 @@ catch (SdkException<PostGetStoresUnderAccountError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetTerminalDetailsResponse&gt; PostGetTerminalDetails(FindTerminalRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetTerminalDetailsResponse&gt; PostGetTerminalDetails(GetTerminalDetailsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -11591,9 +11418,9 @@ try
 }
 catch (SdkException<PostGetTerminalDetailsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetTerminalDetailsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11608,7 +11435,7 @@ catch (SdkException<PostGetTerminalDetailsError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[FindTerminalRequest?](Models/FindTerminalRequest.cs)</code> | - |
+| <code>body</code> | <code>[GetTerminalDetailsRequest?](Models/GetTerminalDetailsRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -11661,9 +11488,9 @@ try
 }
 catch (SdkException<PostGetTerminalsUnderAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetTerminalsUnderAccountError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -11729,9 +11556,9 @@ try
 }
 catch (SdkException<PostIssueError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostIssueError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11799,9 +11626,9 @@ try
 }
 catch (SdkException<PostListRecurringDetailsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostListRecurringDetailsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11867,9 +11694,9 @@ try
 }
 catch (SdkException<PostLoadError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostLoadError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -11935,9 +11762,9 @@ try
 }
 catch (SdkException<PostMergeBalanceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMergeBalanceError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -12003,9 +11830,9 @@ try
 }
 catch (SdkException<PostNotifyShopperError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostNotifyShopperError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -12071,9 +11898,9 @@ try
 }
 catch (SdkException<PostPayoutAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostPayoutAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12139,9 +11966,9 @@ try
 }
 catch (SdkException<PostRefundFundsTransferError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostRefundFundsTransferError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12207,9 +12034,9 @@ try
 }
 catch (SdkException<PostRefundNotPaidOutTransfersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostRefundNotPaidOutTransfersError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12275,9 +12102,9 @@ try
 }
 catch (SdkException<PostRequestSubjectErasureError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostRequestSubjectErasureError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12315,7 +12142,7 @@ catch (SdkException<PostRequestSubjectErasureError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DefenseReasonsResponse&gt; PostRetrieveApplicableDefenseReasons(AcceptDisputeRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DefenseReasonsResponse&gt; PostRetrieveApplicableDefenseReasons(DefenseReasonsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12343,9 +12170,9 @@ try
 }
 catch (SdkException<PostRetrieveApplicableDefenseReasonsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostRetrieveApplicableDefenseReasonsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12360,7 +12187,7 @@ catch (SdkException<PostRetrieveApplicableDefenseReasonsError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[AcceptDisputeRequest?](Models/AcceptDisputeRequest.cs)</code> | - |
+| <code>body</code> | <code>[DefenseReasonsRequest?](Models/DefenseReasonsRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12413,9 +12240,9 @@ try
 }
 catch (SdkException<PostScheduleAccountUpdaterError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostScheduleAccountUpdaterError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -12443,6 +12270,75 @@ catch (SdkException<PostScheduleAccountUpdaterError> ex)
 **OnSuccess**: <code>[ScheduleAccountUpdaterResult](Models/ScheduleAccountUpdaterResult.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostScheduleAccountUpdaterError](Errors/PostScheduleAccountUpdaterError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;CertificateLoadingResponse&gt; PostSessions3(CreateSessionRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Establishes a secure communications session between the POS Mobile SDK and the Adyen payments platform, through mutual authentication. 
+The request sends a setup token that identifies the SDK and the device. The response returns a session token that the SDK can use to authenticate responses received from the Adyen payments platform.
+>This request applies to **mobile in-person** transactions. You cannot use this request to create online payments sessions. 
+
+
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.General.PostSessions3(body);
+    // TODO: Handle 'response' of type CertificateLoadingResponse
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>body</code> | <code>[CreateSessionRequest?](Models/CreateSessionRequest.cs)</code> | - |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CertificateLoadingResponse](Models/CertificateLoadingResponse.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -12481,9 +12377,9 @@ try
 }
 catch (SdkException<PostSetupBeneficiaryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostSetupBeneficiaryError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12549,9 +12445,9 @@ try
 }
 catch (SdkException<PostSupplyDefenseDocumentError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostSupplyDefenseDocumentError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12617,9 +12513,9 @@ try
 }
 catch (SdkException<PostTestNotificationConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostTestNotificationConfigurationError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12685,9 +12581,9 @@ try
 }
 catch (SdkException<PostTransferFundsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostTransferFundsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12753,9 +12649,9 @@ try
 }
 catch (SdkException<PostUpdateNotificationConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostUpdateNotificationConfigurationError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -12821,9 +12717,9 @@ try
 }
 catch (SdkException<PostVoidTransactionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostVoidTransactionError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -12893,9 +12789,9 @@ try
 }
 catch (SdkException<GetGrantAccountsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantAccountsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -12923,6 +12819,74 @@ catch (SdkException<GetGrantAccountsIdError> ex)
 **OnSuccess**: <code>[CapitalGrantAccount](Models/CapitalGrantAccount.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrantAccountsIdError](Errors/GetGrantAccountsIdError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;GrantAccount&gt; GetGrantAccountsId1(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns the details of the specified grant account. This account tracks existing grants in your marketplace or platform.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.GrantAccounts.GetGrantAccountsId1(id);
+    // TODO: Handle 'response' of type GrantAccount
+}
+catch (SdkException<GetGrantAccountsId1Error> ex)
+{
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
+    {
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
+    }
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>id</code> | <code>string</code> | The unique identifier of the grant account. |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[GrantAccount](Models/GrantAccount.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrantAccountsId1Error](Errors/GetGrantAccountsId1Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -12965,9 +12929,9 @@ try
 }
 catch (SdkException<GetGrantOffersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantOffersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -13033,9 +12997,9 @@ try
 }
 catch (SdkException<GetGrantOffersGrantOfferIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantOffersGrantOfferIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -13101,9 +13065,9 @@ try
 }
 catch (SdkException<GetGrantOffersIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantOffersIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13140,12 +13104,8 @@ catch (SdkException<GetGrantOffersIdError> ex)
 
 </details>
 
-## GrantsApi
-
-> Source: [GrantsApi](Api/GrantsApi.cs)
-
 <details>
-<summary><code>Task&lt;Grants&gt; GetGrants(string counterpartyAccountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GrantOffers&gt; GetGrantOffers1(string accountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13155,7 +13115,7 @@ catch (SdkException<GetGrantOffersIdError> ex)
 <dl>
 <dd>
 
-Returns a list of all the grants of a specific account holder.
+Returns a list of all [static offers](https://docs.adyen.com/capital/get-grant-offers/static-offers) available for `accountHolderId` specified as a query parameter. This also includes static offers created for financing amounts that the user selected from [dynamic offers](https://docs.adyen.com/capital/get-grant-offers/dynamic-offers/).
 
 </dd>
 </dl>
@@ -13168,14 +13128,14 @@ Returns a list of all the grants of a specific account holder.
 ```csharp
 try
 {
-    var response = await client.GrantsApi.GetGrants(counterpartyAccountHolderId);
-    // TODO: Handle 'response' of type Grants
+    var response = await client.GrantOffersApi.GetGrantOffers1(accountHolderId);
+    // TODO: Handle 'response' of type GrantOffers
 }
-catch (SdkException<GetGrantsError> ex)
+catch (SdkException<GetGrantOffers1Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13190,7 +13150,7 @@ catch (SdkException<GetGrantsError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>counterpartyAccountHolderId</code> | <code>string</code> | The unique identifier of the account holder that received the grants. |
+| <code>accountHolderId</code> | <code>string</code> | The unique identifier of the account holder for which you want to get the available static offers. |
 
 </dd>
 </dl>
@@ -13200,9 +13160,9 @@ catch (SdkException<GetGrantsError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Grants](Models/Grants.cs)</code>
+**OnSuccess**: <code>[GrantOffers](Models/GrantOffers.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrantsError](Errors/GetGrantsError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrantOffers1Error](Errors/GetGrantOffers1Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -13211,6 +13171,10 @@ catch (SdkException<GetGrantsError> ex)
 </dl>
 
 </details>
+
+## GrantsApi
+
+> Source: [GrantsApi](Api/GrantsApi.cs)
 
 <details>
 <summary><code>Task&lt;Grant&gt; GetGrantsGrantId(string grantId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
@@ -13241,9 +13205,9 @@ try
 }
 catch (SdkException<GetGrantsGrantIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantsGrantIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13309,9 +13273,9 @@ try
 }
 catch (SdkException<GetGrantsGrantIdDisbursementsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantsGrantIdDisbursementsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13377,9 +13341,9 @@ try
 }
 catch (SdkException<GetGrantsGrantIdDisbursementsDisbursementIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetGrantsGrantIdDisbursementsDisbursementIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13418,6 +13382,74 @@ catch (SdkException<GetGrantsGrantIdDisbursementsDisbursementIdError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;Grants&gt; GetGrants2(string counterpartyAccountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns a list of all the grants of a specific account holder.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.GrantsApi.GetGrants2(counterpartyAccountHolderId);
+    // TODO: Handle 'response' of type Grants
+}
+catch (SdkException<GetGrants2Error> ex)
+{
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
+    {
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
+    }
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>counterpartyAccountHolderId</code> | <code>string</code> | The unique identifier of the account holder that received the grants. |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Grants](Models/Grants.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetGrants2Error](Errors/GetGrants2Error.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;Disbursement&gt; PatchGrantsGrantIdDisbursementsDisbursementId(string grantId, string disbursementId, DisbursementInfoUpdate body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
@@ -13446,9 +13478,9 @@ try
 }
 catch (SdkException<PatchGrantsGrantIdDisbursementsDisbursementIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchGrantsGrantIdDisbursementsDisbursementIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13488,7 +13520,7 @@ catch (SdkException<PatchGrantsGrantIdDisbursementsDisbursementIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;Grant&gt; PostGrants(GrantInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;Grant&gt; PostGrants2(CapitalGrantInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13511,14 +13543,14 @@ Make a request for a grant on behalf of an account holder.
 ```csharp
 try
 {
-    var response = await client.GrantsApi.PostGrants(body);
+    var response = await client.GrantsApi.PostGrants2(body);
     // TODO: Handle 'response' of type Grant
 }
-catch (SdkException<PostGrantsError> ex)
+catch (SdkException<PostGrants2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostGrantsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -13533,7 +13565,7 @@ catch (SdkException<PostGrantsError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GrantInfo?](Models/GrantInfo.cs)</code> | - |
+| <code>body</code> | <code>[CapitalGrantInfo?](Models/CapitalGrantInfo.cs)</code> | - |
 
 </dd>
 </dl>
@@ -13545,7 +13577,7 @@ catch (SdkException<PostGrantsError> ex)
 
 **OnSuccess**: <code>[Grant](Models/Grant.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostGrantsError](Errors/PostGrantsError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostGrants2Error](Errors/PostGrants2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -13598,9 +13630,9 @@ try
 }
 catch (SdkException<GetThemesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetThemesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -13664,9 +13696,9 @@ try
 }
 catch (SdkException<GetThemesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetThemesIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -13742,9 +13774,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdOnboardingLinksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdOnboardingLinksError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -13815,9 +13847,9 @@ try
 }
 catch (SdkException<PostGetOnboardingUrlError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetOnboardingUrlError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -13899,9 +13931,9 @@ try
 }
 catch (SdkException<PostStoreDetailError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostStoreDetailError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -13981,9 +14013,9 @@ try
 }
 catch (SdkException<PostStoreDetailAndSubmitThirdPartyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostStoreDetailAndSubmitThirdPartyError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -14063,9 +14095,9 @@ try
 }
 catch (SdkException<PostSubmitThirdPartyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostSubmitThirdPartyError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -14147,9 +14179,9 @@ try
 }
 catch (SdkException<PostPayoutError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPayoutError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -14229,9 +14261,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -14307,9 +14339,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdBusinessLinesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdBusinessLinesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -14389,9 +14421,9 @@ try
 }
 catch (SdkException<PatchLegalEntitiesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PatchLegalEntitiesIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -14471,9 +14503,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -14550,9 +14582,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdCheckVerificationErrorsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdCheckVerificationErrorsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -14628,9 +14660,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdConfirmDataReviewError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdConfirmDataReviewError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -14668,7 +14700,7 @@ catch (SdkException<PostLegalEntitiesIdConfirmDataReviewError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;object&gt; PostLegalEntitiesIdRequestPeriodicReview(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;JsonElement&gt; PostLegalEntitiesIdRequestPeriodicReview(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -14692,7 +14724,7 @@ Requests a periodic data review for the legal entity of the user specified in th
 try
 {
     var response = await client.LegalEntities.PostLegalEntitiesIdRequestPeriodicReview(id);
-    // TODO: Handle 'response' of type object
+    // TODO: Handle 'response' of type JsonElement
 }
 catch (SdkException<RawError> ex)
 {
@@ -14720,7 +14752,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>object</code>
+**OnSuccess**: <code>JsonElement</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -14764,9 +14796,9 @@ try
 }
 catch (SdkException<DeleteRegisteredDevicesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteRegisteredDevicesIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -14833,9 +14865,9 @@ try
 }
 catch (SdkException<GetRegisteredDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetRegisteredDevicesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -14905,9 +14937,9 @@ try
 }
 catch (SdkException<PatchRegisteredDevicesDeviceIdAssociationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchRegisteredDevicesDeviceIdAssociationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -14946,7 +14978,7 @@ catch (SdkException<PatchRegisteredDevicesDeviceIdAssociationsError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RegisterScafinalResponse&gt; PatchRegisteredDevicesId(string id, RegisterScarequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;RegisterScaFinalResponse&gt; PatchRegisteredDevicesId(string id, RegisterScaRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -14972,13 +15004,13 @@ Completes the registration of an SCA device by validating the authentication dat
 try
 {
     var response = await client.ManageScaDevices.PatchRegisteredDevicesId(id, body);
-    // TODO: Handle 'response' of type RegisterScafinalResponse
+    // TODO: Handle 'response' of type RegisterScaFinalResponse
 }
 catch (SdkException<PatchRegisteredDevicesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchRegisteredDevicesIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -14994,7 +15026,7 @@ catch (SdkException<PatchRegisteredDevicesIdError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>id</code> | <code>string</code> | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
-| <code>body</code> | <code>[RegisterScarequest?](Models/RegisterScarequest.cs)</code> | - |
+| <code>body</code> | <code>[RegisterScaRequest?](Models/RegisterScaRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -15004,7 +15036,7 @@ catch (SdkException<PatchRegisteredDevicesIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[RegisterScafinalResponse](Models/RegisterScafinalResponse.cs)</code>
+**OnSuccess**: <code>[RegisterScaFinalResponse](Models/RegisterScaFinalResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PatchRegisteredDevicesIdError](Errors/PatchRegisteredDevicesIdError.cs)&gt;</code>
 
@@ -15017,7 +15049,7 @@ catch (SdkException<PatchRegisteredDevicesIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RegisterScaresponse&gt; PostRegisteredDevices(RegisterScarequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;RegisterScaResponse&gt; PostRegisteredDevices(RegisterScaRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -15043,13 +15075,13 @@ For a successful request, the device must be eligible for SCA.
 try
 {
     var response = await client.ManageScaDevices.PostRegisteredDevices(body);
-    // TODO: Handle 'response' of type RegisterScaresponse
+    // TODO: Handle 'response' of type RegisterScaResponse
 }
 catch (SdkException<PostRegisteredDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostRegisteredDevicesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -15064,7 +15096,7 @@ catch (SdkException<PostRegisteredDevicesError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[RegisterScarequest?](Models/RegisterScarequest.cs)</code> | - |
+| <code>body</code> | <code>[RegisterScaRequest?](Models/RegisterScaRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -15074,7 +15106,7 @@ catch (SdkException<PostRegisteredDevicesError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[RegisterScaresponse](Models/RegisterScaresponse.cs)</code>
+**OnSuccess**: <code>[RegisterScaResponse](Models/RegisterScaResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostRegisteredDevicesError](Errors/PostRegisteredDevicesError.cs)&gt;</code>
 
@@ -15115,9 +15147,9 @@ try
 }
 catch (SdkException<PostRegisteredDevicesDeviceIdAssociationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostRegisteredDevicesDeviceIdAssociationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -15193,9 +15225,9 @@ try
 }
 catch (SdkException<GetPublicKeyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPublicKeyError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -15265,9 +15297,9 @@ try
 }
 catch (SdkException<PostPinsChangeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPinsChangeError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -15305,7 +15337,7 @@ catch (SdkException<PostPinsChangeError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RevealPinResponse&gt; PostPinsReveal(PaymentInstrumentRevealRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;RevealPinResponse&gt; PostPinsReveal(RevealPinRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -15336,9 +15368,9 @@ try
 }
 catch (SdkException<PostPinsRevealError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPinsRevealError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -15353,7 +15385,7 @@ catch (SdkException<PostPinsRevealError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[PaymentInstrumentRevealRequest?](Models/PaymentInstrumentRevealRequest.cs)</code> | - |
+| <code>body</code> | <code>[RevealPinRequest?](Models/RevealPinRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -15407,9 +15439,9 @@ try
 }
 catch (SdkException<DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15478,9 +15510,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsBalanceAccountIdPayoutSchedulesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15550,9 +15582,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15623,9 +15655,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15697,9 +15729,9 @@ try
 }
 catch (SdkException<GetBalancePlatformsBalancePlatformIdPayoutSchedulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsBalancePlatformIdPayoutSchedulesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15768,9 +15800,9 @@ try
 }
 catch (SdkException<GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15839,9 +15871,9 @@ try
 }
 catch (SdkException<PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15910,9 +15942,9 @@ try
 }
 catch (SdkException<PostBalanceAccountsBalanceAccountIdPayoutSchedulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceAccountsBalanceAccountIdPayoutSchedulesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -15989,9 +16021,9 @@ try
 }
 catch (SdkException<PostAdjustAuthorisationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostAdjustAuthorisationError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16065,9 +16097,9 @@ try
 }
 catch (SdkException<PostCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCancelError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16147,9 +16179,9 @@ try
 }
 catch (SdkException<PostCancelOrRefundError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCancelOrRefundError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16221,9 +16253,9 @@ try
 }
 catch (SdkException<PostCancelsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCancelsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16300,9 +16332,9 @@ try
 }
 catch (SdkException<PostCaptureError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCaptureError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16374,9 +16406,9 @@ try
 }
 catch (SdkException<PostDonateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostDonateError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16450,9 +16482,9 @@ try
 }
 catch (SdkException<PostPaymentsPaymentPspReferenceAmountUpdatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsPaymentPspReferenceAmountUpdatesError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16528,9 +16560,9 @@ try
 }
 catch (SdkException<PostPaymentsPaymentPspReferenceCancelsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsPaymentPspReferenceCancelsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16606,9 +16638,9 @@ try
 }
 catch (SdkException<PostPaymentsPaymentPspReferenceCapturesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsPaymentPspReferenceCapturesError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16686,9 +16718,9 @@ try
 }
 catch (SdkException<PostPaymentsPaymentPspReferenceRefundsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsPaymentPspReferenceRefundsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16763,9 +16795,9 @@ try
 }
 catch (SdkException<PostPaymentsPaymentPspReferenceReversalsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsPaymentPspReferenceReversalsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16844,9 +16876,9 @@ try
 }
 catch (SdkException<PostRefundError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostRefundError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16922,9 +16954,9 @@ try
 }
 catch (SdkException<PostTechnicalCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTechnicalCancelError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -16994,9 +17026,9 @@ try
 }
 catch (SdkException<PostVoidPendingRefundError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostVoidPendingRefundError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -17068,9 +17100,9 @@ try
 }
 catch (SdkException<DeleteMeAllowedOriginsOriginIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMeAllowedOriginsOriginIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17138,9 +17170,9 @@ try
 }
 catch (SdkException<GetMeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMeError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17196,9 +17228,9 @@ try
 }
 catch (SdkException<GetMeAllowedOriginsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMeAllowedOriginsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17255,9 +17287,9 @@ try
 }
 catch (SdkException<GetMeAllowedOriginsOriginIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMeAllowedOriginsOriginIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17326,9 +17358,9 @@ try
 }
 catch (SdkException<PostMeAllowedOriginsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMeAllowedOriginsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17399,9 +17431,9 @@ try
 }
 catch (SdkException<PostMeGenerateClientKeyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMeGenerateClientKeyError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17459,9 +17491,9 @@ try
 }
 catch (SdkException<GetNetworkTokensNetworkTokenIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetNetworkTokensNetworkTokenIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17526,9 +17558,9 @@ try
 }
 catch (SdkException<PatchNetworkTokensNetworkTokenIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchNetworkTokensNetworkTokenIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -17599,9 +17631,9 @@ try
 }
 catch (SdkException<PostOrdersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostOrdersError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -17668,9 +17700,9 @@ try
 }
 catch (SdkException<PostOrdersCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostOrdersCancelError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -17737,9 +17769,9 @@ try
 }
 catch (SdkException<PostPaymentMethodsBalanceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentMethodsBalanceError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -17811,9 +17843,9 @@ try
 }
 catch (SdkException<PostGetPciQuestionnaireUrlError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetPciQuestionnaireUrlError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -17893,9 +17925,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdPciQuestionnairesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdPciQuestionnairesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -17971,9 +18003,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdPciQuestionnairesPciidError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdPciQuestionnairesPciidError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -18050,9 +18082,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -18129,9 +18161,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -18208,9 +18240,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdPciQuestionnairesSigningRequiredError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdPciQuestionnairesSigningRequiredError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -18281,9 +18313,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentGroupsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentGroupsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18349,9 +18381,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentGroupsIdTransactionRulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentGroupsIdTransactionRulesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18417,9 +18449,9 @@ try
 }
 catch (SdkException<PostPaymentInstrumentGroupsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentInstrumentGroupsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18461,7 +18493,7 @@ catch (SdkException<PostPaymentInstrumentGroupsError> ex)
 > Source: [PaymentInstruments](Api/PaymentInstruments.cs)
 
 <details>
-<summary><code>Task&lt;PaymentInstrument&gt; GetPaymentInstrumentsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PaymentInstrument1&gt; GetPaymentInstrumentsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -18485,13 +18517,13 @@ Returns the details of a payment instrument.
 try
 {
     var response = await client.PaymentInstruments.GetPaymentInstrumentsId(id);
-    // TODO: Handle 'response' of type PaymentInstrument
+    // TODO: Handle 'response' of type PaymentInstrument1
 }
 catch (SdkException<GetPaymentInstrumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18516,7 +18548,7 @@ catch (SdkException<GetPaymentInstrumentsIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PaymentInstrument](Models/PaymentInstrument.cs)</code>
+**OnSuccess**: <code>[PaymentInstrument1](Models/PaymentInstrument1.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetPaymentInstrumentsIdError](Errors/GetPaymentInstrumentsIdError.cs)&gt;</code>
 
@@ -18557,9 +18589,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentsIdNetworkTokenActivationDataError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentsIdNetworkTokenActivationDataError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18625,9 +18657,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentsIdNetworkTokensError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentsIdNetworkTokensError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18697,9 +18729,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentsIdRevealError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentsIdRevealError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18765,9 +18797,9 @@ try
 }
 catch (SdkException<GetPaymentInstrumentsIdTransactionRulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentInstrumentsIdTransactionRulesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18833,9 +18865,9 @@ try
 }
 catch (SdkException<PatchPaymentInstrumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchPaymentInstrumentsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18874,7 +18906,7 @@ catch (SdkException<PatchPaymentInstrumentsIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PaymentInstrument&gt; PostPaymentInstruments(PaymentInstrumentInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PaymentInstrument1&gt; PostPaymentInstruments(PaymentInstrumentInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -18900,13 +18932,13 @@ Creates a payment instrument to issue a physical card, a virtual card, or a busi
 try
 {
     var response = await client.PaymentInstruments.PostPaymentInstruments(body);
-    // TODO: Handle 'response' of type PaymentInstrument
+    // TODO: Handle 'response' of type PaymentInstrument1
 }
 catch (SdkException<PostPaymentInstrumentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentInstrumentsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -18931,7 +18963,7 @@ catch (SdkException<PostPaymentInstrumentsError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PaymentInstrument](Models/PaymentInstrument.cs)</code>
+**OnSuccess**: <code>[PaymentInstrument1](Models/PaymentInstrument1.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostPaymentInstrumentsError](Errors/PostPaymentInstrumentsError.cs)&gt;</code>
 
@@ -18972,9 +19004,9 @@ try
 }
 catch (SdkException<PostPaymentInstrumentsIdNetworkTokenActivationDataError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentInstrumentsIdNetworkTokenActivationDataError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19050,9 +19082,9 @@ try
 }
 catch (SdkException<PostPaymentInstrumentsRevealError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentInstrumentsRevealError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19122,9 +19154,9 @@ try
 }
 catch (SdkException<GetPaymentLinksLinkIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetPaymentLinksLinkIdError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -19190,9 +19222,9 @@ try
 }
 catch (SdkException<PatchPaymentLinksLinkIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchPaymentLinksLinkIdError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -19261,9 +19293,9 @@ try
 }
 catch (SdkException<PostPaymentLinksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentLinksError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -19342,9 +19374,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdPaymentMethodSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdPaymentMethodSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19419,9 +19451,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19493,9 +19525,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19569,9 +19601,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19645,9 +19677,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdPaymentMethodSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdPaymentMethodSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19719,9 +19751,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -19865,9 +19897,9 @@ try
 }
 catch (SdkException<PostAuthoriseError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostAuthoriseError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -19939,9 +19971,9 @@ try
 }
 catch (SdkException<PostAuthorise3DError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostAuthorise3DError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -20013,9 +20045,9 @@ try
 }
 catch (SdkException<PostAuthorise3Ds2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostAuthorise3Ds2Error
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -20172,9 +20204,9 @@ try
 }
 catch (SdkException<PostGetAuthenticationResultError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostGetAuthenticationResultError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -20240,9 +20272,9 @@ try
 }
 catch (SdkException<PostPaymentMethodsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentMethodsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -20312,9 +20344,9 @@ try
 }
 catch (SdkException<PostPaymentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -20381,9 +20413,9 @@ try
 }
 catch (SdkException<PostPaymentsCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsCancelError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20457,9 +20489,9 @@ try
 }
 catch (SdkException<PostPaymentsConfirmError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsConfirmError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20498,7 +20530,78 @@ catch (SdkException<PostPaymentsConfirmError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PaymentDetailsResponse&gt; PostPaymentsDetails(IdealPaymentDetailsRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PaymentDetailsResponse&gt; PostPaymentsDetails(string? idempotencyKey, PaymentDetailsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Submits details for a payment created using `/payments`. This step is only needed when no final state has been reached on the `/payments` request, for example when the shopper was redirected to another page to complete the payment.
+
+
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Payments.PostPaymentsDetails(idempotencyKey, body);
+    // TODO: Handle 'response' of type PaymentDetailsResponse
+}
+catch (SdkException<PostPaymentsDetailsError> ex)
+{
+    if (ex.Error.TryGetServiceError(out var error))
+    {
+        // TODO: Handle 'error' of type ServiceError
+    }
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>idempotencyKey</code> | <code>string?</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID). |
+| <code>body</code> | <code>[PaymentDetailsRequest?](Models/PaymentDetailsRequest.cs)</code> | - |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[PaymentDetailsResponse](Models/PaymentDetailsResponse.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostPaymentsDetailsError](Errors/PostPaymentsDetailsError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;PaymentDetailsResponse1&gt; PostPaymentsDetails1(IdealPaymentDetailsRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20521,14 +20624,14 @@ Returns the details of an open payment, which you must show to the user. Also pr
 ```csharp
 try
 {
-    var response = await client.Payments.PostPaymentsDetails(body);
-    // TODO: Handle 'response' of type PaymentDetailsResponse
+    var response = await client.Payments.PostPaymentsDetails1(body);
+    // TODO: Handle 'response' of type PaymentDetailsResponse1
 }
-catch (SdkException<PostPaymentsDetailsError> ex)
+catch (SdkException<PostPaymentsDetails1Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostPaymentsDetailsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20553,9 +20656,9 @@ catch (SdkException<PostPaymentsDetailsError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PaymentDetailsResponse](Models/PaymentDetailsResponse.cs)</code>
+**OnSuccess**: <code>[PaymentDetailsResponse1](Models/PaymentDetailsResponse1.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostPaymentsDetailsError](Errors/PostPaymentsDetailsError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostPaymentsDetails1Error](Errors/PostPaymentsDetails1Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -20594,9 +20697,9 @@ try
 }
 catch (SdkException<PostRetrieve3Ds2ResultError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostRetrieve3Ds2ResultError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -20740,9 +20843,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdPaymentsAppsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdPaymentsAppsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20817,9 +20920,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdStoresStoreIdPaymentsAppsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdStoresStoreIdPaymentsAppsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20893,9 +20996,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdGeneratePaymentsAppBoardingTokenError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdGeneratePaymentsAppBoardingTokenError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20934,7 +21037,7 @@ catch (SdkException<PostMerchantsMerchantIdGeneratePaymentsAppBoardingTokenError
 </details>
 
 <details>
-<summary><code>Task&lt;object&gt; PostMerchantsMerchantIdPaymentsAppsInstallationIdRevoke(string merchantId, string installationId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;JsonElement&gt; PostMerchantsMerchantIdPaymentsAppsInstallationIdRevoke(string merchantId, string installationId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20963,13 +21066,13 @@ try
 {
     var response = await client.PaymentsApp.PostMerchantsMerchantIdPaymentsAppsInstallationIdRevoke(merchantId,
         installationId);
-    // TODO: Handle 'response' of type object
+    // TODO: Handle 'response' of type JsonElement
 }
 catch (SdkException<PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -20995,7 +21098,7 @@ catch (SdkException<PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeError
 <dl>
 <dd>
 
-**OnSuccess**: <code>object</code>
+**OnSuccess**: <code>JsonElement</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeError](Errors/PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeError.cs)&gt;</code>
 
@@ -21042,9 +21145,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdStoresStoreIdGeneratePaymentsAppBoardingTokenError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdStoresStoreIdGeneratePaymentsAppBoardingTokenError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -21122,9 +21225,9 @@ try
 }
 catch (SdkException<DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21196,9 +21299,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdPayoutSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdPayoutSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21270,9 +21373,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21347,9 +21450,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21425,9 +21528,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdPayoutSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdPayoutSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21498,9 +21601,9 @@ try
 }
 catch (SdkException<GetBalancePlatformsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21568,9 +21671,9 @@ try
 }
 catch (SdkException<GetBalancePlatformsIdAccountHoldersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsIdAccountHoldersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21638,9 +21741,9 @@ try
 }
 catch (SdkException<GetBalancePlatformsIdTransactionRulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsIdTransactionRulesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -21717,9 +21820,9 @@ try
 }
 catch (SdkException<GetDisputesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetDisputesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -21790,9 +21893,9 @@ try
 }
 catch (SdkException<GetDisputesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetDisputesIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -21860,9 +21963,9 @@ try
 }
 catch (SdkException<PatchDisputesIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchDisputesIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -21931,9 +22034,9 @@ try
 }
 catch (SdkException<PostDisputesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostDisputesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -21975,7 +22078,7 @@ catch (SdkException<PostDisputesError> ex)
 > Source: [Rates](Api/Rates.cs)
 
 <details>
-<summary><code>Task&lt;RatesCalculateResponse&gt; PostRatesCalculate(RatesCalculateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CalculateRateResponse&gt; PostRatesCalculate(CalculateRateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -21999,13 +22102,13 @@ Returns the calculated amounts and rates required to convert the currency of a t
 try
 {
     var response = await client.Rates.PostRatesCalculate(body);
-    // TODO: Handle 'response' of type RatesCalculateResponse
+    // TODO: Handle 'response' of type CalculateRateResponse
 }
 catch (SdkException<PostRatesCalculateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostRatesCalculateError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22020,7 +22123,7 @@ catch (SdkException<PostRatesCalculateError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[RatesCalculateRequest](Models/RatesCalculateRequest.cs)</code> | - |
+| <code>body</code> | <code>[CalculateRateRequest](Models/CalculateRateRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -22030,7 +22133,7 @@ catch (SdkException<PostRatesCalculateError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[RatesCalculateResponse](Models/RatesCalculateResponse.cs)</code>
+**OnSuccess**: <code>[CalculateRateResponse](Models/CalculateRateResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostRatesCalculateError](Errors/PostRatesCalculateError.cs)&gt;</code>
 
@@ -22319,7 +22422,7 @@ catch (SdkException<RawError> ex)
 > Source: [RecurringTopUps](Api/RecurringTopUps.cs)
 
 <details>
-<summary><code>Task&lt;object&gt; DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(string balanceAccountId, string topUpId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;JsonElement&gt; DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(string balanceAccountId, string topUpId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -22347,13 +22450,13 @@ try
 {
     var response = await client.RecurringTopUps.DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(balanceAccountId,
         topUpId);
-    // TODO: Handle 'response' of type object
+    // TODO: Handle 'response' of type JsonElement
 }
 catch (SdkException<DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22379,7 +22482,7 @@ catch (SdkException<DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdE
 <dl>
 <dd>
 
-**OnSuccess**: <code>object</code>
+**OnSuccess**: <code>JsonElement</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError](Errors/DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError.cs)&gt;</code>
 
@@ -22424,9 +22527,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsBalanceAccountIdRecurringTopUpsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsBalanceAccountIdRecurringTopUpsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22498,9 +22601,9 @@ try
 }
 catch (SdkException<PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22572,9 +22675,9 @@ try
 }
 catch (SdkException<PostBalanceAccountsBalanceAccountIdRecurringTopUpsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceAccountsBalanceAccountIdRecurringTopUpsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22659,9 +22762,9 @@ try
 }
 catch (SdkException<PostConfirmThirdPartyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostConfirmThirdPartyError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -22741,9 +22844,9 @@ try
 }
 catch (SdkException<PostDeclineThirdPartyError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostDeclineThirdPartyError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -22785,7 +22888,7 @@ catch (SdkException<PostDeclineThirdPartyError> ex)
 > Source: [ScaAssociationManagement](Api/ScaAssociationManagement.cs)
 
 <details>
-<summary><code>Task DeleteScaAssociations(string wwwAuthenticate, ContentType3 contentType, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task DeleteScaAssociations(string wwwAuthenticate, RemoveAssociationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -22808,13 +22911,13 @@ Deletes one or more SCA associations for a device.
 ```csharp
 try
 {
-    await client.ScaAssociationManagement.DeleteScaAssociations(wwwAuthenticate, contentType);
+    await client.ScaAssociationManagement.DeleteScaAssociations(wwwAuthenticate, body);
 }
 catch (SdkException<DeleteScaAssociationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteScaAssociationsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22830,7 +22933,7 @@ catch (SdkException<DeleteScaAssociationsError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>wwwAuthenticate</code> | <code>string</code> | The header for authenticating through SCA. |
-| <code>contentType</code> | <code>[ContentType3](Models/Enums/ContentType3.cs)</code> | - |
+| <code>body</code> | <code>[RemoveAssociationRequest?](Models/RemoveAssociationRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -22853,7 +22956,7 @@ catch (SdkException<DeleteScaAssociationsError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListAssociationsResponse&gt; GetScaAssociations(ScaEntityType5 entityType, string entityId, int pageSize, int pageNumber, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListAssociationsResponse&gt; GetScaAssociations(ScaEntityType entityType, string entityId, int pageSize, int pageNumber, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -22881,9 +22984,9 @@ try
 }
 catch (SdkException<GetScaAssociationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetScaAssociationsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -22898,7 +23001,7 @@ catch (SdkException<GetScaAssociationsError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>entityType</code> | <code>[ScaEntityType5](Models/Enums/ScaEntityType5.cs)</code> | The type of entity you want to retrieve a list of associations for. <br><br>Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**. |
+| <code>entityType</code> | <code>[ScaEntityType](Models/Enums/ScaEntityType.cs)</code> | The type of entity you want to retrieve a list of associations for. <br><br>Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**. |
 | <code>entityId</code> | <code>string</code> | The unique identifier of the entity. |
 | <code>pageSize</code> | <code>int</code> | The number of items to have on a page. <br><br>Default: **5**. |
 | <code>pageNumber</code> | <code>int</code> | The index of the page to retrieve. The index of the first page is **0** (zero). <br><br>Default:  **0**. |
@@ -22952,9 +23055,9 @@ try
 }
 catch (SdkException<PatchScaAssociationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchScaAssociationsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -23024,9 +23127,9 @@ try
 }
 catch (SdkException<DeleteScaDevicesDeviceIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteScaDevicesDeviceIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -23092,9 +23195,9 @@ try
 }
 catch (SdkException<PatchScaDevicesDeviceIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PatchScaDevicesDeviceIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -23161,9 +23264,9 @@ try
 }
 catch (SdkException<PostScaDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostScaDevicesError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -23229,9 +23332,9 @@ try
 }
 catch (SdkException<PostScaDevicesDeviceIdScaAssociationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostScaDevicesDeviceIdScaAssociationsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -23274,7 +23377,7 @@ catch (SdkException<PostScaDevicesDeviceIdScaAssociationsError> ex)
 > Source: [SessionAuthentication](Api/SessionAuthentication.cs)
 
 <details>
-<summary><code>Task&lt;CreateSessionResponse&gt; PostAuthCertificate(string? xApiKey, CertificateLoadingRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CertificateLoadingResponse&gt; PostAuthCertificate(string? xApiKey, CertificateLoadingRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -23298,13 +23401,13 @@ Establishes a secure communication session between the Mobile SDK and the Adyen 
 try
 {
     var response = await client.SessionAuthentication.PostAuthCertificate(xApiKey, body);
-    // TODO: Handle 'response' of type CreateSessionResponse
+    // TODO: Handle 'response' of type CertificateLoadingResponse
 }
 catch (SdkException<PostAuthCertificateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostAuthCertificateError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -23330,9 +23433,83 @@ catch (SdkException<PostAuthCertificateError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CreateSessionResponse](Models/CreateSessionResponse.cs)</code>
+**OnSuccess**: <code>[CertificateLoadingResponse](Models/CertificateLoadingResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostAuthCertificateError](Errors/PostAuthCertificateError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;AuthenticationSessionResponse&gt; PostSessions2(AuthenticationSessionRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Creates a session token that is required to integrate [components](https://docs.adyen.com/platforms/components-overview).
+
+The response contains encrypted session data. The front end then uses the session data to make the required server-side calls for the component.
+
+To create a token, you must meet specific requirements. These requirements vary depending on the type of component. For more information, see the documentation for [Onboarding](https://docs.adyen.com/platforms/onboard-users/components) and [Platform Experience](https://docs.adyen.com/platforms/build-user-dashboards) components.
+
+
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.SessionAuthentication.PostSessions2(body);
+    // TODO: Handle 'response' of type AuthenticationSessionResponse
+}
+catch (SdkException<PostSessions2Error> ex)
+{
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
+    {
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
+    }
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>body</code> | <code>[AuthenticationSessionRequest](Models/AuthenticationSessionRequest.cs)</code> | - |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[AuthenticationSessionResponse](Models/AuthenticationSessionResponse.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostSessions2Error](Errors/PostSessions2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -23379,9 +23556,9 @@ try
 }
 catch (SdkException<DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23453,9 +23630,9 @@ try
 }
 catch (SdkException<DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23526,9 +23703,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdSplitConfigurationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdSplitConfigurationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23598,9 +23775,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23672,9 +23849,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23748,9 +23925,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23791,7 +23968,7 @@ catch (SdkException<PatchMerchantsMerchantIdSplitConfigurationsSplitConfiguratio
 </details>
 
 <details>
-<summary><code>Task&lt;SplitConfiguration&gt; PatchMerchantsSplitConfigurationsRulesSplitLogic(string merchantId, string splitConfigurationId, string ruleId, string splitLogicId, SplitConfigurationLogic? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;SplitConfiguration&gt; PatchMerchantsSplitConfigurationsRulesSplitLogic(string merchantId, string splitConfigurationId, string ruleId, string splitLogicId, UpdateSplitConfigurationLogicRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -23826,9 +24003,9 @@ try
 }
 catch (SdkException<PatchMerchantsSplitConfigurationsRulesSplitLogicError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsSplitConfigurationsRulesSplitLogicError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23847,7 +24024,7 @@ catch (SdkException<PatchMerchantsSplitConfigurationsRulesSplitLogicError> ex)
 | <code>splitConfigurationId</code> | <code>string</code> | The unique identifier of the split configuration. |
 | <code>ruleId</code> | <code>string</code> | The unique identifier of the split configuration rule. |
 | <code>splitLogicId</code> | <code>string</code> | The unique identifier of the split configuration split. |
-| <code>body</code> | <code>[SplitConfigurationLogic?](Models/SplitConfigurationLogic.cs)</code> | - |
+| <code>body</code> | <code>[UpdateSplitConfigurationLogicRequest?](Models/UpdateSplitConfigurationLogicRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -23902,9 +24079,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdSplitConfigurationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdSplitConfigurationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -23976,9 +24153,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24060,9 +24237,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -24137,9 +24314,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdSetTaxElectronicDeliveryConsentError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdSetTaxElectronicDeliveryConsentError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -24219,9 +24396,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalActionsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalActionsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24297,9 +24474,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalActionsActionIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalActionsActionIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24380,9 +24557,9 @@ try
 }
 catch (SdkException<PostTerminalsScheduleActionsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTerminalsScheduleActionsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24459,9 +24636,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdBillingEntitiesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdBillingEntitiesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24538,9 +24715,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdShippingLocationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdShippingLocationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24616,9 +24793,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalModelsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalModelsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24695,9 +24872,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalOrdersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalOrdersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24774,9 +24951,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalOrdersOrderIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalOrdersOrderIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24853,9 +25030,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalProductsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalProductsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -24937,9 +25114,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdTerminalOrdersOrderIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdTerminalOrdersOrderIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25012,9 +25189,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdShippingLocationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdShippingLocationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25087,9 +25264,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdTerminalOrdersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdTerminalOrdersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25164,9 +25341,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25244,9 +25421,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdBillingEntitiesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdBillingEntitiesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25323,9 +25500,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdShippingLocationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdShippingLocationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25400,9 +25577,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdTerminalModelsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdTerminalModelsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25478,9 +25655,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdTerminalOrdersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdTerminalOrdersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25557,9 +25734,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdTerminalOrdersOrderIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdTerminalOrdersOrderIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25636,9 +25813,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdTerminalProductsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdTerminalProductsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25720,9 +25897,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdTerminalOrdersOrderIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdTerminalOrdersOrderIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25795,9 +25972,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdShippingLocationsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdShippingLocationsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25870,9 +26047,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdTerminalOrdersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdTerminalOrdersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -25947,9 +26124,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26029,9 +26206,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26107,9 +26284,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26185,9 +26362,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26267,9 +26444,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26348,9 +26525,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26426,9 +26603,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26505,9 +26682,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26591,9 +26768,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26674,9 +26851,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdStoresReferenceTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdStoresReferenceTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26754,9 +26931,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdStoresReferenceTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdStoresReferenceTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26831,9 +27008,9 @@ try
 }
 catch (SdkException<GetStoresStoreIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetStoresStoreIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26909,9 +27086,9 @@ try
 }
 catch (SdkException<GetStoresStoreIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetStoresStoreIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -26989,9 +27166,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdStoresReferenceTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdStoresReferenceTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27074,9 +27251,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdStoresReferenceTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdStoresReferenceTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27153,9 +27330,9 @@ try
 }
 catch (SdkException<PatchStoresStoreIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchStoresStoreIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27235,9 +27412,9 @@ try
 }
 catch (SdkException<PatchStoresStoreIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchStoresStoreIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27315,9 +27492,9 @@ try
 }
 catch (SdkException<GetTerminalsTerminalIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTerminalsTerminalIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27392,9 +27569,9 @@ try
 }
 catch (SdkException<GetTerminalsTerminalIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTerminalsTerminalIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27468,9 +27645,9 @@ try
 }
 catch (SdkException<PatchTerminalsTerminalIdTerminalLogosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchTerminalsTerminalIdTerminalLogosError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27550,9 +27727,9 @@ try
 }
 catch (SdkException<PatchTerminalsTerminalIdTerminalSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchTerminalsTerminalIdTerminalSettingsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27634,9 +27811,9 @@ try
 }
 catch (SdkException<GetTerminalsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTerminalsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27713,9 +27890,9 @@ try
 }
 catch (SdkException<PostTerminalsTerminalIdReassignError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTerminalsTerminalIdReassignError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -27798,9 +27975,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -27878,9 +28055,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdTermsOfServiceAcceptanceInfosError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdTermsOfServiceAcceptanceInfosError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -27956,9 +28133,9 @@ try
 }
 catch (SdkException<GetLegalEntitiesIdTermsOfServiceStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetLegalEntitiesIdTermsOfServiceStatusError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28036,9 +28213,9 @@ try
 }
 catch (SdkException<PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28116,9 +28293,9 @@ try
 }
 catch (SdkException<PostLegalEntitiesIdTermsOfServiceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostLegalEntitiesIdTermsOfServiceError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28189,9 +28366,9 @@ try
 }
 catch (SdkException<DeleteTransactionRulesTransactionRuleIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteTransactionRulesTransactionRuleIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -28257,9 +28434,9 @@ try
 }
 catch (SdkException<GetTransactionRulesTransactionRuleIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTransactionRulesTransactionRuleIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -28329,9 +28506,9 @@ try
 }
 catch (SdkException<PatchTransactionRulesTransactionRuleIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchTransactionRulesTransactionRuleIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -28398,9 +28575,9 @@ try
 }
 catch (SdkException<PostTransactionRulesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTransactionRulesError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -28442,7 +28619,7 @@ catch (SdkException<PostTransactionRulesError> ex)
 > Source: [Transactions](Api/Transactions.cs)
 
 <details>
-<summary><code>Task&lt;TransactionSearchResponse&gt; GetTransactions(DateTimeOffset createdSince, DateTimeOffset createdUntil, string? balancePlatform, string? paymentInstrumentId, string? accountHolderId, string? balanceAccountId, string? cursor, SortOrder2? sortOrder, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TransactionSearchResponse&gt; GetTransactions(DateTimeOffset createdSince, DateTimeOffset createdUntil, string? balancePlatform, string? paymentInstrumentId, string? accountHolderId, string? balanceAccountId, string? cursor, SortOrder? sortOrder, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -28489,9 +28666,9 @@ try
 }
 catch (SdkException<GetTransactionsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTransactionsError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -28513,7 +28690,7 @@ catch (SdkException<GetTransactionsError> ex)
 | <code>accountHolderId</code> | <code>string?</code> | The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_id).<br><br>Required if you don't provide a `balanceAccountId` or `balancePlatform`.<br><br>If you provide a `balanceAccountId`, the `accountHolderId` must be related to the `balanceAccountId`. |
 | <code>balanceAccountId</code> | <code>string?</code> | The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id).<br><br>Required if you don't provide an `accountHolderId` or `balancePlatform`.<br><br>If you provide an `accountHolderId`, the `balanceAccountId` must be related to the `accountHolderId`. |
 | <code>cursor</code> | <code>string?</code> | The `cursor` returned in the links of the previous response. |
-| <code>sortOrder</code> | <code>[SortOrder2?](Models/Enums/SortOrder2.cs)</code> | Determines the sort order of the returned transactions. The sort order is based on the creation date of the transaction.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
+| <code>sortOrder</code> | <code>[SortOrder?](Models/Enums/SortOrder.cs)</code> | Determines the sort order of the returned transactions. The sort order is based on the creation date of the transaction.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
 | <code>limit</code> | <code>int?</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page. |
 
 </dd>
@@ -28537,7 +28714,7 @@ catch (SdkException<GetTransactionsError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;Transaction1&gt; GetTransactionsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;Transaction&gt; GetTransactionsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -28563,13 +28740,13 @@ Returns a transaction.
 try
 {
     var response = await client.Transactions.GetTransactionsId(id);
-    // TODO: Handle 'response' of type Transaction1
+    // TODO: Handle 'response' of type Transaction
 }
 catch (SdkException<GetTransactionsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTransactionsIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -28594,7 +28771,7 @@ catch (SdkException<GetTransactionsIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Transaction1](Models/Transaction1.cs)</code>
+**OnSuccess**: <code>[Transaction](Models/Transaction.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetTransactionsIdError](Errors/GetTransactionsIdError.cs)&gt;</code>
 
@@ -28648,9 +28825,9 @@ try
 }
 catch (SdkException<DeleteTransferInstrumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type DeleteTransferInstrumentsIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28726,9 +28903,9 @@ try
 }
 catch (SdkException<GetTransferInstrumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type GetTransferInstrumentsIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28804,9 +28981,9 @@ try
 }
 catch (SdkException<PatchTransferInstrumentsIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PatchTransferInstrumentsIdError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28888,9 +29065,9 @@ try
 }
 catch (SdkException<PostTransferInstrumentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostTransferInstrumentsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -28962,9 +29139,9 @@ try
 }
 catch (SdkException<DeleteBalanceAccountsIdTransferLimitsTransferLimitIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBalanceAccountsIdTransferLimitsTransferLimitIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29035,9 +29212,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsIdTransferLimitsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsIdTransferLimitsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29109,9 +29286,9 @@ try
 }
 catch (SdkException<GetBalanceAccountsIdTransferLimitsCurrentError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsIdTransferLimitsCurrentError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29151,7 +29328,7 @@ catch (SdkException<GetBalanceAccountsIdTransferLimitsCurrentError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;BalanceAccountsTransferLimitsResponse1&gt; GetBalanceAccountsIdTransferLimitsTransferLimitId(string id, string transferLimitId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TransferLimit&gt; GetBalanceAccountsIdTransferLimitsTransferLimitId(string id, string transferLimitId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -29177,13 +29354,13 @@ try
 {
     var response = await client.TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsTransferLimitId(id,
         transferLimitId);
-    // TODO: Handle 'response' of type BalanceAccountsTransferLimitsResponse1
+    // TODO: Handle 'response' of type TransferLimit
 }
 catch (SdkException<GetBalanceAccountsIdTransferLimitsTransferLimitIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalanceAccountsIdTransferLimitsTransferLimitIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29209,7 +29386,7 @@ catch (SdkException<GetBalanceAccountsIdTransferLimitsTransferLimitIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[BalanceAccountsTransferLimitsResponse1](Models/BalanceAccountsTransferLimitsResponse1.cs)</code>
+**OnSuccess**: <code>[TransferLimit](Models/TransferLimit.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetBalanceAccountsIdTransferLimitsTransferLimitIdError](Errors/GetBalanceAccountsIdTransferLimitsTransferLimitIdError.cs)&gt;</code>
 
@@ -29222,7 +29399,7 @@ catch (SdkException<GetBalanceAccountsIdTransferLimitsTransferLimitIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;BalanceAccountsTransferLimitsResponse1&gt; PostBalanceAccountsIdTransferLimits(string id, string? wwwAuthenticate, CreateTransferLimitRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TransferLimit&gt; PostBalanceAccountsIdTransferLimits(string id, string? wwwAuthenticate, CreateTransferLimitRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -29249,13 +29426,13 @@ try
     var response = await client.TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimits(id,
         wwwAuthenticate,
         body);
-    // TODO: Handle 'response' of type BalanceAccountsTransferLimitsResponse1
+    // TODO: Handle 'response' of type TransferLimit
 }
 catch (SdkException<PostBalanceAccountsIdTransferLimitsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceAccountsIdTransferLimitsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29282,7 +29459,7 @@ catch (SdkException<PostBalanceAccountsIdTransferLimitsError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[BalanceAccountsTransferLimitsResponse1](Models/BalanceAccountsTransferLimitsResponse1.cs)</code>
+**OnSuccess**: <code>[TransferLimit](Models/TransferLimit.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostBalanceAccountsIdTransferLimitsError](Errors/PostBalanceAccountsIdTransferLimitsError.cs)&gt;</code>
 
@@ -29325,9 +29502,9 @@ try
 }
 catch (SdkException<PostBalanceAccountsIdTransferLimitsApproveError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalanceAccountsIdTransferLimitsApproveError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29400,9 +29577,9 @@ try
 }
 catch (SdkException<DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29473,9 +29650,9 @@ try
 }
 catch (SdkException<GetBalancePlatformsIdTransferLimitsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsIdTransferLimitsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29516,7 +29693,7 @@ catch (SdkException<GetBalancePlatformsIdTransferLimitsError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;BalancePlatformsTransferLimitsResponse1&gt; GetBalancePlatformsIdTransferLimitsTransferLimitId(string id, string transferLimitId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TransferLimit&gt; GetBalancePlatformsIdTransferLimitsTransferLimitId(string id, string transferLimitId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -29542,13 +29719,13 @@ try
 {
     var response = await client.TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsTransferLimitId(id,
         transferLimitId);
-    // TODO: Handle 'response' of type BalancePlatformsTransferLimitsResponse1
+    // TODO: Handle 'response' of type TransferLimit
 }
 catch (SdkException<GetBalancePlatformsIdTransferLimitsTransferLimitIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type GetBalancePlatformsIdTransferLimitsTransferLimitIdError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29574,7 +29751,7 @@ catch (SdkException<GetBalancePlatformsIdTransferLimitsTransferLimitIdError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[BalancePlatformsTransferLimitsResponse1](Models/BalancePlatformsTransferLimitsResponse1.cs)</code>
+**OnSuccess**: <code>[TransferLimit](Models/TransferLimit.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetBalancePlatformsIdTransferLimitsTransferLimitIdError](Errors/GetBalancePlatformsIdTransferLimitsTransferLimitIdError.cs)&gt;</code>
 
@@ -29587,7 +29764,7 @@ catch (SdkException<GetBalancePlatformsIdTransferLimitsTransferLimitIdError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;BalancePlatformsTransferLimitsResponse1&gt; PostBalancePlatformsIdTransferLimits(string id, CreateTransferLimitRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TransferLimit&gt; PostBalancePlatformsIdTransferLimits(string id, CreateTransferLimitRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -29612,13 +29789,13 @@ Create a transfer limit for your balance platform using the unique `id` of your 
 try
 {
     var response = await client.TransferLimitsBalancePlatformLevel.PostBalancePlatformsIdTransferLimits(id, body);
-    // TODO: Handle 'response' of type BalancePlatformsTransferLimitsResponse1
+    // TODO: Handle 'response' of type TransferLimit
 }
 catch (SdkException<PostBalancePlatformsIdTransferLimitsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostBalancePlatformsIdTransferLimitsError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -29644,7 +29821,7 @@ catch (SdkException<PostBalancePlatformsIdTransferLimitsError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[BalancePlatformsTransferLimitsResponse1](Models/BalancePlatformsTransferLimitsResponse1.cs)</code>
+**OnSuccess**: <code>[TransferLimit](Models/TransferLimit.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostBalancePlatformsIdTransferLimitsError](Errors/PostBalancePlatformsIdTransferLimitsError.cs)&gt;</code>
 
@@ -29689,9 +29866,9 @@ try
 }
 catch (SdkException<PostTransferRoutesCalculateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTransferRoutesCalculateError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -29733,7 +29910,7 @@ catch (SdkException<PostTransferRoutesCalculateError> ex)
 > Source: [Transfers](Api/Transfers.cs)
 
 <details>
-<summary><code>Task&lt;FindTransfersResponse&gt; GetTransfers(DateTimeOffset createdSince, DateTimeOffset createdUntil, string? balancePlatform, string? accountHolderId, string? balanceAccountId, string? paymentInstrumentId, string? reference, Category2? category, SortOrder1? sortOrder, string? cursor, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;FindTransfersResponse&gt; GetTransfers(DateTimeOffset createdSince, DateTimeOffset createdUntil, string? balancePlatform, string? accountHolderId, string? balanceAccountId, string? paymentInstrumentId, string? reference, Category2? category, SortOrder? sortOrder, string? cursor, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -29780,9 +29957,9 @@ try
 }
 catch (SdkException<GetTransfersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetTransferServiceRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTransfersError
+        // TODO: Handle 'error' of type TransferServiceRestServiceError
     }
 }
 ```
@@ -29805,7 +29982,7 @@ catch (SdkException<GetTransfersError> ex)
 | <code>paymentInstrumentId</code> | <code>string?</code> | The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).<br><br>To use this parameter, you must also provide a `balanceAccountId`, `accountHolderId`, or `balancePlatform`.<br><br>The `paymentInstrumentId` must be related to the `balanceAccountId` or `accountHolderId` that you provide. |
 | <code>reference</code> | <code>string?</code> | The reference you provided in the POST [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) request |
 | <code>category</code> | <code>[Category2?](Models/Enums/Category2.cs)</code> | The category of the transfer.<br><br>Possible values:<br><br> - **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.<br><br>- **card**: A transfer involving a third-party card.<br><br>- **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.<br><br>- **issuedCard**: A transfer initiated by an Adyen-issued card.<br><br>- **platformPayment**: Funds movements related to payments that are acquired for your users.<br><br>- **topUp**: An incoming transfer initiated by your user to top up their balance account. |
-| <code>sortOrder</code> | <code>[SortOrder1?](Models/Enums/SortOrder1.cs)</code> | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
+| <code>sortOrder</code> | <code>[SortOrder?](Models/Enums/SortOrder.cs)</code> | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
 | <code>cursor</code> | <code>string?</code> | The `cursor` returned in the links of the previous response. |
 | <code>limit</code> | <code>int?</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page. |
 
@@ -29858,9 +30035,9 @@ try
 }
 catch (SdkException<GetTransfersIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetTransferServiceRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetTransfersIdError
+        // TODO: Handle 'error' of type TransferServiceRestServiceError
     }
 }
 ```
@@ -29940,9 +30117,9 @@ try
 }
 catch (SdkException<PostTransfersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostTransfersError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -29982,7 +30159,7 @@ catch (SdkException<PostTransfersError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;object&gt; PostTransfersApprove(string? idempotencyKey, string? wwwAuthenticate, ApproveTransfersRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;JsonElement&gt; PostTransfersApprove(string? idempotencyKey, string? wwwAuthenticate, ApproveTransfersRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -30012,13 +30189,13 @@ Reach out to your Adyen contact to set up these permissions.
 try
 {
     var response = await client.Transfers.PostTransfersApprove(idempotencyKey, wwwAuthenticate, body);
-    // TODO: Handle 'response' of type object
+    // TODO: Handle 'response' of type JsonElement
 }
 catch (SdkException<PostTransfersApproveError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostTransfersApproveError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -30045,7 +30222,7 @@ catch (SdkException<PostTransfersApproveError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>object</code>
+**OnSuccess**: <code>JsonElement</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostTransfersApproveError](Errors/PostTransfersApproveError.cs)&gt;</code>
 
@@ -30058,7 +30235,7 @@ catch (SdkException<PostTransfersApproveError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;object&gt; PostTransfersCancel(string? idempotencyKey, CancelTransfersRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;JsonElement&gt; PostTransfersCancel(string? idempotencyKey, CancelTransfersRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -30088,13 +30265,13 @@ Reach out to your Adyen contact to set up these permissions.
 try
 {
     var response = await client.Transfers.PostTransfersCancel(idempotencyKey, body);
-    // TODO: Handle 'response' of type object
+    // TODO: Handle 'response' of type JsonElement
 }
 catch (SdkException<PostTransfersCancelError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetTransferServiceRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTransfersCancelError
+        // TODO: Handle 'error' of type TransferServiceRestServiceError
     }
 }
 ```
@@ -30120,7 +30297,7 @@ catch (SdkException<PostTransfersCancelError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>object</code>
+**OnSuccess**: <code>JsonElement</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostTransfersCancelError](Errors/PostTransfersCancelError.cs)&gt;</code>
 
@@ -30161,9 +30338,9 @@ try
 }
 catch (SdkException<PostTransfersTransferIdReturnsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetTransferServiceRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostTransfersTransferIdReturnsError
+        // TODO: Handle 'error' of type TransferServiceRestServiceError
     }
 }
 ```
@@ -30239,9 +30416,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdUsersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30314,9 +30491,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdUsersUserIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdUsersUserIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30387,9 +30564,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdUsersUserIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdUsersUserIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30461,9 +30638,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdUsersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30541,9 +30718,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdUsersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30616,9 +30793,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdUsersUserIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdUsersUserIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30689,9 +30866,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdUsersUserIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdUsersUserIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30763,9 +30940,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdUsersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdUsersError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -30905,9 +31082,9 @@ try
 }
 catch (SdkException<PostOriginKeysError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostOriginKeysError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -30974,9 +31151,9 @@ try
 }
 catch (SdkException<PostPaypalUpdateOrderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostPaypalUpdateOrderError
+        // TODO: Handle 'error' of type ServiceError
     }
 }
 ```
@@ -31044,9 +31221,9 @@ try
 }
 catch (SdkException<PostValidateShopperIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetCheckoutErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostValidateShopperIdError
+        // TODO: Handle 'error' of type CheckoutErrorResponseEntity
     }
 }
 ```
@@ -31116,9 +31293,9 @@ try
 }
 catch (SdkException<PostCheckAccountHolderError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostCheckAccountHolderError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31184,9 +31361,9 @@ try
 }
 catch (SdkException<PostDeleteBankAccountsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeleteBankAccountsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31252,9 +31429,9 @@ try
 }
 catch (SdkException<PostDeleteLegalArrangementsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeleteLegalArrangementsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31320,9 +31497,9 @@ try
 }
 catch (SdkException<PostDeletePayoutMethodsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeletePayoutMethodsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31388,9 +31565,9 @@ try
 }
 catch (SdkException<PostDeleteShareholdersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeleteShareholdersError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31456,9 +31633,9 @@ try
 }
 catch (SdkException<PostDeleteSignatoriesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostDeleteSignatoriesError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31525,9 +31702,9 @@ try
 }
 catch (SdkException<PostGetUploadedDocumentsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostGetUploadedDocumentsError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31593,9 +31770,9 @@ try
 }
 catch (SdkException<PostUploadDocumentError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetServiceError1(out var error))
     {
-        // TODO: Handle 'error' of type PostUploadDocumentError
+        // TODO: Handle 'error' of type ServiceError1
     }
 }
 ```
@@ -31667,9 +31844,9 @@ try
 }
 catch (SdkException<DeleteCompaniesCompanyIdWebhooksWebhookIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteCompaniesCompanyIdWebhooksWebhookIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -31740,9 +31917,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdWebhooksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdWebhooksError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -31814,9 +31991,9 @@ try
 }
 catch (SdkException<GetCompaniesCompanyIdWebhooksWebhookIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetCompaniesCompanyIdWebhooksWebhookIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -31888,9 +32065,9 @@ try
 }
 catch (SdkException<PatchCompaniesCompanyIdWebhooksWebhookIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchCompaniesCompanyIdWebhooksWebhookIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -31961,9 +32138,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdWebhooksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdWebhooksError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32034,9 +32211,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32114,9 +32291,9 @@ try
 }
 catch (SdkException<PostCompaniesCompanyIdWebhooksWebhookIdTestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostCompaniesCompanyIdWebhooksWebhookIdTestError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32190,9 +32367,9 @@ try
 }
 catch (SdkException<DeleteMerchantsMerchantIdWebhooksWebhookIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMerchantsMerchantIdWebhooksWebhookIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32265,9 +32442,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdWebhooksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdWebhooksError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32339,9 +32516,9 @@ try
 }
 catch (SdkException<GetMerchantsMerchantIdWebhooksWebhookIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type GetMerchantsMerchantIdWebhooksWebhookIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32413,9 +32590,9 @@ try
 }
 catch (SdkException<PatchMerchantsMerchantIdWebhooksWebhookIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PatchMerchantsMerchantIdWebhooksWebhookIdError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32486,9 +32663,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdWebhooksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdWebhooksError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32559,9 +32736,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32637,9 +32814,9 @@ try
 }
 catch (SdkException<PostMerchantsMerchantIdWebhooksWebhookIdTestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestServiceError(out var error))
     {
-        // TODO: Handle 'error' of type PostMerchantsMerchantIdWebhooksWebhookIdTestError
+        // TODO: Handle 'error' of type RestServiceError
     }
 }
 ```
@@ -32711,9 +32888,9 @@ try
 }
 catch (SdkException<PostIdealProfileAuthLinkError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostIdealProfileAuthLinkError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -32751,7 +32928,7 @@ catch (SdkException<PostIdealProfileAuthLinkError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IdealAuthLinkResponse&gt; PostIdealProfileAuthenticate(IdealAuthenticateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IdealAuthenticateResponse&gt; PostIdealProfileAuthenticate(IdealAuthenticateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -32775,13 +32952,13 @@ Generates an redirection URL to finish the authentication flow when requested by
 try
 {
     var response = await client.IDealProfiles.PostIdealProfileAuthenticate(body);
-    // TODO: Handle 'response' of type IdealAuthLinkResponse
+    // TODO: Handle 'response' of type IdealAuthenticateResponse
 }
 catch (SdkException<PostIdealProfileAuthenticateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostIdealProfileAuthenticateError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -32806,7 +32983,7 @@ catch (SdkException<PostIdealProfileAuthenticateError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[IdealAuthLinkResponse](Models/IdealAuthLinkResponse.cs)</code>
+**OnSuccess**: <code>[IdealAuthenticateResponse](Models/IdealAuthenticateResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostIdealProfileAuthenticateError](Errors/PostIdealProfileAuthenticateError.cs)&gt;</code>
 
@@ -32819,7 +32996,7 @@ catch (SdkException<PostIdealProfileAuthenticateError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IdealAuthLinkResponse&gt; PostIdealProfileRegister(ProfileRegistrationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ProfileRegistrationResponse&gt; PostIdealProfileRegister(ProfileRegistrationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -32843,13 +33020,13 @@ Register a new iDEAL profile. The profile is linked to the account holder and pa
 try
 {
     var response = await client.IDealProfiles.PostIdealProfileRegister(body);
-    // TODO: Handle 'response' of type IdealAuthLinkResponse
+    // TODO: Handle 'response' of type ProfileRegistrationResponse
 }
 catch (SdkException<PostIdealProfileRegisterError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDefaultErrorResponseEntity(out var error))
     {
-        // TODO: Handle 'error' of type PostIdealProfileRegisterError
+        // TODO: Handle 'error' of type DefaultErrorResponseEntity
     }
 }
 ```
@@ -32874,7 +33051,7 @@ catch (SdkException<PostIdealProfileRegisterError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[IdealAuthLinkResponse](Models/IdealAuthLinkResponse.cs)</code>
+**OnSuccess**: <code>[ProfileRegistrationResponse](Models/ProfileRegistrationResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[PostIdealProfileRegisterError](Errors/PostIdealProfileRegisterError.cs)&gt;</code>
 

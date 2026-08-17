@@ -12,10 +12,16 @@ public record GrantOffer
     [JsonPropertyName("accountHolderId")]
     public required string AccountHolderId { get; init; }
 
+    /// <summary>
+    /// The principal amount of the grant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount5? Amount { get; init; }
+    public Amount17? Amount { get; init; }
 
+    /// <summary>
+    /// The contract type of the grant offer. Possible value: <b>cashAdvance</b>, <b>loan</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("contractType")]
     public ContractType? ContractType { get; init; }
@@ -27,9 +33,12 @@ public record GrantOffer
     [JsonPropertyName("expiresAt")]
     public DateTimeOffset? ExpiresAt { get; init; }
 
+    /// <summary>
+    /// Details of the fee configuration.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fee")]
-    public Fee2? Fee { get; init; }
+    public Fee1? Fee { get; init; }
 
     /// <summary>
     /// The unique identifier of the grant offer.
@@ -38,9 +47,12 @@ public record GrantOffer
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
+    /// <summary>
+    /// Details of the repayment configuration.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("repayment")]
-    public Repayment8? Repayment { get; init; }
+    public Repayment2? Repayment { get; init; }
 
     /// <summary>
     /// The starting date of the grant offer validity period.

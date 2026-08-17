@@ -129,7 +129,7 @@ public record PaymentCompletionDetails1
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSResult")]
     [MaxLength(50000)]
-    public string? ThreeDsresult { get; init; }
+    public string? ThreeDsResult { get; init; }
 
     /// <summary>
     /// Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: <c>transStatus</c>.

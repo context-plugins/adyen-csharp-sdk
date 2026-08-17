@@ -14,6 +14,12 @@ public record RemoveAssociationRequest
     [StringLength(100, MinimumLength = 1)]
     public required string EntityId { get; init; }
 
+    /// <summary>
+    /// The type of the entity.
+    /// <para>
+    /// Possible values: <b>accountHolder</b>, <b>legalEntity</b> or <b>paymentInstrument</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("entityType")]
     public required ScaEntityType3 EntityType { get; init; }
 

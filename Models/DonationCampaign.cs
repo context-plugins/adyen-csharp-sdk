@@ -4,9 +4,12 @@ namespace Adyen.Models;
 
 public record DonationCampaign
 {
+    /// <summary>
+    /// The object that contains the fixed donation amounts that the shopper can select from.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amounts")]
-    public Amounts? Amounts { get; init; }
+    public Amounts1? Amounts { get; init; }
 
     /// <summary>
     /// The URL for the banner of the nonprofit or campaign.
@@ -29,9 +32,12 @@ public record DonationCampaign
     [JsonPropertyName("causeName")]
     public string? CauseName { get; init; }
 
+    /// <summary>
+    /// The object that contains the details of the donation.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donation")]
-    public Donation? Donation { get; init; }
+    public Donation1? Donation { get; init; }
 
     /// <summary>
     /// The unique campaign ID of the donation campaign.

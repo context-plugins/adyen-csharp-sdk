@@ -3,15 +3,13 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// Contains redirection URLs to guide the user to the appropriate page, after a successful payment or a cancellation.
+/// References to resources connected with this user.
 /// </summary>
 public record Links1
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("cancel")]
-    public Href? Cancel { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("success")]
-    public Href? Success { get; init; }
+    /// <summary>
+    /// Link to the resource itself.
+    /// </summary>
+    [JsonPropertyName("self")]
+    public required LinksElement6 Self { get; init; }
 }

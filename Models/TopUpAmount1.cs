@@ -7,11 +7,17 @@ namespace Adyen.Models;
 /// </summary>
 public record TopUpAmount1
 {
+    /// <summary>
+    /// The fixed amount with which you want to top up the balance account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fixed")]
-    public Fixed? Fixed { get; init; }
+    public Amount17? Fixed { get; init; }
 
+    /// <summary>
+    /// The target balance for the balance account that the top-up must achieve.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("target")]
-    public Target5? Target { get; init; }
+    public Amount17? Target { get; init; }
 }

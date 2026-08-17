@@ -26,7 +26,7 @@ public record LegalEntity3
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("documents")]
-    public IReadOnlyList<EntityReference>? Documents { get; init; }
+    public IReadOnlyList<UploadAndroidAppResponse>? Documents { get; init; }
 
     /// <summary>
     /// List of legal entities associated with the current legal entity.
@@ -42,13 +42,19 @@ public record LegalEntity3
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// Information about the individual. Required if <c>type</c> is <b>individual</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("individual")]
-    public Individual? Individual { get; init; }
+    public Individual1? Individual { get; init; }
 
+    /// <summary>
+    /// Information about the organization. Required if <c>type</c> is <b>organization</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("organization")]
-    public Organization? Organization { get; init; }
+    public Organization1? Organization { get; init; }
 
     /// <summary>
     /// List of verification errors related to capabilities for the legal entity.
@@ -65,9 +71,12 @@ public record LegalEntity3
     [MaxLength(150)]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// Information about the sole proprietorship. Required if <c>type</c> is <b>soleProprietorship</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("soleProprietorship")]
-    public SoleProprietorship? SoleProprietorship { get; init; }
+    public SoleProprietorship1? SoleProprietorship { get; init; }
 
     /// <summary>
     /// List of transfer instruments that the legal entity owns.
@@ -76,17 +85,29 @@ public record LegalEntity3
     [JsonPropertyName("transferInstruments")]
     public IReadOnlyList<TransferInstrumentReference>? TransferInstruments { get; init; }
 
+    /// <summary>
+    /// Information about the trust. Required if <c>type</c> is <b>trust</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("trust")]
-    public Trust? Trust { get; init; }
+    public Trust1? Trust { get; init; }
 
+    /// <summary>
+    /// The type of legal entity.
+    /// <para>
+    /// Possible values: <b>individual</b>, <b>organization</b>, <b>soleProprietorship</b>, or <b>trust</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
     public Type182? Type { get; init; }
 
+    /// <summary>
+    /// Information about the unincorporated partnership. Required if <c>type</c> is <b>unincorporatedPartnership</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("unincorporatedPartnership")]
-    public UnincorporatedPartnership? UnincorporatedPartnership { get; init; }
+    public UnincorporatedPartnership1? UnincorporatedPartnership { get; init; }
 
     /// <summary>
     /// List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.

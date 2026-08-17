@@ -78,7 +78,9 @@ public record StoredPaymentMethod
     [JsonPropertyName("subtype")]
     public string? Subtype { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// cashapp
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type16? Type { get; init; }
+    public Type16? Type { get; init; } = Type16.Cashapp;
 }

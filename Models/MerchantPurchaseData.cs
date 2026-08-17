@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
 public record MerchantPurchaseData
 {
+    /// <summary>
+    /// Airline information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("airline")]
-    public Airline2? Airline { get; init; }
+    public Airline11? Airline { get; init; }
 
     /// <summary>
     /// Lodging information.
@@ -27,5 +29,5 @@ public record MerchantPurchaseData
     /// </list>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type87 Type { get; init; }
+    public string Type { get; } = "merchantPurchaseData";
 }

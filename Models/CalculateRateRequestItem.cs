@@ -8,11 +8,19 @@ namespace Adyen.Models;
 /// </summary>
 public record CalculateRateRequestItem
 {
+    /// <summary>
+    /// The operation performed on the source amount. Possible values:
+    /// * <b>buy</b>
+    /// * <b>sell</b>
+    /// </summary>
     [JsonPropertyName("exchangeSide")]
     public required ExchangeSide2 ExchangeSide { get; init; }
 
+    /// <summary>
+    /// An object specifying the currency and value for which you want to perform an exchange calculation.
+    /// </summary>
     [JsonPropertyName("sourceAmount")]
-    public required SourceAmount SourceAmount { get; init; }
+    public required Amount19 SourceAmount { get; init; }
 
     /// <summary>
     /// The currency to which you want to convert the source amount.
@@ -20,6 +28,11 @@ public record CalculateRateRequestItem
     [JsonPropertyName("targetCurrency")]
     public required string TargetCurrency { get; init; }
 
+    /// <summary>
+    /// The type of transaction. Possible values:
+    /// * <b>splitPayment</b>: for payments
+    /// * <b>splitRefund</b>: for refunds
+    /// </summary>
     [JsonPropertyName("type")]
     public required RateType2 Type { get; init; }
 }

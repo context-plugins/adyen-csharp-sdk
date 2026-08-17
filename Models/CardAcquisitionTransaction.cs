@@ -22,6 +22,15 @@ public record CardAcquisitionTransaction
     [JsonPropertyName("AllowedLoyaltyBrand")]
     public IReadOnlyList<string>? AllowedLoyaltyBrand { get; init; }
 
+    /// <summary>
+    /// Type of Loyalty processing requested by the Sale System. An way to specify what the POI has to handle concerning the loyalty.
+    /// Possible values:
+    /// * <b>Allowed</b>
+    /// * <b>Forbidden</b>
+    /// * <b>Processed</b>
+    /// * <b>Proposed</b>
+    /// * <b>Required</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyHandling")]
     public LoyaltyHandling2? LoyaltyHandling { get; init; }
@@ -70,6 +79,22 @@ public record CardAcquisitionTransaction
     [Maximum(99999999.999999)]
     public double? TotalAmount { get; init; }
 
+    /// <summary>
+    /// Type of payment transaction. Elements requested by the Sale System that are related to the payment only.
+    /// Possible values:
+    /// * <b>CashAdvance</b>
+    /// * <b>CashDeposit</b>
+    /// * <b>Completion</b>
+    /// * <b>FirstReservation</b>
+    /// * <b>Instalment</b>
+    /// * <b>IssuerInstalment</b>
+    /// * <b>Normal</b>
+    /// * <b>OneTimeReservation</b>
+    /// * <b>PaidOut</b>
+    /// * <b>Recurring</b>
+    /// * <b>Refund</b>
+    /// * <b>UpdateReservation</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentType")]
     public PaymentType1? PaymentType { get; init; }

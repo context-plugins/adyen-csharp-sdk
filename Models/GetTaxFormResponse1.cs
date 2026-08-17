@@ -11,6 +11,13 @@ public record GetTaxFormResponse1
     [JsonPropertyName("content")]
     public required string Content { get; init; }
 
+    /// <summary>
+    /// The content type of the tax form.
+    /// <para>
+    /// Possible values:
+    /// *  <b>application/pdf</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("contentType")]
     public ContentType? ContentType { get; init; }

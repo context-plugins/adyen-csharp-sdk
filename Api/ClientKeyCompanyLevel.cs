@@ -27,7 +27,7 @@ public sealed class ClientKeyCompanyLevel
     }
 
     /// <summary>
-    /// post-companies-companyId-apiCredentials-apiCredentialId-generateClientKey
+    /// Generate new client key
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="apiCredentialId">Unique identifier of the API credential.</param>
@@ -46,7 +46,7 @@ public sealed class ClientKeyCompanyLevel
         string apiCredentialId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/apiCredentials/{apiCredentialId}/generateClientKey"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/apiCredentials/{apiCredentialId}/generateClientKey"),
             [new TemplateParam("companyId", companyId), new TemplateParam("apiCredentialId", apiCredentialId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

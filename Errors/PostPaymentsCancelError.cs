@@ -9,49 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class PostPaymentsCancelError : ApiError
 {
-    private readonly Optional<PaymentsCancel400Error1> _paymentsCancel400Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private readonly Optional<PaymentsCancel422Error1> _paymentsCancel422Error1Value;
-
-    private readonly Optional<PaymentsCancel500Error1> _paymentsCancel500Error1Value;
-
-    private PostPaymentsCancelError(Optional<PaymentsCancel400Error1> paymentsCancel400Error1Value,
-        Optional<PaymentsCancel422Error1> paymentsCancel422Error1Value,
-        Optional<PaymentsCancel500Error1> paymentsCancel500Error1Value,
+    private PostPaymentsCancelError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _paymentsCancel400Error1Value = paymentsCancel400Error1Value;
-        _paymentsCancel422Error1Value = paymentsCancel422Error1Value;
-        _paymentsCancel500Error1Value = paymentsCancel500Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static PostPaymentsCancelError AsPaymentsCancel400Error1(PaymentsCancel400Error1 value) =>
-        new(Optional<PaymentsCancel400Error1>.Some(value), default, default, default);
-
-    private static PostPaymentsCancelError AsPaymentsCancel422Error1(PaymentsCancel422Error1 value) =>
-        new(default, Optional<PaymentsCancel422Error1>.Some(value), default, default);
-
-    private static PostPaymentsCancelError AsPaymentsCancel500Error1(PaymentsCancel500Error1 value) =>
-        new(default, default, Optional<PaymentsCancel500Error1>.Some(value), default);
+    private static PostPaymentsCancelError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static PostPaymentsCancelError AsFallback(RawError value) =>
-        new(default, default, default, Optional<RawError>.Some(value));
+        new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetPaymentsCancel400Error1(out PaymentsCancel400Error1 value) =>
-        _paymentsCancel400Error1Value.TryGetValue(out value);
-
-    public bool TryGetPaymentsCancel422Error1(out PaymentsCancel422Error1 value) =>
-        _paymentsCancel422Error1Value.TryGetValue(out value);
-
-    public bool TryGetPaymentsCancel500Error1(out PaymentsCancel500Error1 value) =>
-        _paymentsCancel500Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<PostPaymentsCancelError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 => FromJson<PaymentsCancel400Error1>(response, ct).As(AsPaymentsCancel400Error1),
-            422 => FromJson<PaymentsCancel422Error1>(response, ct).As(AsPaymentsCancel422Error1),
-            500 => FromJson<PaymentsCancel500Error1>(response, ct).As(AsPaymentsCancel500Error1),
+            400 or 422 or 500 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

@@ -15,9 +15,12 @@ public record TestCompanyWebhookRequest
     [JsonPropertyName("merchantIds")]
     public IReadOnlyList<string>? MerchantIds { get; init; }
 
+    /// <summary>
+    /// Custom test notification object. Required when the <see href="https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types"><c>types</c></see> list contains <b>CUSTOM</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("notification")]
-    public CustomNotification? Notification { get; init; }
+    public CustomNotification1? Notification { get; init; }
 
     /// <summary>
     /// List of event codes for which to send test notifications. Only the webhook types below are supported.

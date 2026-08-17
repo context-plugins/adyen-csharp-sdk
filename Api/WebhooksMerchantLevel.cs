@@ -27,7 +27,7 @@ public sealed class WebhooksMerchantLevel
     }
 
     /// <summary>
-    /// delete-merchants-merchantId-webhooks-webhookId
+    /// Remove a webhook
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -46,7 +46,7 @@ public sealed class WebhooksMerchantLevel
         string webhookId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks/{webhookId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks/{webhookId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -59,7 +59,7 @@ public sealed class WebhooksMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-webhooks
+    /// List all webhooks
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -84,7 +84,7 @@ public sealed class WebhooksMerchantLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -97,7 +97,7 @@ public sealed class WebhooksMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-webhooks-webhookId
+    /// Get a webhook
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -117,7 +117,7 @@ public sealed class WebhooksMerchantLevel
         string webhookId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks/{webhookId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks/{webhookId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("webhookId", webhookId)],
             [],
             [],
@@ -130,7 +130,7 @@ public sealed class WebhooksMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-webhooks-webhookId
+    /// Update a webhook
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -151,7 +151,7 @@ public sealed class WebhooksMerchantLevel
         UpdateMerchantWebhookRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks/{webhookId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks/{webhookId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -164,7 +164,7 @@ public sealed class WebhooksMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-webhooks
+    /// Set up a webhook
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -183,7 +183,7 @@ public sealed class WebhooksMerchantLevel
         CreateMerchantWebhookRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -196,7 +196,7 @@ public sealed class WebhooksMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-webhooks-webhookId-generateHmac
+    /// Generate an HMAC key
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="webhookId"></param>
@@ -215,7 +215,7 @@ public sealed class WebhooksMerchantLevel
         string webhookId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks/{webhookId}/generateHmac"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks/{webhookId}/generateHmac"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -228,7 +228,7 @@ public sealed class WebhooksMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-webhooks-webhookId-test
+    /// Test a webhook
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -255,7 +255,7 @@ public sealed class WebhooksMerchantLevel
         TestWebhookRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/webhooks/{webhookId}/test"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/webhooks/{webhookId}/test"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -27,7 +27,7 @@ public sealed class PayoutSettingsMerchantLevel
     }
 
     /// <summary>
-    /// delete-merchants-merchantId-payoutSettings-payoutSettingsId
+    /// Delete a payout setting
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="payoutSettingsId">The unique identifier of the payout setting.</param>
@@ -51,7 +51,7 @@ public sealed class PayoutSettingsMerchantLevel
         string payoutSettingsId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("payoutSettingsId", payoutSettingsId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -64,7 +64,7 @@ public sealed class PayoutSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-payoutSettings
+    /// Get a list of payout settings
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -84,7 +84,7 @@ public sealed class PayoutSettingsMerchantLevel
     public Task<PayoutSettingsResponse> GetMerchantsMerchantIdPayoutSettings(string merchantId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/payoutSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/payoutSettings"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [],
@@ -97,7 +97,7 @@ public sealed class PayoutSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-payoutSettings-payoutSettingsId
+    /// Get a payout setting
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="payoutSettingsId">The unique identifier of the payout setting.</param>
@@ -119,7 +119,7 @@ public sealed class PayoutSettingsMerchantLevel
         string payoutSettingsId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("payoutSettingsId", payoutSettingsId)],
             [],
             [],
@@ -132,7 +132,7 @@ public sealed class PayoutSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-payoutSettings-payoutSettingsId
+    /// Update a payout setting
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="payoutSettingsId">The unique identifier of the payout setting.</param>
@@ -158,7 +158,7 @@ public sealed class PayoutSettingsMerchantLevel
         UpdatePayoutSettingsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("payoutSettingsId", payoutSettingsId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -171,7 +171,7 @@ public sealed class PayoutSettingsMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-payoutSettings
+    /// Add a payout setting
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -198,7 +198,7 @@ public sealed class PayoutSettingsMerchantLevel
         PayoutSettingsRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/payoutSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/payoutSettings"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

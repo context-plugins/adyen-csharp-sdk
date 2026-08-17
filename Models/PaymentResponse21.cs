@@ -8,18 +8,32 @@ namespace Adyen.Models;
 /// </summary>
 public record PaymentResponse21
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// Data related to the Sale System.
+    /// Copy.
+    /// </summary>
     [JsonPropertyName("SaleData")]
-    public required SaleData2 SaleData { get; init; }
+    public required SaleData6 SaleData { get; init; }
 
+    /// <summary>
+    /// Data related to the POI System.
+    /// </summary>
     [JsonPropertyName("POIData")]
-    public required Poidata2 Poidata { get; init; }
+    public required PoiData1 PoiData { get; init; }
 
+    /// <summary>
+    /// Data related to the result of a processed payment transaction.
+    /// If one data element is present.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentResult")]
-    public PaymentResult1? PaymentResult { get; init; }
+    public PaymentResult11? PaymentResult { get; init; }
 
     /// <summary>
     /// Data related to the result of a processed loyalty transaction.

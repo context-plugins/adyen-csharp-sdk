@@ -5,16 +5,25 @@ namespace Adyen.Models;
 
 public record PaymentCaptureRequest
 {
+    /// <summary>
+    /// The amount that you want to capture. The <c>currency</c> must match the currency used in authorisation, the <c>value</c> must be smaller than or equal to the authorised amount.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount31 Amount { get; init; }
 
+    /// <summary>
+    /// Information about your application. For more details, see <see href="https://docs.adyen.com/development-resources/building-adyen-solutions">Building Adyen solutions</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("applicationInfo")]
-    public ApplicationInfo1? ApplicationInfo { get; init; }
+    public ApplicationInfo? ApplicationInfo { get; init; }
 
+    /// <summary>
+    /// Enhanced scheme data that may be required for processing the payment. For example, airline information.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("enhancedSchemeData")]
-    public EnhancedSchemeData? EnhancedSchemeData { get; init; }
+    public EnhancedSchemeData1? EnhancedSchemeData { get; init; }
 
     /// <summary>
     /// Price and product information of the refunded items, required for <see href="https://docs.adyen.com/online-payments/refund#refund-a-payment">partial refunds</see>.
@@ -30,9 +39,12 @@ public record PaymentCaptureRequest
     [JsonPropertyName("merchantAccount")]
     public required string MerchantAccount { get; init; }
 
+    /// <summary>
+    /// Defines how to book chargebacks when using <see href="https://docs.adyen.com/adyen-for-platforms-model">Adyen for Platforms</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platformChargebackLogic")]
-    public PlatformChargebackLogic1? PlatformChargebackLogic { get; init; }
+    public PlatformChargebackLogic? PlatformChargebackLogic { get; init; }
 
     /// <summary>
     /// Your reference for the capture request. Maximum length: 80 characters.

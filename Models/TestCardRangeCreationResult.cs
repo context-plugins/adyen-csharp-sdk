@@ -23,6 +23,12 @@ public record TestCardRangeCreationResult
     [JsonPropertyName("cardNumberRangeStart")]
     public required string CardNumberRangeStart { get; init; }
 
+    /// <summary>
+    /// Notification message. It informs about the outcome of the operation. Possible values:
+    /// * CREATED
+    /// * ALREADY_EXISTS
+    /// * ERROR
+    /// </summary>
     [JsonPropertyName("creationResultCode")]
     public required CreationResultCode CreationResultCode { get; init; }
 

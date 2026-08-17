@@ -4,11 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The status of the transaction rule. If you provide a <c>startDate</c> in the request, the rule is automatically created
-/// with an <b>active</b> status.
-/// <para>
-/// Possible values: <b>active</b>, <b>inactive</b>.
-/// </para>
+/// The current status of the grant. Possible values: <b>Pending</b>, <b>Active</b>, <b>Repaid</b>, <b>WrittenOff</b>, <b>Failed</b>, <b>Revoked</b>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status14>))]
 public sealed record Status14 : StringEnum<Status14>
@@ -17,9 +13,17 @@ public sealed record Status14 : StringEnum<Status14>
     {
     }
 
-    public static readonly Status14 Active = new("active");
+    public static readonly Status14 Pending = new("Pending");
 
-    public static readonly Status14 Inactive = new("inactive");
+    public static readonly Status14 Active = new("Active");
+
+    public static readonly Status14 Repaid = new("Repaid");
+
+    public static readonly Status14 Failed = new("Failed");
+
+    public static readonly Status14 WrittenOff = new("WrittenOff");
+
+    public static readonly Status14 Revoked = new("Revoked");
 
     public static Status14 FromValue(string value) => FromValueCore(value);
 }

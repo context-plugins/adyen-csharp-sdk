@@ -25,7 +25,7 @@ public sealed class DisputeAttachments
     }
 
     /// <summary>
-    /// delete-disputes-disputeId-attachments-attachmentId
+    /// Delete attachment from a dispute
     /// </summary>
     /// <param name="disputeId">The unique identifier of the raised dispute.</param>
     /// <param name="attachmentId">The unique identifier of the attachment.</param>
@@ -40,7 +40,7 @@ public sealed class DisputeAttachments
         string attachmentId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes/{disputeId}/attachments/{attachmentId}"),
+        _rawClient.Execute(_server.Default23("/disputes/{disputeId}/attachments/{attachmentId}"),
             [new TemplateParam("disputeId", disputeId), new TemplateParam("attachmentId", attachmentId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -53,7 +53,7 @@ public sealed class DisputeAttachments
             ct);
 
     /// <summary>
-    /// get-disputes-disputeId-attachments
+    /// Get all attachments linked to a raised dispute
     /// </summary>
     /// <param name="disputeId">The unique identifier of the raised dispute.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -66,7 +66,7 @@ public sealed class DisputeAttachments
     public Task<IReadOnlyList<DisputeAttachment>> GetDisputesDisputeIdAttachments(string disputeId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes/{disputeId}/attachments"),
+        _rawClient.Execute(_server.Default23("/disputes/{disputeId}/attachments"),
             [new TemplateParam("disputeId", disputeId)],
             [],
             [],
@@ -79,7 +79,7 @@ public sealed class DisputeAttachments
             ct);
 
     /// <summary>
-    /// get-disputes-disputeId-attachments-attachmentId
+    /// Get an attachment
     /// </summary>
     /// <param name="disputeId">The unique identifier of the raised dispute.</param>
     /// <param name="attachmentId">The unique identifier of the attachment.</param>
@@ -94,7 +94,7 @@ public sealed class DisputeAttachments
         string attachmentId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes/{disputeId}/attachments/{attachmentId}"),
+        _rawClient.Execute(_server.Default23("/disputes/{disputeId}/attachments/{attachmentId}"),
             [new TemplateParam("disputeId", disputeId), new TemplateParam("attachmentId", attachmentId)],
             [],
             [],
@@ -107,7 +107,7 @@ public sealed class DisputeAttachments
             ct);
 
     /// <summary>
-    /// post-disputes-disputeId-attachments
+    /// Add an attachment to a dispute
     /// </summary>
     /// <param name="disputeId">The unique identifier of the raised dispute.</param>
     /// <param name="body"></param>
@@ -122,7 +122,7 @@ public sealed class DisputeAttachments
         DisputeAttachment body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes/{disputeId}/attachments"),
+        _rawClient.Execute(_server.Default23("/disputes/{disputeId}/attachments"),
             [new TemplateParam("disputeId", disputeId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -19,9 +19,12 @@ public record ForexQuote
     [JsonPropertyName("accountType")]
     public string? AccountType { get; init; }
 
+    /// <summary>
+    /// The base amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("baseAmount")]
-    public BaseAmount? BaseAmount { get; init; }
+    public Amount3? BaseAmount { get; init; }
 
     /// <summary>
     /// The base points.
@@ -29,13 +32,19 @@ public record ForexQuote
     [JsonPropertyName("basePoints")]
     public required int BasePoints { get; init; }
 
+    /// <summary>
+    /// The buy rate.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("buy")]
-    public Buy? Buy { get; init; }
+    public Amount4? Buy { get; init; }
 
+    /// <summary>
+    /// The interbank amount.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("interbank")]
-    public Interbank? Interbank { get; init; }
+    public Amount5? Interbank { get; init; }
 
     /// <summary>
     /// The reference assigned to the forex quote request.
@@ -44,9 +53,12 @@ public record ForexQuote
     [JsonPropertyName("reference")]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The sell rate.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sell")]
-    public Sell? Sell { get; init; }
+    public Amount6? Sell { get; init; }
 
     /// <summary>
     /// The signature to validate the integrity.

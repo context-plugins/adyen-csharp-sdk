@@ -27,7 +27,7 @@ public sealed class PciComplianceQuestionnairePage
     }
 
     /// <summary>
-    /// post-getPciQuestionnaireUrl
+    /// Get a link to a PCI compliance questionnaire
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -41,7 +41,7 @@ public sealed class PciComplianceQuestionnairePage
     public Task<GetPciUrlResponse> PostGetPciQuestionnaireUrl(GetPciUrlRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/getPciQuestionnaireUrl"),
+        _rawClient.Execute(_server.Default19("/getPciQuestionnaireUrl"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

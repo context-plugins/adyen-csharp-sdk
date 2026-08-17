@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record Merchant
 {
+    /// <summary>
+    /// References to resources connected with this merchant.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public CompanyLinks? Links { get; init; }
+    public MerchantLinks2? Links { get; init; }
 
     /// <summary>
     /// The <see href="https://docs.adyen.com/online-payments/capture#capture-delay">capture delay</see> set for the merchant account.

@@ -52,9 +52,18 @@ public record PayoutSettings
     [JsonPropertyName("id")]
     public required string Id { get; init; }
 
+    /// <summary>
+    /// Determines how long it takes for the funds to reach the bank account. Adyen pays out based on the <see href="https://docs.adyen.com/account/getting-paid#payout-frequency">payout frequency</see>. Depending on the currencies and banks involved in transferring the money, it may take up to three days for the payout funds to arrive in the bank account.
+    /// <para>
+    ///  Possible values:
+    /// * <b>first</b>: same day.
+    /// * <b>urgent</b>: the next day.
+    /// * <b>normal</b>: between 1 and 3 days.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("priority")]
-    public Priority1? Priority { get; init; }
+    public Priority? Priority { get; init; }
 
     /// <summary>
     /// The unique identifier of the <see href="https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments">transfer instrument</see> that contains the details of the bank account.
@@ -62,7 +71,17 @@ public record PayoutSettings
     [JsonPropertyName("transferInstrumentId")]
     public required string TransferInstrumentId { get; init; }
 
+    /// <summary>
+    /// The status of the verification process for the bank account.
+    /// <para>
+    /// Possible values:
+    /// * <b>valid</b>: the verification was successful.
+    /// * <b>pending</b>: the verification is in progress.
+    /// * <b>invalid</b>: the information provided is not complete.
+    /// * <b>rejected</b>:  there are reasons to refuse working with this entity.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("verificationStatus")]
-    public VerificationStatus? VerificationStatus { get; init; }
+    public VerificationStatus1? VerificationStatus { get; init; }
 }

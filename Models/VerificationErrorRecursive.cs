@@ -27,9 +27,22 @@ public record VerificationErrorRecursive
     [JsonPropertyName("message")]
     public string? Message { get; init; }
 
+    /// <summary>
+    /// The type of error.
+    /// <para>
+    ///
+    /// </para>
+    /// <para>
+    /// Possible values:
+    /// *  <b>invalidInput</b>
+    /// *  <b>dataMissing</b>
+    /// *  <b>pendingStatus</b>
+    /// *  <b>dataReview</b>
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type21? Type { get; init; }
+    public Type212? Type { get; init; }
 
     /// <summary>
     /// Contains the actions that you can take to resolve the verification error.

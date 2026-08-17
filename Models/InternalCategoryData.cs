@@ -19,7 +19,9 @@ public record InternalCategoryData
     [JsonPropertyName("modificationPspReference")]
     public string? ModificationPspReference { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>internal</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type410? Type { get; init; }
+    public Type411? Type { get; init; } = Type411.Internal;
 }

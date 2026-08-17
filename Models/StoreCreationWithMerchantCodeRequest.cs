@@ -5,8 +5,11 @@ namespace Adyen.Models;
 
 public record StoreCreationWithMerchantCodeRequest
 {
+    /// <summary>
+    /// The address of the store.
+    /// </summary>
     [JsonPropertyName("address")]
-    public required Address15 Address { get; init; }
+    public required StoreLocation1 Address { get; init; }
 
     /// <summary>
     /// The unique identifiers of the <see href="https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id">business lines</see> that the store is associated with.
@@ -38,9 +41,12 @@ public record StoreCreationWithMerchantCodeRequest
     [JsonPropertyName("externalReferenceId")]
     public string? ExternalReferenceId { get; init; }
 
+    /// <summary>
+    /// Localized information about the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("localizedInformation")]
-    public LocalizedInformation? LocalizedInformation { get; init; }
+    public LocalizedInformation2? LocalizedInformation { get; init; }
 
     /// <summary>
     /// The unique identifier of the merchant account that the store belongs to.
@@ -72,11 +78,17 @@ public record StoreCreationWithMerchantCodeRequest
     [JsonPropertyName("shopperStatement")]
     public required string ShopperStatement { get; init; }
 
+    /// <summary>
+    /// Rules for Adyen for Platforms merchants to split the transaction amount and fees.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("splitConfiguration")]
-    public StoreSplitConfiguration? SplitConfiguration { get; init; }
+    public StoreSplitConfiguration1? SplitConfiguration { get; init; }
 
+    /// <summary>
+    /// The sub-merchant data relevant for registered payment facilitators transacting on standalone terminals.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subMerchantData")]
-    public SubMerchantData? SubMerchantData { get; init; }
+    public SubMerchantData1? SubMerchantData { get; init; }
 }

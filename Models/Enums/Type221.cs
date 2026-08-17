@@ -4,7 +4,10 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// <b>directdebit_AU</b>
+/// The type of transfer instrument.
+/// <para>
+/// Possible value: <b>bankAccount</b>.
+/// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type221>))]
 public sealed record Type221 : StringEnum<Type221>
@@ -13,7 +16,9 @@ public sealed record Type221 : StringEnum<Type221>
     {
     }
 
-    public static readonly Type221 DirectdebitAu = new("directdebit_AU");
+    public static readonly Type221 BankAccount = new("bankAccount");
+
+    public static readonly Type221 RecurringDetail = new("recurringDetail");
 
     public static Type221 FromValue(string value) => FromValueCore(value);
 }

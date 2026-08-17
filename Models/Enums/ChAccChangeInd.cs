@@ -9,7 +9,16 @@ namespace Adyen.Models.Enums;
 /// * <b>01</b> — Changed during this transaction
 /// * <b>02</b> — Less than 30 days
 /// * <b>03</b> — 30–60 days
-/// * <b>04</b> — More than 60 days
+/// * <b>04</b> — More than 60 days, Indicates when the shipping address used for this transaction was first used with the 3DS Requestor.
+/// Allowed values:
+/// * <b>01</b> — This transaction
+/// * <b>02</b> — Less than 30 days
+/// * <b>03</b> — 30–60 days
+/// * <b>04</b> — More than 60 days, Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values:
+/// * <b>01</b> — Frictionless authentication occurred by ACS.
+/// * <b>02</b> — Cardholder challenge occurred by ACS.
+/// * <b>03</b> — AVS verified.
+/// * <b>04</b> — Other issuer methods.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<ChAccChangeInd>))]
 public sealed record ChAccChangeInd : StringEnum<ChAccChangeInd>

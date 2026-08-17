@@ -8,6 +8,16 @@ namespace Adyen.Models;
 /// </summary>
 public record AuthenticationData3
 {
+    /// <summary>
+    /// Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including <see href="https://docs.adyen.com/risk-management/dynamic-3d-secure">Dynamic 3D Secure settings</see>.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>always</b>: Perform 3D Secure authentication.</description></item>
+    ///   <item><description><b>never</b>: Don't perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.</description></item>
+    /// </list>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attemptAuthentication")]
     public AttemptAuthentication? AttemptAuthentication { get; init; }
@@ -19,7 +29,10 @@ public record AuthenticationData3
     [JsonPropertyName("authenticationOnly")]
     public bool? AuthenticationOnly { get; init; } = false;
 
+    /// <summary>
+    /// Object with additional parameters for the 3D Secure authentication flow.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestData")]
-    public ThreeDsrequestData? ThreeDsrequestData { get; init; }
+    public ThreeDsRequestData2? ThreeDsRequestData { get; init; }
 }

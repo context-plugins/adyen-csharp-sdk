@@ -27,7 +27,7 @@ public sealed class WebhooksCompanyLevel
     }
 
     /// <summary>
-    /// delete-companies-companyId-webhooks-webhookId
+    /// Remove a webhook
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -46,7 +46,7 @@ public sealed class WebhooksCompanyLevel
         string webhookId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks/{webhookId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks/{webhookId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -59,7 +59,7 @@ public sealed class WebhooksCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-webhooks
+    /// List all webhooks
     /// </summary>
     /// <param name="companyId">Unique identifier of the <see href="https://docs.adyen.com/account/account-structure#company-account">company account</see>.</param>
     /// <param name="pageNumber">The number of the page to fetch.</param>
@@ -81,7 +81,7 @@ public sealed class WebhooksCompanyLevel
         int? pageSize,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks"),
             [new TemplateParam("companyId", companyId)],
             [new Param("pageNumber", pageNumber), new Param("pageSize", pageSize)],
             [],
@@ -94,7 +94,7 @@ public sealed class WebhooksCompanyLevel
             ct);
 
     /// <summary>
-    /// get-companies-companyId-webhooks-webhookId
+    /// Get a webhook
     /// </summary>
     /// <param name="companyId">Unique identifier of the <see href="https://docs.adyen.com/account/account-structure#company-account">company account</see>.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -114,7 +114,7 @@ public sealed class WebhooksCompanyLevel
         string webhookId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks/{webhookId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks/{webhookId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("webhookId", webhookId)],
             [],
             [],
@@ -127,7 +127,7 @@ public sealed class WebhooksCompanyLevel
             ct);
 
     /// <summary>
-    /// patch-companies-companyId-webhooks-webhookId
+    /// Update a webhook
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -148,7 +148,7 @@ public sealed class WebhooksCompanyLevel
         UpdateCompanyWebhookRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks/{webhookId}"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks/{webhookId}"),
             [new TemplateParam("companyId", companyId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -161,7 +161,7 @@ public sealed class WebhooksCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-webhooks
+    /// Set up a webhook
     /// </summary>
     /// <param name="companyId">Unique identifier of the <see href="https://docs.adyen.com/account/account-structure#company-account">company account</see>.</param>
     /// <param name="body"></param>
@@ -180,7 +180,7 @@ public sealed class WebhooksCompanyLevel
         CreateCompanyWebhookRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks"),
             [new TemplateParam("companyId", companyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -193,7 +193,7 @@ public sealed class WebhooksCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-webhooks-webhookId-generateHmac
+    /// Generate an HMAC key
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -212,7 +212,7 @@ public sealed class WebhooksCompanyLevel
         string webhookId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks/{webhookId}/generateHmac"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks/{webhookId}/generateHmac"),
             [new TemplateParam("companyId", companyId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -225,7 +225,7 @@ public sealed class WebhooksCompanyLevel
             ct);
 
     /// <summary>
-    /// post-companies-companyId-webhooks-webhookId-test
+    /// Test a webhook
     /// </summary>
     /// <param name="companyId">The unique identifier of the company account.</param>
     /// <param name="webhookId">Unique identifier of the webhook configuration.</param>
@@ -255,7 +255,7 @@ public sealed class WebhooksCompanyLevel
         TestCompanyWebhookRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/companies/{companyId}/webhooks/{webhookId}/test"),
+        _rawClient.Execute(_server.Default9("/companies/{companyId}/webhooks/{webhookId}/test"),
             [new TemplateParam("companyId", companyId), new TemplateParam("webhookId", webhookId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

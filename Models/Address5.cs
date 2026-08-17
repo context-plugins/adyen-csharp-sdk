@@ -1,59 +1,53 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Adyen.Models;
 
 /// <summary>
-/// The address registered at the registrar, such as the Chamber of Commerce.
+/// The billing address associated with the stored payment method.
 /// </summary>
 public record Address5
 {
     /// <summary>
-    /// The name of the city. Required if <c>stateOrProvince</c> is provided.
-    /// <para>
-    /// If you specify the city, you must also send <c>postalCode</c> and <c>street</c>.
-    /// </para>
+    /// The name of the city. Maximum length: 3000 characters.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("city")]
-    public string? City { get; init; }
+    [MaxLength(3000)]
+    public required string City { get; init; }
 
     /// <summary>
-    /// The two-letter <see href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</see> country code.
+    /// The two-character ISO-3166-1 alpha-2 country code. For example, <b>US</b>.
+    /// &gt; If you don't know the country or are not collecting the country from the shopper, provide <c>country</c> as <c>ZZ</c>.
     /// </summary>
     [JsonPropertyName("country")]
     public required string Country { get; init; }
 
     /// <summary>
-    /// The postal code. Required if <c>stateOrProvince</c> and/or <c>city</c> is provided.
-    /// <para>
-    /// When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or SW1A 1AA.
-    /// </para>
+    /// The number or name of the house. Maximum length: 3000 characters.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("postalCode")]
-    public string? PostalCode { get; init; }
+    [JsonPropertyName("houseNumberOrName")]
+    [MaxLength(3000)]
+    public required string HouseNumberOrName { get; init; }
 
     /// <summary>
-    /// The two-letter ISO 3166-2 state or province code. For example, <b>CA</b> in the US. Required for Australia and New Zealand.
-    /// <para>
-    /// If you specify the state or province, you must also send <c>city</c>, <c>postalCode</c>, and <c>street</c>.
-    /// </para>
+    /// A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
+    /// </summary>
+    [JsonPropertyName("postalCode")]
+    public required string PostalCode { get; init; }
+
+    /// <summary>
+    /// The two-character ISO 3166-2 state or province code. For example, <b>CA</b> in the US or <b>ON</b> in Canada.
+    /// &gt; Required for the US and Canada.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("stateOrProvince")]
     public string? StateOrProvince { get; init; }
 
     /// <summary>
-    /// The name of the street, and the house or building number. Required if <c>stateOrProvince</c> and/or <c>city</c> is provided.
+    /// The name of the street. Maximum length: 3000 characters.
+    /// &gt; The house number should not be included in this field; it should be separately provided via <c>houseNumberOrName</c>.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("street")]
-    public string? Street { get; init; }
-
-    /// <summary>
-    /// The apartment, unit, or suite number.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("street2")]
-    public string? Street2 { get; init; }
+    [MaxLength(3000)]
+    public required string Street { get; init; }
 }

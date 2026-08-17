@@ -13,6 +13,9 @@ public record UploadDocumentRequest
     [JsonPropertyName("documentContent")]
     public required string DocumentContent { get; init; }
 
+    /// <summary>
+    /// Details of the document being submitted.
+    /// </summary>
     [JsonPropertyName("documentDetail")]
-    public required DocumentDetail DocumentDetail { get; init; }
+    public required DocumentDetail1 DocumentDetail { get; init; }
 }

@@ -4,6 +4,9 @@ namespace Adyen.Models;
 
 public record AcceptDisputeResponse
 {
+    /// <summary>
+    /// The result of the dispute service.
+    /// </summary>
     [JsonPropertyName("disputeServiceResult")]
-    public required DisputeServiceResult DisputeServiceResult { get; init; }
+    public required DisputeServiceResult1 DisputeServiceResult { get; init; }
 }

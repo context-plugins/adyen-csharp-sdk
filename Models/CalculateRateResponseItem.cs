@@ -23,13 +23,19 @@ public record CalculateRateResponseItem
     [JsonPropertyName("exchangeSide")]
     public string? ExchangeSide { get; init; }
 
+    /// <summary>
+    /// The currency of the amount you converted (the source amount).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sourceAmount")]
-    public SourceAmount? SourceAmount { get; init; }
+    public Amount22? SourceAmount { get; init; }
 
+    /// <summary>
+    /// An object specifying the currency and value to which you want to convert the source amount (the target amount).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("targetAmount")]
-    public TargetAmount? TargetAmount { get; init; }
+    public Amount34? TargetAmount { get; init; }
 
     /// <summary>
     /// The type of transaction. Possible values:

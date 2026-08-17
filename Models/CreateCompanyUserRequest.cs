@@ -36,8 +36,14 @@ public record CreateCompanyUserRequest
     [JsonPropertyName("loginMethod")]
     public string? LoginMethod { get; init; }
 
+    /// <summary>
+    /// The user's full name.
+    /// <para>
+    /// Allowed length: 1—80 characters.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("name")]
-    public required Name5 Name { get; init; }
+    public required Name Name { get; init; }
 
     /// <summary>
     /// The list of <see href="https://docs.adyen.com/account/user-roles">roles</see> for this user.

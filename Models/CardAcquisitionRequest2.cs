@@ -7,9 +7,15 @@ namespace Adyen.Models;
 /// </summary>
 public record CardAcquisitionRequest2
 {
+    /// <summary>
+    /// Data related to the Sale System.
+    /// </summary>
     [JsonPropertyName("SaleData")]
-    public required SaleData2 SaleData { get; init; }
+    public required SaleData1 SaleData { get; init; }
 
+    /// <summary>
+    /// Data related to the payment and loyalty card acquisition.
+    /// </summary>
     [JsonPropertyName("CardAcquisitionTransaction")]
-    public required CardAcquisitionTransaction CardAcquisitionTransaction { get; init; }
+    public required CardAcquisitionTransaction1 CardAcquisitionTransaction { get; init; }
 }

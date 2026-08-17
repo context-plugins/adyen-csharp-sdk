@@ -8,11 +8,20 @@ namespace Adyen.Models;
 /// </summary>
 public record IndividualDetails3
 {
+    /// <summary>
+    /// The name of the individual.
+    /// &gt;Make sure your account holder registers using the name shown on their Photo ID.
+    ///  Maximum length: 80 characters
+    ///  Cannot contain numbers. /n Cannot be empty.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
-    public ViasName? Name { get; init; }
+    public ViasName2? Name { get; init; }
 
+    /// <summary>
+    /// Personal information of the individual.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("personalData")]
-    public ViasPersonalData? PersonalData { get; init; }
+    public ViasPersonalData2? PersonalData { get; init; }
 }

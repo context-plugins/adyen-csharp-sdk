@@ -9,27 +9,27 @@ namespace Adyen.Errors;
 
 public sealed class GetDynamicOffersError : ApiError
 {
-    private readonly Optional<DynamicOffers422Error1> _dynamicOffers422Error1Value;
+    private readonly Optional<DefaultErrorResponseEntity> _defaultErrorResponseEntityValue;
 
-    private GetDynamicOffersError(Optional<DynamicOffers422Error1> dynamicOffers422Error1Value,
+    private GetDynamicOffersError(Optional<DefaultErrorResponseEntity> defaultErrorResponseEntityValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _dynamicOffers422Error1Value = dynamicOffers422Error1Value;
+        _defaultErrorResponseEntityValue = defaultErrorResponseEntityValue;
     }
 
-    private static GetDynamicOffersError AsDynamicOffers422Error1(DynamicOffers422Error1 value) =>
-        new(Optional<DynamicOffers422Error1>.Some(value), default);
+    private static GetDynamicOffersError AsDefaultErrorResponseEntity(DefaultErrorResponseEntity value) =>
+        new(Optional<DefaultErrorResponseEntity>.Some(value), default);
 
     private static GetDynamicOffersError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetDynamicOffers422Error1(out DynamicOffers422Error1 value) =>
-        _dynamicOffers422Error1Value.TryGetValue(out value);
+    public bool TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity value) =>
+        _defaultErrorResponseEntityValue.TryGetValue(out value);
 
     internal static Task<GetDynamicOffersError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            422 => FromJson<DynamicOffers422Error1>(response, ct).As(AsDynamicOffers422Error1),
+            422 => FromJson<DefaultErrorResponseEntity>(response, ct).As(AsDefaultErrorResponseEntity),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }

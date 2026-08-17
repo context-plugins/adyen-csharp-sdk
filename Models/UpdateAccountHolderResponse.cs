@@ -13,13 +13,19 @@ public record UpdateAccountHolderResponse
     [JsonPropertyName("accountHolderCode")]
     public string? AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// Details of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolderDetails")]
-    public AccountHolderDetails? AccountHolderDetails { get; init; }
+    public AccountHolderDetails3? AccountHolderDetails { get; init; }
 
+    /// <summary>
+    /// The new status of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountHolderStatus")]
-    public AccountHolderStatus? AccountHolderStatus { get; init; }
+    public AccountHolderStatus7? AccountHolderStatus { get; init; }
 
     /// <summary>
     /// The description of the account holder.
@@ -35,6 +41,9 @@ public record UpdateAccountHolderResponse
     [JsonPropertyName("invalidFields")]
     public IReadOnlyList<ErrorFieldType>? InvalidFields { get; init; }
 
+    /// <summary>
+    /// The legal entity of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("legalEntity")]
     public LegalEntity2? LegalEntity { get; init; }
@@ -60,9 +69,12 @@ public record UpdateAccountHolderResponse
     [JsonPropertyName("resultCode")]
     public string? ResultCode { get; init; }
 
+    /// <summary>
+    /// The details of KYC Verification of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("verification")]
-    public KycverificationResult? Verification { get; init; }
+    public KycVerificationResult1? Verification { get; init; }
 
     /// <summary>
     /// The identifier of the profile that applies to this entity.

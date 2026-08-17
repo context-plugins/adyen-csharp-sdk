@@ -14,25 +14,16 @@ public record NotDeliveredInfo3
 {
     private readonly Optional<PatchableNotDeliveredInfo> _patchableNotDeliveredInfoValue;
 
-    private readonly Optional<object?> _anonymousObjectValue;
-
-    private NotDeliveredInfo3(Optional<PatchableNotDeliveredInfo> patchableNotDeliveredInfoValue,
-        Optional<object?> anonymousObjectValue)
+    private NotDeliveredInfo3(Optional<PatchableNotDeliveredInfo> patchableNotDeliveredInfoValue)
     {
         _patchableNotDeliveredInfoValue = patchableNotDeliveredInfoValue;
-        _anonymousObjectValue = anonymousObjectValue;
     }
 
     public static NotDeliveredInfo3 PatchableNotDeliveredInfo(PatchableNotDeliveredInfo value) =>
-        new(Optional<PatchableNotDeliveredInfo>.Some(value), default);
-
-    public static NotDeliveredInfo3 AnonymousObject(object? value) =>
-        new(default, Optional<object?>.Some(value));
+        new(Optional<PatchableNotDeliveredInfo>.Some(value));
 
     public bool TryGetPatchableNotDeliveredInfo(out PatchableNotDeliveredInfo value) =>
         _patchableNotDeliveredInfoValue.TryGetValue(out value);
-
-    public bool TryGetAnonymousObject(out object? value) => _anonymousObjectValue.TryGetValue(out value);
 
     public static implicit operator NotDeliveredInfo3(PatchableNotDeliveredInfo value) =>
         PatchableNotDeliveredInfo(value);
@@ -52,11 +43,7 @@ file sealed class NotDeliveredInfo3Converter : JsonConverter<NotDeliveredInfo3>
         {
             return NotDeliveredInfo3.PatchableNotDeliveredInfo(patchableNotDeliveredInfoValue);
         }
-        if (JsonSerializer.TryDeserialize<object?>(root, options, out var anonymousObjectValue))
-        {
-            return NotDeliveredInfo3.AnonymousObject(anonymousObjectValue);
-        }
-        throw new JsonException($"JSON does not match PatchableNotDeliveredInfo or object? schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match PatchableNotDeliveredInfo schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, NotDeliveredInfo3 value, JsonSerializerOptions options)
@@ -64,10 +51,6 @@ file sealed class NotDeliveredInfo3Converter : JsonConverter<NotDeliveredInfo3>
         if (value.TryGetPatchableNotDeliveredInfo(out var patchableNotDeliveredInfoValue))
         {
             JsonSerializer.Serialize(writer, patchableNotDeliveredInfoValue, options);
-        }
-        else if (value.TryGetAnonymousObject(out var anonymousObjectValue))
-        {
-            JsonSerializer.Serialize(writer, anonymousObjectValue, options);
         }
         else
         {

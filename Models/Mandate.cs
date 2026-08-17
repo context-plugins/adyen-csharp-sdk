@@ -1,55 +1,95 @@
-using System;
 using System.Text.Json.Serialization;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
+/// <summary>
+/// The mandate details to initiate recurring transaction.
+/// </summary>
 public record Mandate
 {
     /// <summary>
-    /// The unique identifier of the balance account linked to the payment instrument.
+    /// The billing amount (in minor units) of the recurring transactions.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("balanceAccountId")]
-    public string? BalanceAccountId { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("counterparty")]
-    public MandateBankAccount? Counterparty { get; init; }
+    [JsonPropertyName("amount")]
+    public required string Amount { get; init; }
 
     /// <summary>
-    /// The date when the mandate was created.
+    /// The limitation rule of the billing amount.
+    /// <para>
+    /// Possible values:
+    ///  * <b>max</b>: The transaction amount can not exceed the <c>amount</c>.
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>exact</b>: The transaction amount should be the same as the <c>amount</c>.</description></item>
+    /// </list>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("createdAt")]
-    public DateTimeOffset? CreatedAt { get; init; }
+    [JsonPropertyName("amountRule")]
+    public AmountRule? AmountRule { get; init; }
 
     /// <summary>
-    /// The unique identifier of the mandate.
+    /// The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.
+    /// <para>
+    /// Possible values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>on</b>: On a specific date.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>before</b>:  Before and on a specific date.</description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>after</b>: On and after a specific date.</description></item>
+    /// </list>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("id")]
-    public string? Id { get; init; }
+    [JsonPropertyName("billingAttemptsRule")]
+    public BillingAttemptsRule? BillingAttemptsRule { get; init; }
 
     /// <summary>
-    /// The unique identifier of the payment instrument linked to the mandate.
+    /// The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.
+    /// <para>
+    /// Possible values: 1-31 based on the <c>frequency</c>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("paymentInstrumentId")]
-    public string? PaymentInstrumentId { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("status")]
-    public MandateStatus2? Status { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("type")]
-    public MandateType2? Type { get; init; }
+    [JsonPropertyName("billingDay")]
+    public string? BillingDay { get; init; }
 
     /// <summary>
-    /// The date when the mandate was updated.
+    /// The number of transactions that can be performed within the given frequency.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("updatedAt")]
-    public DateTimeOffset? UpdatedAt { get; init; }
+    [JsonPropertyName("count")]
+    public string? Count { get; init; }
+
+    /// <summary>
+    /// End date of the billing plan, in YYYY-MM-DD format.
+    /// </summary>
+    [JsonPropertyName("endsAt")]
+    public required string EndsAt { get; init; }
+
+    /// <summary>
+    /// The frequency with which a shopper should be charged.
+    /// <para>
+    /// Possible values: <b>adhoc</b>, <b>daily</b>, <b>weekly</b>, <b>biWeekly</b>, <b>monthly</b>, <b>quarterly</b>, <b>halfYearly</b>, <b>yearly</b>.
+    /// </para>
+    /// </summary>
+    [JsonPropertyName("frequency")]
+    public required Frequency Frequency { get; init; }
+
+    /// <summary>
+    /// The message shown by UPI to the shopper on the approval screen.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("remarks")]
+    public string? Remarks { get; init; }
+
+    /// <summary>
+    /// Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("startsAt")]
+    public string? StartsAt { get; init; }
 }

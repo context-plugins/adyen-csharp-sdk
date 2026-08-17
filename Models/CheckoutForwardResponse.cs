@@ -18,8 +18,11 @@ public record CheckoutForwardResponse
     [JsonPropertyName("pspReference")]
     public string? PspReference { get; init; }
 
+    /// <summary>
+    /// The details of the response Adyen received from the third party.
+    /// </summary>
     [JsonPropertyName("response")]
-    public required CheckoutForwardResponseFromUrl Response { get; init; }
+    public required CheckoutForwardResponseFromUrl2 Response { get; init; }
 
     /// <summary>
     /// The unique identifier of the token.

@@ -13,12 +13,12 @@ public record PatchableTopUpAmount2
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fixed")]
-    public Fixed1? Fixed { get; init; }
+    public Fixed? Fixed { get; init; }
 
     /// <summary>
     /// The target balance for the balance account that the top-up must achieve.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("target")]
-    public Target4? Target { get; init; }
+    public Target2? Target { get; init; }
 }

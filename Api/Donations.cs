@@ -26,7 +26,7 @@ public sealed class Donations
     }
 
     /// <summary>
-    /// post-donationCampaigns
+    /// Get a list of donation campaigns.
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>
@@ -54,7 +54,7 @@ public sealed class Donations
             ct);
 
     /// <summary>
-    /// post-donations
+    /// Make a donation
     /// </summary>
     /// <param name="idempotencyKey">A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).</param>
     /// <param name="body"></param>

@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record CheckoutBankAccount
 {
+    /// <summary>
+    /// The type of the bank account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountType")]
-    public AccountType11? AccountType { get; init; }
+    public AccountType1? AccountType { get; init; }
 
     /// <summary>
     /// The bank account number (without separators).

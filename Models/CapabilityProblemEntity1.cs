@@ -19,9 +19,9 @@ public record CapabilityProblemEntity1
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("owner")]
-    public CapabilityProblemEntityRecursive? Owner { get; init; }
+    public CapabilityProblemEntityRecursive1? Owner { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type32? Type { get; init; }
+    public Type311? Type { get; init; }
 }

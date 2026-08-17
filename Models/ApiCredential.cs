@@ -6,9 +6,12 @@ namespace Adyen.Models;
 
 public record ApiCredential
 {
+    /// <summary>
+    /// References to resources linked to the API credential.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("_links")]
-    public ApiCredentialLinks? Links { get; init; }
+    public ApiCredentialLinks2? Links { get; init; }
 
     /// <summary>
     /// Indicates if the API credential is enabled. Must be set to <b>true</b> to use the credential in your integration.

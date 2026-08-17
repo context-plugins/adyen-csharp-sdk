@@ -23,7 +23,7 @@ public sealed record InstitutionalSector : StringEnum<InstitutionalSector>
 
     public static readonly InstitutionalSector MoneyMarketFunds = new("moneyMarketFunds");
 
-    public static readonly InstitutionalSector NonMmfinvestmentFunds = new("nonMMFInvestmentFunds");
+    public static readonly InstitutionalSector NonMmfInvestmentFunds = new("nonMMFInvestmentFunds");
 
     public static readonly InstitutionalSector FinancialVehicleCorporation = new("financialVehicleCorporation");
 

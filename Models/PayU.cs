@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
 
 namespace Adyen.Models;
 
@@ -47,7 +46,7 @@ public record PayU
     /// <b>payu_IN_upi</b>
     /// </summary>
     [JsonPropertyName("type")]
-    public required Type77 Type { get; init; }
+    public string Type { get; } = "payu_IN_upi";
 
     /// <summary>
     /// The virtual payment address for UPI.

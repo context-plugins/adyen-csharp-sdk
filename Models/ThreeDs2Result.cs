@@ -4,7 +4,7 @@ using Adyen.Models.Enums;
 namespace Adyen.Models;
 
 /// <summary>
-/// The ThreeDS2Result that was returned in the final CRes.
+/// The ThreeDS2Result that was returned in the final CRes., The result of the 3D Secure 2 authentication.
 /// </summary>
 public record ThreeDs2Result
 {
@@ -22,6 +22,9 @@ public record ThreeDs2Result
     [JsonPropertyName("cavvAlgorithm")]
     public string? CavvAlgorithm { get; init; }
 
+    /// <summary>
+    /// Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to <see href="https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata">3D Secure API reference</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("challengeCancel")]
     public ChallengeCancel? ChallengeCancel { get; init; }
@@ -40,6 +43,14 @@ public record ThreeDs2Result
     [JsonPropertyName("eci")]
     public string? Eci { get; init; }
 
+    /// <summary>
+    /// Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied.
+    /// Allowed values:
+    /// * <c>lowValue</c>
+    /// * <c>secureCorporate</c>
+    /// * <c>trustedBeneficiary</c>
+    /// * <c>transactionRiskAnalysis</c>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("exemptionIndicator")]
     public ExemptionIndicator? ExemptionIndicator { get; init; }
@@ -58,16 +69,25 @@ public record ThreeDs2Result
     [JsonPropertyName("riskScore")]
     public string? RiskScore { get; init; }
 
+    /// <summary>
+    /// Indicates whether a challenge is requested for this transaction. Possible values:
+    /// * <b>01</b> — No preference
+    /// * <b>02</b> — No challenge requested
+    /// * <b>03</b> — Challenge requested (3DS Requestor preference)
+    /// * <b>04</b> — Challenge requested (Mandate)
+    /// * <b>05</b> — No challenge (transactional risk analysis is already performed)
+    /// * <b>06</b> — Data Only
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSRequestorChallengeInd")]
-    public ThreeDsrequestorChallengeInd? ThreeDsrequestorChallengeInd { get; init; }
+    public ThreeDsRequestorChallengeInd? ThreeDsRequestorChallengeInd { get; init; }
 
     /// <summary>
     /// The <c>threeDSServerTransID</c> value as defined in the 3D Secure 2 specification.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSServerTransID")]
-    public string? ThreeDsserverTransId { get; init; }
+    public string? ThreeDsServerTransId { get; init; }
 
     /// <summary>
     /// The <c>timestamp</c> value of the 3D Secure 2 authentication.

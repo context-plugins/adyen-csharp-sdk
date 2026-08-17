@@ -27,7 +27,7 @@ public sealed class BusinessLinesApi
     }
 
     /// <summary>
-    /// delete-businessLines-id
+    /// Delete a business line
     /// </summary>
     /// <param name="id">The unique identifier of the business line to be deleted.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -55,7 +55,7 @@ public sealed class BusinessLinesApi
     public Task DeleteBusinessLinesId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/businessLines/{id}"),
+        _rawClient.Execute(_server.Default18("/businessLines/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -68,7 +68,7 @@ public sealed class BusinessLinesApi
             ct);
 
     /// <summary>
-    /// get-businessLines-id
+    /// Get a business line
     /// </summary>
     /// <param name="id">The unique identifier of the business line.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -93,7 +93,7 @@ public sealed class BusinessLinesApi
     public Task<BusinessLine> GetBusinessLinesId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/businessLines/{id}"),
+        _rawClient.Execute(_server.Default18("/businessLines/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -106,7 +106,7 @@ public sealed class BusinessLinesApi
             ct);
 
     /// <summary>
-    /// patch-businessLines-id
+    /// Update a business line
     /// </summary>
     /// <param name="id">The unique identifier of the business line.</param>
     /// <param name="body"></param>
@@ -133,7 +133,7 @@ public sealed class BusinessLinesApi
         BusinessLineInfoUpdate? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/businessLines/{id}"),
+        _rawClient.Execute(_server.Default18("/businessLines/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -146,7 +146,7 @@ public sealed class BusinessLinesApi
             ct);
 
     /// <summary>
-    /// post-businessLines
+    /// Create a business line
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -177,7 +177,7 @@ public sealed class BusinessLinesApi
     public Task<BusinessLine> PostBusinessLines(BusinessLineInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/businessLines"),
+        _rawClient.Execute(_server.Default18("/businessLines"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

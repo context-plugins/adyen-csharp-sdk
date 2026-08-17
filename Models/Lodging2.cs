@@ -53,9 +53,12 @@ public record Lodging2
     [JsonPropertyName("fireSafetyCompliance")]
     public bool? FireSafetyCompliance { get; init; }
 
+    /// <summary>
+    /// The folio information for the booking.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("folio")]
-    public Folio? Folio { get; init; }
+    public Folio2? Folio { get; init; }
 
     /// <summary>
     /// Any charges for food and beverages associated with the booking, in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
@@ -68,6 +71,10 @@ public record Lodging2
     [JsonPropertyName("foodBeverageCharges")]
     public long? FoodBeverageCharges { get; init; }
 
+    /// <summary>
+    /// The category of lodging charges for the payment.
+    /// * <b>additionalData key:</b> <c>lodging.specialProgramCode</c>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("lodgingChargeType")]
     public LodgingChargeType? LodgingChargeType { get; init; }

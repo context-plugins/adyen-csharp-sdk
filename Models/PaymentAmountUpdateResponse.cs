@@ -13,9 +13,18 @@ public record PaymentAmountUpdateResponse
     [JsonPropertyName("adjustAuthorisationData")]
     public string? AdjustAuthorisationData { get; init; }
 
+    /// <summary>
+    /// The updated amount.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount30 Amount { get; init; }
 
+    /// <summary>
+    /// The reason for the amount update. Possible values:
+    /// * <b>delayedCharge</b>
+    /// * <b>noShow</b>
+    /// * <b>installment</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("industryUsage")]
     public IndustryUsage1? IndustryUsage { get; init; }
@@ -59,6 +68,21 @@ public record PaymentAmountUpdateResponse
     [JsonPropertyName("splits")]
     public IReadOnlyList<Split>? Splits { get; init; }
 
+    /// <summary>
+    /// The status of your request.
+    /// <para>
+    /// If you included <c>adjustAuthorisationData</c> in your request, possible values are the following:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description><b>authorised</b></description></item>
+    /// </list>
+    /// <list type="bullet">
+    ///   <item><description><b>refused</b></description></item>
+    /// </list>
+    /// <para>
+    /// Otherwise, the value is <b>received</b>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("status")]
-    public required Status23 Status { get; init; }
+    public required Status2 Status { get; init; }
 }

@@ -10,9 +10,11 @@ public sealed record ProductType : StringEnum<ProductType>
     {
     }
 
-    public static readonly ProductType Goods = new("goods");
+    public static readonly ProductType Onboarding = new("onboarding");
 
-    public static readonly ProductType Services = new("services");
+    public static readonly ProductType Platform = new("platform");
+
+    public static readonly ProductType Bank = new("bank");
 
     public static ProductType FromValue(string value) => FromValueCore(value);
 }

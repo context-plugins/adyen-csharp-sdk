@@ -55,10 +55,16 @@ public record CreateAccountResponse
     [JsonPropertyName("payoutMethodCode")]
     public string? PayoutMethodCode { get; init; }
 
+    /// <summary>
+    /// The details of the payout schedule added to the account.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutSchedule")]
-    public PayoutScheduleResponse? PayoutSchedule { get; init; }
+    public PayoutScheduleResponse1? PayoutSchedule { get; init; }
 
+    /// <summary>
+    /// Speed with which payouts for this account are processed. Permitted values: <c>STANDARD</c>, <c>SAME_DAY</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payoutSpeed")]
     public PayoutSpeed? PayoutSpeed { get; init; }
@@ -77,7 +83,11 @@ public record CreateAccountResponse
     [JsonPropertyName("resultCode")]
     public string? ResultCode { get; init; }
 
+    /// <summary>
+    /// The status of the account.
+    /// &gt;Permitted values: <c>Active</c>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status4? Status { get; init; }
+    public Status42? Status { get; init; }
 }

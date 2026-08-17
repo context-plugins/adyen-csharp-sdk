@@ -9,12 +9,19 @@ namespace Adyen.Models;
 /// </summary>
 public record DiagnosisResponse
 {
+    /// <summary>
+    /// Result of a message request processing.
+    /// </summary>
     [JsonPropertyName("Response")]
-    public required Response3 Response { get; init; }
+    public required Response11 Response { get; init; }
 
+    /// <summary>
+    /// State of a POI Terminal.
+    /// If <c>Response.Result</c> is Success.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("POIStatus")]
-    public Poistatus2? Poistatus { get; init; }
+    public PoiStatus1? PoiStatus { get; init; }
 
     /// <summary>
     /// State of a Host.

@@ -25,7 +25,7 @@ public sealed class RaiseDisputes
     }
 
     /// <summary>
-    /// get-disputes
+    /// Get a list of raised disputes
     /// </summary>
     /// <param name="status">The current status of the dispute.  Possible values: <b>draft</b>, <b>submitted</b>, <b>closed</b>, <b>won</b>, <b>chargeback</b>, <b>secondPresentment</b>.</param>
     /// <param name="paymentInstrument">The unique identifier of the payment instrument.</param>
@@ -51,7 +51,7 @@ public sealed class RaiseDisputes
         string? limit,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes"),
+        _rawClient.Execute(_server.Default23("/disputes"),
             [],
             [new Param("status", status),
                 new Param("paymentInstrument", paymentInstrument),
@@ -69,7 +69,7 @@ public sealed class RaiseDisputes
             ct);
 
     /// <summary>
-    /// get-disputes-id
+    /// Get dispute by ID
     /// </summary>
     /// <param name="id">The unique identifier of the raised dispute.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -82,7 +82,7 @@ public sealed class RaiseDisputes
     public Task<DisputeResponse> GetDisputesId(string id,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes/{id}"),
+        _rawClient.Execute(_server.Default23("/disputes/{id}"),
             [new TemplateParam("id", id)],
             [],
             [],
@@ -95,7 +95,7 @@ public sealed class RaiseDisputes
             ct);
 
     /// <summary>
-    /// patch-disputes-id
+    /// Update a raised dispute
     /// </summary>
     /// <param name="id">The unique identifier of the raised dispute.</param>
     /// <param name="body"></param>
@@ -113,7 +113,7 @@ public sealed class RaiseDisputes
         PatchableDisputeRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes/{id}"),
+        _rawClient.Execute(_server.Default23("/disputes/{id}"),
             [new TemplateParam("id", id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -126,7 +126,7 @@ public sealed class RaiseDisputes
             ct);
 
     /// <summary>
-    /// post-disputes
+    /// Raise a dispute
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -142,7 +142,7 @@ public sealed class RaiseDisputes
     public Task<DisputeResponse> PostDisputes(DisputeRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/disputes"),
+        _rawClient.Execute(_server.Default23("/disputes"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

@@ -7,11 +7,18 @@ namespace Adyen.Models;
 /// </summary>
 public record LoyaltyAccountReq2
 {
+    /// <summary>
+    /// Identification of a transaction for the Sale System or the POI System.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CardAcquisitionReference")]
-    public CardAcquisitionReference? CardAcquisitionReference { get; init; }
+    public TransactionIdType? CardAcquisitionReference { get; init; }
 
+    /// <summary>
+    /// Identification of a Loyalty account.
+    /// In the Payment Request message, it allows to identify the loyalty account by the Sale Terminal instead of the POI Terminal (e.g. because the account identification is a bar-code read by the Cashier on a scanner device).
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyAccountID")]
-    public LoyaltyAccountId3? LoyaltyAccountId { get; init; }
+    public LoyaltyAccountId? LoyaltyAccountId { get; init; }
 }

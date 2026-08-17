@@ -39,7 +39,9 @@ public record Vipps
     [JsonPropertyName("telephoneNumber")]
     public required string TelephoneNumber { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>vipps</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type54? Type { get; init; }
+    public Type54? Type { get; init; } = Type54.Vipps;
 }

@@ -27,7 +27,7 @@ public sealed class PaymentMethodsMerchantLevel
     }
 
     /// <summary>
-    /// get-merchants-merchantId-paymentMethodSettings
+    /// Get all payment methods
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="storeId">The unique identifier of the store for which to return the payment methods.</param>
@@ -52,7 +52,7 @@ public sealed class PaymentMethodsMerchantLevel
         int? pageNumber,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentMethodSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/paymentMethodSettings"),
             [new TemplateParam("merchantId", merchantId)],
             [new Param("storeId", storeId),
                 new Param("businessLineId", businessLineId),
@@ -68,7 +68,7 @@ public sealed class PaymentMethodsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-paymentMethodSettings-paymentMethodId
+    /// Get payment method details
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="paymentMethodId">The unique identifier of the payment method.</param>
@@ -87,7 +87,7 @@ public sealed class PaymentMethodsMerchantLevel
         string paymentMethodId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("paymentMethodId", paymentMethodId)],
             [],
             [],
@@ -100,7 +100,7 @@ public sealed class PaymentMethodsMerchantLevel
             ct);
 
     /// <summary>
-    /// get-merchants-merchantId-paymentMethodSettings-paymentMethodId-getApplePayDomains
+    /// Get Apple Pay domains
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="paymentMethodId">The unique identifier of the payment method.</param>
@@ -119,7 +119,7 @@ public sealed class PaymentMethodsMerchantLevel
         string paymentMethodId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/getApplePayDomains"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/getApplePayDomains"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("paymentMethodId", paymentMethodId)],
             [],
             [],
@@ -132,7 +132,7 @@ public sealed class PaymentMethodsMerchantLevel
             ct);
 
     /// <summary>
-    /// patch-merchants-merchantId-paymentMethodSettings-paymentMethodId
+    /// Update a payment method
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="paymentMethodId">The unique identifier of the payment method.</param>
@@ -154,7 +154,7 @@ public sealed class PaymentMethodsMerchantLevel
         UpdatePaymentMethodInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("paymentMethodId", paymentMethodId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -167,7 +167,7 @@ public sealed class PaymentMethodsMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-paymentMethodSettings
+    /// Request a payment method
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="body"></param>
@@ -187,7 +187,7 @@ public sealed class PaymentMethodsMerchantLevel
         PaymentMethodSetupInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentMethodSettings"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/paymentMethodSettings"),
             [new TemplateParam("merchantId", merchantId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -200,7 +200,7 @@ public sealed class PaymentMethodsMerchantLevel
             ct);
 
     /// <summary>
-    /// post-merchants-merchantId-paymentMethodSettings-paymentMethodId-addApplePayDomains
+    /// Add an Apple Pay domain
     /// </summary>
     /// <param name="merchantId">The unique identifier of the merchant account.</param>
     /// <param name="paymentMethodId">The unique identifier of the payment method.</param>
@@ -221,7 +221,7 @@ public sealed class PaymentMethodsMerchantLevel
         ApplePayInfo? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/addApplePayDomains"),
+        _rawClient.Execute(_server.Default9("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}/addApplePayDomains"),
             [new TemplateParam("merchantId", merchantId), new TemplateParam("paymentMethodId", paymentMethodId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

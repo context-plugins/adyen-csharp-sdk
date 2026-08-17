@@ -50,5 +50,5 @@ public record ThreeDs2CardRangeDetail
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSMethodURL")]
-    public string? ThreeDsmethodUrl { get; init; }
+    public string? ThreeDsMethodUrl { get; init; }
 }

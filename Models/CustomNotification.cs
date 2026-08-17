@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record CustomNotification
 {
+    /// <summary>
+    /// The amount of the payment that the notification is about. Set the value in <see href="https://docs.adyen.com/development-resources/currency-codes">minor units</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount? Amount { get; init; }
 
     /// <summary>
     /// The event that caused the notification to be sent.Currently supported values:

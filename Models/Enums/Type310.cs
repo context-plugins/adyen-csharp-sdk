@@ -4,7 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// Type of terminal action: Install an Android app.
+/// <b>bank</b>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type310>))]
 public sealed record Type310 : StringEnum<Type310>
@@ -13,7 +13,7 @@ public sealed record Type310 : StringEnum<Type310>
     {
     }
 
-    public static readonly Type310 InstallAndroidApp = new("InstallAndroidApp");
+    public static readonly Type310 Bank = new("bank");
 
     public static Type310 FromValue(string value) => FromValueCore(value);
 }

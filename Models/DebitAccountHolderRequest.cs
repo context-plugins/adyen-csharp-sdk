@@ -12,8 +12,11 @@ public record DebitAccountHolderRequest
     [JsonPropertyName("accountHolderCode")]
     public required string AccountHolderCode { get; init; }
 
+    /// <summary>
+    /// The amount to be debited from the account holder's bank account.
+    /// </summary>
     [JsonPropertyName("amount")]
-    public required Amount16 Amount { get; init; }
+    public required Amount Amount { get; init; }
 
     /// <summary>
     /// The Adyen-generated unique alphanumeric identifier (UUID) of the account holder's bank account.

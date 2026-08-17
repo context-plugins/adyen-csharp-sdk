@@ -4,14 +4,7 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The <see href="https://docs.adyen.com/issuing/transaction-rules#rule-types">type of rule</see>, which defines if a rule blocks transactions based on individual characteristics or accumulates data.
-/// <para>
-/// Possible values:
-///  * <b>blockList</b>: decline a transaction when the conditions are met.
-///  * <b>maxUsage</b>: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.
-///  * <b>velocity</b>: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met.
-///  * <b>bypass</b>: bypass or skip a rule for the specified <c>entityKey</c>. Transactions processed to that entity are no longer evaluated by the bypassed rule.  You must provide the <c>id</c> of the rule to bypass in <c>overridesRule</c> and leave the <c>ruleRestrictions</c> object empty.
-/// </para>
+/// Default payment method details. Common for scheme payment methods, and for simple payment method details.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type14>))]
 public sealed record Type14 : StringEnum<Type14>
@@ -20,15 +13,17 @@ public sealed record Type14 : StringEnum<Type14>
     {
     }
 
-    public static readonly Type14 AllowList = new("allowList");
+    public static readonly Type14 Bcmc = new("bcmc");
 
-    public static readonly Type14 BlockList = new("blockList");
+    public static readonly Type14 Scheme = new("scheme");
 
-    public static readonly Type14 Bypass = new("bypass");
+    public static readonly Type14 NetworkToken = new("networkToken");
 
-    public static readonly Type14 MaxUsage = new("maxUsage");
+    public static readonly Type14 Giftcard = new("giftcard");
 
-    public static readonly Type14 Velocity = new("velocity");
+    public static readonly Type14 Card = new("card");
+
+    public static readonly Type14 Clicktopay = new("clicktopay");
 
     public static Type14 FromValue(string value) => FromValueCore(value);
 }

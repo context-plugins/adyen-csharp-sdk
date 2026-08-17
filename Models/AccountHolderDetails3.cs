@@ -8,8 +8,11 @@ namespace Adyen.Models;
 /// </summary>
 public record AccountHolderDetails3
 {
+    /// <summary>
+    /// The address of the account holder.
+    /// </summary>
     [JsonPropertyName("address")]
-    public required ViasAddress Address { get; init; }
+    public required ViasAddress9 Address { get; init; }
 
     /// <summary>
     /// Array of bank accounts associated with the account holder. For details about the required <c>bankAccountDetail</c> fields, see <see href="https://docs.adyen.com/classic-platforms/verification-process/required-information">Required information</see>.
@@ -25,9 +28,13 @@ public record AccountHolderDetails3
     [JsonPropertyName("bankAggregatorDataReference")]
     public string? BankAggregatorDataReference { get; init; }
 
+    /// <summary>
+    /// Details about the business or nonprofit account holder.
+    /// Required when creating an account holder with <c>legalEntity</c> <b>Business</b> or <b>NonProfit</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("businessDetails")]
-    public BusinessDetails? BusinessDetails { get; init; }
+    public BusinessDetails3? BusinessDetails { get; init; }
 
     /// <summary>
     /// The email address of the account holder.
@@ -44,9 +51,13 @@ public record AccountHolderDetails3
     [JsonPropertyName("fullPhoneNumber")]
     public string? FullPhoneNumber { get; init; }
 
+    /// <summary>
+    /// Details about the individual account holder.
+    /// Required when creating an account holder with <c>legalEntity</c> <b>Individual</b>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("individualDetails")]
-    public IndividualDetails? IndividualDetails { get; init; }
+    public IndividualDetails3? IndividualDetails { get; init; }
 
     /// <summary>
     /// Date when you last reviewed the account holder's information, in ISO-8601 YYYY-MM-DD format. For example, <b>2020-01-31</b>.
@@ -87,13 +98,20 @@ public record AccountHolderDetails3
     [JsonPropertyName("payoutMethods")]
     public IReadOnlyList<PayoutMethod>? PayoutMethods { get; init; }
 
+    /// <summary>
+    /// The phone number of the account holder.
+    /// &gt; Required if a <c>fullPhoneNumber</c> is not provided.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phoneNumber")]
-    public PhoneNumber3? PhoneNumber { get; init; }
+    public ViasPhoneNumber3? PhoneNumber { get; init; }
 
+    /// <summary>
+    /// The principal business address of the account holder.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("principalBusinessAddress")]
-    public ViasAddress? PrincipalBusinessAddress { get; init; }
+    public ViasAddress6? PrincipalBusinessAddress { get; init; }
 
     /// <summary>
     /// Array of stores associated with the account holder. Required when onboarding account holders that have an Adyen <see href="https://docs.adyen.com/classic-platforms/platforms-for-pos">point of sale</see>.

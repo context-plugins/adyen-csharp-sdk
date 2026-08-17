@@ -3,6 +3,9 @@ using Adyen.Core.Enum;
 
 namespace Adyen.Models.Enums;
 
+/// <summary>
+/// Type of terminal action: Install an Android app.
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type32>))]
 public sealed record Type32 : StringEnum<Type32>
 {
@@ -10,13 +13,7 @@ public sealed record Type32 : StringEnum<Type32>
     {
     }
 
-    public static readonly Type32 BankAccount = new("BankAccount");
-
-    public static readonly Type32 Document = new("Document");
-
-    public static readonly Type32 LegalEntity = new("LegalEntity");
-
-    public static readonly Type32 Product = new("product");
+    public static readonly Type32 InstallAndroidApp = new("InstallAndroidApp");
 
     public static Type32 FromValue(string value) => FromValueCore(value);
 }

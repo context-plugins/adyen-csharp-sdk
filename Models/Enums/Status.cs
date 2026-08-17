@@ -4,7 +4,10 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The status of the store. Possible values: <b>Pending</b>, <b>Active</b>, <b>Inactive</b>, <b>InactiveWithModifications</b>, <b>Closed</b>.
+/// Informs you if the name validation was performed. Possible values:
+/// <para>
+/// <b>performed</b>, <b>notPerformed</b>, <b>notSupported</b>
+/// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Status>))]
 public sealed record Status : StringEnum<Status>
@@ -13,15 +16,11 @@ public sealed record Status : StringEnum<Status>
     {
     }
 
-    public static readonly Status Active = new("Active");
+    public static readonly Status NotPerformed = new("notPerformed");
 
-    public static readonly Status Closed = new("Closed");
+    public static readonly Status NotSupported = new("notSupported");
 
-    public static readonly Status Inactive = new("Inactive");
-
-    public static readonly Status InactiveWithModifications = new("InactiveWithModifications");
-
-    public static readonly Status Pending = new("Pending");
+    public static readonly Status Performed = new("performed");
 
     public static Status FromValue(string value) => FromValueCore(value);
 }

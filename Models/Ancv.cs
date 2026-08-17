@@ -43,7 +43,10 @@ public record Ancv
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
+    /// <summary>
+    /// <b>ancv</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type51? Type { get; init; }
+    public Type5? Type { get; init; }
 }

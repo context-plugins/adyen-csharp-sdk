@@ -25,10 +25,10 @@ public sealed class ScaAssociationManagement
     }
 
     /// <summary>
-    /// delete-scaAssociations
+    /// Delete association to devices
     /// </summary>
     /// <param name="wwwAuthenticate">The header for authenticating through SCA.</param>
-    /// <param name="contentType"></param>
+    /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
@@ -37,17 +37,16 @@ public sealed class ScaAssociationManagement
     /// Deletes one or more SCA associations for a device.
     /// </remarks>
     public Task DeleteScaAssociations(string wwwAuthenticate,
-        ContentType3 contentType,
+        RemoveAssociationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaAssociations"),
+        _rawClient.Execute(_server.Default13("/scaAssociations"),
             [],
             [],
             [new HeaderParam("WWW-Authenticate", wwwAuthenticate),
-                new HeaderParam("Content-Type", contentType),
                 new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
-            EmptyBody.Instance,
+            JsonRequest.Create(body),
             VoidResponse.Instance,
             DeleteScaAssociationsErrorResponse.Instance,
             [],
@@ -55,7 +54,7 @@ public sealed class ScaAssociationManagement
             ct);
 
     /// <summary>
-    /// get-scaAssociations
+    /// Get a list of devices associated with an entity
     /// </summary>
     /// <param name="entityType">The type of entity you want to retrieve a list of associations for.   Possible values: <b>accountHolder</b>, <b>legalEntity</b> or <b>paymentInstrument</b>.</param>
     /// <param name="entityId">The unique identifier of the entity.</param>
@@ -68,13 +67,13 @@ public sealed class ScaAssociationManagement
     /// <remarks>
     /// Returns a paginated list of the SCA devices associated with a specific entity.
     /// </remarks>
-    public Task<ListAssociationsResponse> GetScaAssociations(ScaEntityType5 entityType,
+    public Task<ListAssociationsResponse> GetScaAssociations(ScaEntityType entityType,
         string entityId,
         int pageSize,
         int pageNumber,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaAssociations"),
+        _rawClient.Execute(_server.Default13("/scaAssociations"),
             [],
             [new Param("entityType", entityType),
                 new Param("entityId", entityId),
@@ -90,7 +89,7 @@ public sealed class ScaAssociationManagement
             ct);
 
     /// <summary>
-    /// patch-scaAssociations
+    /// Approve a pending approval association
     /// </summary>
     /// <param name="wwwAuthenticate">The header for authenticating through SCA.</param>
     /// <param name="body"></param>
@@ -105,7 +104,7 @@ public sealed class ScaAssociationManagement
         ApproveAssociationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaAssociations"),
+        _rawClient.Execute(_server.Default13("/scaAssociations"),
             [],
             [],
             [new HeaderParam("WWW-Authenticate", wwwAuthenticate),

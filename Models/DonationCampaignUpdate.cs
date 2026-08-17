@@ -19,7 +19,7 @@ public record DonationCampaignUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inPerson")]
-    public InPerson2? InPerson { get; init; }
+    public InPerson? InPerson { get; init; }
 
     /// <summary>
     /// The name of the donation campaign.
@@ -34,5 +34,5 @@ public record DonationCampaignUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("online")]
-    public Online2? Online { get; init; }
+    public Online? Online { get; init; }
 }

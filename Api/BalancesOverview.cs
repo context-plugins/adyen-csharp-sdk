@@ -23,7 +23,7 @@ public sealed class BalancesOverview
     }
 
     /// <summary>
-    /// get-balanceOverview-companies-companyAccountCode-balances
+    /// View the available balances for all merchant accounts under your company.
     /// </summary>
     /// <param name="companyAccountCode">The unique identifier of your company account.</param>
     /// <param name="currency">The currency for which you want a balances overview.</param>
@@ -53,7 +53,7 @@ public sealed class BalancesOverview
         string currency,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceOverview/companies/{companyAccountCode}/balances"),
+        _rawClient.Execute(_server.Default11("/balanceOverview/companies/{companyAccountCode}/balances"),
             [new TemplateParam("companyAccountCode", companyAccountCode)],
             [new Param("currency", currency)],
             [],
@@ -66,7 +66,7 @@ public sealed class BalancesOverview
             ct);
 
     /// <summary>
-    /// get-balanceOverview-merchants-merchantAccountCode-balances
+    /// View all balances available for your merchant account.
     /// </summary>
     /// <param name="merchantAccountCode">The unique identifier of your merchant account.</param>
     /// <param name="currency">The currency for which you want a balances overview.</param>
@@ -96,7 +96,7 @@ public sealed class BalancesOverview
         string currency,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/balanceOverview/merchants/{merchantAccountCode}/balances"),
+        _rawClient.Execute(_server.Default11("/balanceOverview/merchants/{merchantAccountCode}/balances"),
             [new TemplateParam("merchantAccountCode", merchantAccountCode)],
             [new Param("currency", currency)],
             [],

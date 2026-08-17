@@ -5,9 +5,12 @@ namespace Adyen.Models;
 
 public record DeliveryMethod
 {
+    /// <summary>
+    /// The cost of this delivery method.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
-    public Amount16? Amount { get; init; }
+    public Amount24? Amount { get; init; }
 
     /// <summary>
     /// The name of the delivery method as shown to the shopper.
@@ -30,7 +33,10 @@ public record DeliveryMethod
     [JsonPropertyName("selected")]
     public bool? Selected { get; init; }
 
+    /// <summary>
+    /// The type of the delivery method.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public Type211? Type { get; init; }
+    public Type21? Type { get; init; }
 }

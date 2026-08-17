@@ -4,7 +4,10 @@ namespace Adyen.Models;
 
 public record TransactionRuleResponse
 {
+    /// <summary>
+    /// The transaction rule.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionRule")]
-    public TransactionRule? TransactionRule { get; init; }
+    public TransactionRule1? TransactionRule { get; init; }
 }

@@ -10,11 +10,19 @@ namespace Adyen.Models;
 /// </summary>
 public record InputUpdate
 {
+    /// <summary>
+    /// Identification of a previous POI transaction.
+    /// To abort a transaction in progress or to request the status of a transaction from which no response has been received. It identifies the message header of the message request to abort or request the status.
+    /// </summary>
     [JsonPropertyName("MessageReference")]
-    public required MessageReference1 MessageReference { get; init; }
+    public required MessageReference MessageReference { get; init; }
 
+    /// <summary>
+    /// Content to display or print.
+    /// This is a sequence of elements if they have different formats.
+    /// </summary>
     [JsonPropertyName("OutputContent")]
-    public required OutputContent2 OutputContent { get; init; }
+    public required OutputContent OutputContent { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("MenuEntry")]

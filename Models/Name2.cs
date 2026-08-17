@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// The name of the contact.
+/// The name of the shopper.
 /// </summary>
 public record Name2
 {

@@ -6,9 +6,12 @@ namespace Adyen.Models;
 
 public record UpdateStoreRequest
 {
+    /// <summary>
+    /// The address of the store. It is not possible to update the country of the store.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("address")]
-    public UpdatableAddress? Address { get; init; }
+    public UpdatableAddress1? Address { get; init; }
 
     /// <summary>
     /// The unique identifiers of the <see href="https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id">business lines</see> that the store is associated with.
@@ -47,15 +50,33 @@ public record UpdateStoreRequest
     [JsonPropertyName("phoneNumber")]
     public string? PhoneNumber { get; init; }
 
+    /// <summary>
+    /// Rules for Adyen for Platforms merchants to split the transaction amount and fees.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("splitConfiguration")]
-    public StoreSplitConfiguration? SplitConfiguration { get; init; }
+    public StoreSplitConfiguration1? SplitConfiguration { get; init; }
 
+    /// <summary>
+    /// The status of the store. Possible values are:
+    /// <list type="bullet">
+    ///   <item><description><b>active</b>: This value is assigned automatically when a store is created.</description></item>
+    ///   <item><description><b>inactive</b>: The maximum <see href="https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features">transaction limits and number of Store-and-Forward transactions</see> for the store are set to 0. This blocks new transactions, but captures are still possible.</description></item>
+    ///   <item><description><b>closed</b>: The terminals of the store are reassigned to the merchant inventory, so they can't process payments.</description></item>
+    /// </list>
+    /// <para>
+    /// You can change the status from <b>active</b> to <b>inactive</b>, and from <b>inactive</b> to <b>active</b> or <b>closed</b>.
+    /// Once <b>closed</b>, a store can't be reopened.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status43? Status { get; init; }
+    public Status41? Status { get; init; }
 
+    /// <summary>
+    /// The sub-merchant data relevant for registered payment facilitators transacting on standalone terminals.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subMerchantData")]
-    public SubMerchantData? SubMerchantData { get; init; }
+    public SubMerchantData1? SubMerchantData { get; init; }
 }

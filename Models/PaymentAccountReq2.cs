@@ -8,15 +8,34 @@ namespace Adyen.Models;
 /// </summary>
 public record PaymentAccountReq2
 {
+    /// <summary>
+    /// Type of cardholder account used for the transaction. Allows a cardholder to select the type of account used for the transaction.
+    /// Possible values:
+    /// * <b>CardTotals</b>
+    /// * <b>Checking</b>
+    /// * <b>CreditCard</b>
+    /// * <b>Default</b>
+    /// * <b>EpurseCard</b>
+    /// * <b>Investment</b>
+    /// * <b>Savings</b>
+    /// * <b>Universal</b>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("AccountType")]
-    public AccountType13? AccountType { get; init; }
+    public AccountType12? AccountType { get; init; }
 
+    /// <summary>
+    /// Identification of a transaction for the Sale System or the POI System.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("CardAcquisitionReference")]
-    public CardAcquisitionReference? CardAcquisitionReference { get; init; }
+    public TransactionIdType? CardAcquisitionReference { get; init; }
 
+    /// <summary>
+    /// Data related to the instrument of payment for the transaction.
+    /// Sent in the result of the payment transaction. For a card, it could also be sent in the <c>CardAcquisition</c> response, to be processed by the Sale System.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PaymentInstrumentData")]
-    public PaymentInstrumentData2? PaymentInstrumentData { get; init; }
+    public PaymentInstrumentData? PaymentInstrumentData { get; init; }
 }

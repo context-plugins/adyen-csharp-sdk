@@ -21,9 +21,9 @@ public sealed record EncryptionProtocol : StringEnum<EncryptionProtocol>
 
     public static readonly EncryptionProtocol Http = new("HTTP");
 
-    public static readonly EncryptionProtocol Tlsv12 = new("TLSv1.2");
+    public static readonly EncryptionProtocol TlSv12 = new("TLSv1.2");
 
-    public static readonly EncryptionProtocol Tlsv13 = new("TLSv1.3");
+    public static readonly EncryptionProtocol TlSv13 = new("TLSv1.3");
 
     public static EncryptionProtocol FromValue(string value) => FromValueCore(value);
 }

@@ -17,6 +17,28 @@ public record EventNotification2
     [JsonPropertyName("TimeStamp")]
     public required DateTimeOffset TimeStamp { get; init; }
 
+    /// <summary>
+    /// Event the POI notifies to the Sale System.
+    /// Possible values:
+    /// * <b>Abort</b>
+    /// * <b>BeginMaintenance</b>
+    /// * <b>CardInserted</b>
+    /// * <b>CardRemoved</b>
+    /// * <b>Completed</b>
+    /// * <b>CustomerLanguage</b>
+    /// * <b>EndMaintenance</b>
+    /// * <b>Initialised</b>
+    /// * <b>KeyPressed</b>
+    /// * <b>OutOfOrder</b>
+    /// * <b>Reject</b>
+    /// * <b>SaleAdmin</b>
+    /// * <b>SaleWakeUp</b>
+    /// * <b>ScanBarcodeResult</b>
+    /// * <b>SecurityAlarm</b>
+    /// * <b>Shutdown</b>
+    /// * <b>StopAssistance</b>
+    /// * <b>UseAnotherCardForPreauth</b>
+    /// </summary>
     [JsonPropertyName("EventToNotify")]
     public required EventToNotify1 EventToNotify { get; init; }
 

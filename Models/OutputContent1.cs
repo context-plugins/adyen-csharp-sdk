@@ -10,12 +10,24 @@ namespace Adyen.Models;
 /// </summary>
 public record OutputContent1
 {
+    /// <summary>
+    /// Format of the content to display or print.
+    /// Possible values:
+    /// * <b>BarCode</b>
+    /// * <b>MessageRef</b>
+    /// * <b>Text</b>
+    /// * <b>XHTML</b>
+    /// </summary>
     [JsonPropertyName("OutputFormat")]
     public required OutputFormat1 OutputFormat { get; init; }
 
+    /// <summary>
+    /// Reference of a predefined message to display or print.
+    /// Mandatory, if <c>OutputFormat</c> is MessageRef, not allowed otherwise.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("PredefinedContent")]
-    public PredefinedContent2? PredefinedContent { get; init; }
+    public PredefinedContent1? PredefinedContent { get; init; }
 
     /// <summary>
     /// Content of text message to display or print.
@@ -34,7 +46,11 @@ public record OutputContent1
     [RegularExpression("^.{0,262144}$")]
     public string? OutputXhtml { get; init; }
 
+    /// <summary>
+    /// Barcode content to display or print.
+    /// Mandatory if <c>OutputFormat</c> is Barcode, not allowed otherwise.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("OutputBarcode")]
-    public OutputBarcode? OutputBarcode { get; init; }
+    public OutputBarcode1? OutputBarcode { get; init; }
 }

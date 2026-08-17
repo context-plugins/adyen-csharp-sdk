@@ -13,7 +13,11 @@ public record CartesBancairesInfo1
     [JsonPropertyName("siret")]
     public required string Siret { get; init; }
 
+    /// <summary>
+    /// Information regarding the transaction description.
+    /// &gt; You cannot configure the transaction description in the test environment.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transactionDescription")]
-    public TransactionDescriptionInfo? TransactionDescription { get; init; }
+    public TransactionDescriptionInfo1? TransactionDescription { get; init; }
 }

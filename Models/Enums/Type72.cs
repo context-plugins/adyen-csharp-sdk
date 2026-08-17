@@ -4,28 +4,16 @@ using Adyen.Core.Enum;
 namespace Adyen.Models.Enums;
 
 /// <summary>
-/// The type of the source of funds.
-/// <para>
-///
-/// </para>
+/// The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to <b>push</b>.
 /// <para>
 /// Possible values:
-/// *  <b>business</b>
-/// *  <b>employment</b>
-/// *  <b>donations</b>
-/// *  <b>inheritance</b>
-/// *  <b>financialAid</b>
-/// *  <b>rentalIncome</b>
-/// *  <b>dividendIncome</b>
-/// *  <b>royaltyIncome</b>
-/// *  <b>thirdPartyFunding</b>
-/// *  <b>pensionIncome</b>
-/// *  <b>insuranceSettlement</b>
-/// *  <b>cryptocurrencyIncome</b>
-/// *  <b>assetSale</b>
-/// *  <b>loans</b>
-/// *  <b>gamblingWinnings</b>
 /// </para>
+/// <list type="bullet">
+///   <item><description><b>push</b>: _push out funds_ to a destination balance account or transfer instrument.</description></item>
+/// </list>
+/// <list type="bullet">
+///   <item><description><b>pull</b>: _pull in funds_ from a source merchant account, transfer instrument, or balance account.</description></item>
+/// </list>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<Type72>))]
 public sealed record Type72 : StringEnum<Type72>
@@ -34,35 +22,9 @@ public sealed record Type72 : StringEnum<Type72>
     {
     }
 
-    public static readonly Type72 Business = new("business");
+    public static readonly Type72 Pull = new("pull");
 
-    public static readonly Type72 Employment = new("employment");
-
-    public static readonly Type72 Donations = new("donations");
-
-    public static readonly Type72 Inheritance = new("inheritance");
-
-    public static readonly Type72 FinancialAid = new("financialAid");
-
-    public static readonly Type72 RentalIncome = new("rentalIncome");
-
-    public static readonly Type72 DividendIncome = new("dividendIncome");
-
-    public static readonly Type72 RoyaltyIncome = new("royaltyIncome");
-
-    public static readonly Type72 ThirdPartyFunding = new("thirdPartyFunding");
-
-    public static readonly Type72 PensionIncome = new("pensionIncome");
-
-    public static readonly Type72 InsuranceSettlement = new("insuranceSettlement");
-
-    public static readonly Type72 CryptocurrencyIncome = new("cryptocurrencyIncome");
-
-    public static readonly Type72 AssetSale = new("assetSale");
-
-    public static readonly Type72 Loans = new("loans");
-
-    public static readonly Type72 GamblingWinnings = new("gamblingWinnings");
+    public static readonly Type72 Push = new("push");
 
     public static Type72 FromValue(string value) => FromValueCore(value);
 }

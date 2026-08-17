@@ -73,7 +73,7 @@ public record ThreeDs2ResponseData1
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threeDSServerTransID")]
-    public string? ThreeDsserverTransId { get; init; }
+    public string? ThreeDsServerTransId { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transStatus")]

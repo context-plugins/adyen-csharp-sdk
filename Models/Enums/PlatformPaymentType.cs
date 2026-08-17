@@ -78,9 +78,9 @@ public sealed record PlatformPaymentType : StringEnum<PlatformPaymentType>
 
     public static readonly PlatformPaymentType Commission = new("Commission");
 
-    public static readonly PlatformPaymentType Dccmarkup = new("DCCMarkup");
+    public static readonly PlatformPaymentType DccMarkup = new("DCCMarkup");
 
-    public static readonly PlatformPaymentType DccplatformCommission = new("DCCPlatformCommission");
+    public static readonly PlatformPaymentType DccPlatformCommission = new("DCCPlatformCommission");
 
     public static readonly PlatformPaymentType Default = new("Default");
 

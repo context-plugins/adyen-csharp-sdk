@@ -19,9 +19,15 @@ public record ReturnTransferResponse
     [JsonPropertyName("reference")]
     public string? Reference { get; init; }
 
+    /// <summary>
+    /// The resulting status of the return.
+    /// <para>
+    /// Possible values: <b>Authorised</b>, <b>Declined</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status61? Status { get; init; }
+    public Status62? Status { get; init; }
 
     /// <summary>
     /// The unique identifier of the original transfer.

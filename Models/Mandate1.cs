@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Adyen.Models.Enums;
 
@@ -6,56 +7,61 @@ namespace Adyen.Models;
 public record Mandate1
 {
     /// <summary>
-    /// The billing amount (in minor units) of the recurring transactions.
+    /// The unique identifier of the balance account linked to the payment instrument.
     /// </summary>
-    [JsonPropertyName("amount")]
-    public required string Amount { get; init; }
-
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("amountRule")]
-    public AmountRule? AmountRule { get; init; }
-
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("billingAttemptsRule")]
-    public BillingAttemptsRule? BillingAttemptsRule { get; init; }
+    [JsonPropertyName("balanceAccountId")]
+    public string? BalanceAccountId { get; init; }
 
     /// <summary>
-    /// The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.
+    /// Contains information to identify the counterparty.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("counterparty")]
+    public MandateBankAccount2? Counterparty { get; init; }
+
+    /// <summary>
+    /// The date when the mandate was created.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("createdAt")]
+    public DateTimeOffset? CreatedAt { get; init; }
+
+    /// <summary>
+    /// The unique identifier of the mandate.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("id")]
+    public string? Id { get; init; }
+
+    /// <summary>
+    /// The unique identifier of the payment instrument linked to the mandate.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("paymentInstrumentId")]
+    public string? PaymentInstrumentId { get; init; }
+
+    /// <summary>
+    /// The status of the mandate.
     /// <para>
-    /// Possible values: 1-31 based on the <c>frequency</c>.
+    /// Possible values: <b>pending</b>, <b>approved</b>, <b>cancelled</b>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("billingDay")]
-    public string? BillingDay { get; init; }
+    [JsonPropertyName("status")]
+    public MandateStatus2? Status { get; init; }
 
     /// <summary>
-    /// The number of transactions that can be performed within the given frequency.
+    /// The type of mandate. Possible value: <b>bacs</b>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("count")]
-    public string? Count { get; init; }
+    [JsonPropertyName("type")]
+    public MandateType2? Type { get; init; }
 
     /// <summary>
-    /// End date of the billing plan, in YYYY-MM-DD format.
-    /// </summary>
-    [JsonPropertyName("endsAt")]
-    public required string EndsAt { get; init; }
-
-    [JsonPropertyName("frequency")]
-    public required Frequency1 Frequency { get; init; }
-
-    /// <summary>
-    /// The message shown by UPI to the shopper on the approval screen.
+    /// The date when the mandate was updated.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("remarks")]
-    public string? Remarks { get; init; }
-
-    /// <summary>
-    /// Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("startsAt")]
-    public string? StartsAt { get; init; }
+    [JsonPropertyName("updatedAt")]
+    public DateTimeOffset? UpdatedAt { get; init; }
 }

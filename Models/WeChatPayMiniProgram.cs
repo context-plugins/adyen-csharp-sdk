@@ -44,7 +44,9 @@ public record WeChatPayMiniProgram
     [MaxLength(64)]
     public string? StoredPaymentMethodId { get; init; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    /// <summary>
+    /// <b>wechatpayMiniProgram</b>
+    /// </summary>
     [JsonPropertyName("type")]
-    public Type57? Type { get; init; }
+    public Type57? Type { get; init; } = Type57.WechatpayMiniProgram;
 }

@@ -34,10 +34,19 @@ public record CreateCompanyWebhookRequest
     [JsonPropertyName("active")]
     public required bool Active { get; init; }
 
+    /// <summary>
+    /// Additional shopper and transaction information to be included in your <see href="https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes">standard webhooks</see>. Find out more about the available <see href="https://docs.adyen.com/development-resources/webhooks/additional-settings">additional settings</see>.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("additionalSettings")]
-    public AdditionalSettings? AdditionalSettings { get; init; }
+    public AdditionalSettings1? AdditionalSettings { get; init; }
 
+    /// <summary>
+    /// Format or protocol for receiving webhooks. Possible values:
+    /// * <b>soap</b>
+    /// * <b>http</b>
+    /// * <b>json</b>
+    /// </summary>
     [JsonPropertyName("communicationFormat")]
     public required CommunicationFormat CommunicationFormat { get; init; }
 
@@ -48,10 +57,28 @@ public record CreateCompanyWebhookRequest
     [JsonPropertyName("description")]
     public string? Description { get; init; }
 
+    /// <summary>
+    /// SSL version to access the public webhook URL specified in the <c>url</c> field. Possible values:
+    /// * <b>TLSv1.3</b>
+    /// * <b>TLSv1.2</b>
+    /// * <b>HTTP</b> - Only allowed on Test environment.
+    /// <para>
+    /// If not specified, the webhook will use <c>sslVersion</c>: <b>TLSv1.2</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("encryptionProtocol")]
     public EncryptionProtocol? EncryptionProtocol { get; init; }
 
+    /// <summary>
+    /// Shows how merchant accounts are filtered when configuring the webhook.
+    /// <para>
+    /// Possible values:
+    /// *  <b>allAccounts</b> : Includes all merchant accounts, and does not require specifying <c>filterMerchantAccounts</c>.
+    /// *  <b>includeAccounts</b> : The webhook is configured for the merchant accounts listed in <c>filterMerchantAccounts</c>.
+    /// *  <b>excludeAccounts</b> : The webhook is not configured for the merchant accounts listed in <c>filterMerchantAccounts</c>.
+    /// </para>
+    /// </summary>
     [JsonPropertyName("filterMerchantAccountType")]
     public required FilterMerchantAccountType FilterMerchantAccountType { get; init; }
 
@@ -69,6 +96,14 @@ public record CreateCompanyWebhookRequest
     [JsonPropertyName("filterMerchantAccounts")]
     public required IReadOnlyList<string> FilterMerchantAccounts { get; init; }
 
+    /// <summary>
+    /// Network type for Terminal API notification webhooks. Possible values:
+    /// * <b>public</b>
+    /// * <b>local</b>
+    /// <para>
+    /// Default Value: <b>public</b>.
+    /// </para>
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("networkType")]
     public NetworkType? NetworkType { get; init; }

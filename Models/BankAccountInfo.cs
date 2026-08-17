@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Models.OneOf;
 
 namespace Adyen.Models;
 
@@ -10,7 +10,7 @@ public record BankAccountInfo
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountIdentification")]
-    public AccountIdentification13? AccountIdentification { get; init; }
+    public AccountIdentification2? AccountIdentification { get; init; }
 
     /// <summary>
     /// The type of bank account.

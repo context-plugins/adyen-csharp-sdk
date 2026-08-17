@@ -24,7 +24,7 @@ public sealed class ScaDeviceManagement
     }
 
     /// <summary>
-    /// delete-scaDevices-deviceId
+    /// Delete an SCA device
     /// </summary>
     /// <param name="deviceId">The unique identifier of the SCA device to delete.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -37,7 +37,7 @@ public sealed class ScaDeviceManagement
     public Task DeleteScaDevicesDeviceId(string deviceId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaDevices/{deviceId}"),
+        _rawClient.Execute(_server.Default13("/scaDevices/{deviceId}"),
             [new TemplateParam("deviceId", deviceId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -50,7 +50,7 @@ public sealed class ScaDeviceManagement
             ct);
 
     /// <summary>
-    /// patch-scaDevices-deviceId
+    /// Finish registration process for a SCA device
     /// </summary>
     /// <param name="deviceId">The unique identifier of the SCA device that you are associating with a resource.</param>
     /// <param name="body"></param>
@@ -65,7 +65,7 @@ public sealed class ScaDeviceManagement
         FinishScaDeviceRegistrationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaDevices/{deviceId}"),
+        _rawClient.Execute(_server.Default13("/scaDevices/{deviceId}"),
             [new TemplateParam("deviceId", deviceId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -78,7 +78,7 @@ public sealed class ScaDeviceManagement
             ct);
 
     /// <summary>
-    /// post-scaDevices
+    /// Begin SCA device registration
     /// </summary>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -91,7 +91,7 @@ public sealed class ScaDeviceManagement
     public Task<BeginScaDeviceRegistrationResponse> PostScaDevices(BeginScaDeviceRegistrationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaDevices"),
+        _rawClient.Execute(_server.Default13("/scaDevices"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
@@ -104,7 +104,7 @@ public sealed class ScaDeviceManagement
             ct);
 
     /// <summary>
-    /// post-scaDevices-deviceId-scaAssociations
+    /// Create a new SCA association for a device
     /// </summary>
     /// <param name="deviceId">The unique identifier of the SCA device that you are associating with a resource.</param>
     /// <param name="body"></param>
@@ -119,7 +119,7 @@ public sealed class ScaDeviceManagement
         SubmitScaAssociationRequest? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/scaDevices/{deviceId}/scaAssociations"),
+        _rawClient.Execute(_server.Default13("/scaDevices/{deviceId}/scaAssociations"),
             [new TemplateParam("deviceId", deviceId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],

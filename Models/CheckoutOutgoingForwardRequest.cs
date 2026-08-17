@@ -34,6 +34,9 @@ public record CheckoutOutgoingForwardRequest
     [JsonPropertyName("headers")]
     public IReadOnlyDictionary<string, string>? Headers { get; init; }
 
+    /// <summary>
+    /// The HTTP method to use for the request Adyen makes on your behalf to the third party.
+    /// </summary>
     [JsonPropertyName("httpMethod")]
     public required HttpMethodEnum HttpMethod { get; init; }
 

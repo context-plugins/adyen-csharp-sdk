@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace Adyen.Models;
 
 /// <summary>
-/// The address of the account holder.
+/// The address where the purchased goods should be delivered.
 /// </summary>
 public record Address2
 {
