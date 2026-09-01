@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 
 namespace Adyen.Models;
@@ -32,4 +33,7 @@ public record LoyaltyResult
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("LoyaltyAcquirerData")]
     public LoyaltyAcquirerData1? LoyaltyAcquirerData { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

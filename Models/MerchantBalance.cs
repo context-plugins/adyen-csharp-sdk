@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -27,4 +28,7 @@ public record MerchantBalance
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reserve")]
     public Amount17? Reserve { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

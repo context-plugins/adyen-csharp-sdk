@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 using Adyen.Models.Enums;
 
@@ -91,4 +92,7 @@ public record OutputText
     /// </summary>
     [JsonPropertyName("EndOfLineFlag")]
     public bool? EndOfLineFlag { get; init; } = true;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

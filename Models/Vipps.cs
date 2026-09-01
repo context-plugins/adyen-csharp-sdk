@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -44,4 +45,7 @@ public record Vipps
     /// </summary>
     [JsonPropertyName("type")]
     public Type54? Type { get; init; } = Type54.Vipps;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

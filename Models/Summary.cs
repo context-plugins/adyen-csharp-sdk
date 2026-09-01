@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -16,4 +17,7 @@ public record Summary
     /// </summary>
     [JsonPropertyName("taxYears")]
     public required IReadOnlyList<int> TaxYears { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

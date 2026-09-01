@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -18,4 +19,7 @@ public record IdealAuthenticateRequest
     [JsonPropertyName("payload")]
     [StringLength(400, MinimumLength = 1)]
     public required string Payload { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -73,4 +74,7 @@ public record IssuedCard
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("validationFacts")]
     public IReadOnlyList<TransferNotificationValidationFact>? ValidationFacts { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

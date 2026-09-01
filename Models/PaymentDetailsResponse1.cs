@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -17,4 +18,7 @@ public record PaymentDetailsResponse1
     [JsonPropertyName("token")]
     [MinLength(1)]
     public required string Token { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

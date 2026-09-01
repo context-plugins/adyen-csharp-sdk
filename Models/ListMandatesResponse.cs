@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -16,4 +17,7 @@ public record ListMandatesResponse
     /// </summary>
     [JsonPropertyName("mandates")]
     public required IReadOnlyList<Mandate1> Mandates { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

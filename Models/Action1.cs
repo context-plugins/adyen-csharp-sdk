@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -15,4 +16,7 @@ public record Action1
     /// </summary>
     [JsonPropertyName("resolved")]
     public required bool Resolved { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

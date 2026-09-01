@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -17,4 +18,7 @@ public record UninstallAndroidAppDetails
     /// </summary>
     [JsonPropertyName("type")]
     public Type71? Type { get; init; } = Type71.UninstallAndroidApp;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

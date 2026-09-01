@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record BalanceWebhookSetting
     public required WebhookSetting WebhookSetting { get; init; }
 
     public required BalanceWebhookSettingProperties BalanceWebhookSettingProperties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out WebhookSetting webhookSetting,
         out BalanceWebhookSettingProperties balanceWebhookSettingProperties)
@@ -39,23 +44,27 @@ file class BalanceWebhookSettingConverter : JsonConverter<BalanceWebhookSetting>
             throw new JsonException("Failed to deserialize WebhookSetting");
         var balanceWebhookSettingProperties = root.Deserialize<BalanceWebhookSettingProperties>(options) ??
             throw new JsonException("Failed to deserialize BalanceWebhookSettingProperties");
+        var extras =
+            AdditionalProperties.SharedBy(webhookSetting.AdditionalProperties,
+                balanceWebhookSettingProperties.AdditionalProperties);
+        webhookSetting.AdditionalProperties.Clear();
+        balanceWebhookSettingProperties.AdditionalProperties.Clear();
         return new BalanceWebhookSetting
         {
             WebhookSetting = webhookSetting,
             BalanceWebhookSettingProperties = balanceWebhookSettingProperties,
+            AdditionalProperties = extras,
         };
     }
 
     public override void Write(Utf8JsonWriter writer, BalanceWebhookSetting value, JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var webhookSettingJson = JsonSerializer.SerializeToElement(value.WebhookSetting, options);
-        foreach (var property in webhookSettingJson.EnumerateObject())
-            property.WriteTo(writer);
-        var balanceWebhookSettingPropertiesJson =
-            JsonSerializer.SerializeToElement(value.BalanceWebhookSettingProperties, options);
-        foreach (var property in balanceWebhookSettingPropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.WebhookSetting, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.BalanceWebhookSettingProperties, options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

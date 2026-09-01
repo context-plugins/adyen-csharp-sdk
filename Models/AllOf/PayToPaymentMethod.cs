@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record PayToPaymentMethod
     public required ShopperIdPaymentMethod ShopperIdPaymentMethod { get; init; }
 
     public required PayToPaymentMethodProperties PayToPaymentMethodProperties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out ShopperIdPaymentMethod shopperIdPaymentMethod,
         out PayToPaymentMethodProperties payToPaymentMethodProperties)
@@ -40,23 +45,26 @@ file class PayToPaymentMethodConverter : JsonConverter<PayToPaymentMethod>
             throw new JsonException("Failed to deserialize ShopperIdPaymentMethod");
         var payToPaymentMethodProperties = root.Deserialize<PayToPaymentMethodProperties>(options) ??
             throw new JsonException("Failed to deserialize PayToPaymentMethodProperties");
+        var extras =
+            AdditionalProperties.SharedBy(shopperIdPaymentMethod.AdditionalProperties,
+                payToPaymentMethodProperties.AdditionalProperties);
+        shopperIdPaymentMethod.AdditionalProperties.Clear();
+        payToPaymentMethodProperties.AdditionalProperties.Clear();
         return new PayToPaymentMethod
         {
             ShopperIdPaymentMethod = shopperIdPaymentMethod,
             PayToPaymentMethodProperties = payToPaymentMethodProperties,
+            AdditionalProperties = extras,
         };
     }
 
     public override void Write(Utf8JsonWriter writer, PayToPaymentMethod value, JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var shopperIdPaymentMethodJson = JsonSerializer.SerializeToElement(value.ShopperIdPaymentMethod, options);
-        foreach (var property in shopperIdPaymentMethodJson.EnumerateObject())
-            property.WriteTo(writer);
-        var payToPaymentMethodPropertiesJson =
-            JsonSerializer.SerializeToElement(value.PayToPaymentMethodProperties, options);
-        foreach (var property in payToPaymentMethodPropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.ShopperIdPaymentMethod, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.PayToPaymentMethodProperties, options), written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

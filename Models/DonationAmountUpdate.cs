@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -22,4 +23,7 @@ public record DonationAmountUpdate
     [JsonPropertyName("currencyCode")]
     [RegularExpression("^[A-Z]{3}$")]
     public string? CurrencyCode { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

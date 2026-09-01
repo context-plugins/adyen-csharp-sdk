@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -19,7 +19,7 @@ public record DonationCampaignUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inPerson")]
-    public InPerson? InPerson { get; init; }
+    public InPersonDonationSettingsUpdate? InPerson { get; init; }
 
     /// <summary>
     /// The name of the donation campaign.
@@ -34,5 +34,8 @@ public record DonationCampaignUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("online")]
-    public Online? Online { get; init; }
+    public OnlineDonationSettingsUpdate? Online { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

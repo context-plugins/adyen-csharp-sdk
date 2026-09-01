@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -49,4 +50,7 @@ public record PrintOutput2
     /// </summary>
     [JsonPropertyName("OutputContent")]
     public required OutputContent3 OutputContent { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

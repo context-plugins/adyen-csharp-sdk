@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -30,4 +31,7 @@ public record ListNonprofitsResponse
     /// </summary>
     [JsonPropertyName("pagesTotal")]
     public required int PagesTotal { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

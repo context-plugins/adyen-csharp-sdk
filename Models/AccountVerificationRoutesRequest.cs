@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -36,4 +37,7 @@ public record AccountVerificationRoutesRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
     public string? State { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

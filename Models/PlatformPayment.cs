@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -96,4 +97,7 @@ public record PlatformPayment
     /// </summary>
     [JsonPropertyName("type")]
     public Type63? Type { get; init; } = Type63.PlatformPayment;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

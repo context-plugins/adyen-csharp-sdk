@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 using Adyen.Models.Enums;
 
@@ -49,4 +50,7 @@ public record PaymentTotals
     [Minimum(0.0)]
     [Maximum(99999999.999999)]
     public required double TransactionAmount { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

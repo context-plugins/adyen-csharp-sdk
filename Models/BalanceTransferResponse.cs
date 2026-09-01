@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -16,4 +17,7 @@ public record BalanceTransferResponse
     /// </summary>
     [JsonPropertyName("pspReference")]
     public required string PspReference { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

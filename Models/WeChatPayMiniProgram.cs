@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -49,4 +50,7 @@ public record WeChatPayMiniProgram
     /// </summary>
     [JsonPropertyName("type")]
     public Type57? Type { get; init; } = Type57.WechatpayMiniProgram;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

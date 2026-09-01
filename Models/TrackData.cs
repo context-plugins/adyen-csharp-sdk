@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 using Adyen.Models.Enums;
 
@@ -36,4 +37,7 @@ public record TrackData
     [JsonPropertyName("TrackValue")]
     [RegularExpression("^.{1,104}$")]
     public required string TrackValue { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

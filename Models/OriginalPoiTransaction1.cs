@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 
 namespace Adyen.Models;
@@ -74,4 +75,7 @@ public record OriginalPoiTransaction1
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("HostTransactionID")]
     public TransactionIdType5? HostTransactionId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -16,4 +17,7 @@ public record SaleToIssuerData1
     [JsonPropertyName("StatementReference")]
     [RegularExpression("^.+$")]
     public string? StatementReference { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

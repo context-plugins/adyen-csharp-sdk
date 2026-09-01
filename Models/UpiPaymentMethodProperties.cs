@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -9,4 +10,7 @@ public record UpiPaymentMethodProperties
     [JsonPropertyName("virtualPaymentAddress")]
     [StringLength(256, MinimumLength = 1)]
     public string? VirtualPaymentAddress { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -62,4 +63,7 @@ public record Ratepay
     /// </summary>
     [JsonPropertyName("type")]
     public Type48 Type { get; init; } = Type48.Ratepay;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

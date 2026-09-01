@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -59,4 +60,7 @@ public record Disbursement
     /// </summary>
     [JsonPropertyName("repayment")]
     public required DisbursementRepayment2 Repayment { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

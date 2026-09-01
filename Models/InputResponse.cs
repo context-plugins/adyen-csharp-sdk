@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -21,4 +22,7 @@ public record InputResponse
     /// </summary>
     [JsonPropertyName("InputResult")]
     public required InputResult2 InputResult { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

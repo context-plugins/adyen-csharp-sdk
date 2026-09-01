@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -24,4 +25,7 @@ public record TransactionIdType2
     /// </summary>
     [JsonPropertyName("TimeStamp")]
     public required DateTimeOffset TimeStamp { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

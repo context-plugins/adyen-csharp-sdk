@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -20,4 +21,7 @@ public record ProfileRegistrationRequest
     [MinLength(1)]
     [MaxLength(100)]
     public required IReadOnlyList<string> PaymentInstrumentIds { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

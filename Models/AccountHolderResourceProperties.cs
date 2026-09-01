@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -11,4 +12,7 @@ public record AccountHolderResourceProperties
     [JsonPropertyName("accountHolderId")]
     [MinLength(1)]
     public required string AccountHolderId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

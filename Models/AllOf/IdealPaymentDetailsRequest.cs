@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record IdealPaymentDetailsRequest
     public required PaymentDetailsRequest1 PaymentDetailsRequest1 { get; init; }
 
     public required IdealPaymentDetailsRequestProperties IdealPaymentDetailsRequestProperties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out PaymentDetailsRequest1 paymentDetailsRequest1,
         out IdealPaymentDetailsRequestProperties idealPaymentDetailsRequestProperties)
@@ -40,10 +45,16 @@ file class IdealPaymentDetailsRequestConverter : JsonConverter<IdealPaymentDetai
             throw new JsonException("Failed to deserialize PaymentDetailsRequest1");
         var idealPaymentDetailsRequestProperties = root.Deserialize<IdealPaymentDetailsRequestProperties>(options) ??
             throw new JsonException("Failed to deserialize IdealPaymentDetailsRequestProperties");
+        var extras =
+            AdditionalProperties.SharedBy(paymentDetailsRequest1.AdditionalProperties,
+                idealPaymentDetailsRequestProperties.AdditionalProperties);
+        paymentDetailsRequest1.AdditionalProperties.Clear();
+        idealPaymentDetailsRequestProperties.AdditionalProperties.Clear();
         return new IdealPaymentDetailsRequest
         {
             PaymentDetailsRequest1 = paymentDetailsRequest1,
             IdealPaymentDetailsRequestProperties = idealPaymentDetailsRequestProperties,
+            AdditionalProperties = extras,
         };
     }
 
@@ -52,13 +63,11 @@ file class IdealPaymentDetailsRequestConverter : JsonConverter<IdealPaymentDetai
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var paymentDetailsRequest1Json = JsonSerializer.SerializeToElement(value.PaymentDetailsRequest1, options);
-        foreach (var property in paymentDetailsRequest1Json.EnumerateObject())
-            property.WriteTo(writer);
-        var idealPaymentDetailsRequestPropertiesJson =
-            JsonSerializer.SerializeToElement(value.IdealPaymentDetailsRequestProperties, options);
-        foreach (var property in idealPaymentDetailsRequestPropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.PaymentDetailsRequest1, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.IdealPaymentDetailsRequestProperties, options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

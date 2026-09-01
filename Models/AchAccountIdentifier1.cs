@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -32,4 +33,7 @@ public record AchAccountIdentifier1
     /// </summary>
     [JsonPropertyName("routingNumber")]
     public required string RoutingNumber { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

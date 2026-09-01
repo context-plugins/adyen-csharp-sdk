@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -24,4 +25,7 @@ public record InternalCategoryData
     /// </summary>
     [JsonPropertyName("type")]
     public Type411? Type { get; init; } = Type411.Internal;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

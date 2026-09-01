@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -12,4 +13,7 @@ public record TopUpCounterparty1
     /// </summary>
     [JsonPropertyName("transferInstrumentId")]
     public required string TransferInstrumentId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

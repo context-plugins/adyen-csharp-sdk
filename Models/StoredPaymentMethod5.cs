@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -54,4 +55,7 @@ public record StoredPaymentMethod5
     /// </summary>
     [JsonPropertyName("type")]
     public Type45? Type { get; init; } = Type45.PaybybankPix;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

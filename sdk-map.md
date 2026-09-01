@@ -66,6 +66,7 @@ All `AdyenClientOptions` properties (source: `AdyenClientOptions.cs`):
 | `Retry` | `RetryOptions` |
 | `Logging` | `LoggingOptions` |
 | `Server` | `ServerOptions` |
+| `Hooks` | `IReadOnlyList<SdkHook>` |
 | `ApiKeyAuth` | `string?` |
 | `BasicAuth` | `BasicAuthCredentials?` |
 | `ClientKey` | `string?` |
@@ -255,8 +256,8 @@ Each links to a sub-page with one row per operation: signature with must-pass-ex
 | Group | Count | Directory (file = `<TypeName>.cs`) |
 | --- | --- | --- |
 | Records (plain `record` data models) | 2053 | `Models/` |
-| Unions (`OneOf`) — variant factories + `TryGet…` | 15 | `Models/OneOf/` |
-| Unions (`AnyOf`) — variant factories + `TryGet…` | 14 | `Models/AnyOf/` |
+| Unions (`OneOf`) — variant factories + `TryGet…` | 13 | `Models/OneOf/` |
+| Unions (`AnyOf`) — variant factories + `TryGet…` | 1 | `Models/AnyOf/` |
 | Compositions (`AllOf`) — constituent types as `required` properties | 25 | `Models/AllOf/` |
 | Enums (`StringEnum<T>` / `IntEnum<T>`) — C# member names + wire values | 522 | `Models/Enums/` |
 | Typed error classes (`: ApiError`, one per Case A operation) | 420 | `Errors/` |

@@ -1123,7 +1123,13 @@ public sealed class AdyenClient
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
         var httpLogger = new HttpLogger(options.Logging, "AdyenClient");
         _rawClient =
-            new RawClient(httpClient, urlFactory, httpStatusPolicy, headersFactory, resiliencePipelineFactory, httpLogger);
+            new RawClient(httpClient,
+                urlFactory,
+                httpStatusPolicy,
+                headersFactory,
+                resiliencePipelineFactory,
+                httpLogger,
+                options.Hooks);
         _auth = new AuthSchemes(options);
         ApiCredentialsCompanyLevel = new ApiCredentialsCompanyLevel(_rawClient, _server, _auth);
         ApiCredentialsMerchantLevel = new ApiCredentialsMerchantLevel(_rawClient, _server, _auth);

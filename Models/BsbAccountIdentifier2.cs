@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -18,4 +19,7 @@ public record BsbAccountIdentifier2
     /// </summary>
     [JsonPropertyName("bsbCode")]
     public required string BsbCode { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

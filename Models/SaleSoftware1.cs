@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -35,4 +36,7 @@ public record SaleSoftware1
     [JsonPropertyName("CertificationCode")]
     [RegularExpression("^.+$")]
     public required string CertificationCode { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

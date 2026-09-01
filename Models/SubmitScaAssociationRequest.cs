@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -13,4 +14,7 @@ public record SubmitScaAssociationRequest
     [MinLength(0)]
     [MaxLength(5)]
     public required IReadOnlyList<ScaEntity> Entities { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

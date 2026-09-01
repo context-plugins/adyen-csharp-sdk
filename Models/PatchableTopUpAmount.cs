@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -10,12 +10,15 @@ public record PatchableTopUpAmount
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fixed")]
-    public Fixed? Fixed { get; init; }
+    public PatchableAmountDto? Fixed { get; init; }
 
     /// <summary>
     /// The target balance for the balance account that the top-up must achieve.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("target")]
-    public Target2? Target { get; init; }
+    public PatchableAmountDto? Target { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

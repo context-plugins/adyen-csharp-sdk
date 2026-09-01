@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 using Adyen.Models.Enums;
 
@@ -93,4 +94,7 @@ public record Instalment
     [Minimum(0.0)]
     [Maximum(99999999.999999)]
     public double? Charges { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -19,4 +20,7 @@ public record BeginScaDeviceRegistrationResponse
     [JsonPropertyName("sdkInput")]
     [MaxLength(20000)]
     public string? SdkInput { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

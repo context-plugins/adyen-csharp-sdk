@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Adyen.Models.Enums;
-using Adyen.Models.OneOf;
 
 namespace Adyen.Models;
 
@@ -13,7 +12,7 @@ public record PaymentInstrument1
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("additionalBankAccountIdentifications")]
-    public IReadOnlyList<AdditionalBankAccountIdentification>? AdditionalBankAccountIdentifications { get; init; }
+    public IReadOnlyList<IbanAccountIdentification>? AdditionalBankAccountIdentifications { get; init; }
 
     /// <summary>
     /// The unique identifier of the <see href="https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id">balance account</see> associated with the payment instrument.

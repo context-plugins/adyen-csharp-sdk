@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -164,4 +165,7 @@ public record BalanceAccountConfiguration
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("updatedAt")]
     public DateTimeOffset? UpdatedAt { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

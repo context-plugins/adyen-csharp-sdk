@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -18,4 +19,7 @@ public record RixAccountIdentifier2
     /// </summary>
     [JsonPropertyName("clearingNumber")]
     public required string ClearingNumber { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

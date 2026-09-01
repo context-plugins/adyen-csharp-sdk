@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -18,4 +19,7 @@ public record CardAcquisitionRequest2
     /// </summary>
     [JsonPropertyName("CardAcquisitionTransaction")]
     public required CardAcquisitionTransaction1 CardAcquisitionTransaction { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -19,4 +20,7 @@ public record Trigger1
     /// </summary>
     [JsonPropertyName("threshold")]
     public required Amount17 Threshold { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

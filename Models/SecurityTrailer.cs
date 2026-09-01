@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -26,4 +27,7 @@ public record SecurityTrailer
     [JsonPropertyName("Hmac")]
     [RegularExpression("^.+$")]
     public required string Hmac { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record PaymentInstrumentResource
     public required Resource Resource { get; init; }
 
     public required PaymentInstrumentResourceProperties PaymentInstrumentResourceProperties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out Resource resource,
         out PaymentInstrumentResourceProperties paymentInstrumentResourceProperties)
@@ -39,10 +44,16 @@ file class PaymentInstrumentResourceConverter : JsonConverter<PaymentInstrumentR
             throw new JsonException("Failed to deserialize Resource");
         var paymentInstrumentResourceProperties = root.Deserialize<PaymentInstrumentResourceProperties>(options) ??
             throw new JsonException("Failed to deserialize PaymentInstrumentResourceProperties");
+        var extras =
+            AdditionalProperties.SharedBy(resource.AdditionalProperties,
+                paymentInstrumentResourceProperties.AdditionalProperties);
+        resource.AdditionalProperties.Clear();
+        paymentInstrumentResourceProperties.AdditionalProperties.Clear();
         return new PaymentInstrumentResource
         {
             Resource = resource,
             PaymentInstrumentResourceProperties = paymentInstrumentResourceProperties,
+            AdditionalProperties = extras,
         };
     }
 
@@ -51,13 +62,11 @@ file class PaymentInstrumentResourceConverter : JsonConverter<PaymentInstrumentR
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var resourceJson = JsonSerializer.SerializeToElement(value.Resource, options);
-        foreach (var property in resourceJson.EnumerateObject())
-            property.WriteTo(writer);
-        var paymentInstrumentResourcePropertiesJson =
-            JsonSerializer.SerializeToElement(value.PaymentInstrumentResourceProperties, options);
-        foreach (var property in paymentInstrumentResourcePropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.Resource, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.PaymentInstrumentResourceProperties, options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -15,4 +16,7 @@ public record UkFpsTracingData
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; } = "ukFps";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -38,4 +39,7 @@ public record PaginationLinks1
     /// </summary>
     [JsonPropertyName("self")]
     public required LinksElement13 Self { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

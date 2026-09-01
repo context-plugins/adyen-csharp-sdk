@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record SgLocalAccountIdentification1
     public required BankAccountIdentification BankAccountIdentification { get; init; }
 
     public required SgLocalAccountIdentification1Properties SgLocalAccountIdentification1Properties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out BankAccountIdentification bankAccountIdentification,
         out SgLocalAccountIdentification1Properties sgLocalAccountIdentification1Properties)
@@ -40,10 +45,16 @@ file class SgLocalAccountIdentification1Converter : JsonConverter<SgLocalAccount
             throw new JsonException("Failed to deserialize BankAccountIdentification");
         var sgLocalAccountIdentification1Properties = root.Deserialize<SgLocalAccountIdentification1Properties>(options) ??
             throw new JsonException("Failed to deserialize SgLocalAccountIdentification1Properties");
+        var extras =
+            AdditionalProperties.SharedBy(bankAccountIdentification.AdditionalProperties,
+                sgLocalAccountIdentification1Properties.AdditionalProperties);
+        bankAccountIdentification.AdditionalProperties.Clear();
+        sgLocalAccountIdentification1Properties.AdditionalProperties.Clear();
         return new SgLocalAccountIdentification1
         {
             BankAccountIdentification = bankAccountIdentification,
             SgLocalAccountIdentification1Properties = sgLocalAccountIdentification1Properties,
+            AdditionalProperties = extras,
         };
     }
 
@@ -52,13 +63,12 @@ file class SgLocalAccountIdentification1Converter : JsonConverter<SgLocalAccount
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var bankAccountIdentificationJson = JsonSerializer.SerializeToElement(value.BankAccountIdentification, options);
-        foreach (var property in bankAccountIdentificationJson.EnumerateObject())
-            property.WriteTo(writer);
-        var sgLocalAccountIdentification1PropertiesJson =
-            JsonSerializer.SerializeToElement(value.SgLocalAccountIdentification1Properties, options);
-        foreach (var property in sgLocalAccountIdentification1PropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.BankAccountIdentification, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.SgLocalAccountIdentification1Properties,
+                options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

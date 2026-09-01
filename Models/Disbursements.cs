@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -10,4 +11,7 @@ public record Disbursements
     /// </summary>
     [JsonPropertyName("disbursements")]
     public required IReadOnlyList<Disbursement> DisbursementsValue { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

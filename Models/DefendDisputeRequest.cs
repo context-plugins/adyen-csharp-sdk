@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -21,4 +22,7 @@ public record DefendDisputeRequest
     /// </summary>
     [JsonPropertyName("merchantAccountCode")]
     public required string MerchantAccountCode { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

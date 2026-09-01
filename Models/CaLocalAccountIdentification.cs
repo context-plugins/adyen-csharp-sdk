@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -41,4 +42,7 @@ public record CaLocalAccountIdentification
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; } = "caLocal";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

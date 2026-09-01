@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -12,7 +12,7 @@ public record InPersonDonationSettingsUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("defaultAmount")]
-    public DefaultAmount? DefaultAmount { get; init; }
+    public DonationAmountUpdate? DefaultAmount { get; init; }
 
     /// <summary>
     /// The text shown on the payment terminal, either the name or the cause of the nonprofit organization.
@@ -48,7 +48,7 @@ public record InPersonDonationSettingsUpdate
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("donationType")]
-    public DonationType4? DonationType { get; init; }
+    public DonationType? DonationType { get; init; }
 
     /// <summary>
     /// The merchant accounts for this sales channel that are associated with the donation campaign.
@@ -77,4 +77,7 @@ public record InPersonDonationSettingsUpdate
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("storeIds")]
     public IReadOnlyList<string?>? StoreIds { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record IbanAccountIdentification2
     public required AccountIdentification AccountIdentification { get; init; }
 
     public required IbanAccountIdentification2Properties IbanAccountIdentification2Properties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out AccountIdentification accountIdentification,
         out IbanAccountIdentification2Properties ibanAccountIdentification2Properties)
@@ -40,10 +45,16 @@ file class IbanAccountIdentification2Converter : JsonConverter<IbanAccountIdenti
             throw new JsonException("Failed to deserialize AccountIdentification");
         var ibanAccountIdentification2Properties = root.Deserialize<IbanAccountIdentification2Properties>(options) ??
             throw new JsonException("Failed to deserialize IbanAccountIdentification2Properties");
+        var extras =
+            AdditionalProperties.SharedBy(accountIdentification.AdditionalProperties,
+                ibanAccountIdentification2Properties.AdditionalProperties);
+        accountIdentification.AdditionalProperties.Clear();
+        ibanAccountIdentification2Properties.AdditionalProperties.Clear();
         return new IbanAccountIdentification2
         {
             AccountIdentification = accountIdentification,
             IbanAccountIdentification2Properties = ibanAccountIdentification2Properties,
+            AdditionalProperties = extras,
         };
     }
 
@@ -52,13 +63,11 @@ file class IbanAccountIdentification2Converter : JsonConverter<IbanAccountIdenti
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var accountIdentificationJson = JsonSerializer.SerializeToElement(value.AccountIdentification, options);
-        foreach (var property in accountIdentificationJson.EnumerateObject())
-            property.WriteTo(writer);
-        var ibanAccountIdentification2PropertiesJson =
-            JsonSerializer.SerializeToElement(value.IbanAccountIdentification2Properties, options);
-        foreach (var property in ibanAccountIdentification2PropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.AccountIdentification, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.IbanAccountIdentification2Properties, options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

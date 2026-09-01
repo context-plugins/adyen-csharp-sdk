@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 
 namespace Adyen.Models;
@@ -20,4 +21,7 @@ public record DisbursementRepayment2
     [JsonPropertyName("updateDescription")]
     [StringLength(240, MinimumLength = 1)]
     public required string UpdateDescription { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -55,4 +56,7 @@ public record SamsungPay
     /// </summary>
     [JsonPropertyName("type")]
     public Type50? Type { get; init; } = Type50.Samsungpay;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

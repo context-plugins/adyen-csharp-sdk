@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -41,4 +42,7 @@ public record StoredPaymentMethod1
     /// </summary>
     [JsonPropertyName("type")]
     public Type27? Type { get; init; } = Type27.Sepadirectdebit;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

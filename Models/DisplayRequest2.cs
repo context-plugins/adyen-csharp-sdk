@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -14,4 +15,7 @@ public record DisplayRequest2
     /// </summary>
     [JsonPropertyName("DisplayOutput")]
     public required IReadOnlyList<DisplayOutput> DisplayOutput { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

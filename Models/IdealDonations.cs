@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -48,4 +49,7 @@ public record IdealDonations
     /// </summary>
     [JsonPropertyName("type")]
     public Type25? Type { get; init; } = Type25.Ideal;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

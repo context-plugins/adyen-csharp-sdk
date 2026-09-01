@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -12,4 +13,7 @@ public record LogoutRequest2
     /// </summary>
     [JsonPropertyName("MaintenanceAllowed")]
     public bool? MaintenanceAllowed { get; init; } = false;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

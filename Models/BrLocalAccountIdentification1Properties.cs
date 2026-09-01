@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -39,4 +40,7 @@ public record BrLocalAccountIdentification1Properties
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; init; } = "brLocal";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -17,4 +18,7 @@ public record NoLocalAccountIdentification
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; } = "noLocal";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

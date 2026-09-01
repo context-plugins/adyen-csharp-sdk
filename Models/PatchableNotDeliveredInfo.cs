@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -106,5 +106,8 @@ public record PatchableNotDeliveredInfo
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("whoCancelled")]
-    public WhoCancelled? WhoCancelled { get; init; }
+    public CancellingEntity? WhoCancelled { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

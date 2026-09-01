@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record NumberAndBicAccountIdentification1
     public required BankAccountIdentification BankAccountIdentification { get; init; }
 
     public required NumberAndBicAccountIdentification1Properties NumberAndBicAccountIdentification1Properties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out BankAccountIdentification bankAccountIdentification,
         out NumberAndBicAccountIdentification1Properties numberAndBicAccountIdentification1Properties)
@@ -40,10 +45,16 @@ file class NumberAndBicAccountIdentification1Converter : JsonConverter<NumberAnd
             throw new JsonException("Failed to deserialize BankAccountIdentification");
         var numberAndBicAccountIdentification1Properties = root.Deserialize<NumberAndBicAccountIdentification1Properties>(options) ??
             throw new JsonException("Failed to deserialize NumberAndBicAccountIdentification1Properties");
+        var extras =
+            AdditionalProperties.SharedBy(bankAccountIdentification.AdditionalProperties,
+                numberAndBicAccountIdentification1Properties.AdditionalProperties);
+        bankAccountIdentification.AdditionalProperties.Clear();
+        numberAndBicAccountIdentification1Properties.AdditionalProperties.Clear();
         return new NumberAndBicAccountIdentification1
         {
             BankAccountIdentification = bankAccountIdentification,
             NumberAndBicAccountIdentification1Properties = numberAndBicAccountIdentification1Properties,
+            AdditionalProperties = extras,
         };
     }
 
@@ -52,13 +63,12 @@ file class NumberAndBicAccountIdentification1Converter : JsonConverter<NumberAnd
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var bankAccountIdentificationJson = JsonSerializer.SerializeToElement(value.BankAccountIdentification, options);
-        foreach (var property in bankAccountIdentificationJson.EnumerateObject())
-            property.WriteTo(writer);
-        var numberAndBicAccountIdentification1PropertiesJson =
-            JsonSerializer.SerializeToElement(value.NumberAndBicAccountIdentification1Properties, options);
-        foreach (var property in numberAndBicAccountIdentification1PropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.BankAccountIdentification, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.NumberAndBicAccountIdentification1Properties,
+                options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Adyen.Core.Extensions;
+using Adyen.Core.Models;
 
 namespace Adyen.Models.AllOf;
 
@@ -13,6 +16,8 @@ public record UkLocalMandateAccountIdentification
     public required MandateAccountIdentification MandateAccountIdentification { get; init; }
 
     public required UkLocalMandateAccountIdentificationProperties UkLocalMandateAccountIdentificationProperties { get; init; }
+
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 
     public void Deconstruct(out MandateAccountIdentification mandateAccountIdentification,
         out UkLocalMandateAccountIdentificationProperties ukLocalMandateAccountIdentificationProperties)
@@ -40,10 +45,16 @@ file class UkLocalMandateAccountIdentificationConverter : JsonConverter<UkLocalM
             throw new JsonException("Failed to deserialize MandateAccountIdentification");
         var ukLocalMandateAccountIdentificationProperties = root.Deserialize<UkLocalMandateAccountIdentificationProperties>(options) ??
             throw new JsonException("Failed to deserialize UkLocalMandateAccountIdentificationProperties");
+        var extras =
+            AdditionalProperties.SharedBy(mandateAccountIdentification.AdditionalProperties,
+                ukLocalMandateAccountIdentificationProperties.AdditionalProperties);
+        mandateAccountIdentification.AdditionalProperties.Clear();
+        ukLocalMandateAccountIdentificationProperties.AdditionalProperties.Clear();
         return new UkLocalMandateAccountIdentification
         {
             MandateAccountIdentification = mandateAccountIdentification,
             UkLocalMandateAccountIdentificationProperties = ukLocalMandateAccountIdentificationProperties,
+            AdditionalProperties = extras,
         };
     }
 
@@ -52,14 +63,12 @@ file class UkLocalMandateAccountIdentificationConverter : JsonConverter<UkLocalM
         JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        var mandateAccountIdentificationJson =
-            JsonSerializer.SerializeToElement(value.MandateAccountIdentification, options);
-        foreach (var property in mandateAccountIdentificationJson.EnumerateObject())
-            property.WriteTo(writer);
-        var ukLocalMandateAccountIdentificationPropertiesJson =
-            JsonSerializer.SerializeToElement(value.UkLocalMandateAccountIdentificationProperties, options);
-        foreach (var property in ukLocalMandateAccountIdentificationPropertiesJson.EnumerateObject())
-            property.WriteTo(writer);
+        var written = new HashSet<string>(StringComparer.Ordinal);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.MandateAccountIdentification, options), written);
+        writer.WriteUnwritten(JsonSerializer.SerializeToElement(value.UkLocalMandateAccountIdentificationProperties,
+                options),
+            written);
+        writer.WriteUnwritten(value.AdditionalProperties, written);
         writer.WriteEndObject();
     }
 }

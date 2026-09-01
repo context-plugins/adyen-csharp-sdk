@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -31,4 +32,7 @@ public record NumberAndBicAccountIdentification1Properties
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; init; } = "numberAndBic";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

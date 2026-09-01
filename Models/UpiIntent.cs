@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -61,4 +62,7 @@ public record UpiIntent
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; } = "upi_intent";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

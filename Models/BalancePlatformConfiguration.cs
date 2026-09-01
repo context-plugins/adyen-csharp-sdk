@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -160,4 +161,7 @@ public record BalancePlatformConfiguration
     /// </summary>
     [JsonPropertyName("userSettlementTimeZone")]
     public required string UserSettlementTimeZone { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

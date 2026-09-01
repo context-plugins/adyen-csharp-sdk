@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -54,4 +55,7 @@ public record UpiQr
     /// </summary>
     [JsonPropertyName("type")]
     public string Type { get; } = "upi_qr";
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

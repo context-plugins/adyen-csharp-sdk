@@ -11,7 +11,7 @@ public record PaymentDetailsResponse
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("action")]
-    public Action1? Action { get; init; }
+    public CheckoutThreeDs2Action? Action { get; init; }
 
     /// <summary>
     /// Contains additional information about the payment. Some data fields are included only if you select them first: Go to <b>Customer Area</b> &gt; <b>Developers</b> &gt; <b>Additional data</b>.

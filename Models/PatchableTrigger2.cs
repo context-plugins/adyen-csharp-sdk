@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.Enums;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -13,7 +13,7 @@ public record PatchableTrigger2
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("schedule")]
-    public Schedule1? Schedule { get; init; }
+    public PatchableSchedule? Schedule { get; init; }
 
     /// <summary>
     /// The balance threshold that triggers the top-up. If the balance falls below this amount, a top-up is initiated.
@@ -21,4 +21,7 @@ public record PatchableTrigger2
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("threshold")]
     public PatchableAmountDto1? Threshold { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

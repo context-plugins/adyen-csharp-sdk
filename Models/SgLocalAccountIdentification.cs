@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -25,4 +26,7 @@ public record SgLocalAccountIdentification
     /// </summary>
     [JsonPropertyName("type")]
     public Type82? Type { get; init; } = Type82.SgLocal;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Adyen.Models.AnyOf;
+using Adyen.Core.Models;
 using Adyen.Models.Enums;
 
 namespace Adyen.Models;
@@ -11,21 +11,21 @@ public record PatchableDisputeRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("duplicateInfo")]
-    public DuplicateInfo3? DuplicateInfo { get; init; }
+    public PatchableDuplicateInfo? DuplicateInfo { get; init; }
 
     /// <summary>
     /// Additional information for raising a dispute of <c>type</c> <b>fraud</b>. Required for disputes of <c>type</c> <b>fraud</b>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fraudInfo")]
-    public FraudInfo3? FraudInfo { get; init; }
+    public PatchableFraudInfo? FraudInfo { get; init; }
 
     /// <summary>
     /// Additional information for raising a dispute of <c>type</c> <b>notDelivered</b>. Required for disputes of <c>type</c> <b>notDelivered</b>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("notDeliveredInfo")]
-    public NotDeliveredInfo3? NotDeliveredInfo { get; init; }
+    public PatchableNotDeliveredInfo? NotDeliveredInfo { get; init; }
 
     /// <summary>
     /// Additional information for raising a dispute of <c>type</c> <b>other</b>. Required for disputes of <c>type</c> <b>other</b>.
@@ -35,7 +35,7 @@ public record PatchableDisputeRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("otherInfo")]
-    public OtherInfo3? OtherInfo { get; init; }
+    public PatchableOtherInfo? OtherInfo { get; init; }
 
     /// <summary>
     /// The current status of the dispute.
@@ -48,5 +48,8 @@ public record PatchableDisputeRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public Status? Status { get; init; }
+    public DisputeStatus? Status { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

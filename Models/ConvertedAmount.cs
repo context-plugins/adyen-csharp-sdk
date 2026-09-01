@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 using Adyen.Core.Validation.Attributes;
 
 namespace Adyen.Models;
@@ -20,4 +21,7 @@ public record ConvertedAmount
     [JsonPropertyName("Currency")]
     [RegularExpression("^[A-Z]{3,3}$")]
     public required string Currency { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

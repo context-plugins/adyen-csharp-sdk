@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Adyen.Core.Models;
 
 namespace Adyen.Models;
 
@@ -15,4 +16,7 @@ public record Counterparty2
     /// </summary>
     [JsonPropertyName("accountIdentification")]
     public required AccountIdentification1 AccountIdentification { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }
