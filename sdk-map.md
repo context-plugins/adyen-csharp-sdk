@@ -14,7 +14,7 @@
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.
 
-All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file and `Adyen.csproj` — never to the page that carries them. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
+All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file — never to the page that carries them; the project file is `src/Adyen/Adyen.csproj`. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
 
 ---
 
@@ -23,18 +23,13 @@ All `Source` paths on this map and its sub-pages are relative to the **SDK root*
 ```csharp
 var httpClient = new HttpClient();
 // TODO: configure more client options here
-var options =
-    new AdyenClientOptions
-    {
-        BasicAuth = new BasicAuthCredentials
-        {
-            Username = "YOUR_USERNAME",
-            Password = "YOUR_PASSWORD",
-        },
-        ApiKeyAuth = "YOUR_API_KEY",
-        ClientKey = "YOUR_API_KEY",
-        Environment = ServerEnvironment.Test,
-    };
+var options = new AdyenClientOptions
+{
+    BasicAuth = new BasicAuthCredentials { Username = "YOUR_USERNAME", Password = "YOUR_PASSWORD" },
+    ApiKeyAuth = "YOUR_API_KEY",
+    ClientKey = "YOUR_API_KEY",
+    Environment = ServerEnvironment.Test,
+};
 var client = new AdyenClient(httpClient, options);
 ```
 
@@ -42,36 +37,36 @@ DI alternative (`services.AddAdyenClient`):
 
 ```csharp
 services.AddAdyenClient(options =>
-    {
-        options.BasicAuth =
-            new BasicAuthCredentials
-            {
-                Username = "YOUR_USERNAME",
-                Password = "YOUR_PASSWORD",
-            };
-        options.ApiKeyAuth = "YOUR_API_KEY";
-        options.ClientKey = "YOUR_API_KEY";
-        options.Environment = ServerEnvironment.Test;
-        // TODO: configure more client options here
-    });
+{
+    options.BasicAuth = new BasicAuthCredentials { Username = "YOUR_USERNAME", Password = "YOUR_PASSWORD" };
+    options.ApiKeyAuth = "YOUR_API_KEY";
+    options.ClientKey = "YOUR_API_KEY";
+    options.Environment = ServerEnvironment.Test;
+    // TODO: configure more client options here
+});
 ```
 
-Every API group is a property on the client (e.g. `client.ApiCredentialsCompanyLevel`). Source: `AdyenClient.cs`. The only constructor is `AdyenClient(HttpClient httpClient, AdyenClientOptions options)`.
+Every API group is a property on the client (e.g. `client.ApiCredentialsCompanyLevel`). Source: `src/Adyen/AdyenClient.cs`. The only constructor is `AdyenClient(HttpClient httpClient, AdyenClientOptions options)`.
 
-All `AdyenClientOptions` properties (source: `AdyenClientOptions.cs`):
+All `AdyenClientOptions` properties (source: `src/Adyen/AdyenClientOptions.cs`):
 
 | Property | Type |
 | --- | --- |
 | `Environment` | `ServerEnvironment` |
 | `Retry` | `RetryOptions` |
 | `Logging` | `LoggingOptions` |
+| `TimeProvider` | `TimeProvider` |
 | `Server` | `ServerOptions` |
+| `StreamReadTimeout` | `TimeSpan?` |
 | `Hooks` | `IReadOnlyList<SdkHook>` |
 | `ApiKeyAuth` | `string?` |
 | `BasicAuth` | `BasicAuthCredentials?` |
 | `ClientKey` | `string?` |
 
-`RetryOptions` members (namespace `Adyen.Core.Configuration` — add `using Adyen.Core.Configuration;`; source: `Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
+`ServerEnvironment` (source: `src/Adyen/Servers/ServerEnvironment.cs`, namespace `Adyen.Servers`)
+`BasicAuthCredentials` (source: `src/Adyen/Core/Authentication/Basic/BasicAuthCredentials.cs`, namespace `Adyen.Core.Authentication.Basic`)
+
+`RetryOptions` members (namespace `Adyen.Core.Configuration` — add `using Adyen.Core.Configuration;`; source: `src/Adyen/Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
 
 | Member | Type |
 | --- | --- |
@@ -89,28 +84,31 @@ All `AdyenClientOptions` properties (source: `AdyenClientOptions.cs`):
 
 ## Error-handling model (read once — applies to every operation)
 
-Operations are **throw-based**. On an error status the SDK throws `SdkException<TError>` (`Core/Exceptions/SdkException.cs`) exposing `.Error` of type `TError`. There are two cases:
+Operations are **throw-based**. On an error status the SDK throws `ApiException<TError>` (`src/Adyen/Core/Exceptions/ApiException.cs`, namespace `Adyen.Core.Exceptions`) exposing `.Error` of type `TError` beside the `StatusCode`, `Headers` and `ContentType` of the response. There are two cases:
 
-- **Case A — typed error.** `TError` is a generated `…Error : ApiError` class with status-specific `TryGet…(out …)` accessors (each returns `true` when that shape is present) plus the inherited `TryGetRawError(out RawError)` fallback. The operation blocks name the exact `TryGet…` methods and the HTTP status each maps to.
-- **Case B — raw error.** `TError` is `RawError` (`Core/ErrorResponse/RawError.cs`): `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?`.
+- **Case A — typed error.** `TError` is a generated `…Error : ApiError` class (namespace `Adyen.Errors`) with status-specific `TryGet…(out …)` accessors (each returns `true` when that shape is present) plus the inherited `TryGetRawError(out RawError)` fallback. The operation blocks name the exact `TryGet…` methods and the HTTP status each maps to.
+- **Case B — raw error.** `TError` is `RawError` (`src/Adyen/Core/ErrorResponse/RawError.cs`, namespace `Adyen.Core.ErrorResponse`): `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?`.
 
-Core error types (`Core/ErrorResponse/`) — public members with their **declared types**, verbatim from source:
+⚠ Each of the three lives in its own namespace. `src/Adyen/Core/` holds several namespaces, so a catch block naming `ApiException<T>`, a typed `{Operation}Error` and `RawError` together needs a `using` for each.
+
+`ApiException<TError>` is one leaf of the `SdkException` family (`src/Adyen/Core/Exceptions/SdkException.cs`): a request that produced no usable response surfaces as `SdkConnectionException` or `SdkTimeoutException`, a body that does not match its declared type as `ResponseDeserializationException`, and a credential that could not be applied as `AuthSchemeException`. Every one of them names the failed call. The full table is in [README → Error Handling](README.md#error-handling).
+
+Core error types (`src/Adyen/Core/ErrorResponse/`) — public members with their **declared types**, verbatim from source:
 
 | Type | Public members | Source |
 | --- | --- | --- |
-| `ApiError` — abstract base of the 420 typed error classes in `Errors/` | `TryGetRawError(out RawError error): bool` | `Core/ErrorResponse/ApiError.cs` |
-| `RawError` | `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?` | `Core/ErrorResponse/RawError.cs` |
+| `ApiError` — abstract base of the 420 typed error classes in `src/Adyen/Errors/` | `TryGetRawError(out RawError error): bool` | `src/Adyen/Core/ErrorResponse/ApiError.cs` |
+| `RawError` | `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?` | `src/Adyen/Core/ErrorResponse/RawError.cs` |
 
 Typed-error payload shapes (the `out` types in each operation page's error-accessor cells) are ordinary records/unions — no special handling. The operation's **Type sources** table gives the file that declares each one; read field names, declared types, and JSON wire names there, as for any other model.
 
 ```csharp
 try
 {
-    var response = await client.ApiCredentialsCompanyLevel.GetCompaniesCompanyIdApiCredentials(companyId,
-        pageNumber,
-        pageSize);
+    var response = await client.ApiCredentialsCompanyLevel.GetCompaniesCompanyIdApiCredentials(
+        new GetCompaniesCompanyIdApiCredentialsRequest { CompanyId = "some example string" });
 }
-catch (SdkException<GetCompaniesCompanyIdApiCredentialsError> ex)
+catch (ApiException<GetCompaniesCompanyIdApiCredentialsError> ex)
 {
     // Case A — typed error
     if (ex.Error.TryGetRestServiceError(out var error))
@@ -122,7 +120,7 @@ catch (SdkException<GetCompaniesCompanyIdApiCredentialsError> ex)
         // Any other error status
     }
 }
-catch (SdkException<RawError> ex)
+catch (ApiException<RawError> ex)
 {
     // Case B — raw error
     // ex.Error.StatusCode, ex.Error.ReadAsString(), ex.Error.ReadAsJson<T>()
@@ -135,7 +133,7 @@ catch (SdkException<RawError> ex)
 
 ## Operations — by controller (93 groups, 449 operations)
 
-Each links to a sub-page with one row per operation: signature with must-pass-explicitly params and defaults, query-param wire names, return type, error Case A/B, and Case A's typed accessors with their statuses. Each operation also carries a **Type sources** table — every type it names, with the file that declares it — so resolving a body, return, or error payload to its source is a lookup, never a search. `RawError` is excluded there (its members and path are above); an operation with no table names nothing but primitives and `RawError`.
+Each links to a sub-page with one row per operation: signature, the request record's required members, query-param wire names, return type, error Case A/B, and Case A's typed accessors with their statuses. Each operation also carries a **Type sources** table — every type it names, with the file that declares it — so resolving a body, return, or error payload to its source is a lookup, never a search. `RawError` is excluded there (its members and path are above); an operation with no table names nothing but primitives and `RawError`.
 
 **Each row states what is specific to its operation. Everything below holds for EVERY operation unless that operation's row says otherwise, so a row silent on one of these points is telling you the default here applies — take it and move on rather than opening the source to confirm it.**
 
@@ -145,7 +143,7 @@ Each links to a sub-page with one row per operation: signature with must-pass-ex
 | **No pagination** — the operation returns a single response, not a `Pageable` | here | pagination is offered — the block carries a **Pagination** bullet naming the posture (page-, offset-, cursor- or link-based, or the `page`-without-page-size case) |
 | **Case B error accessors are always these four** — `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?` | the `RawError` row above | never — a `Case B` label always implies exactly these four; Case A rows list their own typed accessors |
 | **Server group `Default`** — base URL per Servers & auth below | here | the operation is on another group — its block carries a **Server group** bullet |
-| **Parameter names are literal** — signatures are generated code verbatim; in named arguments use the exact parameter names shown (the cancellation-token parameter is named `ct`) | here | never — it always holds |
+| **Inputs are one request record** — an operation that takes input takes a single request record as its first parameter; build it with an object initializer, using the property names in the record's source (its file is in the operation's **Type sources**). A member the row does not list as required is optional or already carries the spec's default | here | never — it always holds |
 
 **The HTTP verb and route live on the operation itself**, in the source file named at the top of its operations page. This map is method-first: the C# method is the interface you call. When something wire-level needs the route — reproducing a raw request, pointing the client at a mock, reading a provider-side log — read it from that file; do not reconstruct it from memory or infer it from the method name.
 
@@ -251,31 +249,33 @@ Each links to a sub-page with one row per operation: signature with must-pass-ex
 
 ## Models — where they live, how to build them
 
-**Shapes live only in the source.** Every file under `Models/` and `Errors/` declares exactly one public type, named after the file, and no two share a name — so a type name *is* its path. Take it from the operation's **Type sources** table, or build it from the kind's directory below. Never grep for a type.
+**Shapes live only in the source.** Every file under `src/Adyen/Models/`, `src/Adyen/Errors/` and `src/Adyen/Requests/` declares exactly one public type, named after the file, and no two share a name — so a type name *is* its path. Take it from the operation's **Type sources** table, or build it from the kind's directory below. Never grep for a type.
 
 | Group | Count | Directory (file = `<TypeName>.cs`) |
 | --- | --- | --- |
-| Records (plain `record` data models) | 2053 | `Models/` |
-| Unions (`OneOf`) — variant factories + `TryGet…` | 13 | `Models/OneOf/` |
-| Unions (`AnyOf`) — variant factories + `TryGet…` | 1 | `Models/AnyOf/` |
-| Compositions (`AllOf`) — constituent types as `required` properties | 25 | `Models/AllOf/` |
-| Enums (`StringEnum<T>` / `IntEnum<T>`) — C# member names + wire values | 522 | `Models/Enums/` |
-| Typed error classes (`: ApiError`, one per Case A operation) | 420 | `Errors/` |
+| Records (plain `record` data models) | 2053 | `src/Adyen/Models/` |
+| Unions (`OneOf`) — variant factories + `TryGet…` | 13 | `src/Adyen/Models/OneOf/` |
+| Unions (`AnyOf`) — variant factories + `TryGet…` | 1 | `src/Adyen/Models/AnyOf/` |
+| Compositions (`AllOf`) — constituent types as `required` properties | 25 | `src/Adyen/Models/AllOf/` |
+| Enums (`OpenStringEnum<T>` / `OpenIntEnum<T>`) — C# member names + wire values | 522 | `src/Adyen/Models/Enums/` |
+| Typed error classes (`: ApiError`, one per Case A operation) | 420 | `src/Adyen/Errors/` |
+| Request records (one per operation that takes input; never serialized) | 445 | `src/Adyen/Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
 
-Conventions: records are immutable, `init`-only; `required` properties must be set in the object initializer; `T?` is optional. A field's wire name is its `[JsonPropertyName]` and often differs from the C# name (`AmountInCents` ↔ `amount_in_cents`) — read it off the property, don't derive it. `OneOf`/`AnyOf` unions wrap `Optional<T>` variants — build via static factory or implicit conversion, read via `TryGet…(out …)`; `AllOf` compositions are not unions — every constituent is a `required` property, so set them all, and those constituent properties carry no `[JsonPropertyName]` and have no wire name of their own, because the generated converter flattens each constituent's own fields directly into the one parent JSON object. Enums are **not** C# enums — build with `Type.FromValue("wire")` or the static members, whose names are PascalCase even when the wire value isn't (`CollectionMethod.Invoice`, not `.invoice`).
+Conventions: records are immutable, `init`-only; `required` properties must be set in the object initializer; `T?` is optional. A field's wire name is its `[JsonPropertyName]` and often differs from the C# name (`AmountInCents` ↔ `amount_in_cents`) — read it off the property, don't derive it. `OneOf`/`AnyOf` unions wrap `Optional<T>` variants — build via static factory or implicit conversion, read via `TryGet…(out …)`; `AllOf` compositions are not unions — every constituent is a `required` property, so set them all, and those constituent properties carry no `[JsonPropertyName]` and have no wire name of their own, because the generated converter flattens each constituent's own fields directly into the one parent JSON object. Enums are **not** C# enums — use the static members, whose names are PascalCase even when the wire value isn't (`CollectionMethod.Invoice`, not `.invoice`); there is no public factory, so resolve a raw value with `TryGetKnownValue` and branch with the generated `Match`, whose `otherwise` arm receives any value the SDK does not declare.
 
 Namespaces by content type (add `using` accordingly):
 
 | Contents | Namespace |
 | --- | --- |
 | Client & options (root) | `Adyen` |
-| Operation controllers (`Api/`) | `Adyen.Api` |
-| Records (`Models/`) | `Adyen.Models` |
-| Enums (`Models/Enums/`) | `Adyen.Models.Enums` |
-| OneOf unions (`Models/OneOf/`) | `Adyen.Models.OneOf` |
-| AnyOf unions (`Models/AnyOf/`) | `Adyen.Models.AnyOf` |
-| AllOf compositions (`Models/AllOf/`) | `Adyen.Models.AllOf` |
-| Error classes (`Errors/`) | `Adyen.Errors` |
+| Operation controllers (`src/Adyen/Api/`) | `Adyen.Api` |
+| Records (`src/Adyen/Models/`) | `Adyen.Models` |
+| Enums (`src/Adyen/Models/Enums/`) | `Adyen.Models.Enums` |
+| OneOf unions (`src/Adyen/Models/OneOf/`) | `Adyen.Models.OneOf` |
+| AnyOf unions (`src/Adyen/Models/AnyOf/`) | `Adyen.Models.AnyOf` |
+| AllOf compositions (`src/Adyen/Models/AllOf/`) | `Adyen.Models.AllOf` |
+| Error classes (`src/Adyen/Errors/`) | `Adyen.Errors` |
+| Request records (`src/Adyen/Requests/`) | `Adyen.Requests` — plus `.<Controller>` for a controller's records (an operation with several tags is filed under the first tag it declares) |
 
 ---
 
@@ -287,7 +287,14 @@ Namespaces by content type (add `using` accordingly):
 
 **API key (query `clientKey`).** Set `options.ClientKey = "<api_key>"`; sent as the `clientKey` query parameter.
 
-**Environments.** `options.Environment` selects the target environment (`Servers/ServerEnvironment.cs`):
+Operation blocks name their credential in an **Auth** bullet; an operation whose spec declares no scheme carries no such bullet.
+
+- `AND` — every credential listed must be set for the call to be fully authenticated.
+- `OR` — the first credential you set that applies successfully is the one sent, in the order listed.
+
+A credential you never set is skipped rather than throwing, and the request is sent anyway — so an authentication failure can mean no credential was sent rather than a bad one. Under `OR`, if every credential you did set fails to apply, `AuthSchemeException` is thrown.
+
+**Environments.** `options.Environment` selects the target environment (`src/Adyen/Servers/ServerEnvironment.cs`):
 
 | Environment | Value | Hosting |
 | --- | --- | --- |

@@ -2,54 +2,58 @@
 
 # ScaAssociationManagement — operations
 
-Accessor: `client.ScaAssociationManagement` · Source: `Api/ScaAssociationManagement.cs` · 3 operations
+Accessor: `client.ScaAssociationManagement` · Source: `src/Adyen/Api/ScaAssociationManagement.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteScaAssociations
 
 - **Server group**: `Default13`
-- **Signature**: `DeleteScaAssociations(string wwwAuthenticate, RemoveAssociationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `DeleteScaAssociations(DeleteScaAssociationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `WwwAuthenticate`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteScaAssociationsError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteScaAssociationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RemoveAssociationRequest` | `Models/RemoveAssociationRequest.cs` |
-| `DeleteScaAssociationsError` | `Errors/DeleteScaAssociationsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `DeleteScaAssociationsRequest` | `src/Adyen/Requests/ScaAssociationManagement/DeleteScaAssociationsRequest.cs` |
+| `RemoveAssociationRequest` | `src/Adyen/Models/RemoveAssociationRequest.cs` |
+| `DeleteScaAssociationsError` | `src/Adyen/Errors/DeleteScaAssociationsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetScaAssociations
 
 - **Server group**: `Default13`
-- **Signature**: `GetScaAssociations(ScaEntityType entityType, string entityId, int pageSize, int pageNumber, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `entityType` ← `entityType`, `entityId` ← `entityId`, `pageSize` ← `pageSize`, `pageNumber` ← `pageNumber`
+- **Signature**: `GetScaAssociations(GetScaAssociationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `EntityType`, `EntityId`, `PageSize`, `PageNumber`
+- **Query params (wire ← C#)**: `entityType` ← `EntityType`, `entityId` ← `EntityId`, `pageSize` ← `PageSize`, `pageNumber` ← `PageNumber`
 - **Returns**: `ListAssociationsResponse`
-- **Error**: `SdkException<GetScaAssociationsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetScaAssociationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ScaEntityType` | `Models/Enums/ScaEntityType.cs` |
-| `ListAssociationsResponse` | `Models/ListAssociationsResponse.cs` |
-| `GetScaAssociationsError` | `Errors/GetScaAssociationsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetScaAssociationsRequest` | `src/Adyen/Requests/ScaAssociationManagement/GetScaAssociationsRequest.cs` |
+| `ScaEntityType` | `src/Adyen/Models/Enums/ScaEntityType.cs` |
+| `ListAssociationsResponse` | `src/Adyen/Models/ListAssociationsResponse.cs` |
+| `GetScaAssociationsError` | `src/Adyen/Errors/GetScaAssociationsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PatchScaAssociations
 
 - **Server group**: `Default13`
-- **Signature**: `PatchScaAssociations(string wwwAuthenticate, ApproveAssociationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `PatchScaAssociations(PatchScaAssociationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `WwwAuthenticate`
 - **Returns**: `ApproveAssociationResponse`
-- **Error**: `SdkException<PatchScaAssociationsError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchScaAssociationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ApproveAssociationRequest` | `Models/ApproveAssociationRequest.cs` |
-| `ApproveAssociationResponse` | `Models/ApproveAssociationResponse.cs` |
-| `PatchScaAssociationsError` | `Errors/PatchScaAssociationsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PatchScaAssociationsRequest` | `src/Adyen/Requests/ScaAssociationManagement/PatchScaAssociationsRequest.cs` |
+| `ApproveAssociationRequest` | `src/Adyen/Models/ApproveAssociationRequest.cs` |
+| `ApproveAssociationResponse` | `src/Adyen/Models/ApproveAssociationResponse.cs` |
+| `PatchScaAssociationsError` | `src/Adyen/Errors/PatchScaAssociationsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

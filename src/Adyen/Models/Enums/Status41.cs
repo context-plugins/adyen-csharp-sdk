@@ -1,0 +1,51 @@
+using System;
+using System.Text.Json.Serialization;
+using Adyen.Core.Enum;
+
+namespace Adyen.Models.Enums;
+
+/// <summary>
+/// The status of the store. Possible values are:
+/// <list type="bullet">
+///   <item><description><b>active</b>: This value is assigned automatically when a store is created.</description></item>
+///   <item><description><b>inactive</b>: The maximum <see href="https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features">transaction limits and number of Store-and-Forward transactions</see> for the store are set to 0. This blocks new transactions, but captures are still possible.</description></item>
+///   <item><description><b>closed</b>: The terminals of the store are reassigned to the merchant inventory, so they can't process payments.</description></item>
+/// </list>
+/// <para>
+/// You can change the status from <b>active</b> to <b>inactive</b>, and from <b>inactive</b> to <b>active</b> or <b>closed</b>.
+/// Once <b>closed</b>, a store can't be reopened.
+/// </para>
+/// </summary>
+[JsonConverter(typeof(StringEnumConverter<Status41>))]
+public sealed record Status41 : OpenStringEnum<Status41>
+{
+    private Status41(string value) : base(value)
+    {
+    }
+
+    public static readonly Status41 Active = new("active");
+
+    public static readonly Status41 Closed = new("closed");
+
+    public static readonly Status41 Inactive = new("inactive");
+
+    public TResult Match<TResult>(Func<TResult> onActive,
+        Func<TResult> onClosed,
+        Func<TResult> onInactive,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Active => onActive(),
+            _ when this == Closed => onClosed(),
+            _ when this == Inactive => onInactive(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onActive, Action onClosed, Action onInactive, Action<string> otherwise)
+    {
+        if (this == Active) onActive();
+        else if (this == Closed) onClosed();
+        else if (this == Inactive) onInactive();
+        else otherwise(Value);
+    }
+}

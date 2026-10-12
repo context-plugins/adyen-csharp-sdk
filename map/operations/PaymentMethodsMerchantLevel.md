@@ -2,98 +2,112 @@
 
 # PaymentMethodsMerchantLevel — operations
 
-Accessor: `client.PaymentMethodsMerchantLevel` · Source: `Api/PaymentMethodsMerchantLevel.cs` · 6 operations
+Accessor: `client.PaymentMethodsMerchantLevel` · Source: `src/Adyen/Api/PaymentMethodsMerchantLevel.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetMerchantsMerchantIdPaymentMethodSettings
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdPaymentMethodSettings(string merchantId, string? storeId, string? businessLineId, int? pageSize, int? pageNumber, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 4 params (`storeId` … `pageNumber`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `storeId` ← `storeId`, `businessLineId` ← `businessLineId`, `pageSize` ← `pageSize`, `pageNumber` ← `pageNumber`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdPaymentMethodSettings(GetMerchantsMerchantIdPaymentMethodSettingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
+- **Query params (wire ← C#)**: `storeId` ← `StoreId`, `businessLineId` ← `BusinessLineId`, `pageSize` ← `PageSize`, `pageNumber` ← `PageNumber`
 - **Returns**: `PaymentMethodResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdPaymentMethodSettingsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdPaymentMethodSettingsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentMethodResponse` | `Models/PaymentMethodResponse.cs` |
-| `GetMerchantsMerchantIdPaymentMethodSettingsError` | `Errors/GetMerchantsMerchantIdPaymentMethodSettingsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdPaymentMethodSettingsRequest` | `src/Adyen/Requests/PaymentMethodsMerchantLevel/GetMerchantsMerchantIdPaymentMethodSettingsRequest.cs` |
+| `PaymentMethodResponse` | `src/Adyen/Models/PaymentMethodResponse.cs` |
+| `GetMerchantsMerchantIdPaymentMethodSettingsError` | `src/Adyen/Errors/GetMerchantsMerchantIdPaymentMethodSettingsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(string merchantId, string paymentMethodId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `PaymentMethodId`
 - **Returns**: `ManagementPaymentMethod`
-- **Error**: `SdkException<GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ManagementPaymentMethod` | `Models/ManagementPaymentMethod.cs` |
-| `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError` | `Errors/GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdRequest` | `src/Adyen/Requests/PaymentMethodsMerchantLevel/GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdRequest.cs` |
+| `ManagementPaymentMethod` | `src/Adyen/Models/ManagementPaymentMethod.cs` |
+| `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError` | `src/Adyen/Errors/GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains(string merchantId, string paymentMethodId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains(GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `PaymentMethodId`
 - **Returns**: `ApplePayResponseInfo`
-- **Error**: `SdkException<GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ApplePayResponseInfo` | `Models/ApplePayResponseInfo.cs` |
-| `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError` | `Errors/GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsRequest` | `src/Adyen/Requests/PaymentMethodsMerchantLevel/GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsRequest.cs` |
+| `ApplePayResponseInfo` | `src/Adyen/Models/ApplePayResponseInfo.cs` |
+| `GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError` | `src/Adyen/Errors/GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(string merchantId, string paymentMethodId, UpdatePaymentMethodInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `PaymentMethodId`
 - **Returns**: `ManagementPaymentMethod`
-- **Error**: `SdkException<PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdatePaymentMethodInfo` | `Models/UpdatePaymentMethodInfo.cs` |
-| `ManagementPaymentMethod` | `Models/ManagementPaymentMethod.cs` |
-| `PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError` | `Errors/PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdRequest` | `src/Adyen/Requests/PaymentMethodsMerchantLevel/PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdRequest.cs` |
+| `UpdatePaymentMethodInfo` | `src/Adyen/Models/UpdatePaymentMethodInfo.cs` |
+| `ManagementPaymentMethod` | `src/Adyen/Models/ManagementPaymentMethod.cs` |
+| `PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError` | `src/Adyen/Errors/PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdPaymentMethodSettings
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdPaymentMethodSettings(string merchantId, PaymentMethodSetupInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdPaymentMethodSettings(PostMerchantsMerchantIdPaymentMethodSettingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `ManagementPaymentMethod`
-- **Error**: `SdkException<PostMerchantsMerchantIdPaymentMethodSettingsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdPaymentMethodSettingsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentMethodSetupInfo` | `Models/PaymentMethodSetupInfo.cs` |
-| `ManagementPaymentMethod` | `Models/ManagementPaymentMethod.cs` |
-| `PostMerchantsMerchantIdPaymentMethodSettingsError` | `Errors/PostMerchantsMerchantIdPaymentMethodSettingsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdPaymentMethodSettingsRequest` | `src/Adyen/Requests/PaymentMethodsMerchantLevel/PostMerchantsMerchantIdPaymentMethodSettingsRequest.cs` |
+| `PaymentMethodSetupInfo` | `src/Adyen/Models/PaymentMethodSetupInfo.cs` |
+| `ManagementPaymentMethod` | `src/Adyen/Models/ManagementPaymentMethod.cs` |
+| `PostMerchantsMerchantIdPaymentMethodSettingsError` | `src/Adyen/Errors/PostMerchantsMerchantIdPaymentMethodSettingsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomains
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomains(string merchantId, string paymentMethodId, ApplePayInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomains(PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `PaymentMethodId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ApplePayInfo` | `Models/ApplePayInfo.cs` |
-| `PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError` | `Errors/PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsRequest` | `src/Adyen/Requests/PaymentMethodsMerchantLevel/PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsRequest.cs` |
+| `ApplePayInfo` | `src/Adyen/Models/ApplePayInfo.cs` |
+| `PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError` | `src/Adyen/Errors/PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

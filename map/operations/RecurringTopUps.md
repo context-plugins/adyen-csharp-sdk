@@ -2,67 +2,73 @@
 
 # RecurringTopUps — operations
 
-Accessor: `client.RecurringTopUps` · Source: `Api/RecurringTopUps.cs` · 4 operations
+Accessor: `client.RecurringTopUps` · Source: `src/Adyen/Api/RecurringTopUps.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId
 
 - **Server group**: `Default13`
-- **Signature**: `DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(string balanceAccountId, string topUpId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `TopUpId`
 - **Returns**: `JsonElement`
-- **Error**: `SdkException<DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` | `Errors/DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest` | `src/Adyen/Requests/RecurringTopUps/DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest.cs` |
+| `DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` | `src/Adyen/Errors/DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalanceAccountsBalanceAccountIdRecurringTopUps
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalanceAccountsBalanceAccountIdRecurringTopUps(string balanceAccountId, string? cursor, int? limit = 10, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `cursor` — nullable, no default → **must pass explicitly**
-  - defaults: `limit` = `10`
-- **Query params (wire ← C#)**: `limit` ← `limit`, `cursor` ← `cursor`
+- **Signature**: `GetBalanceAccountsBalanceAccountIdRecurringTopUps(GetBalanceAccountsBalanceAccountIdRecurringTopUpsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`
+- **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `RecurringTopUpsResult`
-- **Error**: `SdkException<GetBalanceAccountsBalanceAccountIdRecurringTopUpsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalanceAccountsBalanceAccountIdRecurringTopUpsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RecurringTopUpsResult` | `Models/RecurringTopUpsResult.cs` |
-| `GetBalanceAccountsBalanceAccountIdRecurringTopUpsError` | `Errors/GetBalanceAccountsBalanceAccountIdRecurringTopUpsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalanceAccountsBalanceAccountIdRecurringTopUpsRequest` | `src/Adyen/Requests/RecurringTopUps/GetBalanceAccountsBalanceAccountIdRecurringTopUpsRequest.cs` |
+| `RecurringTopUpsResult` | `src/Adyen/Models/RecurringTopUpsResult.cs` |
+| `GetBalanceAccountsBalanceAccountIdRecurringTopUpsError` | `src/Adyen/Errors/GetBalanceAccountsBalanceAccountIdRecurringTopUpsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId
 
 - **Server group**: `Default13`
-- **Signature**: `PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(string balanceAccountId, string topUpId, PatchableCreateRecurringTopUp body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `TopUpId`, `Body`
 - **Returns**: `RecurringTopUp`
-- **Error**: `SdkException<PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PatchableCreateRecurringTopUp` | `Models/PatchableCreateRecurringTopUp.cs` |
-| `RecurringTopUp` | `Models/RecurringTopUp.cs` |
-| `PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` | `Errors/PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest` | `src/Adyen/Requests/RecurringTopUps/PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest.cs` |
+| `PatchableCreateRecurringTopUp` | `src/Adyen/Models/PatchableCreateRecurringTopUp.cs` |
+| `RecurringTopUp` | `src/Adyen/Models/RecurringTopUp.cs` |
+| `PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` | `src/Adyen/Errors/PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostBalanceAccountsBalanceAccountIdRecurringTopUps
 
 - **Server group**: `Default13`
-- **Signature**: `PostBalanceAccountsBalanceAccountIdRecurringTopUps(string balanceAccountId, CreateRecurringTopUp body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostBalanceAccountsBalanceAccountIdRecurringTopUps(PostBalanceAccountsBalanceAccountIdRecurringTopUpsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `Body`
 - **Returns**: `RecurringTopUp`
-- **Error**: `SdkException<PostBalanceAccountsBalanceAccountIdRecurringTopUpsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostBalanceAccountsBalanceAccountIdRecurringTopUpsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateRecurringTopUp` | `Models/CreateRecurringTopUp.cs` |
-| `RecurringTopUp` | `Models/RecurringTopUp.cs` |
-| `PostBalanceAccountsBalanceAccountIdRecurringTopUpsError` | `Errors/PostBalanceAccountsBalanceAccountIdRecurringTopUpsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostBalanceAccountsBalanceAccountIdRecurringTopUpsRequest` | `src/Adyen/Requests/RecurringTopUps/PostBalanceAccountsBalanceAccountIdRecurringTopUpsRequest.cs` |
+| `CreateRecurringTopUp` | `src/Adyen/Models/CreateRecurringTopUp.cs` |
+| `RecurringTopUp` | `src/Adyen/Models/RecurringTopUp.cs` |
+| `PostBalanceAccountsBalanceAccountIdRecurringTopUpsError` | `src/Adyen/Errors/PostBalanceAccountsBalanceAccountIdRecurringTopUpsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

@@ -2,39 +2,39 @@
 
 # Donations — operations
 
-Accessor: `client.Donations` · Source: `Api/Donations.cs` · 2 operations
+Accessor: `client.Donations` · Source: `src/Adyen/Api/Donations.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostDonationCampaigns
 
-- **Signature**: `PostDonationCampaigns(string? idempotencyKey, DonationCampaignsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDonationCampaigns(PostDonationCampaignsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DonationCampaignsResponse`
-- **Error**: `SdkException<PostDonationCampaignsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDonationCampaignsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DonationCampaignsRequest` | `Models/DonationCampaignsRequest.cs` |
-| `DonationCampaignsResponse` | `Models/DonationCampaignsResponse.cs` |
-| `PostDonationCampaignsError` | `Errors/PostDonationCampaignsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostDonationCampaignsRequest` | `src/Adyen/Requests/Donations/PostDonationCampaignsRequest.cs` |
+| `DonationCampaignsRequest` | `src/Adyen/Models/DonationCampaignsRequest.cs` |
+| `DonationCampaignsResponse` | `src/Adyen/Models/DonationCampaignsResponse.cs` |
+| `PostDonationCampaignsError` | `src/Adyen/Errors/PostDonationCampaignsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostDonations
 
-- **Signature**: `PostDonations(string? idempotencyKey, DonationPaymentRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDonations(PostDonationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DonationPaymentResponse`
-- **Error**: `SdkException<PostDonationsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDonationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DonationPaymentRequest` | `Models/DonationPaymentRequest.cs` |
-| `DonationPaymentResponse` | `Models/DonationPaymentResponse.cs` |
-| `PostDonationsError` | `Errors/PostDonationsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostDonationsRequest` | `src/Adyen/Requests/Donations/PostDonationsRequest.cs` |
+| `DonationPaymentRequest` | `src/Adyen/Models/DonationPaymentRequest.cs` |
+| `DonationPaymentResponse` | `src/Adyen/Models/DonationPaymentResponse.cs` |
+| `PostDonationsError` | `src/Adyen/Errors/PostDonationsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 

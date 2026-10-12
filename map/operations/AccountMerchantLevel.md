@@ -2,68 +2,75 @@
 
 # AccountMerchantLevel — operations
 
-Accessor: `client.AccountMerchantLevel` · Source: `Api/AccountMerchantLevel.cs` · 4 operations
+Accessor: `client.AccountMerchantLevel` · Source: `src/Adyen/Api/AccountMerchantLevel.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetMerchants
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchants(int? pageNumber, int? pageSize, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `pageNumber` — nullable, no default → **must pass explicitly**
-  - `pageSize` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchants(GetMerchantsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`
 - **Returns**: `ListMerchantResponse`
-- **Error**: `SdkException<GetMerchantsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ListMerchantResponse` | `Models/ListMerchantResponse.cs` |
-| `GetMerchantsError` | `Errors/GetMerchantsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsRequest` | `src/Adyen/Requests/AccountMerchantLevel/GetMerchantsRequest.cs` |
+| `ListMerchantResponse` | `src/Adyen/Models/ListMerchantResponse.cs` |
+| `GetMerchantsError` | `src/Adyen/Errors/GetMerchantsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantId
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantId(string merchantId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantId(GetMerchantsMerchantIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `Merchant`
-- **Error**: `SdkException<GetMerchantsMerchantIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Merchant` | `Models/Merchant.cs` |
-| `GetMerchantsMerchantIdError` | `Errors/GetMerchantsMerchantIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdRequest` | `src/Adyen/Requests/AccountMerchantLevel/GetMerchantsMerchantIdRequest.cs` |
+| `Merchant` | `src/Adyen/Models/Merchant.cs` |
+| `GetMerchantsMerchantIdError` | `src/Adyen/Errors/GetMerchantsMerchantIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchants
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchants(CreateMerchantRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchants(PostMerchantsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CreateMerchantResponse`
-- **Error**: `SdkException<PostMerchantsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateMerchantRequest` | `Models/CreateMerchantRequest.cs` |
-| `CreateMerchantResponse` | `Models/CreateMerchantResponse.cs` |
-| `PostMerchantsError` | `Errors/PostMerchantsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsRequest` | `src/Adyen/Requests/AccountMerchantLevel/PostMerchantsRequest.cs` |
+| `CreateMerchantRequest` | `src/Adyen/Models/CreateMerchantRequest.cs` |
+| `CreateMerchantResponse` | `src/Adyen/Models/CreateMerchantResponse.cs` |
+| `PostMerchantsError` | `src/Adyen/Errors/PostMerchantsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdActivate
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdActivate(string merchantId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdActivate(PostMerchantsMerchantIdActivateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `RequestActivationResponse`
-- **Error**: `SdkException<PostMerchantsMerchantIdActivateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdActivateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RequestActivationResponse` | `Models/RequestActivationResponse.cs` |
-| `PostMerchantsMerchantIdActivateError` | `Errors/PostMerchantsMerchantIdActivateError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdActivateRequest` | `src/Adyen/Requests/AccountMerchantLevel/PostMerchantsMerchantIdActivateRequest.cs` |
+| `RequestActivationResponse` | `src/Adyen/Models/RequestActivationResponse.cs` |
+| `PostMerchantsMerchantIdActivateError` | `src/Adyen/Errors/PostMerchantsMerchantIdActivateError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

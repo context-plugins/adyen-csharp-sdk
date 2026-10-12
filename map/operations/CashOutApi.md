@@ -2,22 +2,24 @@
 
 # CashOutApi — operations
 
-Accessor: `client.CashOutApi` · Source: `Api/CashOutApi.cs` · 1 operation
+Accessor: `client.CashOutApi` · Source: `src/Adyen/Api/CashOutApi.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostCashouts
 
 - **Server group**: `Default14`
-- **Signature**: `PostCashouts(CashOutInfo body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostCashouts(PostCashoutsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `CashOut`
-- **Error**: `SdkException<PostCashoutsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCashoutsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 404, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CashOutInfo` | `Models/CashOutInfo.cs` |
-| `CashOut` | `Models/CashOut.cs` |
-| `PostCashoutsError` | `Errors/PostCashoutsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostCashoutsRequest` | `src/Adyen/Requests/CashOutApi/PostCashoutsRequest.cs` |
+| `CashOutInfo` | `src/Adyen/Models/CashOutInfo.cs` |
+| `CashOut` | `src/Adyen/Models/CashOut.cs` |
+| `PostCashoutsError` | `src/Adyen/Errors/PostCashoutsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

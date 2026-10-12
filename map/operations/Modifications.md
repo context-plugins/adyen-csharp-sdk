@@ -2,231 +2,244 @@
 
 # Modifications — operations
 
-Accessor: `client.Modifications` · Source: `Api/Modifications.cs` · 14 operations
+Accessor: `client.Modifications` · Source: `src/Adyen/Api/Modifications.cs` · 14 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostAdjustAuthorisation
 
 - **Server group**: `Default1`
-- **Signature**: `PostAdjustAuthorisation(AdjustAuthorisationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostAdjustAuthorisation(PostAdjustAuthorisationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostAdjustAuthorisationError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAdjustAuthorisationError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AdjustAuthorisationRequest` | `Models/AdjustAuthorisationRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostAdjustAuthorisationError` | `Errors/PostAdjustAuthorisationError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostAdjustAuthorisationRequest` | `src/Adyen/Requests/Modifications/PostAdjustAuthorisationRequest.cs` |
+| `AdjustAuthorisationRequest` | `src/Adyen/Models/AdjustAuthorisationRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostAdjustAuthorisationError` | `src/Adyen/Errors/PostAdjustAuthorisationError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCancel
 
 - **Server group**: `Default1`
-- **Signature**: `PostCancel(CancelRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCancel(PostCancelRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostCancelError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCancelError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CancelRequest` | `Models/CancelRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostCancelError` | `Errors/PostCancelError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostCancelRequest` | `src/Adyen/Requests/Modifications/PostCancelRequest.cs` |
+| `CancelRequest` | `src/Adyen/Models/CancelRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostCancelError` | `src/Adyen/Errors/PostCancelError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCancelOrRefund
 
 - **Server group**: `Default1`
-- **Signature**: `PostCancelOrRefund(CancelOrRefundRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCancelOrRefund(PostCancelOrRefundRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostCancelOrRefundError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCancelOrRefundError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CancelOrRefundRequest` | `Models/CancelOrRefundRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostCancelOrRefundError` | `Errors/PostCancelOrRefundError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostCancelOrRefundRequest` | `src/Adyen/Requests/Modifications/PostCancelOrRefundRequest.cs` |
+| `CancelOrRefundRequest` | `src/Adyen/Models/CancelOrRefundRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostCancelOrRefundError` | `src/Adyen/Errors/PostCancelOrRefundError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCancels
 
-- **Signature**: `PostCancels(string? idempotencyKey, StandalonePaymentCancelRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCancels(PostCancelsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StandalonePaymentCancelResponse`
-- **Error**: `SdkException<PostCancelsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCancelsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StandalonePaymentCancelRequest` | `Models/StandalonePaymentCancelRequest.cs` |
-| `StandalonePaymentCancelResponse` | `Models/StandalonePaymentCancelResponse.cs` |
-| `PostCancelsError` | `Errors/PostCancelsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostCancelsRequest` | `src/Adyen/Requests/Modifications/PostCancelsRequest.cs` |
+| `StandalonePaymentCancelRequest` | `src/Adyen/Models/StandalonePaymentCancelRequest.cs` |
+| `StandalonePaymentCancelResponse` | `src/Adyen/Models/StandalonePaymentCancelResponse.cs` |
+| `PostCancelsError` | `src/Adyen/Errors/PostCancelsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCapture
 
 - **Server group**: `Default1`
-- **Signature**: `PostCapture(CaptureRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCapture(PostCaptureRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostCaptureError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCaptureError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CaptureRequest` | `Models/CaptureRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostCaptureError` | `Errors/PostCaptureError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostCaptureRequest` | `src/Adyen/Requests/Modifications/PostCaptureRequest.cs` |
+| `CaptureRequest` | `src/Adyen/Models/CaptureRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostCaptureError` | `src/Adyen/Errors/PostCaptureError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostDonate
 
 - **Server group**: `Default1`
-- **Signature**: `PostDonate(DonationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDonate(PostDonateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostDonateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDonateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DonationRequest` | `Models/DonationRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostDonateError` | `Errors/PostDonateError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostDonateRequest` | `src/Adyen/Requests/Modifications/PostDonateRequest.cs` |
+| `DonationRequest` | `src/Adyen/Models/DonationRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostDonateError` | `src/Adyen/Errors/PostDonateError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaymentsPaymentPspReferenceAmountUpdates
 
-- **Signature**: `PostPaymentsPaymentPspReferenceAmountUpdates(string paymentPspReference, string? idempotencyKey, PaymentAmountUpdateRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentsPaymentPspReferenceAmountUpdates(PostPaymentsPaymentPspReferenceAmountUpdatesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentPspReference`
 - **Returns**: `PaymentAmountUpdateResponse`
-- **Error**: `SdkException<PostPaymentsPaymentPspReferenceAmountUpdatesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentsPaymentPspReferenceAmountUpdatesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentAmountUpdateRequest` | `Models/PaymentAmountUpdateRequest.cs` |
-| `PaymentAmountUpdateResponse` | `Models/PaymentAmountUpdateResponse.cs` |
-| `PostPaymentsPaymentPspReferenceAmountUpdatesError` | `Errors/PostPaymentsPaymentPspReferenceAmountUpdatesError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaymentsPaymentPspReferenceAmountUpdatesRequest` | `src/Adyen/Requests/Modifications/PostPaymentsPaymentPspReferenceAmountUpdatesRequest.cs` |
+| `PaymentAmountUpdateRequest` | `src/Adyen/Models/PaymentAmountUpdateRequest.cs` |
+| `PaymentAmountUpdateResponse` | `src/Adyen/Models/PaymentAmountUpdateResponse.cs` |
+| `PostPaymentsPaymentPspReferenceAmountUpdatesError` | `src/Adyen/Errors/PostPaymentsPaymentPspReferenceAmountUpdatesError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaymentsPaymentPspReferenceCancels
 
-- **Signature**: `PostPaymentsPaymentPspReferenceCancels(string paymentPspReference, string? idempotencyKey, PaymentCancelRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentsPaymentPspReferenceCancels(PostPaymentsPaymentPspReferenceCancelsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentPspReference`
 - **Returns**: `PaymentCancelResponse`
-- **Error**: `SdkException<PostPaymentsPaymentPspReferenceCancelsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentsPaymentPspReferenceCancelsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentCancelRequest` | `Models/PaymentCancelRequest.cs` |
-| `PaymentCancelResponse` | `Models/PaymentCancelResponse.cs` |
-| `PostPaymentsPaymentPspReferenceCancelsError` | `Errors/PostPaymentsPaymentPspReferenceCancelsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaymentsPaymentPspReferenceCancelsRequest` | `src/Adyen/Requests/Modifications/PostPaymentsPaymentPspReferenceCancelsRequest.cs` |
+| `PaymentCancelRequest` | `src/Adyen/Models/PaymentCancelRequest.cs` |
+| `PaymentCancelResponse` | `src/Adyen/Models/PaymentCancelResponse.cs` |
+| `PostPaymentsPaymentPspReferenceCancelsError` | `src/Adyen/Errors/PostPaymentsPaymentPspReferenceCancelsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaymentsPaymentPspReferenceCaptures
 
-- **Signature**: `PostPaymentsPaymentPspReferenceCaptures(string paymentPspReference, string? idempotencyKey, PaymentCaptureRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentsPaymentPspReferenceCaptures(PostPaymentsPaymentPspReferenceCapturesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentPspReference`
 - **Returns**: `PaymentCaptureResponse`
-- **Error**: `SdkException<PostPaymentsPaymentPspReferenceCapturesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentsPaymentPspReferenceCapturesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentCaptureRequest` | `Models/PaymentCaptureRequest.cs` |
-| `PaymentCaptureResponse` | `Models/PaymentCaptureResponse.cs` |
-| `PostPaymentsPaymentPspReferenceCapturesError` | `Errors/PostPaymentsPaymentPspReferenceCapturesError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaymentsPaymentPspReferenceCapturesRequest` | `src/Adyen/Requests/Modifications/PostPaymentsPaymentPspReferenceCapturesRequest.cs` |
+| `PaymentCaptureRequest` | `src/Adyen/Models/PaymentCaptureRequest.cs` |
+| `PaymentCaptureResponse` | `src/Adyen/Models/PaymentCaptureResponse.cs` |
+| `PostPaymentsPaymentPspReferenceCapturesError` | `src/Adyen/Errors/PostPaymentsPaymentPspReferenceCapturesError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaymentsPaymentPspReferenceRefunds
 
-- **Signature**: `PostPaymentsPaymentPspReferenceRefunds(string paymentPspReference, string? idempotencyKey, PaymentRefundRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentsPaymentPspReferenceRefunds(PostPaymentsPaymentPspReferenceRefundsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentPspReference`
 - **Returns**: `PaymentRefundResponse`
-- **Error**: `SdkException<PostPaymentsPaymentPspReferenceRefundsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentsPaymentPspReferenceRefundsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentRefundRequest` | `Models/PaymentRefundRequest.cs` |
-| `PaymentRefundResponse` | `Models/PaymentRefundResponse.cs` |
-| `PostPaymentsPaymentPspReferenceRefundsError` | `Errors/PostPaymentsPaymentPspReferenceRefundsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaymentsPaymentPspReferenceRefundsRequest` | `src/Adyen/Requests/Modifications/PostPaymentsPaymentPspReferenceRefundsRequest.cs` |
+| `PaymentRefundRequest` | `src/Adyen/Models/PaymentRefundRequest.cs` |
+| `PaymentRefundResponse` | `src/Adyen/Models/PaymentRefundResponse.cs` |
+| `PostPaymentsPaymentPspReferenceRefundsError` | `src/Adyen/Errors/PostPaymentsPaymentPspReferenceRefundsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaymentsPaymentPspReferenceReversals
 
-- **Signature**: `PostPaymentsPaymentPspReferenceReversals(string paymentPspReference, string? idempotencyKey, PaymentReversalRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentsPaymentPspReferenceReversals(PostPaymentsPaymentPspReferenceReversalsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentPspReference`
 - **Returns**: `PaymentReversalResponse`
-- **Error**: `SdkException<PostPaymentsPaymentPspReferenceReversalsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentsPaymentPspReferenceReversalsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentReversalRequest` | `Models/PaymentReversalRequest.cs` |
-| `PaymentReversalResponse` | `Models/PaymentReversalResponse.cs` |
-| `PostPaymentsPaymentPspReferenceReversalsError` | `Errors/PostPaymentsPaymentPspReferenceReversalsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaymentsPaymentPspReferenceReversalsRequest` | `src/Adyen/Requests/Modifications/PostPaymentsPaymentPspReferenceReversalsRequest.cs` |
+| `PaymentReversalRequest` | `src/Adyen/Models/PaymentReversalRequest.cs` |
+| `PaymentReversalResponse` | `src/Adyen/Models/PaymentReversalResponse.cs` |
+| `PostPaymentsPaymentPspReferenceReversalsError` | `src/Adyen/Errors/PostPaymentsPaymentPspReferenceReversalsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostRefund
 
 - **Server group**: `Default1`
-- **Signature**: `PostRefund(RefundRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostRefund(PostRefundRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostRefundError>` — **Case A (typed)**
+- **Error**: `ApiException<PostRefundError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RefundRequest` | `Models/RefundRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostRefundError` | `Errors/PostRefundError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostRefundRequest` | `src/Adyen/Requests/Modifications/PostRefundRequest.cs` |
+| `RefundRequest` | `src/Adyen/Models/RefundRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostRefundError` | `src/Adyen/Errors/PostRefundError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostTechnicalCancel
 
 - **Server group**: `Default1`
-- **Signature**: `PostTechnicalCancel(TechnicalCancelRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostTechnicalCancel(PostTechnicalCancelRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostTechnicalCancelError>` — **Case A (typed)**
+- **Error**: `ApiException<PostTechnicalCancelError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TechnicalCancelRequest` | `Models/TechnicalCancelRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostTechnicalCancelError` | `Errors/PostTechnicalCancelError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostTechnicalCancelRequest` | `src/Adyen/Requests/Modifications/PostTechnicalCancelRequest.cs` |
+| `TechnicalCancelRequest` | `src/Adyen/Models/TechnicalCancelRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostTechnicalCancelError` | `src/Adyen/Errors/PostTechnicalCancelError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostVoidPendingRefund
 
 - **Server group**: `Default1`
-- **Signature**: `PostVoidPendingRefund(VoidPendingRefundRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostVoidPendingRefund(PostVoidPendingRefundRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ModificationResult`
-- **Error**: `SdkException<PostVoidPendingRefundError>` — **Case A (typed)**
+- **Error**: `ApiException<PostVoidPendingRefundError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `VoidPendingRefundRequest` | `Models/VoidPendingRefundRequest.cs` |
-| `ModificationResult` | `Models/ModificationResult.cs` |
-| `PostVoidPendingRefundError` | `Errors/PostVoidPendingRefundError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostVoidPendingRefundRequest` | `src/Adyen/Requests/Modifications/PostVoidPendingRefundRequest.cs` |
+| `VoidPendingRefundRequest` | `src/Adyen/Models/VoidPendingRefundRequest.cs` |
+| `ModificationResult` | `src/Adyen/Models/ModificationResult.cs` |
+| `PostVoidPendingRefundError` | `src/Adyen/Errors/PostVoidPendingRefundError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 

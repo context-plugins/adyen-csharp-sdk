@@ -2,66 +2,68 @@
 
 # Utility — operations
 
-Accessor: `client.Utility` · Source: `Api/Utility.cs` · 4 operations
+Accessor: `client.Utility` · Source: `src/Adyen/Api/Utility.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostApplePaySessions
 
-- **Signature**: `PostApplePaySessions(string? idempotencyKey, ApplePaySessionRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostApplePaySessions(PostApplePaySessionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ApplePaySessionResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ApplePaySessionRequest` | `Models/ApplePaySessionRequest.cs` |
-| `ApplePaySessionResponse` | `Models/ApplePaySessionResponse.cs` |
+| `PostApplePaySessionsRequest` | `src/Adyen/Requests/Utility/PostApplePaySessionsRequest.cs` |
+| `ApplePaySessionRequest` | `src/Adyen/Models/ApplePaySessionRequest.cs` |
+| `ApplePaySessionResponse` | `src/Adyen/Models/ApplePaySessionResponse.cs` |
 
 ### PostOriginKeys
 
-- **Signature**: `PostOriginKeys(string? idempotencyKey, UtilityRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostOriginKeys(PostOriginKeysRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UtilityResponse`
-- **Error**: `SdkException<PostOriginKeysError>` — **Case A (typed)**
+- **Error**: `ApiException<PostOriginKeysError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UtilityRequest` | `Models/UtilityRequest.cs` |
-| `UtilityResponse` | `Models/UtilityResponse.cs` |
-| `PostOriginKeysError` | `Errors/PostOriginKeysError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostOriginKeysRequest` | `src/Adyen/Requests/Utility/PostOriginKeysRequest.cs` |
+| `UtilityRequest` | `src/Adyen/Models/UtilityRequest.cs` |
+| `UtilityResponse` | `src/Adyen/Models/UtilityResponse.cs` |
+| `PostOriginKeysError` | `src/Adyen/Errors/PostOriginKeysError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaypalUpdateOrder
 
-- **Signature**: `PostPaypalUpdateOrder(string? idempotencyKey, PaypalUpdateOrderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaypalUpdateOrder(PostPaypalUpdateOrderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `PaypalUpdateOrderResponse`
-- **Error**: `SdkException<PostPaypalUpdateOrderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaypalUpdateOrderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaypalUpdateOrderRequest` | `Models/PaypalUpdateOrderRequest.cs` |
-| `PaypalUpdateOrderResponse` | `Models/PaypalUpdateOrderResponse.cs` |
-| `PostPaypalUpdateOrderError` | `Errors/PostPaypalUpdateOrderError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaypalUpdateOrderRequest` | `src/Adyen/Requests/Utility/PostPaypalUpdateOrderRequest.cs` |
+| `PaypalUpdateOrderRequest` | `src/Adyen/Models/PaypalUpdateOrderRequest.cs` |
+| `PaypalUpdateOrderResponse` | `src/Adyen/Models/PaypalUpdateOrderResponse.cs` |
+| `PostPaypalUpdateOrderError` | `src/Adyen/Errors/PostPaypalUpdateOrderError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostValidateShopperId
 
-- **Signature**: `PostValidateShopperId(ValidateShopperIdRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostValidateShopperId(PostValidateShopperIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `ValidateShopperIdResponse`
-- **Error**: `SdkException<PostValidateShopperIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PostValidateShopperIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetCheckoutErrorResponseEntity(out CheckoutErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ValidateShopperIdRequest` | `Models/ValidateShopperIdRequest.cs` |
-| `ValidateShopperIdResponse` | `Models/ValidateShopperIdResponse.cs` |
-| `PostValidateShopperIdError` | `Errors/PostValidateShopperIdError.cs` |
-| `CheckoutErrorResponseEntity` | `Models/CheckoutErrorResponseEntity.cs` |
+| `PostValidateShopperIdRequest` | `src/Adyen/Requests/Utility/PostValidateShopperIdRequest.cs` |
+| `ValidateShopperIdRequest` | `src/Adyen/Models/ValidateShopperIdRequest.cs` |
+| `ValidateShopperIdResponse` | `src/Adyen/Models/ValidateShopperIdResponse.cs` |
+| `PostValidateShopperIdError` | `src/Adyen/Errors/PostValidateShopperIdError.cs` |
+| `CheckoutErrorResponseEntity` | `src/Adyen/Models/CheckoutErrorResponseEntity.cs` |
 

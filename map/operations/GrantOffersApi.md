@@ -2,65 +2,75 @@
 
 # GrantOffersApi — operations
 
-Accessor: `client.GrantOffersApi` · Source: `Api/GrantOffersApi.cs` · 4 operations
+Accessor: `client.GrantOffersApi` · Source: `src/Adyen/Api/GrantOffersApi.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetGrantOffers
 
 - **Server group**: `Default13`
-- **Signature**: `GetGrantOffers(string accountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `accountHolderId` ← `accountHolderId`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetGrantOffers(GetGrantOffersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `AccountHolderId`
+- **Query params (wire ← C#)**: `accountHolderId` ← `AccountHolderId`
 - **Returns**: `GrantOffers`
-- **Error**: `SdkException<GetGrantOffersError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantOffersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GrantOffers` | `Models/GrantOffers.cs` |
-| `GetGrantOffersError` | `Errors/GetGrantOffersError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetGrantOffersRequest` | `src/Adyen/Requests/GrantOffersApi/GetGrantOffersRequest.cs` |
+| `GrantOffers` | `src/Adyen/Models/GrantOffers.cs` |
+| `GetGrantOffersError` | `src/Adyen/Errors/GetGrantOffersError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetGrantOffers1
 
 - **Server group**: `Default15`
-- **Signature**: `GetGrantOffers1(string accountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `accountHolderId` ← `accountHolderId`
+- **Signature**: `GetGrantOffers1(GetGrantOffers1Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `AccountHolderId`
+- **Query params (wire ← C#)**: `accountHolderId` ← `AccountHolderId`
 - **Returns**: `GrantOffers`
-- **Error**: `SdkException<GetGrantOffers1Error>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantOffers1Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GrantOffers` | `Models/GrantOffers.cs` |
-| `GetGrantOffers1Error` | `Errors/GetGrantOffers1Error.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetGrantOffers1Request` | `src/Adyen/Requests/GrantOffersApi/GetGrantOffers1Request.cs` |
+| `GrantOffers` | `src/Adyen/Models/GrantOffers.cs` |
+| `GetGrantOffers1Error` | `src/Adyen/Errors/GetGrantOffers1Error.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetGrantOffersGrantOfferId
 
 - **Server group**: `Default13`
-- **Signature**: `GetGrantOffersGrantOfferId(string grantOfferId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetGrantOffersGrantOfferId(GetGrantOffersGrantOfferIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `GrantOfferId`
 - **Returns**: `GrantOffer`
-- **Error**: `SdkException<GetGrantOffersGrantOfferIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantOffersGrantOfferIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GrantOffer` | `Models/GrantOffer.cs` |
-| `GetGrantOffersGrantOfferIdError` | `Errors/GetGrantOffersGrantOfferIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetGrantOffersGrantOfferIdRequest` | `src/Adyen/Requests/GrantOffersApi/GetGrantOffersGrantOfferIdRequest.cs` |
+| `GrantOffer` | `src/Adyen/Models/GrantOffer.cs` |
+| `GetGrantOffersGrantOfferIdError` | `src/Adyen/Errors/GetGrantOffersGrantOfferIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetGrantOffersId
 
 - **Server group**: `Default15`
-- **Signature**: `GetGrantOffersId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetGrantOffersId(GetGrantOffersIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `GrantOffer1`
-- **Error**: `SdkException<GetGrantOffersIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantOffersIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GrantOffer1` | `Models/GrantOffer1.cs` |
-| `GetGrantOffersIdError` | `Errors/GetGrantOffersIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetGrantOffersIdRequest` | `src/Adyen/Requests/GrantOffersApi/GetGrantOffersIdRequest.cs` |
+| `GrantOffer1` | `src/Adyen/Models/GrantOffer1.cs` |
+| `GetGrantOffersIdError` | `src/Adyen/Errors/GetGrantOffersIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

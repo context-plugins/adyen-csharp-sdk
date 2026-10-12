@@ -2,70 +2,75 @@
 
 # TransferLimitsBalancePlatformLevel — operations
 
-Accessor: `client.TransferLimitsBalancePlatformLevel` · Source: `Api/TransferLimitsBalancePlatformLevel.cs` · 4 operations
+Accessor: `client.TransferLimitsBalancePlatformLevel` · Source: `src/Adyen/Api/TransferLimitsBalancePlatformLevel.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteBalancePlatformsIdTransferLimitsTransferLimitId
 
 - **Server group**: `Default13`
-- **Signature**: `DeleteBalancePlatformsIdTransferLimitsTransferLimitId(string id, string transferLimitId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeleteBalancePlatformsIdTransferLimitsTransferLimitId(DeleteBalancePlatformsIdTransferLimitsTransferLimitIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `TransferLimitId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError` | `Errors/DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `DeleteBalancePlatformsIdTransferLimitsTransferLimitIdRequest` | `src/Adyen/Requests/TransferLimitsBalancePlatformLevel/DeleteBalancePlatformsIdTransferLimitsTransferLimitIdRequest.cs` |
+| `DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError` | `src/Adyen/Errors/DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalancePlatformsIdTransferLimits
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalancePlatformsIdTransferLimits(string id, Scope? scope, TransferType? transferType, LimitStatus? status, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `scope` — nullable, no default → **must pass explicitly**
-  - `transferType` — nullable, no default → **must pass explicitly**
-  - `status` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `scope` ← `scope`, `transferType` ← `transferType`, `status` ← `status`
+- **Signature**: `GetBalancePlatformsIdTransferLimits(GetBalancePlatformsIdTransferLimitsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
+- **Query params (wire ← C#)**: `scope` ← `Scope`, `transferType` ← `TransferType`, `status` ← `Status`
 - **Returns**: `TransferLimitListResponse`
-- **Error**: `SdkException<GetBalancePlatformsIdTransferLimitsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalancePlatformsIdTransferLimitsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Scope` | `Models/Enums/Scope.cs` |
-| `TransferType` | `Models/Enums/TransferType.cs` |
-| `LimitStatus` | `Models/Enums/LimitStatus.cs` |
-| `TransferLimitListResponse` | `Models/TransferLimitListResponse.cs` |
-| `GetBalancePlatformsIdTransferLimitsError` | `Errors/GetBalancePlatformsIdTransferLimitsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalancePlatformsIdTransferLimitsRequest` | `src/Adyen/Requests/TransferLimitsBalancePlatformLevel/GetBalancePlatformsIdTransferLimitsRequest.cs` |
+| `Scope` | `src/Adyen/Models/Enums/Scope.cs` |
+| `TransferType` | `src/Adyen/Models/Enums/TransferType.cs` |
+| `LimitStatus` | `src/Adyen/Models/Enums/LimitStatus.cs` |
+| `TransferLimitListResponse` | `src/Adyen/Models/TransferLimitListResponse.cs` |
+| `GetBalancePlatformsIdTransferLimitsError` | `src/Adyen/Errors/GetBalancePlatformsIdTransferLimitsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalancePlatformsIdTransferLimitsTransferLimitId
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalancePlatformsIdTransferLimitsTransferLimitId(string id, string transferLimitId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetBalancePlatformsIdTransferLimitsTransferLimitId(GetBalancePlatformsIdTransferLimitsTransferLimitIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `TransferLimitId`
 - **Returns**: `TransferLimit`
-- **Error**: `SdkException<GetBalancePlatformsIdTransferLimitsTransferLimitIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalancePlatformsIdTransferLimitsTransferLimitIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TransferLimit` | `Models/TransferLimit.cs` |
-| `GetBalancePlatformsIdTransferLimitsTransferLimitIdError` | `Errors/GetBalancePlatformsIdTransferLimitsTransferLimitIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalancePlatformsIdTransferLimitsTransferLimitIdRequest` | `src/Adyen/Requests/TransferLimitsBalancePlatformLevel/GetBalancePlatformsIdTransferLimitsTransferLimitIdRequest.cs` |
+| `TransferLimit` | `src/Adyen/Models/TransferLimit.cs` |
+| `GetBalancePlatformsIdTransferLimitsTransferLimitIdError` | `src/Adyen/Errors/GetBalancePlatformsIdTransferLimitsTransferLimitIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostBalancePlatformsIdTransferLimits
 
 - **Server group**: `Default13`
-- **Signature**: `PostBalancePlatformsIdTransferLimits(string id, CreateTransferLimitRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostBalancePlatformsIdTransferLimits(PostBalancePlatformsIdTransferLimitsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `Body`
 - **Returns**: `TransferLimit`
-- **Error**: `SdkException<PostBalancePlatformsIdTransferLimitsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostBalancePlatformsIdTransferLimitsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateTransferLimitRequest` | `Models/CreateTransferLimitRequest.cs` |
-| `TransferLimit` | `Models/TransferLimit.cs` |
-| `PostBalancePlatformsIdTransferLimitsError` | `Errors/PostBalancePlatformsIdTransferLimitsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostBalancePlatformsIdTransferLimitsRequest` | `src/Adyen/Requests/TransferLimitsBalancePlatformLevel/PostBalancePlatformsIdTransferLimitsRequest.cs` |
+| `CreateTransferLimitRequest` | `src/Adyen/Models/CreateTransferLimitRequest.cs` |
+| `TransferLimit` | `src/Adyen/Models/TransferLimit.cs` |
+| `PostBalancePlatformsIdTransferLimitsError` | `src/Adyen/Errors/PostBalancePlatformsIdTransferLimitsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

@@ -1,0 +1,144 @@
+using System;
+using System.Text.Json.Serialization;
+using Adyen.Core.Enum;
+
+namespace Adyen.Models.Enums;
+
+/// <summary>
+/// The part of the payment you want to book to the specified <c>account</c>.
+/// <para>
+/// Possible values for the <see href="https://docs.adyen.com/adyen-for-platforms-model">Balance Platform</see>:
+/// * <b>BalanceAccount</b>: Books part of the payment (specified in <c>amount</c>) to the specified <c>account</c>.
+/// * Transaction fees types that you can book to the specified <c>account</c>:
+///    * <b>AcquiringFees</b>: The aggregated amount of the interchange and scheme fees.
+///    * <b>PaymentFee</b>: The aggregated amount of all transaction fees.
+///    * <b>AdyenFees</b>: The aggregated amount of Adyen's commission and markup fees.
+///    * <b>AdyenCommission</b>: The transaction fees due to Adyen under <see href="https://www.adyen.com/knowledge-hub/interchange-fees-explained">blended rates</see>.
+///    * <b>AdyenMarkup</b>: The transaction fees due to Adyen under <see href="https://www.adyen.com/knowledge-hub/interchange-fees-explained">Interchange ++ pricing</see>.
+///    * <b>Interchange</b>: The fees paid to the issuer for each payment made with the card network.
+///    * <b>SchemeFee</b>: The fees paid to the card scheme for using their network.
+/// * <b>Commission</b>: Your platform's commission on the payment (specified in <c>amount</c>), booked to your liable balance account.
+/// * <b>Remainder</b>: The amount left over after a currency conversion, booked to the specified <c>account</c>.
+/// * <b>Surcharge</b>: The payment acceptance fee imposed by the card scheme or debit network provider, paid by your user's customer.
+/// * <b>TopUp</b>: Allows you and your users to top up balance accounts using direct debit, card payments, or other payment methods.
+/// * <b>VAT</b>: The value-added tax charged on the payment, booked to your platforms liable balance account.
+/// * <b>Default</b>: In very specific use cases, allows you to book the specified <c>amount</c> to the specified <c>account</c>. For more information, contact Adyen support.
+/// </para>
+/// <para>
+/// Possible values for the <see href="https://docs.adyen.com/classic-platforms">Classic Platforms integration</see>: <b>Commission</b>, <b>Default</b>, <b>MarketPlace</b>, <b>PaymentFee</b>, <b>VAT</b>.
+/// </para>
+/// </summary>
+[JsonConverter(typeof(StringEnumConverter<Type11>))]
+public sealed record Type11 : OpenStringEnum<Type11>
+{
+    private Type11(string value) : base(value)
+    {
+    }
+
+    public static readonly Type11 AcquiringFees = new("AcquiringFees");
+
+    public static readonly Type11 AdyenCommission = new("AdyenCommission");
+
+    public static readonly Type11 AdyenFees = new("AdyenFees");
+
+    public static readonly Type11 AdyenMarkup = new("AdyenMarkup");
+
+    public static readonly Type11 BalanceAccount = new("BalanceAccount");
+
+    public static readonly Type11 Commission = new("Commission");
+
+    public static readonly Type11 Default = new("Default");
+
+    public static readonly Type11 Interchange = new("Interchange");
+
+    public static readonly Type11 MarketPlace = new("MarketPlace");
+
+    public static readonly Type11 PaymentFee = new("PaymentFee");
+
+    public static readonly Type11 Remainder = new("Remainder");
+
+    public static readonly Type11 SchemeFee = new("SchemeFee");
+
+    public static readonly Type11 Surcharge = new("Surcharge");
+
+    public static readonly Type11 Tip = new("Tip");
+
+    public static readonly Type11 TopUp = new("TopUp");
+
+    public static readonly Type11 Vat = new("VAT");
+
+    public TResult Match<TResult>(Func<TResult> onAcquiringFees,
+        Func<TResult> onAdyenCommission,
+        Func<TResult> onAdyenFees,
+        Func<TResult> onAdyenMarkup,
+        Func<TResult> onBalanceAccount,
+        Func<TResult> onCommission,
+        Func<TResult> onDefault,
+        Func<TResult> onInterchange,
+        Func<TResult> onMarketPlace,
+        Func<TResult> onPaymentFee,
+        Func<TResult> onRemainder,
+        Func<TResult> onSchemeFee,
+        Func<TResult> onSurcharge,
+        Func<TResult> onTip,
+        Func<TResult> onTopUp,
+        Func<TResult> onVat,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == AcquiringFees => onAcquiringFees(),
+            _ when this == AdyenCommission => onAdyenCommission(),
+            _ when this == AdyenFees => onAdyenFees(),
+            _ when this == AdyenMarkup => onAdyenMarkup(),
+            _ when this == BalanceAccount => onBalanceAccount(),
+            _ when this == Commission => onCommission(),
+            _ when this == Default => onDefault(),
+            _ when this == Interchange => onInterchange(),
+            _ when this == MarketPlace => onMarketPlace(),
+            _ when this == PaymentFee => onPaymentFee(),
+            _ when this == Remainder => onRemainder(),
+            _ when this == SchemeFee => onSchemeFee(),
+            _ when this == Surcharge => onSurcharge(),
+            _ when this == Tip => onTip(),
+            _ when this == TopUp => onTopUp(),
+            _ when this == Vat => onVat(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onAcquiringFees,
+        Action onAdyenCommission,
+        Action onAdyenFees,
+        Action onAdyenMarkup,
+        Action onBalanceAccount,
+        Action onCommission,
+        Action onDefault,
+        Action onInterchange,
+        Action onMarketPlace,
+        Action onPaymentFee,
+        Action onRemainder,
+        Action onSchemeFee,
+        Action onSurcharge,
+        Action onTip,
+        Action onTopUp,
+        Action onVat,
+        Action<string> otherwise)
+    {
+        if (this == AcquiringFees) onAcquiringFees();
+        else if (this == AdyenCommission) onAdyenCommission();
+        else if (this == AdyenFees) onAdyenFees();
+        else if (this == AdyenMarkup) onAdyenMarkup();
+        else if (this == BalanceAccount) onBalanceAccount();
+        else if (this == Commission) onCommission();
+        else if (this == Default) onDefault();
+        else if (this == Interchange) onInterchange();
+        else if (this == MarketPlace) onMarketPlace();
+        else if (this == PaymentFee) onPaymentFee();
+        else if (this == Remainder) onRemainder();
+        else if (this == SchemeFee) onSchemeFee();
+        else if (this == Surcharge) onSurcharge();
+        else if (this == Tip) onTip();
+        else if (this == TopUp) onTopUp();
+        else if (this == Vat) onVat();
+        else otherwise(Value);
+    }
+}

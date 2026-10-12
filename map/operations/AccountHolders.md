@@ -2,257 +2,280 @@
 
 # AccountHolders — operations
 
-Accessor: `client.AccountHolders` · Source: `Api/AccountHolders.cs` · 16 operations
+Accessor: `client.AccountHolders` · Source: `src/Adyen/Api/AccountHolders.cs` · 16 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetAccountHoldersId
 
 - **Server group**: `Default13`
-- **Signature**: `GetAccountHoldersId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetAccountHoldersId(GetAccountHoldersIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AccountHolder`
-- **Error**: `SdkException<GetAccountHoldersIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetAccountHoldersIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AccountHolder` | `Models/AccountHolder.cs` |
-| `GetAccountHoldersIdError` | `Errors/GetAccountHoldersIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetAccountHoldersIdRequest` | `src/Adyen/Requests/AccountHolders/GetAccountHoldersIdRequest.cs` |
+| `AccountHolder` | `src/Adyen/Models/AccountHolder.cs` |
+| `GetAccountHoldersIdError` | `src/Adyen/Errors/GetAccountHoldersIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetAccountHoldersIdBalanceAccounts
 
 - **Server group**: `Default13`
-- **Signature**: `GetAccountHoldersIdBalanceAccounts(string id, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `offset` — nullable, no default → **must pass explicitly**
-  - `limit` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetAccountHoldersIdBalanceAccounts(GetAccountHoldersIdBalanceAccountsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
+- **Query params (wire ← C#)**: `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `PaginatedBalanceAccountsResponse`
-- **Error**: `SdkException<GetAccountHoldersIdBalanceAccountsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetAccountHoldersIdBalanceAccountsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaginatedBalanceAccountsResponse` | `Models/PaginatedBalanceAccountsResponse.cs` |
-| `GetAccountHoldersIdBalanceAccountsError` | `Errors/GetAccountHoldersIdBalanceAccountsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetAccountHoldersIdBalanceAccountsRequest` | `src/Adyen/Requests/AccountHolders/GetAccountHoldersIdBalanceAccountsRequest.cs` |
+| `PaginatedBalanceAccountsResponse` | `src/Adyen/Models/PaginatedBalanceAccountsResponse.cs` |
+| `GetAccountHoldersIdBalanceAccountsError` | `src/Adyen/Errors/GetAccountHoldersIdBalanceAccountsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetAccountHoldersIdTaxFormSummary
 
 - **Server group**: `Default13`
-- **Signature**: `GetAccountHoldersIdTaxFormSummary(string id, string formType, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `formType` ← `formType`
+- **Signature**: `GetAccountHoldersIdTaxFormSummary(GetAccountHoldersIdTaxFormSummaryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `FormType`
+- **Query params (wire ← C#)**: `formType` ← `FormType`
 - **Returns**: `TaxFormSummaryResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `TaxFormSummaryResponse` | `Models/TaxFormSummaryResponse.cs` |
+| `GetAccountHoldersIdTaxFormSummaryRequest` | `src/Adyen/Requests/AccountHolders/GetAccountHoldersIdTaxFormSummaryRequest.cs` |
+| `TaxFormSummaryResponse` | `src/Adyen/Models/TaxFormSummaryResponse.cs` |
 
 ### GetAccountHoldersIdTaxForms
 
 - **Server group**: `Default13`
-- **Signature**: `GetAccountHoldersIdTaxForms(string id, FormType formType, int year, string? legalEntityId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `legalEntityId` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `formType` ← `formType`, `year` ← `year`, `legalEntityId` ← `legalEntityId`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetAccountHoldersIdTaxForms(GetAccountHoldersIdTaxFormsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `FormType`, `Year`
+- **Query params (wire ← C#)**: `formType` ← `FormType`, `year` ← `Year`, `legalEntityId` ← `LegalEntityId`
 - **Returns**: `GetTaxFormResponse1`
-- **Error**: `SdkException<GetAccountHoldersIdTaxFormsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetAccountHoldersIdTaxFormsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `FormType` | `Models/Enums/FormType.cs` |
-| `GetTaxFormResponse1` | `Models/GetTaxFormResponse1.cs` |
-| `GetAccountHoldersIdTaxFormsError` | `Errors/GetAccountHoldersIdTaxFormsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetAccountHoldersIdTaxFormsRequest` | `src/Adyen/Requests/AccountHolders/GetAccountHoldersIdTaxFormsRequest.cs` |
+| `FormType` | `src/Adyen/Models/Enums/FormType.cs` |
+| `GetTaxFormResponse1` | `src/Adyen/Models/GetTaxFormResponse1.cs` |
+| `GetAccountHoldersIdTaxFormsError` | `src/Adyen/Errors/GetAccountHoldersIdTaxFormsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetAccountHoldersIdTransactionRules
 
 - **Server group**: `Default13`
-- **Signature**: `GetAccountHoldersIdTransactionRules(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetAccountHoldersIdTransactionRules(GetAccountHoldersIdTransactionRulesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `TransactionRulesResponse`
-- **Error**: `SdkException<GetAccountHoldersIdTransactionRulesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetAccountHoldersIdTransactionRulesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TransactionRulesResponse` | `Models/TransactionRulesResponse.cs` |
-| `GetAccountHoldersIdTransactionRulesError` | `Errors/GetAccountHoldersIdTransactionRulesError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetAccountHoldersIdTransactionRulesRequest` | `src/Adyen/Requests/AccountHolders/GetAccountHoldersIdTransactionRulesRequest.cs` |
+| `TransactionRulesResponse` | `src/Adyen/Models/TransactionRulesResponse.cs` |
+| `GetAccountHoldersIdTransactionRulesError` | `src/Adyen/Errors/GetAccountHoldersIdTransactionRulesError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchAccountHoldersId
 
 - **Server group**: `Default13`
-- **Signature**: `PatchAccountHoldersId(string id, AccountHolderUpdateRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchAccountHoldersId(PatchAccountHoldersIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AccountHolder`
-- **Error**: `SdkException<PatchAccountHoldersIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchAccountHoldersIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AccountHolderUpdateRequest` | `Models/AccountHolderUpdateRequest.cs` |
-| `AccountHolder` | `Models/AccountHolder.cs` |
-| `PatchAccountHoldersIdError` | `Errors/PatchAccountHoldersIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchAccountHoldersIdRequest` | `src/Adyen/Requests/AccountHolders/PatchAccountHoldersIdRequest.cs` |
+| `AccountHolderUpdateRequest` | `src/Adyen/Models/AccountHolderUpdateRequest.cs` |
+| `AccountHolder` | `src/Adyen/Models/AccountHolder.cs` |
+| `PatchAccountHoldersIdError` | `src/Adyen/Errors/PatchAccountHoldersIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostAccountHolders
 
 - **Server group**: `Default13`
-- **Signature**: `PostAccountHolders(AccountHolderInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostAccountHolders(PostAccountHoldersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AccountHolder`
-- **Error**: `SdkException<PostAccountHoldersError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAccountHoldersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AccountHolderInfo` | `Models/AccountHolderInfo.cs` |
-| `AccountHolder` | `Models/AccountHolder.cs` |
-| `PostAccountHoldersError` | `Errors/PostAccountHoldersError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostAccountHoldersRequest` | `src/Adyen/Requests/AccountHolders/PostAccountHoldersRequest.cs` |
+| `AccountHolderInfo` | `src/Adyen/Models/AccountHolderInfo.cs` |
+| `AccountHolder` | `src/Adyen/Models/AccountHolder.cs` |
+| `PostAccountHoldersError` | `src/Adyen/Errors/PostAccountHoldersError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCloseAccountHolder
 
 - **Server group**: `Default10`
-- **Signature**: `PostCloseAccountHolder(CloseAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCloseAccountHolder(PostCloseAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CloseAccountHolderResponse`
-- **Error**: `SdkException<PostCloseAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCloseAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CloseAccountHolderRequest` | `Models/CloseAccountHolderRequest.cs` |
-| `CloseAccountHolderResponse` | `Models/CloseAccountHolderResponse.cs` |
-| `PostCloseAccountHolderError` | `Errors/PostCloseAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCloseAccountHolderRequest` | `src/Adyen/Requests/AccountHolders/PostCloseAccountHolderRequest.cs` |
+| `CloseAccountHolderRequest` | `src/Adyen/Models/CloseAccountHolderRequest.cs` |
+| `CloseAccountHolderResponse` | `src/Adyen/Models/CloseAccountHolderResponse.cs` |
+| `PostCloseAccountHolderError` | `src/Adyen/Errors/PostCloseAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostCloseStores
 
 - **Server group**: `Default10`
-- **Signature**: `PostCloseStores(CloseStoresRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCloseStores(PostCloseStoresRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GenericResponse`
-- **Error**: `SdkException<PostCloseStoresError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCloseStoresError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CloseStoresRequest` | `Models/CloseStoresRequest.cs` |
-| `GenericResponse` | `Models/GenericResponse.cs` |
-| `PostCloseStoresError` | `Errors/PostCloseStoresError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCloseStoresRequest` | `src/Adyen/Requests/AccountHolders/PostCloseStoresRequest.cs` |
+| `CloseStoresRequest` | `src/Adyen/Models/CloseStoresRequest.cs` |
+| `GenericResponse` | `src/Adyen/Models/GenericResponse.cs` |
+| `PostCloseStoresError` | `src/Adyen/Errors/PostCloseStoresError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostCreateAccountHolder
 
 - **Server group**: `Default10`
-- **Signature**: `PostCreateAccountHolder(CreateAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCreateAccountHolder(PostCreateAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CreateAccountHolderResponse`
-- **Error**: `SdkException<PostCreateAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCreateAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateAccountHolderRequest` | `Models/CreateAccountHolderRequest.cs` |
-| `CreateAccountHolderResponse` | `Models/CreateAccountHolderResponse.cs` |
-| `PostCreateAccountHolderError` | `Errors/PostCreateAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCreateAccountHolderRequest` | `src/Adyen/Requests/AccountHolders/PostCreateAccountHolderRequest.cs` |
+| `CreateAccountHolderRequest` | `src/Adyen/Models/CreateAccountHolderRequest.cs` |
+| `CreateAccountHolderResponse` | `src/Adyen/Models/CreateAccountHolderResponse.cs` |
+| `PostCreateAccountHolderError` | `src/Adyen/Errors/PostCreateAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGetAccountHolder
 
 - **Server group**: `Default10`
-- **Signature**: `PostGetAccountHolder(GetAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetAccountHolder(PostGetAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetAccountHolderResponse`
-- **Error**: `SdkException<PostGetAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetAccountHolderRequest` | `Models/GetAccountHolderRequest.cs` |
-| `GetAccountHolderResponse` | `Models/GetAccountHolderResponse.cs` |
-| `PostGetAccountHolderError` | `Errors/PostGetAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetAccountHolderRequest` | `src/Adyen/Requests/AccountHolders/PostGetAccountHolderRequest.cs` |
+| `GetAccountHolderRequest` | `src/Adyen/Models/GetAccountHolderRequest.cs` |
+| `GetAccountHolderResponse` | `src/Adyen/Models/GetAccountHolderResponse.cs` |
+| `PostGetAccountHolderError` | `src/Adyen/Errors/PostGetAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGetTaxForm
 
 - **Server group**: `Default10`
-- **Signature**: `PostGetTaxForm(GetTaxFormRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetTaxForm(PostGetTaxFormRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetTaxFormResponse`
-- **Error**: `SdkException<PostGetTaxFormError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetTaxFormError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetTaxFormRequest` | `Models/GetTaxFormRequest.cs` |
-| `GetTaxFormResponse` | `Models/GetTaxFormResponse.cs` |
-| `PostGetTaxFormError` | `Errors/PostGetTaxFormError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetTaxFormRequest` | `src/Adyen/Requests/AccountHolders/PostGetTaxFormRequest.cs` |
+| `GetTaxFormRequest` | `src/Adyen/Models/GetTaxFormRequest.cs` |
+| `GetTaxFormResponse` | `src/Adyen/Models/GetTaxFormResponse.cs` |
+| `PostGetTaxFormError` | `src/Adyen/Errors/PostGetTaxFormError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostSuspendAccountHolder
 
 - **Server group**: `Default10`
-- **Signature**: `PostSuspendAccountHolder(SuspendAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostSuspendAccountHolder(PostSuspendAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `SuspendAccountHolderResponse`
-- **Error**: `SdkException<PostSuspendAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostSuspendAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `SuspendAccountHolderRequest` | `Models/SuspendAccountHolderRequest.cs` |
-| `SuspendAccountHolderResponse` | `Models/SuspendAccountHolderResponse.cs` |
-| `PostSuspendAccountHolderError` | `Errors/PostSuspendAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostSuspendAccountHolderRequest` | `src/Adyen/Requests/AccountHolders/PostSuspendAccountHolderRequest.cs` |
+| `SuspendAccountHolderRequest` | `src/Adyen/Models/SuspendAccountHolderRequest.cs` |
+| `SuspendAccountHolderResponse` | `src/Adyen/Models/SuspendAccountHolderResponse.cs` |
+| `PostSuspendAccountHolderError` | `src/Adyen/Errors/PostSuspendAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostUnSuspendAccountHolder
 
 - **Server group**: `Default10`
-- **Signature**: `PostUnSuspendAccountHolder(UnSuspendAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostUnSuspendAccountHolder(PostUnSuspendAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UnSuspendAccountHolderResponse`
-- **Error**: `SdkException<PostUnSuspendAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostUnSuspendAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UnSuspendAccountHolderRequest` | `Models/UnSuspendAccountHolderRequest.cs` |
-| `UnSuspendAccountHolderResponse` | `Models/UnSuspendAccountHolderResponse.cs` |
-| `PostUnSuspendAccountHolderError` | `Errors/PostUnSuspendAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostUnSuspendAccountHolderRequest` | `src/Adyen/Requests/AccountHolders/PostUnSuspendAccountHolderRequest.cs` |
+| `UnSuspendAccountHolderRequest` | `src/Adyen/Models/UnSuspendAccountHolderRequest.cs` |
+| `UnSuspendAccountHolderResponse` | `src/Adyen/Models/UnSuspendAccountHolderResponse.cs` |
+| `PostUnSuspendAccountHolderError` | `src/Adyen/Errors/PostUnSuspendAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostUpdateAccountHolder
 
 - **Server group**: `Default10`
-- **Signature**: `PostUpdateAccountHolder(UpdateAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostUpdateAccountHolder(PostUpdateAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UpdateAccountHolderResponse`
-- **Error**: `SdkException<PostUpdateAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostUpdateAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateAccountHolderRequest` | `Models/UpdateAccountHolderRequest.cs` |
-| `UpdateAccountHolderResponse` | `Models/UpdateAccountHolderResponse.cs` |
-| `PostUpdateAccountHolderError` | `Errors/PostUpdateAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostUpdateAccountHolderRequest` | `src/Adyen/Requests/AccountHolders/PostUpdateAccountHolderRequest.cs` |
+| `UpdateAccountHolderRequest` | `src/Adyen/Models/UpdateAccountHolderRequest.cs` |
+| `UpdateAccountHolderResponse` | `src/Adyen/Models/UpdateAccountHolderResponse.cs` |
+| `PostUpdateAccountHolderError` | `src/Adyen/Errors/PostUpdateAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostUpdateAccountHolderState
 
 - **Server group**: `Default10`
-- **Signature**: `PostUpdateAccountHolderState(UpdateAccountHolderStateRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostUpdateAccountHolderState(PostUpdateAccountHolderStateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetAccountHolderStatusResponse`
-- **Error**: `SdkException<PostUpdateAccountHolderStateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostUpdateAccountHolderStateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateAccountHolderStateRequest` | `Models/UpdateAccountHolderStateRequest.cs` |
-| `GetAccountHolderStatusResponse` | `Models/GetAccountHolderStatusResponse.cs` |
-| `PostUpdateAccountHolderStateError` | `Errors/PostUpdateAccountHolderStateError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostUpdateAccountHolderStateRequest` | `src/Adyen/Requests/AccountHolders/PostUpdateAccountHolderStateRequest.cs` |
+| `UpdateAccountHolderStateRequest` | `src/Adyen/Models/UpdateAccountHolderStateRequest.cs` |
+| `GetAccountHolderStatusResponse` | `src/Adyen/Models/GetAccountHolderStatusResponse.cs` |
+| `PostUpdateAccountHolderStateError` | `src/Adyen/Errors/PostUpdateAccountHolderStateError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 

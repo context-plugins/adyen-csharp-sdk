@@ -2,164 +2,183 @@
 
 # TerminalOrdersCompanyLevel — operations
 
-Accessor: `client.TerminalOrdersCompanyLevel` · Source: `Api/TerminalOrdersCompanyLevel.cs` · 10 operations
+Accessor: `client.TerminalOrdersCompanyLevel` · Source: `src/Adyen/Api/TerminalOrdersCompanyLevel.cs` · 10 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetCompaniesCompanyIdBillingEntities
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdBillingEntities(string companyId, string? name, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `name` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `name` ← `name`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdBillingEntities(GetCompaniesCompanyIdBillingEntitiesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `name` ← `Name`
 - **Returns**: `BillingEntitiesResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdBillingEntitiesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdBillingEntitiesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BillingEntitiesResponse` | `Models/BillingEntitiesResponse.cs` |
-| `GetCompaniesCompanyIdBillingEntitiesError` | `Errors/GetCompaniesCompanyIdBillingEntitiesError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdBillingEntitiesRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/GetCompaniesCompanyIdBillingEntitiesRequest.cs` |
+| `BillingEntitiesResponse` | `src/Adyen/Models/BillingEntitiesResponse.cs` |
+| `GetCompaniesCompanyIdBillingEntitiesError` | `src/Adyen/Errors/GetCompaniesCompanyIdBillingEntitiesError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdShippingLocations
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdShippingLocations(string companyId, string? name, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `name` — nullable, no default → **must pass explicitly**
-  - `offset` — nullable, no default → **must pass explicitly**
-  - `limit` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `name` ← `name`, `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdShippingLocations(GetCompaniesCompanyIdShippingLocationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `name` ← `Name`, `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `ShippingLocationsResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdShippingLocationsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdShippingLocationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ShippingLocationsResponse` | `Models/ShippingLocationsResponse.cs` |
-| `GetCompaniesCompanyIdShippingLocationsError` | `Errors/GetCompaniesCompanyIdShippingLocationsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdShippingLocationsRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/GetCompaniesCompanyIdShippingLocationsRequest.cs` |
+| `ShippingLocationsResponse` | `src/Adyen/Models/ShippingLocationsResponse.cs` |
+| `GetCompaniesCompanyIdShippingLocationsError` | `src/Adyen/Errors/GetCompaniesCompanyIdShippingLocationsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdTerminalModels
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdTerminalModels(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdTerminalModels(GetCompaniesCompanyIdTerminalModelsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `TerminalModelsResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdTerminalModelsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdTerminalModelsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalModelsResponse` | `Models/TerminalModelsResponse.cs` |
-| `GetCompaniesCompanyIdTerminalModelsError` | `Errors/GetCompaniesCompanyIdTerminalModelsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdTerminalModelsRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/GetCompaniesCompanyIdTerminalModelsRequest.cs` |
+| `TerminalModelsResponse` | `src/Adyen/Models/TerminalModelsResponse.cs` |
+| `GetCompaniesCompanyIdTerminalModelsError` | `src/Adyen/Errors/GetCompaniesCompanyIdTerminalModelsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdTerminalOrders
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdTerminalOrders(string companyId, string? customerOrderReference, string? status, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 4 params (`customerOrderReference` … `limit`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `customerOrderReference` ← `customerOrderReference`, `status` ← `status`, `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdTerminalOrders(GetCompaniesCompanyIdTerminalOrdersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `customerOrderReference` ← `CustomerOrderReference`, `status` ← `Status`, `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `TerminalOrdersResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdTerminalOrdersError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdTerminalOrdersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrdersResponse` | `Models/TerminalOrdersResponse.cs` |
-| `GetCompaniesCompanyIdTerminalOrdersError` | `Errors/GetCompaniesCompanyIdTerminalOrdersError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdTerminalOrdersRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/GetCompaniesCompanyIdTerminalOrdersRequest.cs` |
+| `TerminalOrdersResponse` | `src/Adyen/Models/TerminalOrdersResponse.cs` |
+| `GetCompaniesCompanyIdTerminalOrdersError` | `src/Adyen/Errors/GetCompaniesCompanyIdTerminalOrdersError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdTerminalOrdersOrderId
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdTerminalOrdersOrderId(string companyId, string orderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdTerminalOrdersOrderId(GetCompaniesCompanyIdTerminalOrdersOrderIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `OrderId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<GetCompaniesCompanyIdTerminalOrdersOrderIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdTerminalOrdersOrderIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `GetCompaniesCompanyIdTerminalOrdersOrderIdError` | `Errors/GetCompaniesCompanyIdTerminalOrdersOrderIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdTerminalOrdersOrderIdRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/GetCompaniesCompanyIdTerminalOrdersOrderIdRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `GetCompaniesCompanyIdTerminalOrdersOrderIdError` | `src/Adyen/Errors/GetCompaniesCompanyIdTerminalOrdersOrderIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdTerminalProducts
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdTerminalProducts(string companyId, string country, string? terminalModelId, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `terminalModelId` — nullable, no default → **must pass explicitly**
-  - `offset` — nullable, no default → **must pass explicitly**
-  - `limit` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `country` ← `country`, `terminalModelId` ← `terminalModelId`, `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdTerminalProducts(GetCompaniesCompanyIdTerminalProductsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `Country`
+- **Query params (wire ← C#)**: `country` ← `Country`, `terminalModelId` ← `TerminalModelId`, `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `TerminalProductsResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdTerminalProductsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdTerminalProductsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalProductsResponse` | `Models/TerminalProductsResponse.cs` |
-| `GetCompaniesCompanyIdTerminalProductsError` | `Errors/GetCompaniesCompanyIdTerminalProductsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdTerminalProductsRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/GetCompaniesCompanyIdTerminalProductsRequest.cs` |
+| `TerminalProductsResponse` | `src/Adyen/Models/TerminalProductsResponse.cs` |
+| `GetCompaniesCompanyIdTerminalProductsError` | `src/Adyen/Errors/GetCompaniesCompanyIdTerminalProductsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchCompaniesCompanyIdTerminalOrdersOrderId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchCompaniesCompanyIdTerminalOrdersOrderId(string companyId, string orderId, TerminalOrderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchCompaniesCompanyIdTerminalOrdersOrderId(PatchCompaniesCompanyIdTerminalOrdersOrderIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `OrderId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<PatchCompaniesCompanyIdTerminalOrdersOrderIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchCompaniesCompanyIdTerminalOrdersOrderIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrderRequest` | `Models/TerminalOrderRequest.cs` |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `PatchCompaniesCompanyIdTerminalOrdersOrderIdError` | `Errors/PatchCompaniesCompanyIdTerminalOrdersOrderIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchCompaniesCompanyIdTerminalOrdersOrderIdRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/PatchCompaniesCompanyIdTerminalOrdersOrderIdRequest.cs` |
+| `TerminalOrderRequest` | `src/Adyen/Models/TerminalOrderRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `PatchCompaniesCompanyIdTerminalOrdersOrderIdError` | `src/Adyen/Errors/PatchCompaniesCompanyIdTerminalOrdersOrderIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdShippingLocations
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdShippingLocations(string companyId, ShippingLocation? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdShippingLocations(PostCompaniesCompanyIdShippingLocationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `ShippingLocation`
-- **Error**: `SdkException<PostCompaniesCompanyIdShippingLocationsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdShippingLocationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ShippingLocation` | `Models/ShippingLocation.cs` |
-| `PostCompaniesCompanyIdShippingLocationsError` | `Errors/PostCompaniesCompanyIdShippingLocationsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdShippingLocationsRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/PostCompaniesCompanyIdShippingLocationsRequest.cs` |
+| `ShippingLocation` | `src/Adyen/Models/ShippingLocation.cs` |
+| `PostCompaniesCompanyIdShippingLocationsError` | `src/Adyen/Errors/PostCompaniesCompanyIdShippingLocationsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdTerminalOrders
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdTerminalOrders(string companyId, TerminalOrderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdTerminalOrders(PostCompaniesCompanyIdTerminalOrdersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<PostCompaniesCompanyIdTerminalOrdersError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdTerminalOrdersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrderRequest` | `Models/TerminalOrderRequest.cs` |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `PostCompaniesCompanyIdTerminalOrdersError` | `Errors/PostCompaniesCompanyIdTerminalOrdersError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdTerminalOrdersRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/PostCompaniesCompanyIdTerminalOrdersRequest.cs` |
+| `TerminalOrderRequest` | `src/Adyen/Models/TerminalOrderRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `PostCompaniesCompanyIdTerminalOrdersError` | `src/Adyen/Errors/PostCompaniesCompanyIdTerminalOrdersError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdTerminalOrdersOrderIdCancel
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdTerminalOrdersOrderIdCancel(string companyId, string orderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdTerminalOrdersOrderIdCancel(PostCompaniesCompanyIdTerminalOrdersOrderIdCancelRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `OrderId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError` | `Errors/PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdTerminalOrdersOrderIdCancelRequest` | `src/Adyen/Requests/TerminalOrdersCompanyLevel/PostCompaniesCompanyIdTerminalOrdersOrderIdCancelRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError` | `src/Adyen/Errors/PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

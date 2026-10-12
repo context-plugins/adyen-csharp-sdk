@@ -2,62 +2,70 @@
 
 # AuthorizedCardUsers — operations
 
-Accessor: `client.AuthorizedCardUsers` · Source: `Api/AuthorizedCardUsers.cs` · 4 operations
+Accessor: `client.AuthorizedCardUsers` · Source: `src/Adyen/Api/AuthorizedCardUsers.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers
 
 - **Server group**: `Default13`
-- **Signature**: `DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(string paymentInstrumentId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentInstrumentId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
+- **Error**: `ApiException<DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `Errors/DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest` | `src/Adyen/Requests/AuthorizedCardUsers/DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest.cs` |
+| `DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `src/Adyen/Errors/DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers
 
 - **Server group**: `Default13`
-- **Signature**: `GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(string paymentInstrumentId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentInstrumentId`
 - **Returns**: `AuthorisedCardUsers`
-- **Error**: `SdkException<GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
+- **Error**: `ApiException<GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AuthorisedCardUsers` | `Models/AuthorisedCardUsers.cs` |
-| `GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `Errors/GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest` | `src/Adyen/Requests/AuthorizedCardUsers/GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest.cs` |
+| `AuthorisedCardUsers` | `src/Adyen/Models/AuthorisedCardUsers.cs` |
+| `GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `src/Adyen/Errors/GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers
 
 - **Server group**: `Default13`
-- **Signature**: `PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(string paymentInstrumentId, AuthorisedCardUsers body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentInstrumentId`, `Body`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AuthorisedCardUsers` | `Models/AuthorisedCardUsers.cs` |
-| `PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `Errors/PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest` | `src/Adyen/Requests/AuthorizedCardUsers/PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest.cs` |
+| `AuthorisedCardUsers` | `src/Adyen/Models/AuthorisedCardUsers.cs` |
+| `PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `src/Adyen/Errors/PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers
 
 - **Server group**: `Default13`
-- **Signature**: `PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(string paymentInstrumentId, AuthorisedCardUsers body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsers(PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `PaymentInstrumentId`, `Body`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AuthorisedCardUsers` | `Models/AuthorisedCardUsers.cs` |
-| `PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `Errors/PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest` | `src/Adyen/Requests/AuthorizedCardUsers/PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersRequest.cs` |
+| `AuthorisedCardUsers` | `src/Adyen/Models/AuthorisedCardUsers.cs` |
+| `PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError` | `src/Adyen/Errors/PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

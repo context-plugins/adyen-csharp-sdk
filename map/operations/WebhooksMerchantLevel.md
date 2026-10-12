@@ -2,113 +2,129 @@
 
 # WebhooksMerchantLevel — operations
 
-Accessor: `client.WebhooksMerchantLevel` · Source: `Api/WebhooksMerchantLevel.cs` · 7 operations
+Accessor: `client.WebhooksMerchantLevel` · Source: `src/Adyen/Api/WebhooksMerchantLevel.cs` · 7 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteMerchantsMerchantIdWebhooksWebhookId
 
 - **Server group**: `Default9`
-- **Signature**: `DeleteMerchantsMerchantIdWebhooksWebhookId(string merchantId, string webhookId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteMerchantsMerchantIdWebhooksWebhookId(DeleteMerchantsMerchantIdWebhooksWebhookIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `WebhookId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteMerchantsMerchantIdWebhooksWebhookIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteMerchantsMerchantIdWebhooksWebhookIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteMerchantsMerchantIdWebhooksWebhookIdError` | `Errors/DeleteMerchantsMerchantIdWebhooksWebhookIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `DeleteMerchantsMerchantIdWebhooksWebhookIdRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/DeleteMerchantsMerchantIdWebhooksWebhookIdRequest.cs` |
+| `DeleteMerchantsMerchantIdWebhooksWebhookIdError` | `src/Adyen/Errors/DeleteMerchantsMerchantIdWebhooksWebhookIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdWebhooks
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdWebhooks(string merchantId, int? pageNumber, int? pageSize, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `pageNumber` — nullable, no default → **must pass explicitly**
-  - `pageSize` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdWebhooks(GetMerchantsMerchantIdWebhooksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
+- **Query params (wire ← C#)**: `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`
 - **Returns**: `ListWebhooksResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdWebhooksError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdWebhooksError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ListWebhooksResponse` | `Models/ListWebhooksResponse.cs` |
-| `GetMerchantsMerchantIdWebhooksError` | `Errors/GetMerchantsMerchantIdWebhooksError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdWebhooksRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/GetMerchantsMerchantIdWebhooksRequest.cs` |
+| `ListWebhooksResponse` | `src/Adyen/Models/ListWebhooksResponse.cs` |
+| `GetMerchantsMerchantIdWebhooksError` | `src/Adyen/Errors/GetMerchantsMerchantIdWebhooksError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdWebhooksWebhookId
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdWebhooksWebhookId(string merchantId, string webhookId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdWebhooksWebhookId(GetMerchantsMerchantIdWebhooksWebhookIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `WebhookId`
 - **Returns**: `Webhook`
-- **Error**: `SdkException<GetMerchantsMerchantIdWebhooksWebhookIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdWebhooksWebhookIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Webhook` | `Models/Webhook.cs` |
-| `GetMerchantsMerchantIdWebhooksWebhookIdError` | `Errors/GetMerchantsMerchantIdWebhooksWebhookIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdWebhooksWebhookIdRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/GetMerchantsMerchantIdWebhooksWebhookIdRequest.cs` |
+| `Webhook` | `src/Adyen/Models/Webhook.cs` |
+| `GetMerchantsMerchantIdWebhooksWebhookIdError` | `src/Adyen/Errors/GetMerchantsMerchantIdWebhooksWebhookIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchMerchantsMerchantIdWebhooksWebhookId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchMerchantsMerchantIdWebhooksWebhookId(string merchantId, string webhookId, UpdateMerchantWebhookRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchMerchantsMerchantIdWebhooksWebhookId(PatchMerchantsMerchantIdWebhooksWebhookIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `WebhookId`
 - **Returns**: `Webhook`
-- **Error**: `SdkException<PatchMerchantsMerchantIdWebhooksWebhookIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchMerchantsMerchantIdWebhooksWebhookIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateMerchantWebhookRequest` | `Models/UpdateMerchantWebhookRequest.cs` |
-| `Webhook` | `Models/Webhook.cs` |
-| `PatchMerchantsMerchantIdWebhooksWebhookIdError` | `Errors/PatchMerchantsMerchantIdWebhooksWebhookIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchMerchantsMerchantIdWebhooksWebhookIdRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/PatchMerchantsMerchantIdWebhooksWebhookIdRequest.cs` |
+| `UpdateMerchantWebhookRequest` | `src/Adyen/Models/UpdateMerchantWebhookRequest.cs` |
+| `Webhook` | `src/Adyen/Models/Webhook.cs` |
+| `PatchMerchantsMerchantIdWebhooksWebhookIdError` | `src/Adyen/Errors/PatchMerchantsMerchantIdWebhooksWebhookIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdWebhooks
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdWebhooks(string merchantId, CreateMerchantWebhookRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdWebhooks(PostMerchantsMerchantIdWebhooksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `Webhook`
-- **Error**: `SdkException<PostMerchantsMerchantIdWebhooksError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdWebhooksError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateMerchantWebhookRequest` | `Models/CreateMerchantWebhookRequest.cs` |
-| `Webhook` | `Models/Webhook.cs` |
-| `PostMerchantsMerchantIdWebhooksError` | `Errors/PostMerchantsMerchantIdWebhooksError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdWebhooksRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/PostMerchantsMerchantIdWebhooksRequest.cs` |
+| `CreateMerchantWebhookRequest` | `src/Adyen/Models/CreateMerchantWebhookRequest.cs` |
+| `Webhook` | `src/Adyen/Models/Webhook.cs` |
+| `PostMerchantsMerchantIdWebhooksError` | `src/Adyen/Errors/PostMerchantsMerchantIdWebhooksError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmac
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmac(string merchantId, string webhookId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmac(PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `WebhookId`
 - **Returns**: `GenerateHmacKeyResponse`
-- **Error**: `SdkException<PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GenerateHmacKeyResponse` | `Models/GenerateHmacKeyResponse.cs` |
-| `PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError` | `Errors/PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacRequest.cs` |
+| `GenerateHmacKeyResponse` | `src/Adyen/Models/GenerateHmacKeyResponse.cs` |
+| `PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError` | `src/Adyen/Errors/PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdWebhooksWebhookIdTest
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdWebhooksWebhookIdTest(string merchantId, string webhookId, TestWebhookRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdWebhooksWebhookIdTest(PostMerchantsMerchantIdWebhooksWebhookIdTestRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `WebhookId`
 - **Returns**: `TestWebhookResponse`
-- **Error**: `SdkException<PostMerchantsMerchantIdWebhooksWebhookIdTestError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdWebhooksWebhookIdTestError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TestWebhookRequest` | `Models/TestWebhookRequest.cs` |
-| `TestWebhookResponse` | `Models/TestWebhookResponse.cs` |
-| `PostMerchantsMerchantIdWebhooksWebhookIdTestError` | `Errors/PostMerchantsMerchantIdWebhooksWebhookIdTestError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdWebhooksWebhookIdTestRequest` | `src/Adyen/Requests/WebhooksMerchantLevel/PostMerchantsMerchantIdWebhooksWebhookIdTestRequest.cs` |
+| `TestWebhookRequest` | `src/Adyen/Models/TestWebhookRequest.cs` |
+| `TestWebhookResponse` | `src/Adyen/Models/TestWebhookResponse.cs` |
+| `PostMerchantsMerchantIdWebhooksWebhookIdTestError` | `src/Adyen/Errors/PostMerchantsMerchantIdWebhooksWebhookIdTestError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

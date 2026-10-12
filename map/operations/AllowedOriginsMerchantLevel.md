@@ -2,63 +2,74 @@
 
 # AllowedOriginsMerchantLevel — operations
 
-Accessor: `client.AllowedOriginsMerchantLevel` · Source: `Api/AllowedOriginsMerchantLevel.cs` · 4 operations
+Accessor: `client.AllowedOriginsMerchantLevel` · Source: `src/Adyen/Api/AllowedOriginsMerchantLevel.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId
 
 - **Server group**: `Default9`
-- **Signature**: `DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(string merchantId, string apiCredentialId, string originId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `ApiCredentialId`, `OriginId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError` | `Errors/DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdRequest` | `src/Adyen/Requests/AllowedOriginsMerchantLevel/DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdRequest.cs` |
+| `DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError` | `src/Adyen/Errors/DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(string merchantId, string apiCredentialId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `ApiCredentialId`
 - **Returns**: `AllowedOriginsResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AllowedOriginsResponse` | `Models/AllowedOriginsResponse.cs` |
-| `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError` | `Errors/GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsRequest` | `src/Adyen/Requests/AllowedOriginsMerchantLevel/GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsRequest.cs` |
+| `AllowedOriginsResponse` | `src/Adyen/Models/AllowedOriginsResponse.cs` |
+| `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError` | `src/Adyen/Errors/GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(string merchantId, string apiCredentialId, string originId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `ApiCredentialId`, `OriginId`
 - **Returns**: `AllowedOrigin`
-- **Error**: `SdkException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AllowedOrigin` | `Models/AllowedOrigin.cs` |
-| `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError` | `Errors/GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdRequest` | `src/Adyen/Requests/AllowedOriginsMerchantLevel/GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdRequest.cs` |
+| `AllowedOrigin` | `src/Adyen/Models/AllowedOrigin.cs` |
+| `GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError` | `src/Adyen/Errors/GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(string merchantId, string apiCredentialId, AllowedOrigin? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `ApiCredentialId`
 - **Returns**: `AllowedOrigin`
-- **Error**: `SdkException<PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AllowedOrigin` | `Models/AllowedOrigin.cs` |
-| `PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError` | `Errors/PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsRequest` | `src/Adyen/Requests/AllowedOriginsMerchantLevel/PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsRequest.cs` |
+| `AllowedOrigin` | `src/Adyen/Models/AllowedOrigin.cs` |
+| `PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError` | `src/Adyen/Errors/PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

@@ -2,68 +2,74 @@
 
 # Documents — operations
 
-Accessor: `client.Documents` · Source: `Api/Documents.cs` · 4 operations
+Accessor: `client.Documents` · Source: `src/Adyen/Api/Documents.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteDocumentsId
 
 - **Server group**: `Default18`
-- **Signature**: `DeleteDocumentsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteDocumentsId(DeleteDocumentsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteDocumentsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteDocumentsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteDocumentsIdError` | `Errors/DeleteDocumentsIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `DeleteDocumentsIdRequest` | `src/Adyen/Requests/Documents/DeleteDocumentsIdRequest.cs` |
+| `DeleteDocumentsIdError` | `src/Adyen/Errors/DeleteDocumentsIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### GetDocumentsId
 
 - **Server group**: `Default18`
-- **Signature**: `GetDocumentsId(string id, bool? skipContent, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `skipContent` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `skipContent` ← `skipContent`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetDocumentsId(GetDocumentsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
+- **Query params (wire ← C#)**: `skipContent` ← `SkipContent`
 - **Returns**: `Document`
-- **Error**: `SdkException<GetDocumentsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetDocumentsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Document` | `Models/Document.cs` |
-| `GetDocumentsIdError` | `Errors/GetDocumentsIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `GetDocumentsIdRequest` | `src/Adyen/Requests/Documents/GetDocumentsIdRequest.cs` |
+| `Document` | `src/Adyen/Models/Document.cs` |
+| `GetDocumentsIdError` | `src/Adyen/Errors/GetDocumentsIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PatchDocumentsId
 
 - **Server group**: `Default18`
-- **Signature**: `PatchDocumentsId(string id, string? xRequestedVerificationCode, Document? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `xRequestedVerificationCode` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchDocumentsId(PatchDocumentsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `Document`
-- **Error**: `SdkException<PatchDocumentsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchDocumentsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Document` | `Models/Document.cs` |
-| `PatchDocumentsIdError` | `Errors/PatchDocumentsIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PatchDocumentsIdRequest` | `src/Adyen/Requests/Documents/PatchDocumentsIdRequest.cs` |
+| `Document` | `src/Adyen/Models/Document.cs` |
+| `PatchDocumentsIdError` | `src/Adyen/Errors/PatchDocumentsIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostDocuments
 
 - **Server group**: `Default18`
-- **Signature**: `PostDocuments(string? xRequestedVerificationCode, Document? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `xRequestedVerificationCode` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDocuments(PostDocumentsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `Document`
-- **Error**: `SdkException<PostDocumentsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDocumentsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Document` | `Models/Document.cs` |
-| `PostDocumentsError` | `Errors/PostDocumentsError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostDocumentsRequest` | `src/Adyen/Requests/Documents/PostDocumentsRequest.cs` |
+| `Document` | `src/Adyen/Models/Document.cs` |
+| `PostDocumentsError` | `src/Adyen/Errors/PostDocumentsError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 

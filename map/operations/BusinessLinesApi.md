@@ -2,66 +2,75 @@
 
 # BusinessLinesApi — operations
 
-Accessor: `client.BusinessLinesApi` · Source: `Api/BusinessLinesApi.cs` · 4 operations
+Accessor: `client.BusinessLinesApi` · Source: `src/Adyen/Api/BusinessLinesApi.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteBusinessLinesId
 
 - **Server group**: `Default18`
-- **Signature**: `DeleteBusinessLinesId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteBusinessLinesId(DeleteBusinessLinesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteBusinessLinesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteBusinessLinesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteBusinessLinesIdError` | `Errors/DeleteBusinessLinesIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `DeleteBusinessLinesIdRequest` | `src/Adyen/Requests/BusinessLinesApi/DeleteBusinessLinesIdRequest.cs` |
+| `DeleteBusinessLinesIdError` | `src/Adyen/Errors/DeleteBusinessLinesIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### GetBusinessLinesId
 
 - **Server group**: `Default18`
-- **Signature**: `GetBusinessLinesId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetBusinessLinesId(GetBusinessLinesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `BusinessLine`
-- **Error**: `SdkException<GetBusinessLinesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBusinessLinesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BusinessLine` | `Models/BusinessLine.cs` |
-| `GetBusinessLinesIdError` | `Errors/GetBusinessLinesIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `GetBusinessLinesIdRequest` | `src/Adyen/Requests/BusinessLinesApi/GetBusinessLinesIdRequest.cs` |
+| `BusinessLine` | `src/Adyen/Models/BusinessLine.cs` |
+| `GetBusinessLinesIdError` | `src/Adyen/Errors/GetBusinessLinesIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PatchBusinessLinesId
 
 - **Server group**: `Default18`
-- **Signature**: `PatchBusinessLinesId(string id, BusinessLineInfoUpdate? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchBusinessLinesId(PatchBusinessLinesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `BusinessLine`
-- **Error**: `SdkException<PatchBusinessLinesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchBusinessLinesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BusinessLineInfoUpdate` | `Models/BusinessLineInfoUpdate.cs` |
-| `BusinessLine` | `Models/BusinessLine.cs` |
-| `PatchBusinessLinesIdError` | `Errors/PatchBusinessLinesIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PatchBusinessLinesIdRequest` | `src/Adyen/Requests/BusinessLinesApi/PatchBusinessLinesIdRequest.cs` |
+| `BusinessLineInfoUpdate` | `src/Adyen/Models/BusinessLineInfoUpdate.cs` |
+| `BusinessLine` | `src/Adyen/Models/BusinessLine.cs` |
+| `PatchBusinessLinesIdError` | `src/Adyen/Errors/PatchBusinessLinesIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostBusinessLines
 
 - **Server group**: `Default18`
-- **Signature**: `PostBusinessLines(BusinessLineInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostBusinessLines(PostBusinessLinesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `BusinessLine`
-- **Error**: `SdkException<PostBusinessLinesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostBusinessLinesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BusinessLineInfo` | `Models/BusinessLineInfo.cs` |
-| `BusinessLine` | `Models/BusinessLine.cs` |
-| `PostBusinessLinesError` | `Errors/PostBusinessLinesError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostBusinessLinesRequest` | `src/Adyen/Requests/BusinessLinesApi/PostBusinessLinesRequest.cs` |
+| `BusinessLineInfo` | `src/Adyen/Models/BusinessLineInfo.cs` |
+| `BusinessLine` | `src/Adyen/Models/BusinessLine.cs` |
+| `PostBusinessLinesError` | `src/Adyen/Errors/PostBusinessLinesError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 

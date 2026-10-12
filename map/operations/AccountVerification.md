@@ -2,36 +2,40 @@
 
 # AccountVerification — operations
 
-Accessor: `client.AccountVerification` · Source: `Api/AccountVerification.cs` · 2 operations
+Accessor: `client.AccountVerification` · Source: `src/Adyen/Api/AccountVerification.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetAccountVerificationReportsCode
 
 - **Server group**: `Default21`
-- **Signature**: `GetAccountVerificationReportsCode(string code, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetAccountVerificationReportsCode(GetAccountVerificationReportsCodeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Code`
 - **Returns**: `AccountVerificationReportResponse`
-- **Error**: `SdkException<GetAccountVerificationReportsCodeError>` — **Case A (typed)**
+- **Error**: `ApiException<GetAccountVerificationReportsCodeError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 404, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AccountVerificationReportResponse` | `Models/AccountVerificationReportResponse.cs` |
-| `GetAccountVerificationReportsCodeError` | `Errors/GetAccountVerificationReportsCodeError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetAccountVerificationReportsCodeRequest` | `src/Adyen/Requests/AccountVerification/GetAccountVerificationReportsCodeRequest.cs` |
+| `AccountVerificationReportResponse` | `src/Adyen/Models/AccountVerificationReportResponse.cs` |
+| `GetAccountVerificationReportsCodeError` | `src/Adyen/Errors/GetAccountVerificationReportsCodeError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostAccountVerificationRoutes
 
 - **Server group**: `Default21`
-- **Signature**: `PostAccountVerificationRoutes(AccountVerificationRoutesRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostAccountVerificationRoutes(PostAccountVerificationRoutesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `AccountVerificationRoutesResponse`
-- **Error**: `SdkException<PostAccountVerificationRoutesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAccountVerificationRoutesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 422, 429, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AccountVerificationRoutesRequest` | `Models/AccountVerificationRoutesRequest.cs` |
-| `AccountVerificationRoutesResponse` | `Models/AccountVerificationRoutesResponse.cs` |
-| `PostAccountVerificationRoutesError` | `Errors/PostAccountVerificationRoutesError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostAccountVerificationRoutesRequest` | `src/Adyen/Requests/AccountVerification/PostAccountVerificationRoutesRequest.cs` |
+| `AccountVerificationRoutesRequest` | `src/Adyen/Models/AccountVerificationRoutesRequest.cs` |
+| `AccountVerificationRoutesResponse` | `src/Adyen/Models/AccountVerificationRoutesResponse.cs` |
+| `PostAccountVerificationRoutesError` | `src/Adyen/Errors/PostAccountVerificationRoutesError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

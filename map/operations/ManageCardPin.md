@@ -2,56 +2,58 @@
 
 # ManageCardPin — operations
 
-Accessor: `client.ManageCardPin` · Source: `Api/ManageCardPin.cs` · 3 operations
+Accessor: `client.ManageCardPin` · Source: `src/Adyen/Api/ManageCardPin.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetPublicKey
 
 - **Server group**: `Default13`
-- **Signature**: `GetPublicKey(string? purpose, string? format, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `purpose` — nullable, no default → **must pass explicitly**
-  - `format` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `purpose` ← `purpose`, `format` ← `format`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetPublicKey(GetPublicKeyRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `purpose` ← `Purpose`, `format` ← `Format`
 - **Returns**: `PublicKeyResponse`
-- **Error**: `SdkException<GetPublicKeyError>` — **Case A (typed)**
+- **Error**: `ApiException<GetPublicKeyError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PublicKeyResponse` | `Models/PublicKeyResponse.cs` |
-| `GetPublicKeyError` | `Errors/GetPublicKeyError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetPublicKeyRequest` | `src/Adyen/Requests/ManageCardPin/GetPublicKeyRequest.cs` |
+| `PublicKeyResponse` | `src/Adyen/Models/PublicKeyResponse.cs` |
+| `GetPublicKeyError` | `src/Adyen/Errors/GetPublicKeyError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostPinsChange
 
 - **Server group**: `Default13`
-- **Signature**: `PostPinsChange(PinChangeRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPinsChange(PostPinsChangeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `PinChangeResponse`
-- **Error**: `SdkException<PostPinsChangeError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPinsChangeError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PinChangeRequest` | `Models/PinChangeRequest.cs` |
-| `PinChangeResponse` | `Models/PinChangeResponse.cs` |
-| `PostPinsChangeError` | `Errors/PostPinsChangeError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostPinsChangeRequest` | `src/Adyen/Requests/ManageCardPin/PostPinsChangeRequest.cs` |
+| `PinChangeRequest` | `src/Adyen/Models/PinChangeRequest.cs` |
+| `PinChangeResponse` | `src/Adyen/Models/PinChangeResponse.cs` |
+| `PostPinsChangeError` | `src/Adyen/Errors/PostPinsChangeError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostPinsReveal
 
 - **Server group**: `Default13`
-- **Signature**: `PostPinsReveal(RevealPinRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPinsReveal(PostPinsRevealRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `RevealPinResponse`
-- **Error**: `SdkException<PostPinsRevealError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPinsRevealError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RevealPinRequest` | `Models/RevealPinRequest.cs` |
-| `RevealPinResponse` | `Models/RevealPinResponse.cs` |
-| `PostPinsRevealError` | `Errors/PostPinsRevealError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostPinsRevealRequest` | `src/Adyen/Requests/ManageCardPin/PostPinsRevealRequest.cs` |
+| `RevealPinRequest` | `src/Adyen/Models/RevealPinRequest.cs` |
+| `RevealPinResponse` | `src/Adyen/Models/RevealPinResponse.cs` |
+| `PostPinsRevealError` | `src/Adyen/Errors/PostPinsRevealError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

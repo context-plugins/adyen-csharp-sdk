@@ -2,54 +2,58 @@
 
 # Capital — operations
 
-Accessor: `client.Capital` · Source: `Api/Capital.cs` · 3 operations
+Accessor: `client.Capital` · Source: `src/Adyen/Api/Capital.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetGrants
 
 - **Server group**: `Default14`
-- **Signature**: `GetGrants(string? counterpartyAccountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `counterpartyAccountHolderId` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `counterpartyAccountHolderId` ← `counterpartyAccountHolderId`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetGrants(GetGrantsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `counterpartyAccountHolderId` ← `CounterpartyAccountHolderId`
 - **Returns**: `CapitalGrants`
-- **Error**: `SdkException<GetGrantsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CapitalGrants` | `Models/CapitalGrants.cs` |
-| `GetGrantsError` | `Errors/GetGrantsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetGrantsRequest` | `src/Adyen/Requests/Capital/GetGrantsRequest.cs` |
+| `CapitalGrants` | `src/Adyen/Models/CapitalGrants.cs` |
+| `GetGrantsError` | `src/Adyen/Errors/GetGrantsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetGrantsId
 
 - **Server group**: `Default14`
-- **Signature**: `GetGrantsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetGrantsId(GetGrantsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `CapitalGrant`
-- **Error**: `SdkException<GetGrantsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CapitalGrant` | `Models/CapitalGrant.cs` |
-| `GetGrantsIdError` | `Errors/GetGrantsIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetGrantsIdRequest` | `src/Adyen/Requests/Capital/GetGrantsIdRequest.cs` |
+| `CapitalGrant` | `src/Adyen/Models/CapitalGrant.cs` |
+| `GetGrantsIdError` | `src/Adyen/Errors/GetGrantsIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostGrants
 
 - **Server group**: `Default14`
-- **Signature**: `PostGrants(string? idempotencyKey, CapitalGrantInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGrants(PostGrantsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CapitalGrant`
-- **Error**: `SdkException<PostGrantsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGrantsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CapitalGrantInfo` | `Models/CapitalGrantInfo.cs` |
-| `CapitalGrant` | `Models/CapitalGrant.cs` |
-| `PostGrantsError` | `Errors/PostGrantsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostGrantsRequest` | `src/Adyen/Requests/Capital/PostGrantsRequest.cs` |
+| `CapitalGrantInfo` | `src/Adyen/Models/CapitalGrantInfo.cs` |
+| `CapitalGrant` | `src/Adyen/Models/CapitalGrant.cs` |
+| `PostGrantsError` | `src/Adyen/Errors/PostGrantsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

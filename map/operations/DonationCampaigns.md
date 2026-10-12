@@ -2,102 +2,114 @@
 
 # DonationCampaigns — operations
 
-Accessor: `client.DonationCampaigns` · Source: `Api/DonationCampaigns.cs` · 6 operations
+Accessor: `client.DonationCampaigns` · Source: `src/Adyen/Api/DonationCampaigns.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteCompaniesCompanyIdCampaignManagementDonationCampaignId
 
 - **Server group**: `Default9`
-- **Signature**: `DeleteCompaniesCompanyIdCampaignManagementDonationCampaignId(string companyId, string donationCampaignId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteCompaniesCompanyIdCampaignManagementDonationCampaignId(DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `DonationCampaignId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError` | `Errors/DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest` | `src/Adyen/Requests/DonationCampaigns/DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest.cs` |
+| `DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError` | `src/Adyen/Errors/DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderId
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderId(string companyId, string accountHolderId, string? status, int? pageNumber = 1, int? pageSize = 10, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `status` — nullable, no default → **must pass explicitly**
-  - defaults: `pageNumber` = `1`, `pageSize` = `10`
-- **Query params (wire ← C#)**: `status` ← `status`, `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderId(GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `AccountHolderId`
+- **Query params (wire ← C#)**: `status` ← `Status`, `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`
 - **Returns**: `ListDonationCampaignsResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ListDonationCampaignsResponse` | `Models/ListDonationCampaignsResponse.cs` |
-| `GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError` | `Errors/GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdRequest` | `src/Adyen/Requests/DonationCampaigns/GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdRequest.cs` |
+| `ListDonationCampaignsResponse` | `src/Adyen/Models/ListDonationCampaignsResponse.cs` |
+| `GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError` | `src/Adyen/Errors/GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PatchCompaniesCompanyIdCampaignManagementDonationCampaignId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchCompaniesCompanyIdCampaignManagementDonationCampaignId(string companyId, string donationCampaignId, DonationCampaignUpdate? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchCompaniesCompanyIdCampaignManagementDonationCampaignId(PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `DonationCampaignId`
 - **Returns**: `DonationCampaign1`
-- **Error**: `SdkException<PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DonationCampaignUpdate` | `Models/DonationCampaignUpdate.cs` |
-| `DonationCampaign1` | `Models/DonationCampaign1.cs` |
-| `PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError` | `Errors/PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest` | `src/Adyen/Requests/DonationCampaigns/PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest.cs` |
+| `DonationCampaignUpdate` | `src/Adyen/Models/DonationCampaignUpdate.cs` |
+| `DonationCampaign1` | `src/Adyen/Models/DonationCampaign1.cs` |
+| `PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError` | `src/Adyen/Errors/PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostCompaniesCompanyIdCampaignManagement
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdCampaignManagement(string companyId, DonationCampaignRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdCampaignManagement(PostCompaniesCompanyIdCampaignManagementRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `DonationCampaign1`
-- **Error**: `SdkException<PostCompaniesCompanyIdCampaignManagementError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdCampaignManagementError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DonationCampaignRequest` | `Models/DonationCampaignRequest.cs` |
-| `DonationCampaign1` | `Models/DonationCampaign1.cs` |
-| `PostCompaniesCompanyIdCampaignManagementError` | `Errors/PostCompaniesCompanyIdCampaignManagementError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostCompaniesCompanyIdCampaignManagementRequest` | `src/Adyen/Requests/DonationCampaigns/PostCompaniesCompanyIdCampaignManagementRequest.cs` |
+| `DonationCampaignRequest` | `src/Adyen/Models/DonationCampaignRequest.cs` |
+| `DonationCampaign1` | `src/Adyen/Models/DonationCampaign1.cs` |
+| `PostCompaniesCompanyIdCampaignManagementError` | `src/Adyen/Errors/PostCompaniesCompanyIdCampaignManagementError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(string companyId, string donationCampaignId, CampaignStatusTransition status, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `DonationCampaignId`, `Status`
 - **Returns**: `DonationCampaign1`
-- **Error**: `SdkException<PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CampaignStatusTransition` | `Models/Enums/CampaignStatusTransition.cs` |
-| `DonationCampaign1` | `Models/DonationCampaign1.cs` |
-| `PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError` | `Errors/PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusRequest` | `src/Adyen/Requests/DonationCampaigns/PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusRequest.cs` |
+| `CampaignStatusTransition` | `src/Adyen/Models/Enums/CampaignStatusTransition.cs` |
+| `DonationCampaign1` | `src/Adyen/Models/DonationCampaign1.cs` |
+| `PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError` | `src/Adyen/Errors/PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostCompaniesCompanyIdNonprofits
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdNonprofits(string companyId, string? searchTerm, int? pageNumber, IReadOnlyList<string>? goal, ListNonprofitsRequest? body, int? pageSize = 10, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 4 params (`searchTerm` … `body`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `pageSize` = `10`
-- **Query params (wire ← C#)**: `searchTerm` ← `searchTerm`, `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`, `goal` ← `goal`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdNonprofits(PostCompaniesCompanyIdNonprofitsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `searchTerm` ← `SearchTerm`, `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`, `goal` ← `Goal`
 - **Returns**: `ListNonprofitsResponse`
-- **Error**: `SdkException<PostCompaniesCompanyIdNonprofitsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdNonprofitsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ListNonprofitsRequest` | `Models/ListNonprofitsRequest.cs` |
-| `ListNonprofitsResponse` | `Models/ListNonprofitsResponse.cs` |
-| `PostCompaniesCompanyIdNonprofitsError` | `Errors/PostCompaniesCompanyIdNonprofitsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostCompaniesCompanyIdNonprofitsRequest` | `src/Adyen/Requests/DonationCampaigns/PostCompaniesCompanyIdNonprofitsRequest.cs` |
+| `ListNonprofitsRequest` | `src/Adyen/Models/ListNonprofitsRequest.cs` |
+| `ListNonprofitsResponse` | `src/Adyen/Models/ListNonprofitsResponse.cs` |
+| `PostCompaniesCompanyIdNonprofitsError` | `src/Adyen/Errors/PostCompaniesCompanyIdNonprofitsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

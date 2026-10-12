@@ -2,55 +2,58 @@
 
 # Accounts — operations
 
-Accessor: `client.Accounts` · Source: `Api/Accounts.cs` · 3 operations
+Accessor: `client.Accounts` · Source: `src/Adyen/Api/Accounts.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostCloseAccount
 
 - **Server group**: `Default10`
-- **Signature**: `PostCloseAccount(CloseAccountRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCloseAccount(PostCloseAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CloseAccountResponse`
-- **Error**: `SdkException<PostCloseAccountError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCloseAccountError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CloseAccountRequest` | `Models/CloseAccountRequest.cs` |
-| `CloseAccountResponse` | `Models/CloseAccountResponse.cs` |
-| `PostCloseAccountError` | `Errors/PostCloseAccountError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCloseAccountRequest` | `src/Adyen/Requests/Accounts/PostCloseAccountRequest.cs` |
+| `CloseAccountRequest` | `src/Adyen/Models/CloseAccountRequest.cs` |
+| `CloseAccountResponse` | `src/Adyen/Models/CloseAccountResponse.cs` |
+| `PostCloseAccountError` | `src/Adyen/Errors/PostCloseAccountError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostCreateAccount
 
 - **Server group**: `Default10`
-- **Signature**: `PostCreateAccount(CreateAccountRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCreateAccount(PostCreateAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CreateAccountResponse`
-- **Error**: `SdkException<PostCreateAccountError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCreateAccountError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateAccountRequest` | `Models/CreateAccountRequest.cs` |
-| `CreateAccountResponse` | `Models/CreateAccountResponse.cs` |
-| `PostCreateAccountError` | `Errors/PostCreateAccountError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCreateAccountRequest` | `src/Adyen/Requests/Accounts/PostCreateAccountRequest.cs` |
+| `CreateAccountRequest` | `src/Adyen/Models/CreateAccountRequest.cs` |
+| `CreateAccountResponse` | `src/Adyen/Models/CreateAccountResponse.cs` |
+| `PostCreateAccountError` | `src/Adyen/Errors/PostCreateAccountError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostUpdateAccount
 
 - **Server group**: `Default10`
-- **Signature**: `PostUpdateAccount(UpdateAccountRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostUpdateAccount(PostUpdateAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UpdateAccountResponse`
-- **Error**: `SdkException<PostUpdateAccountError>` — **Case A (typed)**
+- **Error**: `ApiException<PostUpdateAccountError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateAccountRequest` | `Models/UpdateAccountRequest.cs` |
-| `UpdateAccountResponse` | `Models/UpdateAccountResponse.cs` |
-| `PostUpdateAccountError` | `Errors/PostUpdateAccountError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostUpdateAccountRequest` | `src/Adyen/Requests/Accounts/PostUpdateAccountRequest.cs` |
+| `UpdateAccountRequest` | `src/Adyen/Models/UpdateAccountRequest.cs` |
+| `UpdateAccountResponse` | `src/Adyen/Models/UpdateAccountResponse.cs` |
+| `PostUpdateAccountError` | `src/Adyen/Errors/PostUpdateAccountError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 

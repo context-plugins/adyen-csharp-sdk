@@ -2,659 +2,700 @@
 
 # General — operations
 
-Accessor: `client.General` · Source: `Api/General.cs` · 41 operations
+Accessor: `client.General` · Source: `src/Adyen/Api/General.cs` · 41 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostAcceptDispute
 
 - **Server group**: `Default22`
-- **Signature**: `PostAcceptDispute(AcceptDisputeRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostAcceptDispute(PostAcceptDisputeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AcceptDisputeResponse`
-- **Error**: `SdkException<PostAcceptDisputeError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAcceptDisputeError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AcceptDisputeRequest` | `Models/AcceptDisputeRequest.cs` |
-| `AcceptDisputeResponse` | `Models/AcceptDisputeResponse.cs` |
-| `PostAcceptDisputeError` | `Errors/PostAcceptDisputeError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostAcceptDisputeRequest` | `src/Adyen/Requests/General/PostAcceptDisputeRequest.cs` |
+| `AcceptDisputeRequest` | `src/Adyen/Models/AcceptDisputeRequest.cs` |
+| `AcceptDisputeResponse` | `src/Adyen/Models/AcceptDisputeResponse.cs` |
+| `PostAcceptDisputeError` | `src/Adyen/Errors/PostAcceptDisputeError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostAccountHolderBalance
 
 - **Server group**: `Default16`
-- **Signature**: `PostAccountHolderBalance(CloseAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostAccountHolderBalance(PostAccountHolderBalanceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AccountHolderBalanceResponse`
-- **Error**: `SdkException<PostAccountHolderBalanceError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAccountHolderBalanceError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CloseAccountHolderRequest` | `Models/CloseAccountHolderRequest.cs` |
-| `AccountHolderBalanceResponse` | `Models/AccountHolderBalanceResponse.cs` |
-| `PostAccountHolderBalanceError` | `Errors/PostAccountHolderBalanceError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostAccountHolderBalanceRequest` | `src/Adyen/Requests/General/PostAccountHolderBalanceRequest.cs` |
+| `CloseAccountHolderRequest` | `src/Adyen/Models/CloseAccountHolderRequest.cs` |
+| `AccountHolderBalanceResponse` | `src/Adyen/Models/AccountHolderBalanceResponse.cs` |
+| `PostAccountHolderBalanceError` | `src/Adyen/Errors/PostAccountHolderBalanceError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostAccountHolderTransactionList
 
 - **Server group**: `Default16`
-- **Signature**: `PostAccountHolderTransactionList(AccountHolderTransactionListRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostAccountHolderTransactionList(PostAccountHolderTransactionListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AccountHolderTransactionListResponse`
-- **Error**: `SdkException<PostAccountHolderTransactionListError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAccountHolderTransactionListError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AccountHolderTransactionListRequest` | `Models/AccountHolderTransactionListRequest.cs` |
-| `AccountHolderTransactionListResponse` | `Models/AccountHolderTransactionListResponse.cs` |
-| `PostAccountHolderTransactionListError` | `Errors/PostAccountHolderTransactionListError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostAccountHolderTransactionListRequest` | `src/Adyen/Requests/General/PostAccountHolderTransactionListRequest.cs` |
+| `AccountHolderTransactionListRequest` | `src/Adyen/Models/AccountHolderTransactionListRequest.cs` |
+| `AccountHolderTransactionListResponse` | `src/Adyen/Models/AccountHolderTransactionListResponse.cs` |
+| `PostAccountHolderTransactionListError` | `src/Adyen/Errors/PostAccountHolderTransactionListError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostAssignTerminals
 
 - **Server group**: `Default28`
-- **Signature**: `PostAssignTerminals(AssignTerminalsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostAssignTerminals(PostAssignTerminalsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AssignTerminalsResponse`
-- **Error**: `SdkException<PostAssignTerminalsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAssignTerminalsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AssignTerminalsRequest` | `Models/AssignTerminalsRequest.cs` |
-| `AssignTerminalsResponse` | `Models/AssignTerminalsResponse.cs` |
-| `PostAssignTerminalsError` | `Errors/PostAssignTerminalsError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostAssignTerminalsRequest` | `src/Adyen/Requests/General/PostAssignTerminalsRequest.cs` |
+| `AssignTerminalsRequest` | `src/Adyen/Models/AssignTerminalsRequest.cs` |
+| `AssignTerminalsResponse` | `src/Adyen/Models/AssignTerminalsResponse.cs` |
+| `PostAssignTerminalsError` | `src/Adyen/Errors/PostAssignTerminalsError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostChangeStatus
 
 - **Server group**: `Default5`
-- **Signature**: `PostChangeStatus(StoredValueStatusChangeRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostChangeStatus(PostChangeStatusRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredValueStatusChangeResponse`
-- **Error**: `SdkException<PostChangeStatusError>` — **Case A (typed)**
+- **Error**: `ApiException<PostChangeStatusError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StoredValueStatusChangeRequest` | `Models/StoredValueStatusChangeRequest.cs` |
-| `StoredValueStatusChangeResponse` | `Models/StoredValueStatusChangeResponse.cs` |
-| `PostChangeStatusError` | `Errors/PostChangeStatusError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostChangeStatusRequest` | `src/Adyen/Requests/General/PostChangeStatusRequest.cs` |
+| `StoredValueStatusChangeRequest` | `src/Adyen/Models/StoredValueStatusChangeRequest.cs` |
+| `StoredValueStatusChangeResponse` | `src/Adyen/Models/StoredValueStatusChangeResponse.cs` |
+| `PostChangeStatusError` | `src/Adyen/Errors/PostChangeStatusError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCheckBalance
 
 - **Server group**: `Default5`
-- **Signature**: `PostCheckBalance(StoredValueBalanceCheckRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCheckBalance(PostCheckBalanceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredValueBalanceCheckResponse`
-- **Error**: `SdkException<PostCheckBalanceError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCheckBalanceError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StoredValueBalanceCheckRequest` | `Models/StoredValueBalanceCheckRequest.cs` |
-| `StoredValueBalanceCheckResponse` | `Models/StoredValueBalanceCheckResponse.cs` |
-| `PostCheckBalanceError` | `Errors/PostCheckBalanceError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostCheckBalanceRequest` | `src/Adyen/Requests/General/PostCheckBalanceRequest.cs` |
+| `StoredValueBalanceCheckRequest` | `src/Adyen/Models/StoredValueBalanceCheckRequest.cs` |
+| `StoredValueBalanceCheckResponse` | `src/Adyen/Models/StoredValueBalanceCheckResponse.cs` |
+| `PostCheckBalanceError` | `src/Adyen/Errors/PostCheckBalanceError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCreateNotificationConfiguration
 
 - **Server group**: `Default12`
-- **Signature**: `PostCreateNotificationConfiguration(CreateNotificationConfigurationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCreateNotificationConfiguration(PostCreateNotificationConfigurationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetNotificationConfigurationResponse`
-- **Error**: `SdkException<PostCreateNotificationConfigurationError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCreateNotificationConfigurationError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateNotificationConfigurationRequest` | `Models/CreateNotificationConfigurationRequest.cs` |
-| `GetNotificationConfigurationResponse` | `Models/GetNotificationConfigurationResponse.cs` |
-| `PostCreateNotificationConfigurationError` | `Errors/PostCreateNotificationConfigurationError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCreateNotificationConfigurationRequest` | `src/Adyen/Requests/General/PostCreateNotificationConfigurationRequest.cs` |
+| `CreateNotificationConfigurationRequest` | `src/Adyen/Models/CreateNotificationConfigurationRequest.cs` |
+| `GetNotificationConfigurationResponse` | `src/Adyen/Models/GetNotificationConfigurationResponse.cs` |
+| `PostCreateNotificationConfigurationError` | `src/Adyen/Errors/PostCreateNotificationConfigurationError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostCreatePermit
 
 - **Server group**: `Default2`
-- **Signature**: `PostCreatePermit(CreatePermitRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCreatePermit(PostCreatePermitRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CreatePermitResult`
-- **Error**: `SdkException<PostCreatePermitError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCreatePermitError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreatePermitRequest` | `Models/CreatePermitRequest.cs` |
-| `CreatePermitResult` | `Models/CreatePermitResult.cs` |
-| `PostCreatePermitError` | `Errors/PostCreatePermitError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostCreatePermitRequest` | `src/Adyen/Requests/General/PostCreatePermitRequest.cs` |
+| `CreatePermitRequest` | `src/Adyen/Models/CreatePermitRequest.cs` |
+| `CreatePermitResult` | `src/Adyen/Models/CreatePermitResult.cs` |
+| `PostCreatePermitError` | `src/Adyen/Errors/PostCreatePermitError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostCreateTestCardRanges
 
 - **Server group**: `Default8`
-- **Signature**: `PostCreateTestCardRanges(CreateTestCardRangesRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCreateTestCardRanges(PostCreateTestCardRangesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CreateTestCardRangesResult`
-- **Error**: `SdkException<PostCreateTestCardRangesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCreateTestCardRangesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateTestCardRangesRequest` | `Models/CreateTestCardRangesRequest.cs` |
-| `CreateTestCardRangesResult` | `Models/CreateTestCardRangesResult.cs` |
-| `PostCreateTestCardRangesError` | `Errors/PostCreateTestCardRangesError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostCreateTestCardRangesRequest` | `src/Adyen/Requests/General/PostCreateTestCardRangesRequest.cs` |
+| `CreateTestCardRangesRequest` | `src/Adyen/Models/CreateTestCardRangesRequest.cs` |
+| `CreateTestCardRangesResult` | `src/Adyen/Models/CreateTestCardRangesResult.cs` |
+| `PostCreateTestCardRangesError` | `src/Adyen/Errors/PostCreateTestCardRangesError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostDebitAccountHolder
 
 - **Server group**: `Default16`
-- **Signature**: `PostDebitAccountHolder(DebitAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDebitAccountHolder(PostDebitAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DebitAccountHolderResponse`
-- **Error**: `SdkException<PostDebitAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDebitAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DebitAccountHolderRequest` | `Models/DebitAccountHolderRequest.cs` |
-| `DebitAccountHolderResponse` | `Models/DebitAccountHolderResponse.cs` |
-| `PostDebitAccountHolderError` | `Errors/PostDebitAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostDebitAccountHolderRequest` | `src/Adyen/Requests/General/PostDebitAccountHolderRequest.cs` |
+| `DebitAccountHolderRequest` | `src/Adyen/Models/DebitAccountHolderRequest.cs` |
+| `DebitAccountHolderResponse` | `src/Adyen/Models/DebitAccountHolderResponse.cs` |
+| `PostDebitAccountHolderError` | `src/Adyen/Errors/PostDebitAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostDefendDispute
 
 - **Server group**: `Default22`
-- **Signature**: `PostDefendDispute(DefendDisputeRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDefendDispute(PostDefendDisputeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DefendDisputeResponse`
-- **Error**: `SdkException<PostDefendDisputeError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDefendDisputeError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DefendDisputeRequest` | `Models/DefendDisputeRequest.cs` |
-| `DefendDisputeResponse` | `Models/DefendDisputeResponse.cs` |
-| `PostDefendDisputeError` | `Errors/PostDefendDisputeError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostDefendDisputeRequest` | `src/Adyen/Requests/General/PostDefendDisputeRequest.cs` |
+| `DefendDisputeRequest` | `src/Adyen/Models/DefendDisputeRequest.cs` |
+| `DefendDisputeResponse` | `src/Adyen/Models/DefendDisputeResponse.cs` |
+| `PostDefendDisputeError` | `src/Adyen/Errors/PostDefendDisputeError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostDeleteDisputeDefenseDocument
 
 - **Server group**: `Default22`
-- **Signature**: `PostDeleteDisputeDefenseDocument(DeleteDefenseDocumentRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDeleteDisputeDefenseDocument(PostDeleteDisputeDefenseDocumentRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DeleteDefenseDocumentResponse`
-- **Error**: `SdkException<PostDeleteDisputeDefenseDocumentError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDeleteDisputeDefenseDocumentError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteDefenseDocumentRequest` | `Models/DeleteDefenseDocumentRequest.cs` |
-| `DeleteDefenseDocumentResponse` | `Models/DeleteDefenseDocumentResponse.cs` |
-| `PostDeleteDisputeDefenseDocumentError` | `Errors/PostDeleteDisputeDefenseDocumentError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostDeleteDisputeDefenseDocumentRequest` | `src/Adyen/Requests/General/PostDeleteDisputeDefenseDocumentRequest.cs` |
+| `DeleteDefenseDocumentRequest` | `src/Adyen/Models/DeleteDefenseDocumentRequest.cs` |
+| `DeleteDefenseDocumentResponse` | `src/Adyen/Models/DeleteDefenseDocumentResponse.cs` |
+| `PostDeleteDisputeDefenseDocumentError` | `src/Adyen/Errors/PostDeleteDisputeDefenseDocumentError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostDeleteNotificationConfigurations
 
 - **Server group**: `Default12`
-- **Signature**: `PostDeleteNotificationConfigurations(DeleteNotificationConfigurationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDeleteNotificationConfigurations(PostDeleteNotificationConfigurationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GenericResponse`
-- **Error**: `SdkException<PostDeleteNotificationConfigurationsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDeleteNotificationConfigurationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteNotificationConfigurationRequest` | `Models/DeleteNotificationConfigurationRequest.cs` |
-| `GenericResponse` | `Models/GenericResponse.cs` |
-| `PostDeleteNotificationConfigurationsError` | `Errors/PostDeleteNotificationConfigurationsError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostDeleteNotificationConfigurationsRequest` | `src/Adyen/Requests/General/PostDeleteNotificationConfigurationsRequest.cs` |
+| `DeleteNotificationConfigurationRequest` | `src/Adyen/Models/DeleteNotificationConfigurationRequest.cs` |
+| `GenericResponse` | `src/Adyen/Models/GenericResponse.cs` |
+| `PostDeleteNotificationConfigurationsError` | `src/Adyen/Errors/PostDeleteNotificationConfigurationsError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostDisable
 
 - **Server group**: `Default2`
-- **Signature**: `PostDisable(DisableRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDisable(PostDisableRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DisableResult`
-- **Error**: `SdkException<PostDisableError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDisableError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DisableRequest` | `Models/DisableRequest.cs` |
-| `DisableResult` | `Models/DisableResult.cs` |
-| `PostDisableError` | `Errors/PostDisableError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostDisableRequest` | `src/Adyen/Requests/General/PostDisableRequest.cs` |
+| `DisableRequest` | `src/Adyen/Models/DisableRequest.cs` |
+| `DisableResult` | `src/Adyen/Models/DisableResult.cs` |
+| `PostDisableError` | `src/Adyen/Errors/PostDisableError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostDisablePermit
 
 - **Server group**: `Default2`
-- **Signature**: `PostDisablePermit(DisablePermitRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostDisablePermit(PostDisablePermitRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DisablePermitResult`
-- **Error**: `SdkException<PostDisablePermitError>` — **Case A (typed)**
+- **Error**: `ApiException<PostDisablePermitError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DisablePermitRequest` | `Models/DisablePermitRequest.cs` |
-| `DisablePermitResult` | `Models/DisablePermitResult.cs` |
-| `PostDisablePermitError` | `Errors/PostDisablePermitError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostDisablePermitRequest` | `src/Adyen/Requests/General/PostDisablePermitRequest.cs` |
+| `DisablePermitRequest` | `src/Adyen/Models/DisablePermitRequest.cs` |
+| `DisablePermitResult` | `src/Adyen/Models/DisablePermitResult.cs` |
+| `PostDisablePermitError` | `src/Adyen/Errors/PostDisablePermitError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostFindTerminal
 
 - **Server group**: `Default28`
-- **Signature**: `PostFindTerminal(FindTerminalRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostFindTerminal(PostFindTerminalRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `FindTerminalResponse`
-- **Error**: `SdkException<PostFindTerminalError>` — **Case A (typed)**
+- **Error**: `ApiException<PostFindTerminalError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `FindTerminalRequest` | `Models/FindTerminalRequest.cs` |
-| `FindTerminalResponse` | `Models/FindTerminalResponse.cs` |
-| `PostFindTerminalError` | `Errors/PostFindTerminalError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostFindTerminalRequest` | `src/Adyen/Requests/General/PostFindTerminalRequest.cs` |
+| `FindTerminalRequest` | `src/Adyen/Models/FindTerminalRequest.cs` |
+| `FindTerminalResponse` | `src/Adyen/Models/FindTerminalResponse.cs` |
+| `PostFindTerminalError` | `src/Adyen/Errors/PostFindTerminalError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGet3DsAvailability
 
 - **Server group**: `Default4`
-- **Signature**: `PostGet3DsAvailability(ThreeDsAvailabilityRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGet3DsAvailability(PostGet3DsAvailabilityRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ThreeDsAvailabilityResponse`
-- **Error**: `SdkException<PostGet3DsAvailabilityError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGet3DsAvailabilityError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ThreeDsAvailabilityRequest` | `Models/ThreeDsAvailabilityRequest.cs` |
-| `ThreeDsAvailabilityResponse` | `Models/ThreeDsAvailabilityResponse.cs` |
-| `PostGet3DsAvailabilityError` | `Errors/PostGet3DsAvailabilityError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostGet3DsAvailabilityRequest` | `src/Adyen/Requests/General/PostGet3DsAvailabilityRequest.cs` |
+| `ThreeDsAvailabilityRequest` | `src/Adyen/Models/ThreeDsAvailabilityRequest.cs` |
+| `ThreeDsAvailabilityResponse` | `src/Adyen/Models/ThreeDsAvailabilityResponse.cs` |
+| `PostGet3DsAvailabilityError` | `src/Adyen/Errors/PostGet3DsAvailabilityError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostGetCostEstimate
 
 - **Server group**: `Default4`
-- **Signature**: `PostGetCostEstimate(CostEstimateRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetCostEstimate(PostGetCostEstimateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CostEstimateResponse`
-- **Error**: `SdkException<PostGetCostEstimateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetCostEstimateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CostEstimateRequest` | `Models/CostEstimateRequest.cs` |
-| `CostEstimateResponse` | `Models/CostEstimateResponse.cs` |
-| `PostGetCostEstimateError` | `Errors/PostGetCostEstimateError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostGetCostEstimateRequest` | `src/Adyen/Requests/General/PostGetCostEstimateRequest.cs` |
+| `CostEstimateRequest` | `src/Adyen/Models/CostEstimateRequest.cs` |
+| `CostEstimateResponse` | `src/Adyen/Models/CostEstimateResponse.cs` |
+| `PostGetCostEstimateError` | `src/Adyen/Errors/PostGetCostEstimateError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostGetNotificationConfiguration
 
 - **Server group**: `Default12`
-- **Signature**: `PostGetNotificationConfiguration(GetNotificationConfigurationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetNotificationConfiguration(PostGetNotificationConfigurationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetNotificationConfigurationResponse`
-- **Error**: `SdkException<PostGetNotificationConfigurationError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetNotificationConfigurationError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetNotificationConfigurationRequest` | `Models/GetNotificationConfigurationRequest.cs` |
-| `GetNotificationConfigurationResponse` | `Models/GetNotificationConfigurationResponse.cs` |
-| `PostGetNotificationConfigurationError` | `Errors/PostGetNotificationConfigurationError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetNotificationConfigurationRequest` | `src/Adyen/Requests/General/PostGetNotificationConfigurationRequest.cs` |
+| `GetNotificationConfigurationRequest` | `src/Adyen/Models/GetNotificationConfigurationRequest.cs` |
+| `GetNotificationConfigurationResponse` | `src/Adyen/Models/GetNotificationConfigurationResponse.cs` |
+| `PostGetNotificationConfigurationError` | `src/Adyen/Errors/PostGetNotificationConfigurationError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGetNotificationConfigurationList
 
 - **Server group**: `Default12`
-- **Signature**: `PostGetNotificationConfigurationList(object? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetNotificationConfigurationList(PostGetNotificationConfigurationListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetNotificationConfigurationListResponse`
-- **Error**: `SdkException<PostGetNotificationConfigurationListError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetNotificationConfigurationListError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetNotificationConfigurationListResponse` | `Models/GetNotificationConfigurationListResponse.cs` |
-| `PostGetNotificationConfigurationListError` | `Errors/PostGetNotificationConfigurationListError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetNotificationConfigurationListRequest` | `src/Adyen/Requests/General/PostGetNotificationConfigurationListRequest.cs` |
+| `GetNotificationConfigurationListResponse` | `src/Adyen/Models/GetNotificationConfigurationListResponse.cs` |
+| `PostGetNotificationConfigurationListError` | `src/Adyen/Errors/PostGetNotificationConfigurationListError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGetStoresUnderAccount
 
 - **Server group**: `Default28`
-- **Signature**: `PostGetStoresUnderAccount(GetStoresUnderAccountRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetStoresUnderAccount(PostGetStoresUnderAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetStoresUnderAccountResponse`
-- **Error**: `SdkException<PostGetStoresUnderAccountError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetStoresUnderAccountError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetStoresUnderAccountRequest` | `Models/GetStoresUnderAccountRequest.cs` |
-| `GetStoresUnderAccountResponse` | `Models/GetStoresUnderAccountResponse.cs` |
-| `PostGetStoresUnderAccountError` | `Errors/PostGetStoresUnderAccountError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetStoresUnderAccountRequest` | `src/Adyen/Requests/General/PostGetStoresUnderAccountRequest.cs` |
+| `GetStoresUnderAccountRequest` | `src/Adyen/Models/GetStoresUnderAccountRequest.cs` |
+| `GetStoresUnderAccountResponse` | `src/Adyen/Models/GetStoresUnderAccountResponse.cs` |
+| `PostGetStoresUnderAccountError` | `src/Adyen/Errors/PostGetStoresUnderAccountError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGetTerminalDetails
 
 - **Server group**: `Default28`
-- **Signature**: `PostGetTerminalDetails(GetTerminalDetailsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetTerminalDetails(PostGetTerminalDetailsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetTerminalDetailsResponse`
-- **Error**: `SdkException<PostGetTerminalDetailsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetTerminalDetailsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetTerminalDetailsRequest` | `Models/GetTerminalDetailsRequest.cs` |
-| `GetTerminalDetailsResponse` | `Models/GetTerminalDetailsResponse.cs` |
-| `PostGetTerminalDetailsError` | `Errors/PostGetTerminalDetailsError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetTerminalDetailsRequest` | `src/Adyen/Requests/General/PostGetTerminalDetailsRequest.cs` |
+| `GetTerminalDetailsRequest` | `src/Adyen/Models/GetTerminalDetailsRequest.cs` |
+| `GetTerminalDetailsResponse` | `src/Adyen/Models/GetTerminalDetailsResponse.cs` |
+| `PostGetTerminalDetailsError` | `src/Adyen/Errors/PostGetTerminalDetailsError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostGetTerminalsUnderAccount
 
 - **Server group**: `Default28`
-- **Signature**: `PostGetTerminalsUnderAccount(GetTerminalsUnderAccountRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostGetTerminalsUnderAccount(PostGetTerminalsUnderAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetTerminalsUnderAccountResponse`
-- **Error**: `SdkException<PostGetTerminalsUnderAccountError>` — **Case A (typed)**
+- **Error**: `ApiException<PostGetTerminalsUnderAccountError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GetTerminalsUnderAccountRequest` | `Models/GetTerminalsUnderAccountRequest.cs` |
-| `GetTerminalsUnderAccountResponse` | `Models/GetTerminalsUnderAccountResponse.cs` |
-| `PostGetTerminalsUnderAccountError` | `Errors/PostGetTerminalsUnderAccountError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostGetTerminalsUnderAccountRequest` | `src/Adyen/Requests/General/PostGetTerminalsUnderAccountRequest.cs` |
+| `GetTerminalsUnderAccountRequest` | `src/Adyen/Models/GetTerminalsUnderAccountRequest.cs` |
+| `GetTerminalsUnderAccountResponse` | `src/Adyen/Models/GetTerminalsUnderAccountResponse.cs` |
+| `PostGetTerminalsUnderAccountError` | `src/Adyen/Errors/PostGetTerminalsUnderAccountError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostIssue
 
 - **Server group**: `Default5`
-- **Signature**: `PostIssue(StoredValueIssueRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostIssue(PostIssueRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredValueIssueResponse`
-- **Error**: `SdkException<PostIssueError>` — **Case A (typed)**
+- **Error**: `ApiException<PostIssueError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StoredValueIssueRequest` | `Models/StoredValueIssueRequest.cs` |
-| `StoredValueIssueResponse` | `Models/StoredValueIssueResponse.cs` |
-| `PostIssueError` | `Errors/PostIssueError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostIssueRequest` | `src/Adyen/Requests/General/PostIssueRequest.cs` |
+| `StoredValueIssueRequest` | `src/Adyen/Models/StoredValueIssueRequest.cs` |
+| `StoredValueIssueResponse` | `src/Adyen/Models/StoredValueIssueResponse.cs` |
+| `PostIssueError` | `src/Adyen/Errors/PostIssueError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostListRecurringDetails
 
 - **Server group**: `Default2`
-- **Signature**: `PostListRecurringDetails(RecurringDetailsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostListRecurringDetails(PostListRecurringDetailsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `RecurringDetailsResult`
-- **Error**: `SdkException<PostListRecurringDetailsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostListRecurringDetailsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RecurringDetailsRequest` | `Models/RecurringDetailsRequest.cs` |
-| `RecurringDetailsResult` | `Models/RecurringDetailsResult.cs` |
-| `PostListRecurringDetailsError` | `Errors/PostListRecurringDetailsError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostListRecurringDetailsRequest` | `src/Adyen/Requests/General/PostListRecurringDetailsRequest.cs` |
+| `RecurringDetailsRequest` | `src/Adyen/Models/RecurringDetailsRequest.cs` |
+| `RecurringDetailsResult` | `src/Adyen/Models/RecurringDetailsResult.cs` |
+| `PostListRecurringDetailsError` | `src/Adyen/Errors/PostListRecurringDetailsError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostLoad
 
 - **Server group**: `Default5`
-- **Signature**: `PostLoad(StoredValueLoadRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostLoad(PostLoadRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredValueLoadResponse`
-- **Error**: `SdkException<PostLoadError>` — **Case A (typed)**
+- **Error**: `ApiException<PostLoadError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StoredValueLoadRequest` | `Models/StoredValueLoadRequest.cs` |
-| `StoredValueLoadResponse` | `Models/StoredValueLoadResponse.cs` |
-| `PostLoadError` | `Errors/PostLoadError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostLoadRequest` | `src/Adyen/Requests/General/PostLoadRequest.cs` |
+| `StoredValueLoadRequest` | `src/Adyen/Models/StoredValueLoadRequest.cs` |
+| `StoredValueLoadResponse` | `src/Adyen/Models/StoredValueLoadResponse.cs` |
+| `PostLoadError` | `src/Adyen/Errors/PostLoadError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostMergeBalance
 
 - **Server group**: `Default5`
-- **Signature**: `PostMergeBalance(StoredValueBalanceMergeRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMergeBalance(PostMergeBalanceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredValueBalanceMergeResponse`
-- **Error**: `SdkException<PostMergeBalanceError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMergeBalanceError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StoredValueBalanceMergeRequest` | `Models/StoredValueBalanceMergeRequest.cs` |
-| `StoredValueBalanceMergeResponse` | `Models/StoredValueBalanceMergeResponse.cs` |
-| `PostMergeBalanceError` | `Errors/PostMergeBalanceError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostMergeBalanceRequest` | `src/Adyen/Requests/General/PostMergeBalanceRequest.cs` |
+| `StoredValueBalanceMergeRequest` | `src/Adyen/Models/StoredValueBalanceMergeRequest.cs` |
+| `StoredValueBalanceMergeResponse` | `src/Adyen/Models/StoredValueBalanceMergeResponse.cs` |
+| `PostMergeBalanceError` | `src/Adyen/Errors/PostMergeBalanceError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostNotifyShopper
 
 - **Server group**: `Default2`
-- **Signature**: `PostNotifyShopper(NotifyShopperRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostNotifyShopper(PostNotifyShopperRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `NotifyShopperResult`
-- **Error**: `SdkException<PostNotifyShopperError>` — **Case A (typed)**
+- **Error**: `ApiException<PostNotifyShopperError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `NotifyShopperRequest` | `Models/NotifyShopperRequest.cs` |
-| `NotifyShopperResult` | `Models/NotifyShopperResult.cs` |
-| `PostNotifyShopperError` | `Errors/PostNotifyShopperError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostNotifyShopperRequest` | `src/Adyen/Requests/General/PostNotifyShopperRequest.cs` |
+| `NotifyShopperRequest` | `src/Adyen/Models/NotifyShopperRequest.cs` |
+| `NotifyShopperResult` | `src/Adyen/Models/NotifyShopperResult.cs` |
+| `PostNotifyShopperError` | `src/Adyen/Errors/PostNotifyShopperError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPayoutAccountHolder
 
 - **Server group**: `Default16`
-- **Signature**: `PostPayoutAccountHolder(PayoutAccountHolderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPayoutAccountHolder(PostPayoutAccountHolderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `PayoutAccountHolderResponse`
-- **Error**: `SdkException<PostPayoutAccountHolderError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPayoutAccountHolderError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PayoutAccountHolderRequest` | `Models/PayoutAccountHolderRequest.cs` |
-| `PayoutAccountHolderResponse` | `Models/PayoutAccountHolderResponse.cs` |
-| `PostPayoutAccountHolderError` | `Errors/PostPayoutAccountHolderError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostPayoutAccountHolderRequest` | `src/Adyen/Requests/General/PostPayoutAccountHolderRequest.cs` |
+| `PayoutAccountHolderRequest` | `src/Adyen/Models/PayoutAccountHolderRequest.cs` |
+| `PayoutAccountHolderResponse` | `src/Adyen/Models/PayoutAccountHolderResponse.cs` |
+| `PostPayoutAccountHolderError` | `src/Adyen/Errors/PostPayoutAccountHolderError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostRefundFundsTransfer
 
 - **Server group**: `Default16`
-- **Signature**: `PostRefundFundsTransfer(RefundFundsTransferRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostRefundFundsTransfer(PostRefundFundsTransferRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `RefundFundsTransferResponse`
-- **Error**: `SdkException<PostRefundFundsTransferError>` — **Case A (typed)**
+- **Error**: `ApiException<PostRefundFundsTransferError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RefundFundsTransferRequest` | `Models/RefundFundsTransferRequest.cs` |
-| `RefundFundsTransferResponse` | `Models/RefundFundsTransferResponse.cs` |
-| `PostRefundFundsTransferError` | `Errors/PostRefundFundsTransferError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostRefundFundsTransferRequest` | `src/Adyen/Requests/General/PostRefundFundsTransferRequest.cs` |
+| `RefundFundsTransferRequest` | `src/Adyen/Models/RefundFundsTransferRequest.cs` |
+| `RefundFundsTransferResponse` | `src/Adyen/Models/RefundFundsTransferResponse.cs` |
+| `PostRefundFundsTransferError` | `src/Adyen/Errors/PostRefundFundsTransferError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostRefundNotPaidOutTransfers
 
 - **Server group**: `Default16`
-- **Signature**: `PostRefundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostRefundNotPaidOutTransfers(PostRefundNotPaidOutTransfersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GenericResponse`
-- **Error**: `SdkException<PostRefundNotPaidOutTransfersError>` — **Case A (typed)**
+- **Error**: `ApiException<PostRefundNotPaidOutTransfersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `RefundNotPaidOutTransfersRequest` | `Models/RefundNotPaidOutTransfersRequest.cs` |
-| `GenericResponse` | `Models/GenericResponse.cs` |
-| `PostRefundNotPaidOutTransfersError` | `Errors/PostRefundNotPaidOutTransfersError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostRefundNotPaidOutTransfersRequest` | `src/Adyen/Requests/General/PostRefundNotPaidOutTransfersRequest.cs` |
+| `RefundNotPaidOutTransfersRequest` | `src/Adyen/Models/RefundNotPaidOutTransfersRequest.cs` |
+| `GenericResponse` | `src/Adyen/Models/GenericResponse.cs` |
+| `PostRefundNotPaidOutTransfersError` | `src/Adyen/Errors/PostRefundNotPaidOutTransfersError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostRequestSubjectErasure
 
 - **Server group**: `Default6`
-- **Signature**: `PostRequestSubjectErasure(SubjectErasureByPspReferenceRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostRequestSubjectErasure(PostRequestSubjectErasureRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `SubjectErasureResponse`
-- **Error**: `SdkException<PostRequestSubjectErasureError>` — **Case A (typed)**
+- **Error**: `ApiException<PostRequestSubjectErasureError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `SubjectErasureByPspReferenceRequest` | `Models/SubjectErasureByPspReferenceRequest.cs` |
-| `SubjectErasureResponse` | `Models/SubjectErasureResponse.cs` |
-| `PostRequestSubjectErasureError` | `Errors/PostRequestSubjectErasureError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostRequestSubjectErasureRequest` | `src/Adyen/Requests/General/PostRequestSubjectErasureRequest.cs` |
+| `SubjectErasureByPspReferenceRequest` | `src/Adyen/Models/SubjectErasureByPspReferenceRequest.cs` |
+| `SubjectErasureResponse` | `src/Adyen/Models/SubjectErasureResponse.cs` |
+| `PostRequestSubjectErasureError` | `src/Adyen/Errors/PostRequestSubjectErasureError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostRetrieveApplicableDefenseReasons
 
 - **Server group**: `Default22`
-- **Signature**: `PostRetrieveApplicableDefenseReasons(DefenseReasonsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostRetrieveApplicableDefenseReasons(PostRetrieveApplicableDefenseReasonsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `DefenseReasonsResponse`
-- **Error**: `SdkException<PostRetrieveApplicableDefenseReasonsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostRetrieveApplicableDefenseReasonsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DefenseReasonsRequest` | `Models/DefenseReasonsRequest.cs` |
-| `DefenseReasonsResponse` | `Models/DefenseReasonsResponse.cs` |
-| `PostRetrieveApplicableDefenseReasonsError` | `Errors/PostRetrieveApplicableDefenseReasonsError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostRetrieveApplicableDefenseReasonsRequest` | `src/Adyen/Requests/General/PostRetrieveApplicableDefenseReasonsRequest.cs` |
+| `DefenseReasonsRequest` | `src/Adyen/Models/DefenseReasonsRequest.cs` |
+| `DefenseReasonsResponse` | `src/Adyen/Models/DefenseReasonsResponse.cs` |
+| `PostRetrieveApplicableDefenseReasonsError` | `src/Adyen/Errors/PostRetrieveApplicableDefenseReasonsError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostScheduleAccountUpdater
 
 - **Server group**: `Default2`
-- **Signature**: `PostScheduleAccountUpdater(ScheduleAccountUpdaterRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostScheduleAccountUpdater(PostScheduleAccountUpdaterRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ScheduleAccountUpdaterResult`
-- **Error**: `SdkException<PostScheduleAccountUpdaterError>` — **Case A (typed)**
+- **Error**: `ApiException<PostScheduleAccountUpdaterError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ScheduleAccountUpdaterRequest` | `Models/ScheduleAccountUpdaterRequest.cs` |
-| `ScheduleAccountUpdaterResult` | `Models/ScheduleAccountUpdaterResult.cs` |
-| `PostScheduleAccountUpdaterError` | `Errors/PostScheduleAccountUpdaterError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostScheduleAccountUpdaterRequest` | `src/Adyen/Requests/General/PostScheduleAccountUpdaterRequest.cs` |
+| `ScheduleAccountUpdaterRequest` | `src/Adyen/Models/ScheduleAccountUpdaterRequest.cs` |
+| `ScheduleAccountUpdaterResult` | `src/Adyen/Models/ScheduleAccountUpdaterResult.cs` |
+| `PostScheduleAccountUpdaterError` | `src/Adyen/Errors/PostScheduleAccountUpdaterError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostSessions3
 
 - **Server group**: `Default27`
-- **Signature**: `PostSessions3(CreateSessionRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostSessions3(PostSessions3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CertificateLoadingResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `CreateSessionRequest` | `Models/CreateSessionRequest.cs` |
-| `CertificateLoadingResponse` | `Models/CertificateLoadingResponse.cs` |
+| `PostSessions3Request` | `src/Adyen/Requests/General/PostSessions3Request.cs` |
+| `CreateSessionRequest` | `src/Adyen/Models/CreateSessionRequest.cs` |
+| `CertificateLoadingResponse` | `src/Adyen/Models/CertificateLoadingResponse.cs` |
 
 ### PostSetupBeneficiary
 
 - **Server group**: `Default16`
-- **Signature**: `PostSetupBeneficiary(SetupBeneficiaryRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostSetupBeneficiary(PostSetupBeneficiaryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GenericResponse`
-- **Error**: `SdkException<PostSetupBeneficiaryError>` — **Case A (typed)**
+- **Error**: `ApiException<PostSetupBeneficiaryError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `SetupBeneficiaryRequest` | `Models/SetupBeneficiaryRequest.cs` |
-| `GenericResponse` | `Models/GenericResponse.cs` |
-| `PostSetupBeneficiaryError` | `Errors/PostSetupBeneficiaryError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostSetupBeneficiaryRequest` | `src/Adyen/Requests/General/PostSetupBeneficiaryRequest.cs` |
+| `SetupBeneficiaryRequest` | `src/Adyen/Models/SetupBeneficiaryRequest.cs` |
+| `GenericResponse` | `src/Adyen/Models/GenericResponse.cs` |
+| `PostSetupBeneficiaryError` | `src/Adyen/Errors/PostSetupBeneficiaryError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostSupplyDefenseDocument
 
 - **Server group**: `Default22`
-- **Signature**: `PostSupplyDefenseDocument(SupplyDefenseDocumentRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostSupplyDefenseDocument(PostSupplyDefenseDocumentRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `SupplyDefenseDocumentResponse`
-- **Error**: `SdkException<PostSupplyDefenseDocumentError>` — **Case A (typed)**
+- **Error**: `ApiException<PostSupplyDefenseDocumentError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `SupplyDefenseDocumentRequest` | `Models/SupplyDefenseDocumentRequest.cs` |
-| `SupplyDefenseDocumentResponse` | `Models/SupplyDefenseDocumentResponse.cs` |
-| `PostSupplyDefenseDocumentError` | `Errors/PostSupplyDefenseDocumentError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostSupplyDefenseDocumentRequest` | `src/Adyen/Requests/General/PostSupplyDefenseDocumentRequest.cs` |
+| `SupplyDefenseDocumentRequest` | `src/Adyen/Models/SupplyDefenseDocumentRequest.cs` |
+| `SupplyDefenseDocumentResponse` | `src/Adyen/Models/SupplyDefenseDocumentResponse.cs` |
+| `PostSupplyDefenseDocumentError` | `src/Adyen/Errors/PostSupplyDefenseDocumentError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostTestNotificationConfiguration
 
 - **Server group**: `Default12`
-- **Signature**: `PostTestNotificationConfiguration(TestNotificationConfigurationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostTestNotificationConfiguration(PostTestNotificationConfigurationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TestNotificationConfigurationResponse`
-- **Error**: `SdkException<PostTestNotificationConfigurationError>` — **Case A (typed)**
+- **Error**: `ApiException<PostTestNotificationConfigurationError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TestNotificationConfigurationRequest` | `Models/TestNotificationConfigurationRequest.cs` |
-| `TestNotificationConfigurationResponse` | `Models/TestNotificationConfigurationResponse.cs` |
-| `PostTestNotificationConfigurationError` | `Errors/PostTestNotificationConfigurationError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostTestNotificationConfigurationRequest` | `src/Adyen/Requests/General/PostTestNotificationConfigurationRequest.cs` |
+| `TestNotificationConfigurationRequest` | `src/Adyen/Models/TestNotificationConfigurationRequest.cs` |
+| `TestNotificationConfigurationResponse` | `src/Adyen/Models/TestNotificationConfigurationResponse.cs` |
+| `PostTestNotificationConfigurationError` | `src/Adyen/Errors/PostTestNotificationConfigurationError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostTransferFunds
 
 - **Server group**: `Default16`
-- **Signature**: `PostTransferFunds(TransferFundsRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostTransferFunds(PostTransferFundsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TransferFundsResponse`
-- **Error**: `SdkException<PostTransferFundsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostTransferFundsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TransferFundsRequest` | `Models/TransferFundsRequest.cs` |
-| `TransferFundsResponse` | `Models/TransferFundsResponse.cs` |
-| `PostTransferFundsError` | `Errors/PostTransferFundsError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostTransferFundsRequest` | `src/Adyen/Requests/General/PostTransferFundsRequest.cs` |
+| `TransferFundsRequest` | `src/Adyen/Models/TransferFundsRequest.cs` |
+| `TransferFundsResponse` | `src/Adyen/Models/TransferFundsResponse.cs` |
+| `PostTransferFundsError` | `src/Adyen/Errors/PostTransferFundsError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostUpdateNotificationConfiguration
 
 - **Server group**: `Default12`
-- **Signature**: `PostUpdateNotificationConfiguration(UpdateNotificationConfigurationRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostUpdateNotificationConfiguration(PostUpdateNotificationConfigurationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GetNotificationConfigurationResponse`
-- **Error**: `SdkException<PostUpdateNotificationConfigurationError>` — **Case A (typed)**
+- **Error**: `ApiException<PostUpdateNotificationConfigurationError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateNotificationConfigurationRequest` | `Models/UpdateNotificationConfigurationRequest.cs` |
-| `GetNotificationConfigurationResponse` | `Models/GetNotificationConfigurationResponse.cs` |
-| `PostUpdateNotificationConfigurationError` | `Errors/PostUpdateNotificationConfigurationError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostUpdateNotificationConfigurationRequest` | `src/Adyen/Requests/General/PostUpdateNotificationConfigurationRequest.cs` |
+| `UpdateNotificationConfigurationRequest` | `src/Adyen/Models/UpdateNotificationConfigurationRequest.cs` |
+| `GetNotificationConfigurationResponse` | `src/Adyen/Models/GetNotificationConfigurationResponse.cs` |
+| `PostUpdateNotificationConfigurationError` | `src/Adyen/Errors/PostUpdateNotificationConfigurationError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostVoidTransaction
 
 - **Server group**: `Default5`
-- **Signature**: `PostVoidTransaction(StoredValueVoidRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostVoidTransaction(PostVoidTransactionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredValueVoidResponse`
-- **Error**: `SdkException<PostVoidTransactionError>` — **Case A (typed)**
+- **Error**: `ApiException<PostVoidTransactionError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `StoredValueVoidRequest` | `Models/StoredValueVoidRequest.cs` |
-| `StoredValueVoidResponse` | `Models/StoredValueVoidResponse.cs` |
-| `PostVoidTransactionError` | `Errors/PostVoidTransactionError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostVoidTransactionRequest` | `src/Adyen/Requests/General/PostVoidTransactionRequest.cs` |
+| `StoredValueVoidRequest` | `src/Adyen/Models/StoredValueVoidRequest.cs` |
+| `StoredValueVoidResponse` | `src/Adyen/Models/StoredValueVoidResponse.cs` |
+| `PostVoidTransactionError` | `src/Adyen/Errors/PostVoidTransactionError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 

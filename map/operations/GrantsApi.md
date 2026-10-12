@@ -2,95 +2,105 @@
 
 # GrantsApi — operations
 
-Accessor: `client.GrantsApi` · Source: `Api/GrantsApi.cs` · 6 operations
+Accessor: `client.GrantsApi` · Source: `src/Adyen/Api/GrantsApi.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetGrants2
 
 - **Server group**: `Default15`
-- **Signature**: `GetGrants2(string counterpartyAccountHolderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `counterpartyAccountHolderId` ← `counterpartyAccountHolderId`
+- **Signature**: `GetGrants2(GetGrants2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CounterpartyAccountHolderId`
+- **Query params (wire ← C#)**: `counterpartyAccountHolderId` ← `CounterpartyAccountHolderId`
 - **Returns**: `Grants`
-- **Error**: `SdkException<GetGrants2Error>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrants2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Grants` | `Models/Grants.cs` |
-| `GetGrants2Error` | `Errors/GetGrants2Error.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetGrants2Request` | `src/Adyen/Requests/GrantsApi/GetGrants2Request.cs` |
+| `Grants` | `src/Adyen/Models/Grants.cs` |
+| `GetGrants2Error` | `src/Adyen/Errors/GetGrants2Error.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetGrantsGrantId
 
 - **Server group**: `Default15`
-- **Signature**: `GetGrantsGrantId(string grantId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetGrantsGrantId(GetGrantsGrantIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `GrantId`
 - **Returns**: `Grant`
-- **Error**: `SdkException<GetGrantsGrantIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantsGrantIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Grant` | `Models/Grant.cs` |
-| `GetGrantsGrantIdError` | `Errors/GetGrantsGrantIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetGrantsGrantIdRequest` | `src/Adyen/Requests/GrantsApi/GetGrantsGrantIdRequest.cs` |
+| `Grant` | `src/Adyen/Models/Grant.cs` |
+| `GetGrantsGrantIdError` | `src/Adyen/Errors/GetGrantsGrantIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetGrantsGrantIdDisbursements
 
 - **Server group**: `Default15`
-- **Signature**: `GetGrantsGrantIdDisbursements(string grantId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetGrantsGrantIdDisbursements(GetGrantsGrantIdDisbursementsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `GrantId`
 - **Returns**: `Disbursements`
-- **Error**: `SdkException<GetGrantsGrantIdDisbursementsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantsGrantIdDisbursementsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Disbursements` | `Models/Disbursements.cs` |
-| `GetGrantsGrantIdDisbursementsError` | `Errors/GetGrantsGrantIdDisbursementsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetGrantsGrantIdDisbursementsRequest` | `src/Adyen/Requests/GrantsApi/GetGrantsGrantIdDisbursementsRequest.cs` |
+| `Disbursements` | `src/Adyen/Models/Disbursements.cs` |
+| `GetGrantsGrantIdDisbursementsError` | `src/Adyen/Errors/GetGrantsGrantIdDisbursementsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetGrantsGrantIdDisbursementsDisbursementId
 
 - **Server group**: `Default15`
-- **Signature**: `GetGrantsGrantIdDisbursementsDisbursementId(string grantId, string disbursementId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetGrantsGrantIdDisbursementsDisbursementId(GetGrantsGrantIdDisbursementsDisbursementIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `GrantId`, `DisbursementId`
 - **Returns**: `Disbursement`
-- **Error**: `SdkException<GetGrantsGrantIdDisbursementsDisbursementIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetGrantsGrantIdDisbursementsDisbursementIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Disbursement` | `Models/Disbursement.cs` |
-| `GetGrantsGrantIdDisbursementsDisbursementIdError` | `Errors/GetGrantsGrantIdDisbursementsDisbursementIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetGrantsGrantIdDisbursementsDisbursementIdRequest` | `src/Adyen/Requests/GrantsApi/GetGrantsGrantIdDisbursementsDisbursementIdRequest.cs` |
+| `Disbursement` | `src/Adyen/Models/Disbursement.cs` |
+| `GetGrantsGrantIdDisbursementsDisbursementIdError` | `src/Adyen/Errors/GetGrantsGrantIdDisbursementsDisbursementIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PatchGrantsGrantIdDisbursementsDisbursementId
 
 - **Server group**: `Default15`
-- **Signature**: `PatchGrantsGrantIdDisbursementsDisbursementId(string grantId, string disbursementId, DisbursementInfoUpdate body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PatchGrantsGrantIdDisbursementsDisbursementId(PatchGrantsGrantIdDisbursementsDisbursementIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `GrantId`, `DisbursementId`, `Body`
 - **Returns**: `Disbursement`
-- **Error**: `SdkException<PatchGrantsGrantIdDisbursementsDisbursementIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchGrantsGrantIdDisbursementsDisbursementIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [404, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DisbursementInfoUpdate` | `Models/DisbursementInfoUpdate.cs` |
-| `Disbursement` | `Models/Disbursement.cs` |
-| `PatchGrantsGrantIdDisbursementsDisbursementIdError` | `Errors/PatchGrantsGrantIdDisbursementsDisbursementIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PatchGrantsGrantIdDisbursementsDisbursementIdRequest` | `src/Adyen/Requests/GrantsApi/PatchGrantsGrantIdDisbursementsDisbursementIdRequest.cs` |
+| `DisbursementInfoUpdate` | `src/Adyen/Models/DisbursementInfoUpdate.cs` |
+| `Disbursement` | `src/Adyen/Models/Disbursement.cs` |
+| `PatchGrantsGrantIdDisbursementsDisbursementIdError` | `src/Adyen/Errors/PatchGrantsGrantIdDisbursementsDisbursementIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostGrants2
 
 - **Server group**: `Default15`
-- **Signature**: `PostGrants2(CapitalGrantInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `PostGrants2(PostGrants2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `Grant`
-- **Error**: `SdkException<PostGrants2Error>` — **Case A (typed)**
+- **Error**: `ApiException<PostGrants2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CapitalGrantInfo` | `Models/CapitalGrantInfo.cs` |
-| `Grant` | `Models/Grant.cs` |
-| `PostGrants2Error` | `Errors/PostGrants2Error.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostGrants2Request` | `src/Adyen/Requests/GrantsApi/PostGrants2Request.cs` |
+| `CapitalGrantInfo` | `src/Adyen/Models/CapitalGrantInfo.cs` |
+| `Grant` | `src/Adyen/Models/Grant.cs` |
+| `PostGrants2Error` | `src/Adyen/Errors/PostGrants2Error.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

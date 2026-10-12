@@ -2,52 +2,58 @@
 
 # IDealProfiles — operations
 
-Accessor: `client.IDealProfiles` · Source: `Api/IDealProfiles.cs` · 3 operations
+Accessor: `client.IDealProfiles` · Source: `src/Adyen/Api/IDealProfiles.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostIdealProfileAuthLink
 
 - **Server group**: `Default20`
-- **Signature**: `PostIdealProfileAuthLink(IdealAuthLinkRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostIdealProfileAuthLink(PostIdealProfileAuthLinkRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `IdealAuthLinkResponse`
-- **Error**: `SdkException<PostIdealProfileAuthLinkError>` — **Case A (typed)**
+- **Error**: `ApiException<PostIdealProfileAuthLinkError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `IdealAuthLinkRequest` | `Models/IdealAuthLinkRequest.cs` |
-| `IdealAuthLinkResponse` | `Models/IdealAuthLinkResponse.cs` |
-| `PostIdealProfileAuthLinkError` | `Errors/PostIdealProfileAuthLinkError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostIdealProfileAuthLinkRequest` | `src/Adyen/Requests/IDealProfiles/PostIdealProfileAuthLinkRequest.cs` |
+| `IdealAuthLinkRequest` | `src/Adyen/Models/IdealAuthLinkRequest.cs` |
+| `IdealAuthLinkResponse` | `src/Adyen/Models/IdealAuthLinkResponse.cs` |
+| `PostIdealProfileAuthLinkError` | `src/Adyen/Errors/PostIdealProfileAuthLinkError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostIdealProfileAuthenticate
 
 - **Server group**: `Default20`
-- **Signature**: `PostIdealProfileAuthenticate(IdealAuthenticateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostIdealProfileAuthenticate(PostIdealProfileAuthenticateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `IdealAuthenticateResponse`
-- **Error**: `SdkException<PostIdealProfileAuthenticateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostIdealProfileAuthenticateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `IdealAuthenticateRequest` | `Models/IdealAuthenticateRequest.cs` |
-| `IdealAuthenticateResponse` | `Models/IdealAuthenticateResponse.cs` |
-| `PostIdealProfileAuthenticateError` | `Errors/PostIdealProfileAuthenticateError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostIdealProfileAuthenticateRequest` | `src/Adyen/Requests/IDealProfiles/PostIdealProfileAuthenticateRequest.cs` |
+| `IdealAuthenticateRequest` | `src/Adyen/Models/IdealAuthenticateRequest.cs` |
+| `IdealAuthenticateResponse` | `src/Adyen/Models/IdealAuthenticateResponse.cs` |
+| `PostIdealProfileAuthenticateError` | `src/Adyen/Errors/PostIdealProfileAuthenticateError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostIdealProfileRegister
 
 - **Server group**: `Default20`
-- **Signature**: `PostIdealProfileRegister(ProfileRegistrationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostIdealProfileRegister(PostIdealProfileRegisterRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `ProfileRegistrationResponse`
-- **Error**: `SdkException<PostIdealProfileRegisterError>` — **Case A (typed)**
+- **Error**: `ApiException<PostIdealProfileRegisterError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ProfileRegistrationRequest` | `Models/ProfileRegistrationRequest.cs` |
-| `ProfileRegistrationResponse` | `Models/ProfileRegistrationResponse.cs` |
-| `PostIdealProfileRegisterError` | `Errors/PostIdealProfileRegisterError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostIdealProfileRegisterRequest` | `src/Adyen/Requests/IDealProfiles/PostIdealProfileRegisterRequest.cs` |
+| `ProfileRegistrationRequest` | `src/Adyen/Models/ProfileRegistrationRequest.cs` |
+| `ProfileRegistrationResponse` | `src/Adyen/Models/ProfileRegistrationResponse.cs` |
+| `PostIdealProfileRegisterError` | `src/Adyen/Errors/PostIdealProfileRegisterError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

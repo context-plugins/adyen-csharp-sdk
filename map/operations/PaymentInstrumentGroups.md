@@ -2,51 +2,58 @@
 
 # PaymentInstrumentGroups — operations
 
-Accessor: `client.PaymentInstrumentGroups` · Source: `Api/PaymentInstrumentGroups.cs` · 3 operations
+Accessor: `client.PaymentInstrumentGroups` · Source: `src/Adyen/Api/PaymentInstrumentGroups.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetPaymentInstrumentGroupsId
 
 - **Server group**: `Default13`
-- **Signature**: `GetPaymentInstrumentGroupsId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetPaymentInstrumentGroupsId(GetPaymentInstrumentGroupsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `PaymentInstrumentGroup`
-- **Error**: `SdkException<GetPaymentInstrumentGroupsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetPaymentInstrumentGroupsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentInstrumentGroup` | `Models/PaymentInstrumentGroup.cs` |
-| `GetPaymentInstrumentGroupsIdError` | `Errors/GetPaymentInstrumentGroupsIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetPaymentInstrumentGroupsIdRequest` | `src/Adyen/Requests/PaymentInstrumentGroups/GetPaymentInstrumentGroupsIdRequest.cs` |
+| `PaymentInstrumentGroup` | `src/Adyen/Models/PaymentInstrumentGroup.cs` |
+| `GetPaymentInstrumentGroupsIdError` | `src/Adyen/Errors/GetPaymentInstrumentGroupsIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetPaymentInstrumentGroupsIdTransactionRules
 
 - **Server group**: `Default13`
-- **Signature**: `GetPaymentInstrumentGroupsIdTransactionRules(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetPaymentInstrumentGroupsIdTransactionRules(GetPaymentInstrumentGroupsIdTransactionRulesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `TransactionRulesResponse`
-- **Error**: `SdkException<GetPaymentInstrumentGroupsIdTransactionRulesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetPaymentInstrumentGroupsIdTransactionRulesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TransactionRulesResponse` | `Models/TransactionRulesResponse.cs` |
-| `GetPaymentInstrumentGroupsIdTransactionRulesError` | `Errors/GetPaymentInstrumentGroupsIdTransactionRulesError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetPaymentInstrumentGroupsIdTransactionRulesRequest` | `src/Adyen/Requests/PaymentInstrumentGroups/GetPaymentInstrumentGroupsIdTransactionRulesRequest.cs` |
+| `TransactionRulesResponse` | `src/Adyen/Models/TransactionRulesResponse.cs` |
+| `GetPaymentInstrumentGroupsIdTransactionRulesError` | `src/Adyen/Errors/GetPaymentInstrumentGroupsIdTransactionRulesError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostPaymentInstrumentGroups
 
 - **Server group**: `Default13`
-- **Signature**: `PostPaymentInstrumentGroups(PaymentInstrumentGroupInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ClientKey` OR `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentInstrumentGroups(PostPaymentInstrumentGroupsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `PaymentInstrumentGroup`
-- **Error**: `SdkException<PostPaymentInstrumentGroupsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentInstrumentGroupsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentInstrumentGroupInfo` | `Models/PaymentInstrumentGroupInfo.cs` |
-| `PaymentInstrumentGroup` | `Models/PaymentInstrumentGroup.cs` |
-| `PostPaymentInstrumentGroupsError` | `Errors/PostPaymentInstrumentGroupsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostPaymentInstrumentGroupsRequest` | `src/Adyen/Requests/PaymentInstrumentGroups/PostPaymentInstrumentGroupsRequest.cs` |
+| `PaymentInstrumentGroupInfo` | `src/Adyen/Models/PaymentInstrumentGroupInfo.cs` |
+| `PaymentInstrumentGroup` | `src/Adyen/Models/PaymentInstrumentGroup.cs` |
+| `PostPaymentInstrumentGroupsError` | `src/Adyen/Errors/PostPaymentInstrumentGroupsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

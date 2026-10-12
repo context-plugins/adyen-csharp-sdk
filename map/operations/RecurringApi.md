@@ -2,53 +2,59 @@
 
 # RecurringApi — operations
 
-Accessor: `client.RecurringApi` · Source: `Api/RecurringApi.cs` · 4 operations
+Accessor: `client.RecurringApi` · Source: `src/Adyen/Api/RecurringApi.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteStoredPaymentMethodsStoredPaymentMethodId
 
-- **Signature**: `DeleteStoredPaymentMethodsStoredPaymentMethodId(string storedPaymentMethodId, string shopperReference, string merchantAccount, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `shopperReference` ← `shopperReference`, `merchantAccount` ← `merchantAccount`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteStoredPaymentMethodsStoredPaymentMethodId(DeleteStoredPaymentMethodsStoredPaymentMethodIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `StoredPaymentMethodId`, `ShopperReference`, `MerchantAccount`
+- **Query params (wire ← C#)**: `shopperReference` ← `ShopperReference`, `merchantAccount` ← `MerchantAccount`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DeleteStoredPaymentMethodsStoredPaymentMethodIdRequest` | `src/Adyen/Requests/RecurringApi/DeleteStoredPaymentMethodsStoredPaymentMethodIdRequest.cs` |
 
 ### GetStoredPaymentMethods
 
-- **Signature**: `GetStoredPaymentMethods(string? shopperReference, string? merchantAccount, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `shopperReference` — nullable, no default → **must pass explicitly**
-  - `merchantAccount` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `shopperReference` ← `shopperReference`, `merchantAccount` ← `merchantAccount`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetStoredPaymentMethods(GetStoredPaymentMethodsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `shopperReference` ← `ShopperReference`, `merchantAccount` ← `MerchantAccount`
 - **Returns**: `ListStoredPaymentMethodsResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListStoredPaymentMethodsResponse` | `Models/ListStoredPaymentMethodsResponse.cs` |
+| `GetStoredPaymentMethodsRequest` | `src/Adyen/Requests/RecurringApi/GetStoredPaymentMethodsRequest.cs` |
+| `ListStoredPaymentMethodsResponse` | `src/Adyen/Models/ListStoredPaymentMethodsResponse.cs` |
 
 ### PostForward
 
-- **Signature**: `PostForward(string? idempotencyKey, CheckoutForwardRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostForward(PostForwardRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CheckoutForwardResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `CheckoutForwardRequest` | `Models/CheckoutForwardRequest.cs` |
-| `CheckoutForwardResponse` | `Models/CheckoutForwardResponse.cs` |
+| `PostForwardRequest` | `src/Adyen/Requests/RecurringApi/PostForwardRequest.cs` |
+| `CheckoutForwardRequest` | `src/Adyen/Models/CheckoutForwardRequest.cs` |
+| `CheckoutForwardResponse` | `src/Adyen/Models/CheckoutForwardResponse.cs` |
 
 ### PostStoredPaymentMethods
 
-- **Signature**: `PostStoredPaymentMethods(string? idempotencyKey, StoredPaymentMethodRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostStoredPaymentMethods(PostStoredPaymentMethodsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `StoredPaymentMethodResource`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `StoredPaymentMethodRequest` | `Models/StoredPaymentMethodRequest.cs` |
-| `StoredPaymentMethodResource` | `Models/StoredPaymentMethodResource.cs` |
+| `PostStoredPaymentMethodsRequest` | `src/Adyen/Requests/RecurringApi/PostStoredPaymentMethodsRequest.cs` |
+| `StoredPaymentMethodRequest` | `src/Adyen/Models/StoredPaymentMethodRequest.cs` |
+| `StoredPaymentMethodResource` | `src/Adyen/Models/StoredPaymentMethodResource.cs` |
 

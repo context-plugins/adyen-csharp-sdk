@@ -2,113 +2,129 @@
 
 # WebhooksCompanyLevel — operations
 
-Accessor: `client.WebhooksCompanyLevel` · Source: `Api/WebhooksCompanyLevel.cs` · 7 operations
+Accessor: `client.WebhooksCompanyLevel` · Source: `src/Adyen/Api/WebhooksCompanyLevel.cs` · 7 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteCompaniesCompanyIdWebhooksWebhookId
 
 - **Server group**: `Default9`
-- **Signature**: `DeleteCompaniesCompanyIdWebhooksWebhookId(string companyId, string webhookId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `DeleteCompaniesCompanyIdWebhooksWebhookId(DeleteCompaniesCompanyIdWebhooksWebhookIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `WebhookId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteCompaniesCompanyIdWebhooksWebhookIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteCompaniesCompanyIdWebhooksWebhookIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteCompaniesCompanyIdWebhooksWebhookIdError` | `Errors/DeleteCompaniesCompanyIdWebhooksWebhookIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `DeleteCompaniesCompanyIdWebhooksWebhookIdRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/DeleteCompaniesCompanyIdWebhooksWebhookIdRequest.cs` |
+| `DeleteCompaniesCompanyIdWebhooksWebhookIdError` | `src/Adyen/Errors/DeleteCompaniesCompanyIdWebhooksWebhookIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdWebhooks
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdWebhooks(string companyId, int? pageNumber, int? pageSize, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `pageNumber` — nullable, no default → **must pass explicitly**
-  - `pageSize` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdWebhooks(GetCompaniesCompanyIdWebhooksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`
 - **Returns**: `ListWebhooksResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdWebhooksError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdWebhooksError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ListWebhooksResponse` | `Models/ListWebhooksResponse.cs` |
-| `GetCompaniesCompanyIdWebhooksError` | `Errors/GetCompaniesCompanyIdWebhooksError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdWebhooksRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/GetCompaniesCompanyIdWebhooksRequest.cs` |
+| `ListWebhooksResponse` | `src/Adyen/Models/ListWebhooksResponse.cs` |
+| `GetCompaniesCompanyIdWebhooksError` | `src/Adyen/Errors/GetCompaniesCompanyIdWebhooksError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdWebhooksWebhookId
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdWebhooksWebhookId(string companyId, string webhookId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdWebhooksWebhookId(GetCompaniesCompanyIdWebhooksWebhookIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `WebhookId`
 - **Returns**: `Webhook`
-- **Error**: `SdkException<GetCompaniesCompanyIdWebhooksWebhookIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdWebhooksWebhookIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Webhook` | `Models/Webhook.cs` |
-| `GetCompaniesCompanyIdWebhooksWebhookIdError` | `Errors/GetCompaniesCompanyIdWebhooksWebhookIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdWebhooksWebhookIdRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/GetCompaniesCompanyIdWebhooksWebhookIdRequest.cs` |
+| `Webhook` | `src/Adyen/Models/Webhook.cs` |
+| `GetCompaniesCompanyIdWebhooksWebhookIdError` | `src/Adyen/Errors/GetCompaniesCompanyIdWebhooksWebhookIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchCompaniesCompanyIdWebhooksWebhookId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchCompaniesCompanyIdWebhooksWebhookId(string companyId, string webhookId, UpdateCompanyWebhookRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchCompaniesCompanyIdWebhooksWebhookId(PatchCompaniesCompanyIdWebhooksWebhookIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `WebhookId`
 - **Returns**: `Webhook`
-- **Error**: `SdkException<PatchCompaniesCompanyIdWebhooksWebhookIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchCompaniesCompanyIdWebhooksWebhookIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateCompanyWebhookRequest` | `Models/UpdateCompanyWebhookRequest.cs` |
-| `Webhook` | `Models/Webhook.cs` |
-| `PatchCompaniesCompanyIdWebhooksWebhookIdError` | `Errors/PatchCompaniesCompanyIdWebhooksWebhookIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchCompaniesCompanyIdWebhooksWebhookIdRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/PatchCompaniesCompanyIdWebhooksWebhookIdRequest.cs` |
+| `UpdateCompanyWebhookRequest` | `src/Adyen/Models/UpdateCompanyWebhookRequest.cs` |
+| `Webhook` | `src/Adyen/Models/Webhook.cs` |
+| `PatchCompaniesCompanyIdWebhooksWebhookIdError` | `src/Adyen/Errors/PatchCompaniesCompanyIdWebhooksWebhookIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdWebhooks
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdWebhooks(string companyId, CreateCompanyWebhookRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdWebhooks(PostCompaniesCompanyIdWebhooksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `Webhook`
-- **Error**: `SdkException<PostCompaniesCompanyIdWebhooksError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdWebhooksError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateCompanyWebhookRequest` | `Models/CreateCompanyWebhookRequest.cs` |
-| `Webhook` | `Models/Webhook.cs` |
-| `PostCompaniesCompanyIdWebhooksError` | `Errors/PostCompaniesCompanyIdWebhooksError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdWebhooksRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/PostCompaniesCompanyIdWebhooksRequest.cs` |
+| `CreateCompanyWebhookRequest` | `src/Adyen/Models/CreateCompanyWebhookRequest.cs` |
+| `Webhook` | `src/Adyen/Models/Webhook.cs` |
+| `PostCompaniesCompanyIdWebhooksError` | `src/Adyen/Errors/PostCompaniesCompanyIdWebhooksError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmac
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmac(string companyId, string webhookId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmac(PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `WebhookId`
 - **Returns**: `GenerateHmacKeyResponse`
-- **Error**: `SdkException<PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `GenerateHmacKeyResponse` | `Models/GenerateHmacKeyResponse.cs` |
-| `PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError` | `Errors/PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacRequest.cs` |
+| `GenerateHmacKeyResponse` | `src/Adyen/Models/GenerateHmacKeyResponse.cs` |
+| `PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError` | `src/Adyen/Errors/PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdWebhooksWebhookIdTest
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdWebhooksWebhookIdTest(string companyId, string webhookId, TestCompanyWebhookRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdWebhooksWebhookIdTest(PostCompaniesCompanyIdWebhooksWebhookIdTestRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `WebhookId`
 - **Returns**: `TestWebhookResponse`
-- **Error**: `SdkException<PostCompaniesCompanyIdWebhooksWebhookIdTestError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdWebhooksWebhookIdTestError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TestCompanyWebhookRequest` | `Models/TestCompanyWebhookRequest.cs` |
-| `TestWebhookResponse` | `Models/TestWebhookResponse.cs` |
-| `PostCompaniesCompanyIdWebhooksWebhookIdTestError` | `Errors/PostCompaniesCompanyIdWebhooksWebhookIdTestError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdWebhooksWebhookIdTestRequest` | `src/Adyen/Requests/WebhooksCompanyLevel/PostCompaniesCompanyIdWebhooksWebhookIdTestRequest.cs` |
+| `TestCompanyWebhookRequest` | `src/Adyen/Models/TestCompanyWebhookRequest.cs` |
+| `TestWebhookResponse` | `src/Adyen/Models/TestWebhookResponse.cs` |
+| `PostCompaniesCompanyIdWebhooksWebhookIdTestError` | `src/Adyen/Errors/PostCompaniesCompanyIdWebhooksWebhookIdTestError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

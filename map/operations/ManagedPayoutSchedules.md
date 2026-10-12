@@ -2,131 +2,140 @@
 
 # ManagedPayoutSchedules — operations
 
-Accessor: `client.ManagedPayoutSchedules` · Source: `Api/ManagedPayoutSchedules.cs` · 8 operations
+Accessor: `client.ManagedPayoutSchedules` · Source: `src/Adyen/Api/ManagedPayoutSchedules.cs` · 8 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesId
 
 - **Server group**: `Default13`
-- **Signature**: `DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesId(string balanceAccountId, string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesId(DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `Id`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` | `Errors/DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest.cs` |
+| `DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` | `src/Adyen/Errors/DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalanceAccountsBalanceAccountIdPayoutSchedules
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalanceAccountsBalanceAccountIdPayoutSchedules(string balanceAccountId, string? currency, string? cursor, int? limit = 10, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `currency` — nullable, no default → **must pass explicitly**
-  - `cursor` — nullable, no default → **must pass explicitly**
-  - defaults: `limit` = `10`
-- **Query params (wire ← C#)**: `currency` ← `currency`, `cursor` ← `cursor`, `limit` ← `limit`
+- **Signature**: `GetBalanceAccountsBalanceAccountIdPayoutSchedules(GetBalanceAccountsBalanceAccountIdPayoutSchedulesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`
+- **Query params (wire ← C#)**: `currency` ← `Currency`, `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `BalanceAccountConfigurations`
-- **Error**: `SdkException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BalanceAccountConfigurations` | `Models/BalanceAccountConfigurations.cs` |
-| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesError` | `Errors/GetBalanceAccountsBalanceAccountIdPayoutSchedulesError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/GetBalanceAccountsBalanceAccountIdPayoutSchedulesRequest.cs` |
+| `BalanceAccountConfigurations` | `src/Adyen/Models/BalanceAccountConfigurations.cs` |
+| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesError` | `src/Adyen/Errors/GetBalanceAccountsBalanceAccountIdPayoutSchedulesError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalanceAccountsBalanceAccountIdPayoutSchedulesId
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalanceAccountsBalanceAccountIdPayoutSchedulesId(string balanceAccountId, string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetBalanceAccountsBalanceAccountIdPayoutSchedulesId(GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `Id`
 - **Returns**: `BalanceAccountConfiguration`
-- **Error**: `SdkException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BalanceAccountConfiguration` | `Models/BalanceAccountConfiguration.cs` |
-| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` | `Errors/GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest.cs` |
+| `BalanceAccountConfiguration` | `src/Adyen/Models/BalanceAccountConfiguration.cs` |
+| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` | `src/Adyen/Errors/GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutions
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutions(string balanceAccountId, string id, int offset, IReadOnlyList<ExecutionResult>? results, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `results` — nullable, no default → **must pass explicitly**
-  - `limit` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `offset` ← `offset`, `results` ← `results`, `limit` ← `limit`
+- **Signature**: `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutions(GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `Id`, `Offset`
+- **Query params (wire ← C#)**: `offset` ← `Offset`, `results` ← `Results`, `limit` ← `Limit`
 - **Returns**: `PayoutScheduleExecutions`
-- **Error**: `SdkException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ExecutionResult` | `Models/Enums/ExecutionResult.cs` |
-| `PayoutScheduleExecutions` | `Models/PayoutScheduleExecutions.cs` |
-| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError` | `Errors/GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsRequest.cs` |
+| `ExecutionResult` | `src/Adyen/Models/Enums/ExecutionResult.cs` |
+| `PayoutScheduleExecutions` | `src/Adyen/Models/PayoutScheduleExecutions.cs` |
+| `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError` | `src/Adyen/Errors/GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalancePlatformsBalancePlatformIdPayoutSchedules
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalancePlatformsBalancePlatformIdPayoutSchedules(string balancePlatformId, string? countryCode, string? currency, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `countryCode` — nullable, no default → **must pass explicitly**
-  - `currency` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `countryCode` ← `countryCode`, `currency` ← `currency`
+- **Signature**: `GetBalancePlatformsBalancePlatformIdPayoutSchedules(GetBalancePlatformsBalancePlatformIdPayoutSchedulesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalancePlatformId`
+- **Query params (wire ← C#)**: `countryCode` ← `CountryCode`, `currency` ← `Currency`
 - **Returns**: `BalancePlatformConfigurations`
-- **Error**: `SdkException<GetBalancePlatformsBalancePlatformIdPayoutSchedulesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalancePlatformsBalancePlatformIdPayoutSchedulesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BalancePlatformConfigurations` | `Models/BalancePlatformConfigurations.cs` |
-| `GetBalancePlatformsBalancePlatformIdPayoutSchedulesError` | `Errors/GetBalancePlatformsBalancePlatformIdPayoutSchedulesError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalancePlatformsBalancePlatformIdPayoutSchedulesRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/GetBalancePlatformsBalancePlatformIdPayoutSchedulesRequest.cs` |
+| `BalancePlatformConfigurations` | `src/Adyen/Models/BalancePlatformConfigurations.cs` |
+| `GetBalancePlatformsBalancePlatformIdPayoutSchedulesError` | `src/Adyen/Errors/GetBalancePlatformsBalancePlatformIdPayoutSchedulesError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### GetBalancePlatformsBalancePlatformIdPayoutSchedulesId
 
 - **Server group**: `Default13`
-- **Signature**: `GetBalancePlatformsBalancePlatformIdPayoutSchedulesId(string balancePlatformId, string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetBalancePlatformsBalancePlatformIdPayoutSchedulesId(GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalancePlatformId`, `Id`
 - **Returns**: `BalancePlatformConfiguration`
-- **Error**: `SdkException<GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BalancePlatformConfiguration` | `Models/BalancePlatformConfiguration.cs` |
-| `GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError` | `Errors/GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdRequest.cs` |
+| `BalancePlatformConfiguration` | `src/Adyen/Models/BalancePlatformConfiguration.cs` |
+| `GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError` | `src/Adyen/Errors/GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PatchBalanceAccountsBalanceAccountIdPayoutSchedulesId
 
 - **Server group**: `Default13`
-- **Signature**: `PatchBalanceAccountsBalanceAccountIdPayoutSchedulesId(string balanceAccountId, string id, BalanceAccountConfigurationUpdate body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PatchBalanceAccountsBalanceAccountIdPayoutSchedulesId(PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `Id`, `Body`
 - **Returns**: `BalanceAccountConfiguration`
-- **Error**: `SdkException<PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BalanceAccountConfigurationUpdate` | `Models/BalanceAccountConfigurationUpdate.cs` |
-| `BalanceAccountConfiguration` | `Models/BalanceAccountConfiguration.cs` |
-| `PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` | `Errors/PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest.cs` |
+| `BalanceAccountConfigurationUpdate` | `src/Adyen/Models/BalanceAccountConfigurationUpdate.cs` |
+| `BalanceAccountConfiguration` | `src/Adyen/Models/BalanceAccountConfiguration.cs` |
+| `PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` | `src/Adyen/Errors/PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostBalanceAccountsBalanceAccountIdPayoutSchedules
 
 - **Server group**: `Default13`
-- **Signature**: `PostBalanceAccountsBalanceAccountIdPayoutSchedules(string balanceAccountId, BalanceAccountConfigurationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostBalanceAccountsBalanceAccountIdPayoutSchedules(PostBalanceAccountsBalanceAccountIdPayoutSchedulesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BalanceAccountId`, `Body`
 - **Returns**: `BalanceAccountConfiguration`
-- **Error**: `SdkException<PostBalanceAccountsBalanceAccountIdPayoutSchedulesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostBalanceAccountsBalanceAccountIdPayoutSchedulesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 404, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BalanceAccountConfigurationRequest` | `Models/BalanceAccountConfigurationRequest.cs` |
-| `BalanceAccountConfiguration` | `Models/BalanceAccountConfiguration.cs` |
-| `PostBalanceAccountsBalanceAccountIdPayoutSchedulesError` | `Errors/PostBalanceAccountsBalanceAccountIdPayoutSchedulesError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostBalanceAccountsBalanceAccountIdPayoutSchedulesRequest` | `src/Adyen/Requests/ManagedPayoutSchedules/PostBalanceAccountsBalanceAccountIdPayoutSchedulesRequest.cs` |
+| `BalanceAccountConfigurationRequest` | `src/Adyen/Models/BalanceAccountConfigurationRequest.cs` |
+| `BalanceAccountConfiguration` | `src/Adyen/Models/BalanceAccountConfiguration.cs` |
+| `PostBalanceAccountsBalanceAccountIdPayoutSchedulesError` | `src/Adyen/Errors/PostBalanceAccountsBalanceAccountIdPayoutSchedulesError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

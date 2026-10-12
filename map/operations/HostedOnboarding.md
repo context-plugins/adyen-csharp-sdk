@@ -2,51 +2,57 @@
 
 # HostedOnboarding — operations
 
-Accessor: `client.HostedOnboarding` · Source: `Api/HostedOnboarding.cs` · 3 operations
+Accessor: `client.HostedOnboarding` · Source: `src/Adyen/Api/HostedOnboarding.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetThemes
 
 - **Server group**: `Default18`
-- **Signature**: `GetThemes(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetThemes(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `OnboardingThemes`
-- **Error**: `SdkException<GetThemesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetThemesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `OnboardingThemes` | `Models/OnboardingThemes.cs` |
-| `GetThemesError` | `Errors/GetThemesError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `OnboardingThemes` | `src/Adyen/Models/OnboardingThemes.cs` |
+| `GetThemesError` | `src/Adyen/Errors/GetThemesError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### GetThemesId
 
 - **Server group**: `Default18`
-- **Signature**: `GetThemesId(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetThemesId(GetThemesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `OnboardingTheme`
-- **Error**: `SdkException<GetThemesIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetThemesIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `OnboardingTheme` | `Models/OnboardingTheme.cs` |
-| `GetThemesIdError` | `Errors/GetThemesIdError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `GetThemesIdRequest` | `src/Adyen/Requests/HostedOnboarding/GetThemesIdRequest.cs` |
+| `OnboardingTheme` | `src/Adyen/Models/OnboardingTheme.cs` |
+| `GetThemesIdError` | `src/Adyen/Errors/GetThemesIdError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 
 ### PostLegalEntitiesIdOnboardingLinks
 
 - **Server group**: `Default18`
-- **Signature**: `PostLegalEntitiesIdOnboardingLinks(string id, OnboardingLinkInfo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostLegalEntitiesIdOnboardingLinks(PostLegalEntitiesIdOnboardingLinksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `OnboardingLink`
-- **Error**: `SdkException<PostLegalEntitiesIdOnboardingLinksError>` — **Case A (typed)**
+- **Error**: `ApiException<PostLegalEntitiesIdOnboardingLinksError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError1(out ServiceError1)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `OnboardingLinkInfo` | `Models/OnboardingLinkInfo.cs` |
-| `OnboardingLink` | `Models/OnboardingLink.cs` |
-| `PostLegalEntitiesIdOnboardingLinksError` | `Errors/PostLegalEntitiesIdOnboardingLinksError.cs` |
-| `ServiceError1` | `Models/ServiceError1.cs` |
+| `PostLegalEntitiesIdOnboardingLinksRequest` | `src/Adyen/Requests/HostedOnboarding/PostLegalEntitiesIdOnboardingLinksRequest.cs` |
+| `OnboardingLinkInfo` | `src/Adyen/Models/OnboardingLinkInfo.cs` |
+| `OnboardingLink` | `src/Adyen/Models/OnboardingLink.cs` |
+| `PostLegalEntitiesIdOnboardingLinksError` | `src/Adyen/Errors/PostLegalEntitiesIdOnboardingLinksError.cs` |
+| `ServiceError1` | `src/Adyen/Models/ServiceError1.cs` |
 

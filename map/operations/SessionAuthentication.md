@@ -2,39 +2,40 @@
 
 # SessionAuthentication — operations
 
-Accessor: `client.SessionAuthentication` · Source: `Api/SessionAuthentication.cs` · 2 operations
+Accessor: `client.SessionAuthentication` · Source: `src/Adyen/Api/SessionAuthentication.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostAuthCertificate
 
 - **Server group**: `Default25`
-- **Signature**: `PostAuthCertificate(string? xApiKey, CertificateLoadingRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `xApiKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `PostAuthCertificate(PostAuthCertificateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CertificateLoadingResponse`
-- **Error**: `SdkException<PostAuthCertificateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostAuthCertificateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CertificateLoadingRequest` | `Models/CertificateLoadingRequest.cs` |
-| `CertificateLoadingResponse` | `Models/CertificateLoadingResponse.cs` |
-| `PostAuthCertificateError` | `Errors/PostAuthCertificateError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostAuthCertificateRequest` | `src/Adyen/Requests/SessionAuthentication/PostAuthCertificateRequest.cs` |
+| `CertificateLoadingRequest` | `src/Adyen/Models/CertificateLoadingRequest.cs` |
+| `CertificateLoadingResponse` | `src/Adyen/Models/CertificateLoadingResponse.cs` |
+| `PostAuthCertificateError` | `src/Adyen/Errors/PostAuthCertificateError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 
 ### PostSessions2
 
 - **Server group**: `Default17`
-- **Signature**: `PostSessions2(AuthenticationSessionRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostSessions2(PostSessions2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `AuthenticationSessionResponse`
-- **Error**: `SdkException<PostSessions2Error>` — **Case A (typed)**
+- **Error**: `ApiException<PostSessions2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [400, 401, 403] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AuthenticationSessionRequest` | `Models/AuthenticationSessionRequest.cs` |
-| `AuthenticationSessionResponse` | `Models/AuthenticationSessionResponse.cs` |
-| `PostSessions2Error` | `Errors/PostSessions2Error.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostSessions2Request` | `src/Adyen/Requests/SessionAuthentication/PostSessions2Request.cs` |
+| `AuthenticationSessionRequest` | `src/Adyen/Models/AuthenticationSessionRequest.cs` |
+| `AuthenticationSessionResponse` | `src/Adyen/Models/AuthenticationSessionResponse.cs` |
+| `PostSessions2Error` | `src/Adyen/Errors/PostSessions2Error.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

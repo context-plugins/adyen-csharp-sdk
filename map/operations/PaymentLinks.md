@@ -2,51 +2,56 @@
 
 # PaymentLinks — operations
 
-Accessor: `client.PaymentLinks` · Source: `Api/PaymentLinks.cs` · 3 operations
+Accessor: `client.PaymentLinks` · Source: `src/Adyen/Api/PaymentLinks.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetPaymentLinksLinkId
 
-- **Signature**: `GetPaymentLinksLinkId(string linkId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetPaymentLinksLinkId(GetPaymentLinksLinkIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `LinkId`
 - **Returns**: `PaymentLinkResponse`
-- **Error**: `SdkException<GetPaymentLinksLinkIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetPaymentLinksLinkIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentLinkResponse` | `Models/PaymentLinkResponse.cs` |
-| `GetPaymentLinksLinkIdError` | `Errors/GetPaymentLinksLinkIdError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `GetPaymentLinksLinkIdRequest` | `src/Adyen/Requests/PaymentLinks/GetPaymentLinksLinkIdRequest.cs` |
+| `PaymentLinkResponse` | `src/Adyen/Models/PaymentLinkResponse.cs` |
+| `GetPaymentLinksLinkIdError` | `src/Adyen/Errors/GetPaymentLinksLinkIdError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PatchPaymentLinksLinkId
 
-- **Signature**: `PatchPaymentLinksLinkId(string linkId, UpdatePaymentLinkRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchPaymentLinksLinkId(PatchPaymentLinksLinkIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `LinkId`
 - **Returns**: `PaymentLinkResponse`
-- **Error**: `SdkException<PatchPaymentLinksLinkIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchPaymentLinksLinkIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdatePaymentLinkRequest` | `Models/UpdatePaymentLinkRequest.cs` |
-| `PaymentLinkResponse` | `Models/PaymentLinkResponse.cs` |
-| `PatchPaymentLinksLinkIdError` | `Errors/PatchPaymentLinksLinkIdError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PatchPaymentLinksLinkIdRequest` | `src/Adyen/Requests/PaymentLinks/PatchPaymentLinksLinkIdRequest.cs` |
+| `UpdatePaymentLinkRequest` | `src/Adyen/Models/UpdatePaymentLinkRequest.cs` |
+| `PaymentLinkResponse` | `src/Adyen/Models/PaymentLinkResponse.cs` |
+| `PatchPaymentLinksLinkIdError` | `src/Adyen/Errors/PatchPaymentLinksLinkIdError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 
 ### PostPaymentLinks
 
-- **Signature**: `PostPaymentLinks(string? idempotencyKey, PaymentLinkRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `idempotencyKey` — nullable, no default → **must pass explicitly**
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostPaymentLinks(PostPaymentLinksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `PaymentLinkResponse`
-- **Error**: `SdkException<PostPaymentLinksError>` — **Case A (typed)**
+- **Error**: `ApiException<PostPaymentLinksError>` — **Case A (typed)**
 - **Error accessors**: `TryGetServiceError(out ServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `PaymentLinkRequest` | `Models/PaymentLinkRequest.cs` |
-| `PaymentLinkResponse` | `Models/PaymentLinkResponse.cs` |
-| `PostPaymentLinksError` | `Errors/PostPaymentLinksError.cs` |
-| `ServiceError` | `Models/ServiceError.cs` |
+| `PostPaymentLinksRequest` | `src/Adyen/Requests/PaymentLinks/PostPaymentLinksRequest.cs` |
+| `PaymentLinkRequest` | `src/Adyen/Models/PaymentLinkRequest.cs` |
+| `PaymentLinkResponse` | `src/Adyen/Models/PaymentLinkResponse.cs` |
+| `PostPaymentLinksError` | `src/Adyen/Errors/PostPaymentLinksError.cs` |
+| `ServiceError` | `src/Adyen/Models/ServiceError.cs` |
 

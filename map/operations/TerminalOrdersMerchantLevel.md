@@ -2,164 +2,183 @@
 
 # TerminalOrdersMerchantLevel — operations
 
-Accessor: `client.TerminalOrdersMerchantLevel` · Source: `Api/TerminalOrdersMerchantLevel.cs` · 10 operations
+Accessor: `client.TerminalOrdersMerchantLevel` · Source: `src/Adyen/Api/TerminalOrdersMerchantLevel.cs` · 10 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetMerchantsMerchantIdBillingEntities
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdBillingEntities(string merchantId, string? name, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `name` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `name` ← `name`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdBillingEntities(GetMerchantsMerchantIdBillingEntitiesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
+- **Query params (wire ← C#)**: `name` ← `Name`
 - **Returns**: `BillingEntitiesResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdBillingEntitiesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdBillingEntitiesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `BillingEntitiesResponse` | `Models/BillingEntitiesResponse.cs` |
-| `GetMerchantsMerchantIdBillingEntitiesError` | `Errors/GetMerchantsMerchantIdBillingEntitiesError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdBillingEntitiesRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/GetMerchantsMerchantIdBillingEntitiesRequest.cs` |
+| `BillingEntitiesResponse` | `src/Adyen/Models/BillingEntitiesResponse.cs` |
+| `GetMerchantsMerchantIdBillingEntitiesError` | `src/Adyen/Errors/GetMerchantsMerchantIdBillingEntitiesError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdShippingLocations
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdShippingLocations(string merchantId, string? name, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `name` — nullable, no default → **must pass explicitly**
-  - `offset` — nullable, no default → **must pass explicitly**
-  - `limit` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `name` ← `name`, `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdShippingLocations(GetMerchantsMerchantIdShippingLocationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
+- **Query params (wire ← C#)**: `name` ← `Name`, `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `ShippingLocationsResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdShippingLocationsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdShippingLocationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ShippingLocationsResponse` | `Models/ShippingLocationsResponse.cs` |
-| `GetMerchantsMerchantIdShippingLocationsError` | `Errors/GetMerchantsMerchantIdShippingLocationsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdShippingLocationsRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/GetMerchantsMerchantIdShippingLocationsRequest.cs` |
+| `ShippingLocationsResponse` | `src/Adyen/Models/ShippingLocationsResponse.cs` |
+| `GetMerchantsMerchantIdShippingLocationsError` | `src/Adyen/Errors/GetMerchantsMerchantIdShippingLocationsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdTerminalModels
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdTerminalModels(string merchantId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdTerminalModels(GetMerchantsMerchantIdTerminalModelsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `TerminalModelsResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdTerminalModelsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdTerminalModelsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalModelsResponse` | `Models/TerminalModelsResponse.cs` |
-| `GetMerchantsMerchantIdTerminalModelsError` | `Errors/GetMerchantsMerchantIdTerminalModelsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdTerminalModelsRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/GetMerchantsMerchantIdTerminalModelsRequest.cs` |
+| `TerminalModelsResponse` | `src/Adyen/Models/TerminalModelsResponse.cs` |
+| `GetMerchantsMerchantIdTerminalModelsError` | `src/Adyen/Errors/GetMerchantsMerchantIdTerminalModelsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdTerminalOrders
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdTerminalOrders(string merchantId, string? customerOrderReference, string? status, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 4 params (`customerOrderReference` … `limit`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `customerOrderReference` ← `customerOrderReference`, `status` ← `status`, `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdTerminalOrders(GetMerchantsMerchantIdTerminalOrdersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
+- **Query params (wire ← C#)**: `customerOrderReference` ← `CustomerOrderReference`, `status` ← `Status`, `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `TerminalOrdersResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdTerminalOrdersError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdTerminalOrdersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrdersResponse` | `Models/TerminalOrdersResponse.cs` |
-| `GetMerchantsMerchantIdTerminalOrdersError` | `Errors/GetMerchantsMerchantIdTerminalOrdersError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdTerminalOrdersRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/GetMerchantsMerchantIdTerminalOrdersRequest.cs` |
+| `TerminalOrdersResponse` | `src/Adyen/Models/TerminalOrdersResponse.cs` |
+| `GetMerchantsMerchantIdTerminalOrdersError` | `src/Adyen/Errors/GetMerchantsMerchantIdTerminalOrdersError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdTerminalOrdersOrderId
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdTerminalOrdersOrderId(string merchantId, string orderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdTerminalOrdersOrderId(GetMerchantsMerchantIdTerminalOrdersOrderIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `OrderId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<GetMerchantsMerchantIdTerminalOrdersOrderIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdTerminalOrdersOrderIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `GetMerchantsMerchantIdTerminalOrdersOrderIdError` | `Errors/GetMerchantsMerchantIdTerminalOrdersOrderIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdTerminalOrdersOrderIdRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/GetMerchantsMerchantIdTerminalOrdersOrderIdRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `GetMerchantsMerchantIdTerminalOrdersOrderIdError` | `src/Adyen/Errors/GetMerchantsMerchantIdTerminalOrdersOrderIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdTerminalProducts
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdTerminalProducts(string merchantId, string country, string? terminalModelId, int? offset, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `terminalModelId` — nullable, no default → **must pass explicitly**
-  - `offset` — nullable, no default → **must pass explicitly**
-  - `limit` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `country` ← `country`, `terminalModelId` ← `terminalModelId`, `offset` ← `offset`, `limit` ← `limit`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdTerminalProducts(GetMerchantsMerchantIdTerminalProductsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `Country`
+- **Query params (wire ← C#)**: `country` ← `Country`, `terminalModelId` ← `TerminalModelId`, `offset` ← `Offset`, `limit` ← `Limit`
 - **Returns**: `TerminalProductsResponse`
-- **Error**: `SdkException<GetMerchantsMerchantIdTerminalProductsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdTerminalProductsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalProductsResponse` | `Models/TerminalProductsResponse.cs` |
-| `GetMerchantsMerchantIdTerminalProductsError` | `Errors/GetMerchantsMerchantIdTerminalProductsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdTerminalProductsRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/GetMerchantsMerchantIdTerminalProductsRequest.cs` |
+| `TerminalProductsResponse` | `src/Adyen/Models/TerminalProductsResponse.cs` |
+| `GetMerchantsMerchantIdTerminalProductsError` | `src/Adyen/Errors/GetMerchantsMerchantIdTerminalProductsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchMerchantsMerchantIdTerminalOrdersOrderId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchMerchantsMerchantIdTerminalOrdersOrderId(string merchantId, string orderId, TerminalOrderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchMerchantsMerchantIdTerminalOrdersOrderId(PatchMerchantsMerchantIdTerminalOrdersOrderIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `OrderId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<PatchMerchantsMerchantIdTerminalOrdersOrderIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchMerchantsMerchantIdTerminalOrdersOrderIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrderRequest` | `Models/TerminalOrderRequest.cs` |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `PatchMerchantsMerchantIdTerminalOrdersOrderIdError` | `Errors/PatchMerchantsMerchantIdTerminalOrdersOrderIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchMerchantsMerchantIdTerminalOrdersOrderIdRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/PatchMerchantsMerchantIdTerminalOrdersOrderIdRequest.cs` |
+| `TerminalOrderRequest` | `src/Adyen/Models/TerminalOrderRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `PatchMerchantsMerchantIdTerminalOrdersOrderIdError` | `src/Adyen/Errors/PatchMerchantsMerchantIdTerminalOrdersOrderIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdShippingLocations
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdShippingLocations(string merchantId, ShippingLocation? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdShippingLocations(PostMerchantsMerchantIdShippingLocationsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `ShippingLocation`
-- **Error**: `SdkException<PostMerchantsMerchantIdShippingLocationsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdShippingLocationsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ShippingLocation` | `Models/ShippingLocation.cs` |
-| `PostMerchantsMerchantIdShippingLocationsError` | `Errors/PostMerchantsMerchantIdShippingLocationsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdShippingLocationsRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/PostMerchantsMerchantIdShippingLocationsRequest.cs` |
+| `ShippingLocation` | `src/Adyen/Models/ShippingLocation.cs` |
+| `PostMerchantsMerchantIdShippingLocationsError` | `src/Adyen/Errors/PostMerchantsMerchantIdShippingLocationsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdTerminalOrders
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdTerminalOrders(string merchantId, TerminalOrderRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdTerminalOrders(PostMerchantsMerchantIdTerminalOrdersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<PostMerchantsMerchantIdTerminalOrdersError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdTerminalOrdersError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrderRequest` | `Models/TerminalOrderRequest.cs` |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `PostMerchantsMerchantIdTerminalOrdersError` | `Errors/PostMerchantsMerchantIdTerminalOrdersError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdTerminalOrdersRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/PostMerchantsMerchantIdTerminalOrdersRequest.cs` |
+| `TerminalOrderRequest` | `src/Adyen/Models/TerminalOrderRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `PostMerchantsMerchantIdTerminalOrdersError` | `src/Adyen/Errors/PostMerchantsMerchantIdTerminalOrdersError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostMerchantsMerchantIdTerminalOrdersOrderIdCancel
 
 - **Server group**: `Default9`
-- **Signature**: `PostMerchantsMerchantIdTerminalOrdersOrderIdCancel(string merchantId, string orderId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostMerchantsMerchantIdTerminalOrdersOrderIdCancel(PostMerchantsMerchantIdTerminalOrdersOrderIdCancelRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `OrderId`
 - **Returns**: `TerminalOrder`
-- **Error**: `SdkException<PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError>` — **Case A (typed)**
+- **Error**: `ApiException<PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalOrder` | `Models/TerminalOrder.cs` |
-| `PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError` | `Errors/PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostMerchantsMerchantIdTerminalOrdersOrderIdCancelRequest` | `src/Adyen/Requests/TerminalOrdersMerchantLevel/PostMerchantsMerchantIdTerminalOrdersOrderIdCancelRequest.cs` |
+| `TerminalOrder` | `src/Adyen/Models/TerminalOrder.cs` |
+| `PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError` | `src/Adyen/Errors/PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

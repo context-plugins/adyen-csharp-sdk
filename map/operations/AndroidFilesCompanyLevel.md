@@ -2,97 +2,111 @@
 
 # AndroidFilesCompanyLevel — operations
 
-Accessor: `client.AndroidFilesCompanyLevel` · Source: `Api/AndroidFilesCompanyLevel.cs` · 6 operations
+Accessor: `client.AndroidFilesCompanyLevel` · Source: `src/Adyen/Api/AndroidFilesCompanyLevel.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetCompaniesCompanyIdAndroidApps
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdAndroidApps(string companyId, int? pageNumber, int? pageSize, string? packageName, int? versionCode, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 4 params (`pageNumber` … `versionCode`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`, `packageName` ← `packageName`, `versionCode` ← `versionCode`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdAndroidApps(GetCompaniesCompanyIdAndroidAppsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`, `packageName` ← `PackageName`, `versionCode` ← `VersionCode`
 - **Returns**: `AndroidAppsResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdAndroidAppsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdAndroidAppsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AndroidAppsResponse` | `Models/AndroidAppsResponse.cs` |
-| `GetCompaniesCompanyIdAndroidAppsError` | `Errors/GetCompaniesCompanyIdAndroidAppsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdAndroidAppsRequest` | `src/Adyen/Requests/AndroidFilesCompanyLevel/GetCompaniesCompanyIdAndroidAppsRequest.cs` |
+| `AndroidAppsResponse` | `src/Adyen/Models/AndroidAppsResponse.cs` |
+| `GetCompaniesCompanyIdAndroidAppsError` | `src/Adyen/Errors/GetCompaniesCompanyIdAndroidAppsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdAndroidAppsId
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdAndroidAppsId(string companyId, string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdAndroidAppsId(GetCompaniesCompanyIdAndroidAppsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `Id`
 - **Returns**: `AndroidApp`
-- **Error**: `SdkException<GetCompaniesCompanyIdAndroidAppsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdAndroidAppsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AndroidApp` | `Models/AndroidApp.cs` |
-| `GetCompaniesCompanyIdAndroidAppsIdError` | `Errors/GetCompaniesCompanyIdAndroidAppsIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdAndroidAppsIdRequest` | `src/Adyen/Requests/AndroidFilesCompanyLevel/GetCompaniesCompanyIdAndroidAppsIdRequest.cs` |
+| `AndroidApp` | `src/Adyen/Models/AndroidApp.cs` |
+| `GetCompaniesCompanyIdAndroidAppsIdError` | `src/Adyen/Errors/GetCompaniesCompanyIdAndroidAppsIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdAndroidCertificates
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdAndroidCertificates(string companyId, int? pageNumber, int? pageSize, string? certificateName, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `pageNumber` — nullable, no default → **must pass explicitly**
-  - `pageSize` — nullable, no default → **must pass explicitly**
-  - `certificateName` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`, `certificateName` ← `certificateName`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdAndroidCertificates(GetCompaniesCompanyIdAndroidCertificatesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`, `certificateName` ← `CertificateName`
 - **Returns**: `AndroidCertificatesResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdAndroidCertificatesError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdAndroidCertificatesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `AndroidCertificatesResponse` | `Models/AndroidCertificatesResponse.cs` |
-| `GetCompaniesCompanyIdAndroidCertificatesError` | `Errors/GetCompaniesCompanyIdAndroidCertificatesError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdAndroidCertificatesRequest` | `src/Adyen/Requests/AndroidFilesCompanyLevel/GetCompaniesCompanyIdAndroidCertificatesRequest.cs` |
+| `AndroidCertificatesResponse` | `src/Adyen/Models/AndroidCertificatesResponse.cs` |
+| `GetCompaniesCompanyIdAndroidCertificatesError` | `src/Adyen/Errors/GetCompaniesCompanyIdAndroidCertificatesError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchCompaniesCompanyIdAndroidAppsId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchCompaniesCompanyIdAndroidAppsId(string companyId, string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchCompaniesCompanyIdAndroidAppsId(PatchCompaniesCompanyIdAndroidAppsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `Id`
 - **Returns**: `ReprocessAndroidAppResponse`
-- **Error**: `SdkException<PatchCompaniesCompanyIdAndroidAppsIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchCompaniesCompanyIdAndroidAppsIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ReprocessAndroidAppResponse` | `Models/ReprocessAndroidAppResponse.cs` |
-| `PatchCompaniesCompanyIdAndroidAppsIdError` | `Errors/PatchCompaniesCompanyIdAndroidAppsIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchCompaniesCompanyIdAndroidAppsIdRequest` | `src/Adyen/Requests/AndroidFilesCompanyLevel/PatchCompaniesCompanyIdAndroidAppsIdRequest.cs` |
+| `ReprocessAndroidAppResponse` | `src/Adyen/Models/ReprocessAndroidAppResponse.cs` |
+| `PatchCompaniesCompanyIdAndroidAppsIdError` | `src/Adyen/Errors/PatchCompaniesCompanyIdAndroidAppsIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdAndroidApps
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdAndroidApps(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdAndroidApps(PostCompaniesCompanyIdAndroidAppsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `UploadAndroidAppResponse`
-- **Error**: `SdkException<PostCompaniesCompanyIdAndroidAppsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdAndroidAppsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UploadAndroidAppResponse` | `Models/UploadAndroidAppResponse.cs` |
-| `PostCompaniesCompanyIdAndroidAppsError` | `Errors/PostCompaniesCompanyIdAndroidAppsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdAndroidAppsRequest` | `src/Adyen/Requests/AndroidFilesCompanyLevel/PostCompaniesCompanyIdAndroidAppsRequest.cs` |
+| `UploadAndroidAppResponse` | `src/Adyen/Models/UploadAndroidAppResponse.cs` |
+| `PostCompaniesCompanyIdAndroidAppsError` | `src/Adyen/Errors/PostCompaniesCompanyIdAndroidAppsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdAndroidCertificates
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdAndroidCertificates(string companyId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdAndroidCertificates(PostCompaniesCompanyIdAndroidCertificatesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `UploadAndroidCertificateResponse`
-- **Error**: `SdkException<PostCompaniesCompanyIdAndroidCertificatesError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdAndroidCertificatesError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UploadAndroidCertificateResponse` | `Models/UploadAndroidCertificateResponse.cs` |
-| `PostCompaniesCompanyIdAndroidCertificatesError` | `Errors/PostCompaniesCompanyIdAndroidCertificatesError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdAndroidCertificatesRequest` | `src/Adyen/Requests/AndroidFilesCompanyLevel/PostCompaniesCompanyIdAndroidCertificatesRequest.cs` |
+| `UploadAndroidCertificateResponse` | `src/Adyen/Models/UploadAndroidCertificateResponse.cs` |
+| `PostCompaniesCompanyIdAndroidCertificatesError` | `src/Adyen/Errors/PostCompaniesCompanyIdAndroidCertificatesError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

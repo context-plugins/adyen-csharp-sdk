@@ -2,70 +2,78 @@
 
 # ApiCredentialsCompanyLevel — operations
 
-Accessor: `client.ApiCredentialsCompanyLevel` · Source: `Api/ApiCredentialsCompanyLevel.cs` · 4 operations
+Accessor: `client.ApiCredentialsCompanyLevel` · Source: `src/Adyen/Api/ApiCredentialsCompanyLevel.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetCompaniesCompanyIdApiCredentials
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdApiCredentials(string companyId, int? pageNumber, int? pageSize, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `pageNumber` — nullable, no default → **must pass explicitly**
-  - `pageSize` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `pageNumber` ← `pageNumber`, `pageSize` ← `pageSize`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdApiCredentials(GetCompaniesCompanyIdApiCredentialsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
+- **Query params (wire ← C#)**: `pageNumber` ← `PageNumber`, `pageSize` ← `PageSize`
 - **Returns**: `ListCompanyApiCredentialsResponse`
-- **Error**: `SdkException<GetCompaniesCompanyIdApiCredentialsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdApiCredentialsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `ListCompanyApiCredentialsResponse` | `Models/ListCompanyApiCredentialsResponse.cs` |
-| `GetCompaniesCompanyIdApiCredentialsError` | `Errors/GetCompaniesCompanyIdApiCredentialsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdApiCredentialsRequest` | `src/Adyen/Requests/ApiCredentialsCompanyLevel/GetCompaniesCompanyIdApiCredentialsRequest.cs` |
+| `ListCompanyApiCredentialsResponse` | `src/Adyen/Models/ListCompanyApiCredentialsResponse.cs` |
+| `GetCompaniesCompanyIdApiCredentialsError` | `src/Adyen/Errors/GetCompaniesCompanyIdApiCredentialsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetCompaniesCompanyIdApiCredentialsApiCredentialId
 
 - **Server group**: `Default9`
-- **Signature**: `GetCompaniesCompanyIdApiCredentialsApiCredentialId(string companyId, string apiCredentialId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetCompaniesCompanyIdApiCredentialsApiCredentialId(GetCompaniesCompanyIdApiCredentialsApiCredentialIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `ApiCredentialId`
 - **Returns**: `CompanyApiCredential`
-- **Error**: `SdkException<GetCompaniesCompanyIdApiCredentialsApiCredentialIdError>` — **Case A (typed)**
+- **Error**: `ApiException<GetCompaniesCompanyIdApiCredentialsApiCredentialIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CompanyApiCredential` | `Models/CompanyApiCredential.cs` |
-| `GetCompaniesCompanyIdApiCredentialsApiCredentialIdError` | `Errors/GetCompaniesCompanyIdApiCredentialsApiCredentialIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetCompaniesCompanyIdApiCredentialsApiCredentialIdRequest` | `src/Adyen/Requests/ApiCredentialsCompanyLevel/GetCompaniesCompanyIdApiCredentialsApiCredentialIdRequest.cs` |
+| `CompanyApiCredential` | `src/Adyen/Models/CompanyApiCredential.cs` |
+| `GetCompaniesCompanyIdApiCredentialsApiCredentialIdError` | `src/Adyen/Errors/GetCompaniesCompanyIdApiCredentialsApiCredentialIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchCompaniesCompanyIdApiCredentialsApiCredentialId
 
 - **Server group**: `Default9`
-- **Signature**: `PatchCompaniesCompanyIdApiCredentialsApiCredentialId(string companyId, string apiCredentialId, UpdateCompanyApiCredentialRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchCompaniesCompanyIdApiCredentialsApiCredentialId(PatchCompaniesCompanyIdApiCredentialsApiCredentialIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`, `ApiCredentialId`
 - **Returns**: `CompanyApiCredential`
-- **Error**: `SdkException<PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `UpdateCompanyApiCredentialRequest` | `Models/UpdateCompanyApiCredentialRequest.cs` |
-| `CompanyApiCredential` | `Models/CompanyApiCredential.cs` |
-| `PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError` | `Errors/PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchCompaniesCompanyIdApiCredentialsApiCredentialIdRequest` | `src/Adyen/Requests/ApiCredentialsCompanyLevel/PatchCompaniesCompanyIdApiCredentialsApiCredentialIdRequest.cs` |
+| `UpdateCompanyApiCredentialRequest` | `src/Adyen/Models/UpdateCompanyApiCredentialRequest.cs` |
+| `CompanyApiCredential` | `src/Adyen/Models/CompanyApiCredential.cs` |
+| `PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError` | `src/Adyen/Errors/PatchCompaniesCompanyIdApiCredentialsApiCredentialIdError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PostCompaniesCompanyIdApiCredentials
 
 - **Server group**: `Default9`
-- **Signature**: `PostCompaniesCompanyIdApiCredentials(string companyId, CreateCompanyApiCredentialRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PostCompaniesCompanyIdApiCredentials(PostCompaniesCompanyIdApiCredentialsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `CompanyId`
 - **Returns**: `CreateCompanyApiCredentialResponse`
-- **Error**: `SdkException<PostCompaniesCompanyIdApiCredentialsError>` — **Case A (typed)**
+- **Error**: `ApiException<PostCompaniesCompanyIdApiCredentialsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CreateCompanyApiCredentialRequest` | `Models/CreateCompanyApiCredentialRequest.cs` |
-| `CreateCompanyApiCredentialResponse` | `Models/CreateCompanyApiCredentialResponse.cs` |
-| `PostCompaniesCompanyIdApiCredentialsError` | `Errors/PostCompaniesCompanyIdApiCredentialsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PostCompaniesCompanyIdApiCredentialsRequest` | `src/Adyen/Requests/ApiCredentialsCompanyLevel/PostCompaniesCompanyIdApiCredentialsRequest.cs` |
+| `CreateCompanyApiCredentialRequest` | `src/Adyen/Models/CreateCompanyApiCredentialRequest.cs` |
+| `CreateCompanyApiCredentialResponse` | `src/Adyen/Models/CreateCompanyApiCredentialResponse.cs` |
+| `PostCompaniesCompanyIdApiCredentialsError` | `src/Adyen/Errors/PostCompaniesCompanyIdApiCredentialsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

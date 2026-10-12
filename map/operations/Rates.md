@@ -2,22 +2,24 @@
 
 # Rates — operations
 
-Accessor: `client.Rates` · Source: `Api/Rates.cs` · 1 operation
+Accessor: `client.Rates` · Source: `src/Adyen/Api/Rates.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### PostRatesCalculate
 
 - **Server group**: `Default7`
-- **Signature**: `PostRatesCalculate(CalculateRateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PostRatesCalculate(PostRatesCalculateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
 - **Returns**: `CalculateRateResponse`
-- **Error**: `SdkException<PostRatesCalculateError>` — **Case A (typed)**
+- **Error**: `ApiException<PostRatesCalculateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetDefaultErrorResponseEntity(out DefaultErrorResponseEntity)` [401, 403, 422] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `CalculateRateRequest` | `Models/CalculateRateRequest.cs` |
-| `CalculateRateResponse` | `Models/CalculateRateResponse.cs` |
-| `PostRatesCalculateError` | `Errors/PostRatesCalculateError.cs` |
-| `DefaultErrorResponseEntity` | `Models/DefaultErrorResponseEntity.cs` |
+| `PostRatesCalculateRequest` | `src/Adyen/Requests/Rates/PostRatesCalculateRequest.cs` |
+| `CalculateRateRequest` | `src/Adyen/Models/CalculateRateRequest.cs` |
+| `CalculateRateResponse` | `src/Adyen/Models/CalculateRateResponse.cs` |
+| `PostRatesCalculateError` | `src/Adyen/Errors/PostRatesCalculateError.cs` |
+| `DefaultErrorResponseEntity` | `src/Adyen/Models/DefaultErrorResponseEntity.cs` |
 

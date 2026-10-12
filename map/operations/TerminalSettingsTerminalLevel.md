@@ -2,65 +2,75 @@
 
 # TerminalSettingsTerminalLevel — operations
 
-Accessor: `client.TerminalSettingsTerminalLevel` · Source: `Api/TerminalSettingsTerminalLevel.cs` · 4 operations
+Accessor: `client.TerminalSettingsTerminalLevel` · Source: `src/Adyen/Api/TerminalSettingsTerminalLevel.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetTerminalsTerminalIdTerminalLogos
 
 - **Server group**: `Default9`
-- **Signature**: `GetTerminalsTerminalIdTerminalLogos(string terminalId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetTerminalsTerminalIdTerminalLogos(GetTerminalsTerminalIdTerminalLogosRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `TerminalId`
 - **Returns**: `Logo`
-- **Error**: `SdkException<GetTerminalsTerminalIdTerminalLogosError>` — **Case A (typed)**
+- **Error**: `ApiException<GetTerminalsTerminalIdTerminalLogosError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Logo` | `Models/Logo.cs` |
-| `GetTerminalsTerminalIdTerminalLogosError` | `Errors/GetTerminalsTerminalIdTerminalLogosError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetTerminalsTerminalIdTerminalLogosRequest` | `src/Adyen/Requests/TerminalSettingsTerminalLevel/GetTerminalsTerminalIdTerminalLogosRequest.cs` |
+| `Logo` | `src/Adyen/Models/Logo.cs` |
+| `GetTerminalsTerminalIdTerminalLogosError` | `src/Adyen/Errors/GetTerminalsTerminalIdTerminalLogosError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetTerminalsTerminalIdTerminalSettings
 
 - **Server group**: `Default9`
-- **Signature**: `GetTerminalsTerminalIdTerminalSettings(string terminalId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetTerminalsTerminalIdTerminalSettings(GetTerminalsTerminalIdTerminalSettingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `TerminalId`
 - **Returns**: `TerminalSettings`
-- **Error**: `SdkException<GetTerminalsTerminalIdTerminalSettingsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetTerminalsTerminalIdTerminalSettingsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalSettings` | `Models/TerminalSettings.cs` |
-| `GetTerminalsTerminalIdTerminalSettingsError` | `Errors/GetTerminalsTerminalIdTerminalSettingsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetTerminalsTerminalIdTerminalSettingsRequest` | `src/Adyen/Requests/TerminalSettingsTerminalLevel/GetTerminalsTerminalIdTerminalSettingsRequest.cs` |
+| `TerminalSettings` | `src/Adyen/Models/TerminalSettings.cs` |
+| `GetTerminalsTerminalIdTerminalSettingsError` | `src/Adyen/Errors/GetTerminalsTerminalIdTerminalSettingsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchTerminalsTerminalIdTerminalLogos
 
 - **Server group**: `Default9`
-- **Signature**: `PatchTerminalsTerminalIdTerminalLogos(string terminalId, Logo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchTerminalsTerminalIdTerminalLogos(PatchTerminalsTerminalIdTerminalLogosRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `TerminalId`
 - **Returns**: `Logo`
-- **Error**: `SdkException<PatchTerminalsTerminalIdTerminalLogosError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchTerminalsTerminalIdTerminalLogosError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Logo` | `Models/Logo.cs` |
-| `PatchTerminalsTerminalIdTerminalLogosError` | `Errors/PatchTerminalsTerminalIdTerminalLogosError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchTerminalsTerminalIdTerminalLogosRequest` | `src/Adyen/Requests/TerminalSettingsTerminalLevel/PatchTerminalsTerminalIdTerminalLogosRequest.cs` |
+| `Logo` | `src/Adyen/Models/Logo.cs` |
+| `PatchTerminalsTerminalIdTerminalLogosError` | `src/Adyen/Errors/PatchTerminalsTerminalIdTerminalLogosError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchTerminalsTerminalIdTerminalSettings
 
 - **Server group**: `Default9`
-- **Signature**: `PatchTerminalsTerminalIdTerminalSettings(string terminalId, TerminalSettings? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchTerminalsTerminalIdTerminalSettings(PatchTerminalsTerminalIdTerminalSettingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `TerminalId`
 - **Returns**: `TerminalSettings`
-- **Error**: `SdkException<PatchTerminalsTerminalIdTerminalSettingsError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchTerminalsTerminalIdTerminalSettingsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalSettings` | `Models/TerminalSettings.cs` |
-| `PatchTerminalsTerminalIdTerminalSettingsError` | `Errors/PatchTerminalsTerminalIdTerminalSettingsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchTerminalsTerminalIdTerminalSettingsRequest` | `src/Adyen/Requests/TerminalSettingsTerminalLevel/PatchTerminalsTerminalIdTerminalSettingsRequest.cs` |
+| `TerminalSettings` | `src/Adyen/Models/TerminalSettings.cs` |
+| `PatchTerminalsTerminalIdTerminalSettingsError` | `src/Adyen/Errors/PatchTerminalsTerminalIdTerminalSettingsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 

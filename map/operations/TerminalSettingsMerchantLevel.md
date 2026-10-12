@@ -2,67 +2,77 @@
 
 # TerminalSettingsMerchantLevel — operations
 
-Accessor: `client.TerminalSettingsMerchantLevel` · Source: `Api/TerminalSettingsMerchantLevel.cs` · 4 operations
+Accessor: `client.TerminalSettingsMerchantLevel` · Source: `src/Adyen/Api/TerminalSettingsMerchantLevel.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
 ### GetMerchantsMerchantIdTerminalLogos
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdTerminalLogos(string merchantId, string model, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `model` ← `model`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdTerminalLogos(GetMerchantsMerchantIdTerminalLogosRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `Model`
+- **Query params (wire ← C#)**: `model` ← `Model`
 - **Returns**: `Logo`
-- **Error**: `SdkException<GetMerchantsMerchantIdTerminalLogosError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdTerminalLogosError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Logo` | `Models/Logo.cs` |
-| `GetMerchantsMerchantIdTerminalLogosError` | `Errors/GetMerchantsMerchantIdTerminalLogosError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdTerminalLogosRequest` | `src/Adyen/Requests/TerminalSettingsMerchantLevel/GetMerchantsMerchantIdTerminalLogosRequest.cs` |
+| `Logo` | `src/Adyen/Models/Logo.cs` |
+| `GetMerchantsMerchantIdTerminalLogosError` | `src/Adyen/Errors/GetMerchantsMerchantIdTerminalLogosError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### GetMerchantsMerchantIdTerminalSettings
 
 - **Server group**: `Default9`
-- **Signature**: `GetMerchantsMerchantIdTerminalSettings(string merchantId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `GetMerchantsMerchantIdTerminalSettings(GetMerchantsMerchantIdTerminalSettingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `TerminalSettings`
-- **Error**: `SdkException<GetMerchantsMerchantIdTerminalSettingsError>` — **Case A (typed)**
+- **Error**: `ApiException<GetMerchantsMerchantIdTerminalSettingsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalSettings` | `Models/TerminalSettings.cs` |
-| `GetMerchantsMerchantIdTerminalSettingsError` | `Errors/GetMerchantsMerchantIdTerminalSettingsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `GetMerchantsMerchantIdTerminalSettingsRequest` | `src/Adyen/Requests/TerminalSettingsMerchantLevel/GetMerchantsMerchantIdTerminalSettingsRequest.cs` |
+| `TerminalSettings` | `src/Adyen/Models/TerminalSettings.cs` |
+| `GetMerchantsMerchantIdTerminalSettingsError` | `src/Adyen/Errors/GetMerchantsMerchantIdTerminalSettingsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchMerchantsMerchantIdTerminalLogos
 
 - **Server group**: `Default9`
-- **Signature**: `PatchMerchantsMerchantIdTerminalLogos(string merchantId, string model, Logo? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `model` ← `model`
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchMerchantsMerchantIdTerminalLogos(PatchMerchantsMerchantIdTerminalLogosRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`, `Model`
+- **Query params (wire ← C#)**: `model` ← `Model`
 - **Returns**: `Logo`
-- **Error**: `SdkException<PatchMerchantsMerchantIdTerminalLogosError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchMerchantsMerchantIdTerminalLogosError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `Logo` | `Models/Logo.cs` |
-| `PatchMerchantsMerchantIdTerminalLogosError` | `Errors/PatchMerchantsMerchantIdTerminalLogosError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchMerchantsMerchantIdTerminalLogosRequest` | `src/Adyen/Requests/TerminalSettingsMerchantLevel/PatchMerchantsMerchantIdTerminalLogosRequest.cs` |
+| `Logo` | `src/Adyen/Models/Logo.cs` |
+| `PatchMerchantsMerchantIdTerminalLogosError` | `src/Adyen/Errors/PatchMerchantsMerchantIdTerminalLogosError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
 ### PatchMerchantsMerchantIdTerminalSettings
 
 - **Server group**: `Default9`
-- **Signature**: `PatchMerchantsMerchantIdTerminalSettings(string merchantId, TerminalSettings? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.BasicAuth` OR `options.ApiKeyAuth`
+- **Signature**: `PatchMerchantsMerchantIdTerminalSettings(PatchMerchantsMerchantIdTerminalSettingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `MerchantId`
 - **Returns**: `TerminalSettings`
-- **Error**: `SdkException<PatchMerchantsMerchantIdTerminalSettingsError>` — **Case A (typed)**
+- **Error**: `ApiException<PatchMerchantsMerchantIdTerminalSettingsError>` — **Case A (typed)**
 - **Error accessors**: `TryGetRestServiceError(out RestServiceError)` [400, 401, 403, 422, 500] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
-| `TerminalSettings` | `Models/TerminalSettings.cs` |
-| `PatchMerchantsMerchantIdTerminalSettingsError` | `Errors/PatchMerchantsMerchantIdTerminalSettingsError.cs` |
-| `RestServiceError` | `Models/RestServiceError.cs` |
+| `PatchMerchantsMerchantIdTerminalSettingsRequest` | `src/Adyen/Requests/TerminalSettingsMerchantLevel/PatchMerchantsMerchantIdTerminalSettingsRequest.cs` |
+| `TerminalSettings` | `src/Adyen/Models/TerminalSettings.cs` |
+| `PatchMerchantsMerchantIdTerminalSettingsError` | `src/Adyen/Errors/PatchMerchantsMerchantIdTerminalSettingsError.cs` |
+| `RestServiceError` | `src/Adyen/Models/RestServiceError.cs` |
 
